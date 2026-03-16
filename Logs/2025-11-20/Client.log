@@ -1,0 +1,167 @@
+2025-11-20 09:15:28,028 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: http://localhost:5002/configuration/60770165badfacc00d77c05f450db55bru-RU/BaseDataView.js
+ line: 6270
+ column: 82
+ message: Uncaught TypeError: Cannot read properties of null (reading 'caption') 
+ date: Thu Nov 20 2025 12:15:27 GMT+0300 (Москва, стандартное время)
+ stack: TypeError: Cannot read properties of null (reading 'caption')
+    at i.initCombinedModeActionsButtonHeaderMenuItemCaption (http://localhost:5002/configuration/60770165badfacc00d77c05f450db55bru-RU/BaseDataView.js:6270:82)
+    at i.initActionsButtonHeaderMenuItemCaption (http://localhost:5002/configuration/60770165badfacc00d77c05f450db55bru-RU/BaseDataView.js:6253:10)
+    at i._initSectionAttributes (http://localhost:5002/configuration/60770165badfacc00d77c05f450db55bru-RU/BaseDataView.js:2990:10)
+    at e (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:30231)
+    at Object.callback (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:6:73147)
+    at i.<anonymous> (http://localhost:5002/configuration/60770165badfacc00d77c05f450db55bru-RU/BaseDataView.js:7299:11)
+    at http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:33754
+    at Object.execCb (http://localhost:5002/core/hash/requirejs/require.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:1697:33)
+    at Module.check (http://localhost:5002/core/hash/requirejs/require.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:884:51)
+    at Module.enable (http://localhost:5002/core/hash/requirejs/require.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:1177:22)
+2025-11-20 14:11:51,055 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogClientMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js
+ line: 1
+ column: 16702
+ message: Uncaught TypeError: Cannot read properties of null (reading 'getRegion') 
+ date: Thu Nov 20 2025 17:11:51 GMT+0300 (Москва, стандартное время)
+ stack: TypeError: Cannot read properties of null (reading 'getRegion')
+    at i.onWindowScroll (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:1119514)
+    at l (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:21:98808)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48319
+    at t.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:22418)
+    at e.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:16628)
+    at value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:24391)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:23484
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48018
+2025-11-20 14:11:54,065 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogClientMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js
+ line: 1
+ column: 16702
+ message: Uncaught TypeError: Cannot read properties of null (reading 'getRegion') 
+ date: Thu Nov 20 2025 17:11:51 GMT+0300 (Москва, стандартное время)
+ stack: TypeError: Cannot read properties of null (reading 'getRegion')
+    at i.onWindowScroll (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:1119514)
+    at l (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:21:98808)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48319
+    at t.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:22418)
+    at e.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:16628)
+    at value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:24391)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:23484
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48018
+2025-11-20 14:11:58,597 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogClientMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js
+ line: 1
+ column: 16702
+ message: Uncaught TypeError: Cannot read properties of null (reading 'getRegion') 
+ date: Thu Nov 20 2025 17:11:58 GMT+0300 (Москва, стандартное время)
+ stack: TypeError: Cannot read properties of null (reading 'getRegion')
+    at i.onWindowScroll (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:1119514)
+    at l (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:21:98808)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48319
+    at t.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:22418)
+    at e.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:16628)
+    at value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:24391)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:23484
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48018
+2025-11-20 14:12:01,601 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogClientMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js
+ line: 1
+ column: 16702
+ message: Uncaught TypeError: Cannot read properties of null (reading 'getRegion') 
+ date: Thu Nov 20 2025 17:11:58 GMT+0300 (Москва, стандартное время)
+ stack: TypeError: Cannot read properties of null (reading 'getRegion')
+    at i.onWindowScroll (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:1119514)
+    at l (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:21:98808)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48319
+    at t.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:22418)
+    at e.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:16628)
+    at value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:24391)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:23484
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48018
+2025-11-20 14:12:04,607 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogClientMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js
+ line: 1
+ column: 16702
+ message: Uncaught TypeError: Cannot read properties of null (reading 'getRegion') 
+ date: Thu Nov 20 2025 17:12:01 GMT+0300 (Москва, стандартное время)
+ stack: TypeError: Cannot read properties of null (reading 'getRegion')
+    at i.onWindowScroll (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:1119514)
+    at l (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:21:98808)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48319
+    at t.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:22418)
+    at e.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:16628)
+    at value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:24391)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:23484
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48018
+2025-11-20 14:12:04,607 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogClientMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js
+ line: 1
+ column: 16702
+ message: Uncaught TypeError: Cannot read properties of null (reading 'getRegion') 
+ date: Thu Nov 20 2025 17:12:01 GMT+0300 (Москва, стандартное время)
+ stack: TypeError: Cannot read properties of null (reading 'getRegion')
+    at i.onWindowScroll (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:1119514)
+    at l (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:21:98808)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48319
+    at t.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:22418)
+    at e.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:16628)
+    at value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:24391)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:23484
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48018
+2025-11-20 14:12:07,623 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogClientMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js
+ line: 1
+ column: 16702
+ message: Uncaught TypeError: Cannot read properties of null (reading 'getRegion') 
+ date: Thu Nov 20 2025 17:12:05 GMT+0300 (Москва, стандартное время)
+ stack: TypeError: Cannot read properties of null (reading 'getRegion')
+    at i.onWindowScroll (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:1119514)
+    at l (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:21:98808)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48319
+    at t.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:22418)
+    at e.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:16628)
+    at value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:24391)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:23484
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48018
+2025-11-20 14:12:10,631 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogClientMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js
+ line: 1
+ column: 16702
+ message: Uncaught TypeError: Cannot read properties of null (reading 'getRegion') 
+ date: Thu Nov 20 2025 17:12:08 GMT+0300 (Москва, стандартное время)
+ stack: TypeError: Cannot read properties of null (reading 'getRegion')
+    at i.onWindowScroll (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:1119514)
+    at l (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:21:98808)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48319
+    at t.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:22418)
+    at e.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:16628)
+    at value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:24391)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:23484
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48018
+2025-11-20 14:12:10,631 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogClientMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js
+ line: 1
+ column: 16702
+ message: Uncaught TypeError: Cannot read properties of null (reading 'getRegion') 
+ date: Thu Nov 20 2025 17:12:08 GMT+0300 (Москва, стандартное время)
+ stack: TypeError: Cannot read properties of null (reading 'getRegion')
+    at i.onWindowScroll (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:1119514)
+    at l (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:21:98808)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48319
+    at t.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:22418)
+    at e.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:16628)
+    at value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:24391)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:23484
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48018
+2025-11-20 14:12:21,211 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogClientMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js
+ line: 1
+ column: 16702
+ message: Uncaught TypeError: Cannot read properties of null (reading 'getRegion') 
+ date: Thu Nov 20 2025 17:12:21 GMT+0300 (Москва, стандартное время)
+ stack: TypeError: Cannot read properties of null (reading 'getRegion')
+    at i.onWindowScroll (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:1119514)
+    at l (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:21:98808)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48319
+    at t.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:22418)
+    at e.value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:16628)
+    at value (http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:24391)
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:23484
+    at http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js:1:48018

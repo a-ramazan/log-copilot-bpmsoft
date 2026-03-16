@@ -1,0 +1,10 @@
+2026-03-06 14:36:15,902 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [BuildChanged] started
+2026-03-06 14:36:21,641 [.NET TP Worker] WARN Supervisor ConfigurationBuild GetSchemasInfo - Resources without schema:
+EntitySchemaManager.MLPrediction
+
+2026-03-06 14:36:23,123 [.NET TP Worker] INFO Supervisor ConfigurationBuild LogGenerationResult - Schema count: 0
+2026-03-06 14:36:23,125 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentDescriptors] started
+2026-03-06 14:36:26,803 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentDescriptors] took 3 s 676 ms
+2026-03-06 14:36:26,803 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentBootstraps] started
+2026-03-06 14:36:26,962 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentBootstraps] took 0 s 159 ms
+2026-03-06 14:38:50,542 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [BuildChanged] took 154 s 638 ms

@@ -1,0 +1,17 @@
+2025-10-24 12:57:50,303 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js
+ line: 1
+ column: 16702
+ message: Uncaught TypeError: Cannot read properties of undefined (reading 'find') 
+ date: Fri Oct 24 2025 15:57:50 GMT+0300 (Москва, стандартное время)
+ stack: TypeError: Cannot read properties of undefined (reading 'find')
+    at i.<anonymous> (http://localhost:5002/configuration/b477982671e11384716deca2550cf0d9ru-RU/SysProcessLogSectionSubTableMixin.js:181:55)
+    at BPMSoft.each (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:36:112364)
+    at i._actualizeParameterNamesForCollectionItem (http://localhost:5002/configuration/b477982671e11384716deca2550cf0d9ru-RU/SysProcessLogSectionSubTableMixin.js:180:13)
+    at i.<anonymous> (http://localhost:5002/configuration/b477982671e11384716deca2550cf0d9ru-RU/SysProcessLogSectionSubTableMixin.js:212:42)
+    at BPMSoft.each (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:36:112231)
+    at i._getParameterValues (http://localhost:5002/configuration/b477982671e11384716deca2550cf0d9ru-RU/SysProcessLogSectionSubTableMixin.js:207:13)
+    at i._parseElementTraceData (http://localhost:5002/configuration/b477982671e11384716deca2550cf0d9ru-RU/SysProcessLogSectionSubTableMixin.js:105:65)
+    at i._parseTraceData (http://localhost:5002/configuration/b477982671e11384716deca2550cf0d9ru-RU/SysProcessLogSectionSubTableMixin.js:92:10)
+    at i._parseTraceDataResponse (http://localhost:5002/configuration/b477982671e11384716deca2550cf0d9ru-RU/SysProcessLogSectionSubTableMixin.js:79:20)
+    at i.<anonymous> (http://localhost:5002/configuration/b477982671e11384716deca2550cf0d9ru-RU/SysProcessLogSectionSubTableMixin.js:498:30)

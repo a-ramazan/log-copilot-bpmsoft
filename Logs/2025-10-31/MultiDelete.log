@@ -1,0 +1,27 @@
+2025-10-31 13:04:43,209 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - Start.
+2025-10-31 13:04:43,246 [.NET TP Worker] INFO Supervisor Enqueue - Deletes '8' records from queue.
+2025-10-31 13:04:43,263 [.NET TP Worker] INFO Supervisor Enqueue - Sets '1' records to queue.
+2025-10-31 13:04:43,338 [.NET TP Worker] INFO Supervisor ApplyOperations - Deleting entity: LlmModel, id: e549c0b3-7903-4d05-bf41-2e3492cfc2a7
+2025-10-31 13:04:43,392 [.NET TP Worker] INFO Supervisor ApplyOperations - Done
+2025-10-31 13:04:43,393 [.NET TP Worker] INFO Supervisor GetRecordProcessedEventArgs - e549c0b3-7903-4d05-bf41-2e3492cfc2a7success
+
+2025-10-31 13:04:43,406 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - End.
+
+2025-10-31 13:05:55,578 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - Start.
+2025-10-31 13:05:55,578 [.NET TP Worker] INFO Supervisor Enqueue - Deletes '0' records from queue.
+2025-10-31 13:05:55,584 [.NET TP Worker] INFO Supervisor Enqueue - Sets '1' records to queue.
+2025-10-31 13:05:55,603 [.NET TP Worker] INFO Supervisor ApplyOperations - Deleting entity: LlmModelApiType, id: ca0b8c4d-2d06-440a-b775-bf1353aa10c4
+2025-10-31 13:05:55,616 [.NET TP Worker] INFO Supervisor ApplyOperations - Done
+2025-10-31 13:05:55,616 [.NET TP Worker] INFO Supervisor GetRecordProcessedEventArgs - ca0b8c4d-2d06-440a-b775-bf1353aa10c4success
+
+2025-10-31 13:05:55,621 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - End.
+
+2025-10-31 13:07:31,873 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - Start.
+2025-10-31 13:07:31,882 [.NET TP Worker] INFO Supervisor Enqueue - Deletes '0' records from queue.
+2025-10-31 13:07:31,886 [.NET TP Worker] INFO Supervisor Enqueue - Sets '1' records to queue.
+2025-10-31 13:07:31,895 [.NET TP Worker] INFO Supervisor ApplyOperations - Deleting entity: LlmModelApiType, id: ca0b8c4d-2d06-440a-b775-bf1353aa10c4
+2025-10-31 13:07:31,915 [.NET TP Worker] INFO Supervisor ApplyOperations - Done
+2025-10-31 13:07:31,915 [.NET TP Worker] INFO Supervisor GetRecordProcessedEventArgs - ca0b8c4d-2d06-440a-b775-bf1353aa10c4success
+
+2025-10-31 13:07:31,915 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - End.
+

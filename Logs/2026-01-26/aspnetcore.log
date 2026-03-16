@@ -1,0 +1,338 @@
+2026-01-26 07:27:27,634 [1] WARN  Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository GetFallbackKeyRepositoryEncryptorPair - Storing keys in a directory '/home/ubuntu/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+2026-01-26 07:27:29,140 [1] FATAL  Microsoft.AspNetCore.Hosting.Diagnostics Start - Application startup exception|System.Security.SecurityException: System login error. Error has been recorded in system log of the server. Please contact your system administrator.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 173.100.0.3:5432
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at Npgsql.Internal.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   at Npgsql.Internal.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.Open()
+   at BPMSoft.Core.DB.DBExecutor.<get_DBConnection>b__23_0() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 233
+   at Polly.Policy.<>c__DisplayClass109_0.<Execute>b__0(Context ctx, CancellationToken ct)
+   at Polly.Policy.<>c__DisplayClass103_0.<NoOp>b__1(Context ctx, CancellationToken ct)
+   at Polly.NoOp.NoOpEngine.Implementation[TResult](Func`3 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.<>c.<NoOp>b__103_0(Action`2 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.Execute(Action`2 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.Execute(Action action)
+   at BPMSoft.Core.DB.RetryDBOperation.Execute(Action operation) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/RetryDBOperation.cs:line 29
+   at BPMSoft.Core.DB.DBExecutor.RetryOnFailure(Action action) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 422
+   at BPMSoft.Core.DB.DBExecutor.get_DBConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 232
+   at BPMSoft.Core.DB.DBExecutor.PingDB(UserConnection userConnection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 1067
+   --- End of inner exception stack trace ---
+   at BPMSoft.Core.DB.DBExecutor.PingDB(UserConnection userConnection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 1069
+   at BPMSoft.Core.SystemUserConnection.InitializeCurrentUser(String userName, TimeZoneInfo timeZone, String clientIP, String agent, Boolean needRegisterSessionStart) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/SystemUserConnection.cs:line 184
+   at BPMSoft.Core.UserConnection.Login(String userName, TimeZoneInfo timeZone, Boolean needRegisterSessionStart) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/UserConnection.cs:line 2181
+   at BPMSoft.Core.SingleInstanceSystemUserConnectionProvider.Initialize(Boolean doLogin) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/SingleInstanceSystemUserConnectionProvider.cs:line 64
+   at BPMSoft.Core.AppConnection.InitializeSystemUserConnection(ConfigurationSection schemaManagerProviderConfigurationSection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/AppConnection.cs:line 463
+   at BPMSoft.Core.AppConnection.Initialize() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/AppConnection.cs:line 1021
+   at BPMSoft.WebHost.Application.OnAfterConfigure() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.WebHost/Application.cs:line 255
+   at BPMSoft.WebHost.Startup.Configure(IApplicationBuilder app, IHostEnvironment env, IHostApplicationLifetime applicationLifetime, IApplication application, IAntiforgery antiforgery) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.WebHost/Startup.cs:line 360
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithManyArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Authentication.Negotiate.Internal.NegotiateOptionsValidationStartupFilter.<>c__DisplayClass2_0.<Configure>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2026-01-26 07:27:29,165 [1] ERROR  Microsoft.Extensions.Hosting.Internal.Host StartAsync - Hosting failed to start|System.Security.SecurityException: System login error. Error has been recorded in system log of the server. Please contact your system administrator.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 173.100.0.3:5432
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at Npgsql.Internal.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   at Npgsql.Internal.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.Open()
+   at BPMSoft.Core.DB.DBExecutor.<get_DBConnection>b__23_0() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 233
+   at Polly.Policy.<>c__DisplayClass109_0.<Execute>b__0(Context ctx, CancellationToken ct)
+   at Polly.Policy.<>c__DisplayClass103_0.<NoOp>b__1(Context ctx, CancellationToken ct)
+   at Polly.NoOp.NoOpEngine.Implementation[TResult](Func`3 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.<>c.<NoOp>b__103_0(Action`2 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.Execute(Action`2 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.Execute(Action action)
+   at BPMSoft.Core.DB.RetryDBOperation.Execute(Action operation) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/RetryDBOperation.cs:line 29
+   at BPMSoft.Core.DB.DBExecutor.RetryOnFailure(Action action) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 422
+   at BPMSoft.Core.DB.DBExecutor.get_DBConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 232
+   at BPMSoft.Core.DB.DBExecutor.PingDB(UserConnection userConnection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 1067
+   --- End of inner exception stack trace ---
+   at BPMSoft.Core.DB.DBExecutor.PingDB(UserConnection userConnection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 1069
+   at BPMSoft.Core.SystemUserConnection.InitializeCurrentUser(String userName, TimeZoneInfo timeZone, String clientIP, String agent, Boolean needRegisterSessionStart) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/SystemUserConnection.cs:line 184
+   at BPMSoft.Core.UserConnection.Login(String userName, TimeZoneInfo timeZone, Boolean needRegisterSessionStart) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/UserConnection.cs:line 2181
+   at BPMSoft.Core.SingleInstanceSystemUserConnectionProvider.Initialize(Boolean doLogin) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/SingleInstanceSystemUserConnectionProvider.cs:line 64
+   at BPMSoft.Core.AppConnection.InitializeSystemUserConnection(ConfigurationSection schemaManagerProviderConfigurationSection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/AppConnection.cs:line 463
+   at BPMSoft.Core.AppConnection.Initialize() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/AppConnection.cs:line 1021
+   at BPMSoft.WebHost.Application.OnAfterConfigure() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.WebHost/Application.cs:line 255
+   at BPMSoft.WebHost.Startup.Configure(IApplicationBuilder app, IHostEnvironment env, IHostApplicationLifetime applicationLifetime, IApplication application, IAntiforgery antiforgery) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.WebHost/Startup.cs:line 360
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithManyArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Authentication.Negotiate.Internal.NegotiateOptionsValidationStartupFilter.<>c__DisplayClass2_0.<Configure>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-01-26 07:28:00,391 [1] WARN  Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository GetFallbackKeyRepositoryEncryptorPair - Storing keys in a directory '/home/ubuntu/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+2026-01-26 07:28:01,554 [1] FATAL  Microsoft.AspNetCore.Hosting.Diagnostics Start - Application startup exception|System.Security.SecurityException: System login error. Error has been recorded in system log of the server. Please contact your system administrator.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 173.100.0.3:5432
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at Npgsql.Internal.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   at Npgsql.Internal.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.Open()
+   at BPMSoft.Core.DB.DBExecutor.<get_DBConnection>b__23_0() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 233
+   at Polly.Policy.<>c__DisplayClass109_0.<Execute>b__0(Context ctx, CancellationToken ct)
+   at Polly.Policy.<>c__DisplayClass103_0.<NoOp>b__1(Context ctx, CancellationToken ct)
+   at Polly.NoOp.NoOpEngine.Implementation[TResult](Func`3 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.<>c.<NoOp>b__103_0(Action`2 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.Execute(Action`2 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.Execute(Action action)
+   at BPMSoft.Core.DB.RetryDBOperation.Execute(Action operation) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/RetryDBOperation.cs:line 29
+   at BPMSoft.Core.DB.DBExecutor.RetryOnFailure(Action action) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 422
+   at BPMSoft.Core.DB.DBExecutor.get_DBConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 232
+   at BPMSoft.Core.DB.DBExecutor.PingDB(UserConnection userConnection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 1067
+   --- End of inner exception stack trace ---
+   at BPMSoft.Core.DB.DBExecutor.PingDB(UserConnection userConnection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 1069
+   at BPMSoft.Core.SystemUserConnection.InitializeCurrentUser(String userName, TimeZoneInfo timeZone, String clientIP, String agent, Boolean needRegisterSessionStart) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/SystemUserConnection.cs:line 184
+   at BPMSoft.Core.UserConnection.Login(String userName, TimeZoneInfo timeZone, Boolean needRegisterSessionStart) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/UserConnection.cs:line 2181
+   at BPMSoft.Core.SingleInstanceSystemUserConnectionProvider.Initialize(Boolean doLogin) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/SingleInstanceSystemUserConnectionProvider.cs:line 64
+   at BPMSoft.Core.AppConnection.InitializeSystemUserConnection(ConfigurationSection schemaManagerProviderConfigurationSection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/AppConnection.cs:line 463
+   at BPMSoft.Core.AppConnection.Initialize() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/AppConnection.cs:line 1021
+   at BPMSoft.WebHost.Application.OnAfterConfigure() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.WebHost/Application.cs:line 255
+   at BPMSoft.WebHost.Startup.Configure(IApplicationBuilder app, IHostEnvironment env, IHostApplicationLifetime applicationLifetime, IApplication application, IAntiforgery antiforgery) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.WebHost/Startup.cs:line 360
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithManyArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Authentication.Negotiate.Internal.NegotiateOptionsValidationStartupFilter.<>c__DisplayClass2_0.<Configure>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2026-01-26 07:28:01,573 [1] ERROR  Microsoft.Extensions.Hosting.Internal.Host StartAsync - Hosting failed to start|System.Security.SecurityException: System login error. Error has been recorded in system log of the server. Please contact your system administrator.
+ ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to 173.100.0.3:5432
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at Npgsql.Internal.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   at Npgsql.Internal.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.Open()
+   at BPMSoft.Core.DB.DBExecutor.<get_DBConnection>b__23_0() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 233
+   at Polly.Policy.<>c__DisplayClass109_0.<Execute>b__0(Context ctx, CancellationToken ct)
+   at Polly.Policy.<>c__DisplayClass103_0.<NoOp>b__1(Context ctx, CancellationToken ct)
+   at Polly.NoOp.NoOpEngine.Implementation[TResult](Func`3 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.<>c.<NoOp>b__103_0(Action`2 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.Execute(Action`2 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.Execute(Action action)
+   at BPMSoft.Core.DB.RetryDBOperation.Execute(Action operation) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/RetryDBOperation.cs:line 29
+   at BPMSoft.Core.DB.DBExecutor.RetryOnFailure(Action action) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 422
+   at BPMSoft.Core.DB.DBExecutor.get_DBConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 232
+   at BPMSoft.Core.DB.DBExecutor.PingDB(UserConnection userConnection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 1067
+   --- End of inner exception stack trace ---
+   at BPMSoft.Core.DB.DBExecutor.PingDB(UserConnection userConnection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 1069
+   at BPMSoft.Core.SystemUserConnection.InitializeCurrentUser(String userName, TimeZoneInfo timeZone, String clientIP, String agent, Boolean needRegisterSessionStart) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/SystemUserConnection.cs:line 184
+   at BPMSoft.Core.UserConnection.Login(String userName, TimeZoneInfo timeZone, Boolean needRegisterSessionStart) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/UserConnection.cs:line 2181
+   at BPMSoft.Core.SingleInstanceSystemUserConnectionProvider.Initialize(Boolean doLogin) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/SingleInstanceSystemUserConnectionProvider.cs:line 64
+   at BPMSoft.Core.AppConnection.InitializeSystemUserConnection(ConfigurationSection schemaManagerProviderConfigurationSection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/AppConnection.cs:line 463
+   at BPMSoft.Core.AppConnection.Initialize() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/AppConnection.cs:line 1021
+   at BPMSoft.WebHost.Application.OnAfterConfigure() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.WebHost/Application.cs:line 255
+   at BPMSoft.WebHost.Startup.Configure(IApplicationBuilder app, IHostEnvironment env, IHostApplicationLifetime applicationLifetime, IApplication application, IAntiforgery antiforgery) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.WebHost/Startup.cs:line 360
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithManyArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Authentication.Negotiate.Internal.NegotiateOptionsValidationStartupFilter.<>c__DisplayClass2_0.<Configure>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-01-26 07:28:26,158 [1] WARN  Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository GetFallbackKeyRepositoryEncryptorPair - Storing keys in a directory '/home/ubuntu/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+2026-01-26 07:28:27,066 [1] FATAL  Microsoft.AspNetCore.Hosting.Diagnostics Start - Application startup exception|System.Security.SecurityException: System login error. Error has been recorded in system log of the server. Please contact your system administrator.
+ ---> Npgsql.PostgresException (0x80004005): 57P03: the database system is starting up
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.Authenticate(String username, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.Open()
+   at BPMSoft.Core.DB.DBExecutor.<get_DBConnection>b__23_0() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 233
+   at Polly.Policy.<>c__DisplayClass109_0.<Execute>b__0(Context ctx, CancellationToken ct)
+   at Polly.Policy.<>c__DisplayClass103_0.<NoOp>b__1(Context ctx, CancellationToken ct)
+   at Polly.NoOp.NoOpEngine.Implementation[TResult](Func`3 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.<>c.<NoOp>b__103_0(Action`2 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.Execute(Action`2 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.Execute(Action action)
+   at BPMSoft.Core.DB.RetryDBOperation.Execute(Action operation) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/RetryDBOperation.cs:line 29
+   at BPMSoft.Core.DB.DBExecutor.RetryOnFailure(Action action) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 422
+   at BPMSoft.Core.DB.DBExecutor.get_DBConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 232
+   at BPMSoft.Core.DB.DBExecutor.PingDB(UserConnection userConnection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 1067
+  Exception data:
+    Severity: FATAL
+    SqlState: 57P03
+    MessageText: the database system is starting up
+    File: postmaster.c
+    Line: 2336
+    Routine: ProcessStartupPacket
+   --- End of inner exception stack trace ---
+   at BPMSoft.Core.DB.DBExecutor.PingDB(UserConnection userConnection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 1069
+   at BPMSoft.Core.SystemUserConnection.InitializeCurrentUser(String userName, TimeZoneInfo timeZone, String clientIP, String agent, Boolean needRegisterSessionStart) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/SystemUserConnection.cs:line 184
+   at BPMSoft.Core.UserConnection.Login(String userName, TimeZoneInfo timeZone, Boolean needRegisterSessionStart) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/UserConnection.cs:line 2181
+   at BPMSoft.Core.SingleInstanceSystemUserConnectionProvider.Initialize(Boolean doLogin) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/SingleInstanceSystemUserConnectionProvider.cs:line 64
+   at BPMSoft.Core.AppConnection.InitializeSystemUserConnection(ConfigurationSection schemaManagerProviderConfigurationSection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/AppConnection.cs:line 463
+   at BPMSoft.Core.AppConnection.Initialize() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/AppConnection.cs:line 1021
+   at BPMSoft.WebHost.Application.OnAfterConfigure() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.WebHost/Application.cs:line 255
+   at BPMSoft.WebHost.Startup.Configure(IApplicationBuilder app, IHostEnvironment env, IHostApplicationLifetime applicationLifetime, IApplication application, IAntiforgery antiforgery) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.WebHost/Startup.cs:line 360
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithManyArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Authentication.Negotiate.Internal.NegotiateOptionsValidationStartupFilter.<>c__DisplayClass2_0.<Configure>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2026-01-26 07:28:27,078 [1] ERROR  Microsoft.Extensions.Hosting.Internal.Host StartAsync - Hosting failed to start|System.Security.SecurityException: System login error. Error has been recorded in system log of the server. Please contact your system administrator.
+ ---> Npgsql.PostgresException (0x80004005): 57P03: the database system is starting up
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.Authenticate(String username, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.Open()
+   at BPMSoft.Core.DB.DBExecutor.<get_DBConnection>b__23_0() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 233
+   at Polly.Policy.<>c__DisplayClass109_0.<Execute>b__0(Context ctx, CancellationToken ct)
+   at Polly.Policy.<>c__DisplayClass103_0.<NoOp>b__1(Context ctx, CancellationToken ct)
+   at Polly.NoOp.NoOpEngine.Implementation[TResult](Func`3 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.<>c.<NoOp>b__103_0(Action`2 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.Execute(Action`2 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.Execute(Action action)
+   at BPMSoft.Core.DB.RetryDBOperation.Execute(Action operation) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/RetryDBOperation.cs:line 29
+   at BPMSoft.Core.DB.DBExecutor.RetryOnFailure(Action action) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 422
+   at BPMSoft.Core.DB.DBExecutor.get_DBConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 232
+   at BPMSoft.Core.DB.DBExecutor.PingDB(UserConnection userConnection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 1067
+  Exception data:
+    Severity: FATAL
+    SqlState: 57P03
+    MessageText: the database system is starting up
+    File: postmaster.c
+    Line: 2336
+    Routine: ProcessStartupPacket
+   --- End of inner exception stack trace ---
+   at BPMSoft.Core.DB.DBExecutor.PingDB(UserConnection userConnection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 1069
+   at BPMSoft.Core.SystemUserConnection.InitializeCurrentUser(String userName, TimeZoneInfo timeZone, String clientIP, String agent, Boolean needRegisterSessionStart) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/SystemUserConnection.cs:line 184
+   at BPMSoft.Core.UserConnection.Login(String userName, TimeZoneInfo timeZone, Boolean needRegisterSessionStart) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/UserConnection.cs:line 2181
+   at BPMSoft.Core.SingleInstanceSystemUserConnectionProvider.Initialize(Boolean doLogin) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/SingleInstanceSystemUserConnectionProvider.cs:line 64
+   at BPMSoft.Core.AppConnection.InitializeSystemUserConnection(ConfigurationSection schemaManagerProviderConfigurationSection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/AppConnection.cs:line 463
+   at BPMSoft.Core.AppConnection.Initialize() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/AppConnection.cs:line 1021
+   at BPMSoft.WebHost.Application.OnAfterConfigure() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.WebHost/Application.cs:line 255
+   at BPMSoft.WebHost.Startup.Configure(IApplicationBuilder app, IHostEnvironment env, IHostApplicationLifetime applicationLifetime, IApplication application, IAntiforgery antiforgery) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.WebHost/Startup.cs:line 360
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithManyArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Authentication.Negotiate.Internal.NegotiateOptionsValidationStartupFilter.<>c__DisplayClass2_0.<Configure>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-01-26 07:28:56,235 [1] WARN  Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository GetFallbackKeyRepositoryEncryptorPair - Storing keys in a directory '/home/ubuntu/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+2026-01-26 07:28:56,710 [1] FATAL  Microsoft.AspNetCore.Hosting.Diagnostics Start - Application startup exception|System.Security.SecurityException: System login error. Error has been recorded in system log of the server. Please contact your system administrator.
+ ---> Npgsql.PostgresException (0x80004005): 57P03: the database system is starting up
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.Authenticate(String username, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.Open()
+   at BPMSoft.Core.DB.DBExecutor.<get_DBConnection>b__23_0() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 233
+   at Polly.Policy.<>c__DisplayClass109_0.<Execute>b__0(Context ctx, CancellationToken ct)
+   at Polly.Policy.<>c__DisplayClass103_0.<NoOp>b__1(Context ctx, CancellationToken ct)
+   at Polly.NoOp.NoOpEngine.Implementation[TResult](Func`3 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.<>c.<NoOp>b__103_0(Action`2 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.Execute(Action`2 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.Execute(Action action)
+   at BPMSoft.Core.DB.RetryDBOperation.Execute(Action operation) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/RetryDBOperation.cs:line 29
+   at BPMSoft.Core.DB.DBExecutor.RetryOnFailure(Action action) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 422
+   at BPMSoft.Core.DB.DBExecutor.get_DBConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 232
+   at BPMSoft.Core.DB.DBExecutor.PingDB(UserConnection userConnection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 1067
+  Exception data:
+    Severity: FATAL
+    SqlState: 57P03
+    MessageText: the database system is starting up
+    File: postmaster.c
+    Line: 2336
+    Routine: ProcessStartupPacket
+   --- End of inner exception stack trace ---
+   at BPMSoft.Core.DB.DBExecutor.PingDB(UserConnection userConnection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 1069
+   at BPMSoft.Core.SystemUserConnection.InitializeCurrentUser(String userName, TimeZoneInfo timeZone, String clientIP, String agent, Boolean needRegisterSessionStart) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/SystemUserConnection.cs:line 184
+   at BPMSoft.Core.UserConnection.Login(String userName, TimeZoneInfo timeZone, Boolean needRegisterSessionStart) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/UserConnection.cs:line 2181
+   at BPMSoft.Core.SingleInstanceSystemUserConnectionProvider.Initialize(Boolean doLogin) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/SingleInstanceSystemUserConnectionProvider.cs:line 64
+   at BPMSoft.Core.AppConnection.InitializeSystemUserConnection(ConfigurationSection schemaManagerProviderConfigurationSection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/AppConnection.cs:line 463
+   at BPMSoft.Core.AppConnection.Initialize() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/AppConnection.cs:line 1021
+   at BPMSoft.WebHost.Application.OnAfterConfigure() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.WebHost/Application.cs:line 255
+   at BPMSoft.WebHost.Startup.Configure(IApplicationBuilder app, IHostEnvironment env, IHostApplicationLifetime applicationLifetime, IApplication application, IAntiforgery antiforgery) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.WebHost/Startup.cs:line 360
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithManyArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Authentication.Negotiate.Internal.NegotiateOptionsValidationStartupFilter.<>c__DisplayClass2_0.<Configure>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2026-01-26 07:28:56,720 [1] ERROR  Microsoft.Extensions.Hosting.Internal.Host StartAsync - Hosting failed to start|System.Security.SecurityException: System login error. Error has been recorded in system log of the server. Please contact your system administrator.
+ ---> Npgsql.PostgresException (0x80004005): 57P03: the database system is starting up
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.Authenticate(String username, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.Open()
+   at BPMSoft.Core.DB.DBExecutor.<get_DBConnection>b__23_0() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 233
+   at Polly.Policy.<>c__DisplayClass109_0.<Execute>b__0(Context ctx, CancellationToken ct)
+   at Polly.Policy.<>c__DisplayClass103_0.<NoOp>b__1(Context ctx, CancellationToken ct)
+   at Polly.NoOp.NoOpEngine.Implementation[TResult](Func`3 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.<>c.<NoOp>b__103_0(Action`2 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.Execute(Action`2 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.Execute(Action action)
+   at BPMSoft.Core.DB.RetryDBOperation.Execute(Action operation) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/RetryDBOperation.cs:line 29
+   at BPMSoft.Core.DB.DBExecutor.RetryOnFailure(Action action) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 422
+   at BPMSoft.Core.DB.DBExecutor.get_DBConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 232
+   at BPMSoft.Core.DB.DBExecutor.PingDB(UserConnection userConnection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 1067
+  Exception data:
+    Severity: FATAL
+    SqlState: 57P03
+    MessageText: the database system is starting up
+    File: postmaster.c
+    Line: 2336
+    Routine: ProcessStartupPacket
+   --- End of inner exception stack trace ---
+   at BPMSoft.Core.DB.DBExecutor.PingDB(UserConnection userConnection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 1069
+   at BPMSoft.Core.SystemUserConnection.InitializeCurrentUser(String userName, TimeZoneInfo timeZone, String clientIP, String agent, Boolean needRegisterSessionStart) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/SystemUserConnection.cs:line 184
+   at BPMSoft.Core.UserConnection.Login(String userName, TimeZoneInfo timeZone, Boolean needRegisterSessionStart) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/UserConnection.cs:line 2181
+   at BPMSoft.Core.SingleInstanceSystemUserConnectionProvider.Initialize(Boolean doLogin) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/SingleInstanceSystemUserConnectionProvider.cs:line 64
+   at BPMSoft.Core.AppConnection.InitializeSystemUserConnection(ConfigurationSection schemaManagerProviderConfigurationSection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/AppConnection.cs:line 463
+   at BPMSoft.Core.AppConnection.Initialize() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/AppConnection.cs:line 1021
+   at BPMSoft.WebHost.Application.OnAfterConfigure() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.WebHost/Application.cs:line 255
+   at BPMSoft.WebHost.Startup.Configure(IApplicationBuilder app, IHostEnvironment env, IHostApplicationLifetime applicationLifetime, IApplication application, IAntiforgery antiforgery) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.WebHost/Startup.cs:line 360
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithManyArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Authentication.Negotiate.Internal.NegotiateOptionsValidationStartupFilter.<>c__DisplayClass2_0.<Configure>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-01-26 07:29:53,835 [1] WARN  Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository GetFallbackKeyRepositoryEncryptorPair - Storing keys in a directory '/home/ubuntu/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+2026-01-26 07:30:03,551 [1] WARN  Microsoft.AspNetCore.Server.Kestrel BindAsync - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2026-01-26 11:53:33,213 [1] WARN  Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository GetFallbackKeyRepositoryEncryptorPair - Storing keys in a directory '/home/ubuntu/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+2026-01-26 11:53:40,991 [1] WARN  Microsoft.AspNetCore.Server.Kestrel BindAsync - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2026-01-26 12:32:40,680 [1] WARN  Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository GetFallbackKeyRepositoryEncryptorPair - Storing keys in a directory '/home/ubuntu/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+2026-01-26 12:32:48,588 [1] WARN  Microsoft.AspNetCore.Server.Kestrel BindAsync - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.

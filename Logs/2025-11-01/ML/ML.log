@@ -1,0 +1,104 @@
+2025-11-01 08:38:18,347 [.NET TP Worker] INFO  ProcessAllModels - Start to process (training, state sync) ML models
+2025-11-01 08:38:18,392 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 08:38:18,563 [.NET TP Worker] INFO  ProcessAllModels - ML model batch prediction job started
+2025-11-01 08:38:18,570 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 08:38:22,029 [.NET TP Worker] INFO  ProcessAllModels - ML model batch prediction job started
+2025-11-01 08:38:22,035 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 08:38:22,066 [.NET TP Worker] INFO  ProcessAllModels - Start to process (training, state sync) ML models
+2025-11-01 08:38:22,066 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 08:46:13,772 [.NET TP Worker] WARN Supervisor GetModelsGroupedByEntityName - PredictedResultColumnName is empty for model 1ada9b46-d199-4daf-8c92-0a23b3a18972
+Metadata: {
+}
+Entity schemaUid: 486c8ef2-98e5-4ff5-8577-4d74347ea0c1
+
+2025-11-01 08:46:13,772 [.NET TP Worker] WARN Supervisor GetModelsGroupedByEntityName - PredictedResultColumnName is empty for model ac0f2dd2-17c8-477c-89a1-9f0dda3b38cf
+Metadata: {
+}
+Entity schemaUid: 486c8ef2-98e5-4ff5-8577-4d74347ea0c1
+
+2025-11-01 08:53:27,510 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2025-11-01 08:53:30,161 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 09:08:30,168 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2025-11-01 09:08:30,177 [.NET TP Worker] DEBUG  ProcessAllModels - There are no ML problem types with set ServiceUrl
+2025-11-01 09:17:08,099 [.NET TP Worker] INFO  ProcessAllModels - Start to process (training, state sync) ML models
+2025-11-01 09:17:08,109 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 09:17:08,169 [.NET TP Worker] INFO  ProcessAllModels - ML model batch prediction job started
+2025-11-01 09:17:08,173 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 09:32:08,167 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2025-11-01 09:32:08,175 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 09:47:08,222 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2025-11-01 09:47:08,233 [.NET TP Worker] DEBUG  ProcessAllModels - There are no ML problem types with set ServiceUrl
+2025-11-01 09:49:52,789 [.NET TP Worker] INFO  ProcessAllModels - Start to process (training, state sync) ML models
+2025-11-01 09:49:52,793 [.NET TP Worker] INFO  ProcessAllModels - ML model batch prediction job started
+2025-11-01 09:49:52,797 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 09:49:52,797 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 10:03:57,380 [.NET TP Worker] INFO  ProcessAllModels - ML model batch prediction job started
+2025-11-01 10:03:57,392 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 10:03:57,415 [.NET TP Worker] INFO  ProcessAllModels - Start to process (training, state sync) ML models
+2025-11-01 10:03:57,419 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 10:18:57,473 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2025-11-01 10:18:57,479 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 10:24:21,433 [.NET TP Worker] INFO  ProcessAllModels - ML model batch prediction job started
+2025-11-01 10:24:21,433 [.NET TP Worker] INFO  ProcessAllModels - Start to process (training, state sync) ML models
+2025-11-01 10:24:21,443 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 10:24:21,443 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 10:31:15,065 [.NET TP Worker] INFO  ProcessAllModels - ML model batch prediction job started
+2025-11-01 10:31:15,073 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 10:31:15,089 [.NET TP Worker] INFO  ProcessAllModels - Start to process (training, state sync) ML models
+2025-11-01 10:31:15,089 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 10:46:15,096 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2025-11-01 10:46:15,109 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 10:48:13,581 [.NET TP Worker] INFO  ProcessAllModels - Start to process (training, state sync) ML models
+2025-11-01 10:48:13,581 [.NET TP Worker] INFO  ProcessAllModels - ML model batch prediction job started
+2025-11-01 10:48:13,593 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 10:48:13,593 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 10:57:34,437 [.NET TP Worker] INFO  ProcessAllModels - ML model batch prediction job started
+2025-11-01 10:57:34,461 [.NET TP Worker] INFO  ProcessAllModels - Start to process (training, state sync) ML models
+2025-11-01 10:57:34,476 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 10:57:34,476 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 11:09:12,078 [.NET TP Worker] INFO  ProcessAllModels - Start to process (training, state sync) ML models
+2025-11-01 11:09:12,092 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 11:09:12,092 [.NET TP Worker] INFO  ProcessAllModels - ML model batch prediction job started
+2025-11-01 11:09:12,097 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 11:23:15,844 [.NET TP Worker] INFO  ProcessAllModels - Start to process (training, state sync) ML models
+2025-11-01 11:23:15,856 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 11:23:15,886 [.NET TP Worker] INFO  ProcessAllModels - ML model batch prediction job started
+2025-11-01 11:23:15,886 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 11:24:52,842 [.NET TP Worker] INFO  ProcessAllModels - Start to process (training, state sync) ML models
+2025-11-01 11:24:52,848 [.NET TP Worker] INFO  ProcessAllModels - ML model batch prediction job started
+2025-11-01 11:24:52,852 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 11:24:52,852 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 11:39:52,895 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2025-11-01 11:39:52,906 [.NET TP Worker] DEBUG  ProcessAllModels - There are no ML problem types with set ServiceUrl
+2025-11-01 11:43:29,713 [.NET TP Worker] INFO  ProcessAllModels - Start to process (training, state sync) ML models
+2025-11-01 11:43:29,713 [.NET TP Worker] INFO  ProcessAllModels - ML model batch prediction job started
+2025-11-01 11:43:29,722 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 11:43:29,722 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 11:58:29,790 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2025-11-01 11:58:29,800 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 12:13:29,935 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2025-11-01 12:13:29,944 [.NET TP Worker] DEBUG  ProcessAllModels - There are no ML problem types with set ServiceUrl
+2025-11-01 12:22:49,966 [.NET TP Worker] INFO  ProcessAllModels - Start to process (training, state sync) ML models
+2025-11-01 12:22:49,974 [.NET TP Worker] INFO  ProcessAllModels - ML model batch prediction job started
+2025-11-01 12:22:49,974 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 12:22:49,974 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 12:37:50,359 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2025-11-01 12:37:50,399 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 12:52:50,932 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2025-11-01 12:52:50,968 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 13:07:50,988 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2025-11-01 13:07:51,019 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 13:22:50,003 [.NET TP Worker] INFO  Execute - ML model batch prediction job started
+2025-11-01 13:22:50,010 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 13:22:51,027 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2025-11-01 13:22:51,027 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 13:37:51,035 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2025-11-01 13:37:51,042 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 13:52:51,049 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2025-11-01 13:52:51,056 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 14:07:51,063 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2025-11-01 14:07:51,071 [.NET TP Worker] DEBUG  ProcessAllModels - There are no ML problem types with set ServiceUrl
+2025-11-01 14:12:43,779 [.NET TP Worker] INFO  ProcessAllModels - ML model batch prediction job started
+2025-11-01 14:12:43,786 [.NET TP Worker] INFO  ProcessAllModels - Start to process (training, state sync) ML models
+2025-11-01 14:12:43,786 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl
+2025-11-01 14:12:43,790 [.NET TP Worker] DEBUG  CheckIsServiceUrlSet - There are no ML problem types with set ServiceUrl

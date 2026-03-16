@@ -1,0 +1,28 @@
+2025-10-30 09:00:42,243 [1] INFO  ProcessMaintenanceLog Register - ProcessMaintenanceJob removed.
+2025-10-30 09:00:42,258 [1] INFO  ProcessMaintenanceLog Register - ProcessMaintenanceJob scheduled with 5 minutes frequency.
+2025-10-30 09:00:42,278 [1] INFO  ProcessMaintenanceLog Register - ProcessTempDataCleanupJob removed.
+2025-10-30 09:00:42,288 [1] INFO  ProcessMaintenanceLog Register - ProcessTempDataCleanupJob scheduled with 60 minutes frequency.
+2025-10-30 12:09:27,653 [1] INFO  ProcessMaintenanceLog Register - ProcessMaintenanceJob removed.
+2025-10-30 12:09:27,663 [1] INFO  ProcessMaintenanceLog Register - ProcessMaintenanceJob scheduled with 5 minutes frequency.
+2025-10-30 12:09:27,672 [1] INFO  ProcessMaintenanceLog Register - ProcessTempDataCleanupJob removed.
+2025-10-30 12:09:27,679 [1] INFO  ProcessMaintenanceLog Register - ProcessTempDataCleanupJob scheduled with 60 minutes frequency.
+2025-10-30 12:30:47,222 [1] INFO  ProcessMaintenanceLog Register - ProcessMaintenanceJob removed.
+2025-10-30 12:30:47,237 [1] INFO  ProcessMaintenanceLog Register - ProcessMaintenanceJob scheduled with 5 minutes frequency.
+2025-10-30 12:30:47,254 [1] INFO  ProcessMaintenanceLog Register - ProcessTempDataCleanupJob removed.
+2025-10-30 12:30:47,260 [1] INFO  ProcessMaintenanceLog Register - ProcessTempDataCleanupJob scheduled with 60 minutes frequency.
+2025-10-30 13:51:30,223 [1] INFO  ProcessMaintenanceLog Register - ProcessMaintenanceJob removed.
+2025-10-30 13:51:30,235 [1] INFO  ProcessMaintenanceLog Register - ProcessMaintenanceJob scheduled with 5 minutes frequency.
+2025-10-30 13:51:30,250 [1] INFO  ProcessMaintenanceLog Register - ProcessTempDataCleanupJob removed.
+2025-10-30 13:51:30,258 [1] INFO  ProcessMaintenanceLog Register - ProcessTempDataCleanupJob scheduled with 60 minutes frequency.
+2025-10-30 14:18:20,430 [1] INFO  ProcessMaintenanceLog Register - ProcessMaintenanceJob removed.
+2025-10-30 14:18:20,435 [1] INFO  ProcessMaintenanceLog Register - ProcessMaintenanceJob scheduled with 5 minutes frequency.
+2025-10-30 14:18:20,452 [1] INFO  ProcessMaintenanceLog Register - ProcessTempDataCleanupJob removed.
+2025-10-30 14:18:20,457 [1] INFO  ProcessMaintenanceLog Register - ProcessTempDataCleanupJob scheduled with 60 minutes frequency.
+2025-10-30 15:14:26,128 [1] INFO  ProcessMaintenanceLog Register - ProcessMaintenanceJob removed.
+2025-10-30 15:14:26,139 [1] INFO  ProcessMaintenanceLog Register - ProcessMaintenanceJob scheduled with 5 minutes frequency.
+2025-10-30 15:14:26,167 [1] INFO  ProcessMaintenanceLog Register - ProcessTempDataCleanupJob removed.
+2025-10-30 15:14:26,174 [1] INFO  ProcessMaintenanceLog Register - ProcessTempDataCleanupJob scheduled with 60 minutes frequency.
+2025-10-30 15:18:38,973 [1] INFO  ProcessMaintenanceLog Register - ProcessMaintenanceJob removed.
+2025-10-30 15:18:38,982 [1] INFO  ProcessMaintenanceLog Register - ProcessMaintenanceJob scheduled with 5 minutes frequency.
+2025-10-30 15:18:39,000 [1] INFO  ProcessMaintenanceLog Register - ProcessTempDataCleanupJob removed.
+2025-10-30 15:18:39,006 [1] INFO  ProcessMaintenanceLog Register - ProcessTempDataCleanupJob scheduled with 60 minutes frequency.

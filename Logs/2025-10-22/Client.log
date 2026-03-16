@@ -1,0 +1,34 @@
+2025-10-22 08:59:51,447 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: http://localhost:5002/configuration/60770165badfacc00d77c05f450db55bru-RU/BaseDataView.js
+ line: 6270
+ column: 82
+ message: Uncaught TypeError: Cannot read properties of null (reading 'caption') 
+ date: Wed Oct 22 2025 11:59:51 GMT+0300 (Москва, стандартное время)
+ stack: TypeError: Cannot read properties of null (reading 'caption')
+    at i.initCombinedModeActionsButtonHeaderMenuItemCaption (http://localhost:5002/configuration/60770165badfacc00d77c05f450db55bru-RU/BaseDataView.js:6270:82)
+    at i.initActionsButtonHeaderMenuItemCaption (http://localhost:5002/configuration/60770165badfacc00d77c05f450db55bru-RU/BaseDataView.js:6253:10)
+    at i._initSectionAttributes (http://localhost:5002/configuration/60770165badfacc00d77c05f450db55bru-RU/BaseDataView.js:2990:10)
+    at e (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:30231)
+    at Object.callback (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:6:73147)
+    at i.<anonymous> (http://localhost:5002/configuration/60770165badfacc00d77c05f450db55bru-RU/BaseDataView.js:7299:11)
+    at http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:33754
+    at Object.execCb (http://localhost:5002/core/hash/requirejs/require.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:1697:33)
+    at Module.check (http://localhost:5002/core/hash/requirejs/require.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:884:51)
+    at Module.enable (http://localhost:5002/core/hash/requirejs/require.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:1177:22)
+2025-10-22 09:45:16,063 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: http://localhost:5002/configuration/60770165badfacc00d77c05f450db55bru-RU/BaseDataView.js
+ line: 6270
+ column: 82
+ message: Uncaught TypeError: Cannot read properties of null (reading 'caption') 
+ date: Wed Oct 22 2025 12:45:16 GMT+0300 (Москва, стандартное время)
+ stack: TypeError: Cannot read properties of null (reading 'caption')
+    at i.initCombinedModeActionsButtonHeaderMenuItemCaption (http://localhost:5002/configuration/60770165badfacc00d77c05f450db55bru-RU/BaseDataView.js:6270:82)
+    at i.initActionsButtonHeaderMenuItemCaption (http://localhost:5002/configuration/60770165badfacc00d77c05f450db55bru-RU/BaseDataView.js:6253:10)
+    at i._initSectionAttributes (http://localhost:5002/configuration/60770165badfacc00d77c05f450db55bru-RU/BaseDataView.js:2990:10)
+    at e (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:30231)
+    at Object.callback (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:6:73147)
+    at i.<anonymous> (http://localhost:5002/configuration/60770165badfacc00d77c05f450db55bru-RU/BaseDataView.js:7299:11)
+    at http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:33754
+    at Object.execCb (http://localhost:5002/core/hash/requirejs/require.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:1697:33)
+    at Module.check (http://localhost:5002/core/hash/requirejs/require.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:884:51)
+    at Module.enable (http://localhost:5002/core/hash/requirejs/require.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:1177:22)

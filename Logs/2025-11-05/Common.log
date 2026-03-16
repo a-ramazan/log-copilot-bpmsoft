@@ -1,0 +1,206 @@
+2025-11-05 07:08:05,338 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-11-05 07:08:40,071 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-11-05 07:09:13,541 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-11-05 07:10:30,728 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-11-05 07:10:44,934 [1] INFO  BPMSoft.Core.InMemoryPubSubServer .ctor - InMemoryPubSubServer started.
+2025-11-05 07:10:45,889 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Starting scheduler...
+2025-11-05 07:10:45,889 [.NET TP Worker] INFO  BPMStudio.Messaging.MessageBus.RabbitMQ.Actors.OperationModeDispatcherActor OnReceive - OperationModeDispatcher initialized
+2025-11-05 07:10:46,941 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BPMCRMQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 07:10:47,033 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "CampaignQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 07:10:47,054 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BulkEmailQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 07:10:47,077 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "TouchPointsQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 07:10:47,157 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Scheduler started
+2025-11-05 07:10:47,311 [1] INFO  BPMSoft.WebHost.Startup MapODataServiceRoute - Сервис OData успешно инициализирован
+2025-11-05 07:10:48,144 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob removed.
+2025-11-05 07:10:48,158 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob scheduled with 60 minutes frequency.
+2025-11-05 07:10:49,984 [1] WARN  BPMSoft.WebHost.Application OnStart - Application started
+2025-11-05 07:10:51,241 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob Execute - MailSyncJob Synchronization started.
+2025-11-05 07:25:17,212 [.NET TP Worker] WARN  BPMSoft.WebHost.Application OnShutdown - Application_End
+2025-11-05 07:25:17,292 [.NET TP Worker] INFO  BPMSoft.Core.InMemoryPubSubServer ExecutionContextCallback - InMemoryPubSubServer stopped.
+2025-11-05 07:25:21,185 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-11-05 07:25:34,046 [1] INFO  BPMSoft.Core.InMemoryPubSubServer .ctor - InMemoryPubSubServer started.
+2025-11-05 07:25:34,882 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Starting scheduler...
+2025-11-05 07:25:34,882 [.NET TP Worker] INFO  BPMStudio.Messaging.MessageBus.RabbitMQ.Actors.OperationModeDispatcherActor OnReceive - OperationModeDispatcher initialized
+2025-11-05 07:25:35,078 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BPMCRMQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 07:25:35,153 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "CampaignQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 07:25:35,174 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BulkEmailQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 07:25:35,197 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "TouchPointsQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 07:25:35,260 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Scheduler started
+2025-11-05 07:25:35,346 [1] INFO  BPMSoft.WebHost.Startup MapODataServiceRoute - Сервис OData успешно инициализирован
+2025-11-05 07:25:35,789 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob removed.
+2025-11-05 07:25:35,808 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob scheduled with 60 minutes frequency.
+2025-11-05 07:25:35,958 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob Execute - MailSyncJob Synchronization started.
+2025-11-05 07:25:36,423 [1] WARN  BPMSoft.WebHost.Application OnStart - Application started
+2025-11-05 08:18:03,526 [.NET TP Worker] WARN Supervisor BPMSoft.Core.AngularBuild.DataOperations.AngularValidationService BuildAngularModuleAsync - Поддержка Angular модулей отключена. Измените системную настройку "EnableAngularSupport"
+2025-11-05 08:18:03,572 [.NET TP Worker] WARN  BPMSoft.WebHost.Application Invoke - Application_End
+2025-11-05 08:18:03,735 [.NET TP Worker] INFO  BPMSoft.Core.InMemoryPubSubServer ExecutionContextCallback - InMemoryPubSubServer stopped.
+2025-11-05 08:18:05,831 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-11-05 08:18:14,408 [1] INFO  BPMSoft.Core.InMemoryPubSubServer .ctor - InMemoryPubSubServer started.
+2025-11-05 08:18:15,731 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Starting scheduler...
+2025-11-05 08:18:15,731 [.NET TP Worker] INFO  BPMStudio.Messaging.MessageBus.RabbitMQ.Actors.OperationModeDispatcherActor OnReceive - OperationModeDispatcher initialized
+2025-11-05 08:18:15,882 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BPMCRMQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 08:18:15,926 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "CampaignQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 08:18:15,934 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BulkEmailQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 08:18:15,943 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "TouchPointsQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 08:18:15,991 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Scheduler started
+2025-11-05 08:18:16,065 [1] INFO  BPMSoft.WebHost.Startup MapODataServiceRoute - Сервис OData успешно инициализирован
+2025-11-05 08:18:16,435 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob removed.
+2025-11-05 08:18:16,445 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob scheduled with 60 minutes frequency.
+2025-11-05 08:18:16,468 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob Execute - MailSyncJob Synchronization started.
+2025-11-05 08:18:16,949 [1] WARN  BPMSoft.WebHost.Application OnStart - Application started
+2025-11-05 08:35:49,840 [.NET TP Worker] WARN Supervisor BPMSoft.Core.AngularBuild.DataOperations.AngularValidationService CheckEnableAngularSupport - Поддержка Angular модулей отключена. Измените системную настройку "EnableAngularSupport"
+2025-11-05 08:35:49,863 [.NET TP Worker] WARN  BPMSoft.WebHost.Application OnShutdown - Application_End
+2025-11-05 08:35:49,941 [.NET TP Worker] INFO  BPMSoft.Core.InMemoryPubSubServer ExecutionContextCallback - InMemoryPubSubServer stopped.
+2025-11-05 08:35:51,692 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-11-05 08:35:59,491 [1] INFO  BPMSoft.Core.InMemoryPubSubServer .ctor - InMemoryPubSubServer started.
+2025-11-05 08:36:00,240 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Starting scheduler...
+2025-11-05 08:36:00,240 [.NET TP Worker] INFO  BPMStudio.Messaging.MessageBus.RabbitMQ.Actors.OperationModeDispatcherActor OnReceive - OperationModeDispatcher initialized
+2025-11-05 08:36:00,371 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BPMCRMQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 08:36:00,381 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "CampaignQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 08:36:00,425 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BulkEmailQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 08:36:00,445 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "TouchPointsQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 08:36:00,488 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Scheduler started
+2025-11-05 08:36:00,564 [1] INFO  BPMSoft.WebHost.Startup MapODataServiceRoute - Сервис OData успешно инициализирован
+2025-11-05 08:36:00,984 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob removed.
+2025-11-05 08:36:00,994 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob scheduled with 60 minutes frequency.
+2025-11-05 08:36:01,018 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob Execute - MailSyncJob Synchronization started.
+2025-11-05 08:36:01,325 [1] WARN  BPMSoft.WebHost.Application OnStart - Application started
+2025-11-05 09:35:33,465 [.NET TP Worker] WARN Supervisor BPMSoft.Core.AngularBuild.DataOperations.AngularValidationService BuildAngularModuleAsync - Поддержка Angular модулей отключена. Измените системную настройку "EnableAngularSupport"
+2025-11-05 09:35:33,497 [.NET TP Worker] WARN  BPMSoft.WebHost.Application Invoke - Application_End
+2025-11-05 09:35:33,588 [.NET TP Worker] INFO  BPMSoft.Core.InMemoryPubSubServer ExecutionContextCallback - InMemoryPubSubServer stopped.
+2025-11-05 09:35:35,509 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-11-05 09:35:42,021 [1] INFO  BPMSoft.Core.InMemoryPubSubServer .ctor - InMemoryPubSubServer started.
+2025-11-05 09:35:42,784 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Starting scheduler...
+2025-11-05 09:35:42,784 [.NET TP Worker] INFO  BPMStudio.Messaging.MessageBus.RabbitMQ.Actors.OperationModeDispatcherActor OnReceive - OperationModeDispatcher initialized
+2025-11-05 09:35:42,941 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BPMCRMQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 09:35:42,984 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "CampaignQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 09:35:42,996 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BulkEmailQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 09:35:43,012 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "TouchPointsQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 09:35:43,059 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Scheduler started
+2025-11-05 09:35:43,138 [1] INFO  BPMSoft.WebHost.Startup MapODataServiceRoute - Сервис OData успешно инициализирован
+2025-11-05 09:35:43,494 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob removed.
+2025-11-05 09:35:43,503 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob scheduled with 60 minutes frequency.
+2025-11-05 09:35:43,609 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob Execute - MailSyncJob Synchronization started.
+2025-11-05 09:35:43,879 [1] WARN  BPMSoft.WebHost.Application OnStart - Application started
+2025-11-05 09:56:34,456 [.NET TP Worker] WARN Supervisor BPMSoft.Core.AngularBuild.DataOperations.AngularValidationService CheckEnableAngularSupport - Поддержка Angular модулей отключена. Измените системную настройку "EnableAngularSupport"
+2025-11-05 09:56:34,492 [.NET TP Worker] WARN  BPMSoft.WebHost.Application OnShutdown - Application_End
+2025-11-05 09:56:34,576 [.NET TP Worker] INFO  BPMSoft.Core.InMemoryPubSubServer ExecutionContextCallback - InMemoryPubSubServer stopped.
+2025-11-05 09:56:36,450 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-11-05 09:56:43,222 [1] INFO  BPMSoft.Core.InMemoryPubSubServer .ctor - InMemoryPubSubServer started.
+2025-11-05 09:56:43,957 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Starting scheduler...
+2025-11-05 09:56:43,959 [.NET TP Worker] INFO  BPMStudio.Messaging.MessageBus.RabbitMQ.Actors.OperationModeDispatcherActor OnReceive - OperationModeDispatcher initialized
+2025-11-05 09:56:44,107 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BPMCRMQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 09:56:44,114 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "CampaignQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 09:56:44,123 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BulkEmailQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 09:56:44,131 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "TouchPointsQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 09:56:44,209 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Scheduler started
+2025-11-05 09:56:44,289 [1] INFO  BPMSoft.WebHost.Startup MapODataServiceRoute - Сервис OData успешно инициализирован
+2025-11-05 09:56:44,704 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob removed.
+2025-11-05 09:56:44,717 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob scheduled with 60 minutes frequency.
+2025-11-05 09:56:44,767 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob Execute - MailSyncJob Synchronization started.
+2025-11-05 09:56:45,149 [1] WARN  BPMSoft.WebHost.Application OnStart - Application started
+2025-11-05 10:22:24,898 [.NET TP Worker] WARN Supervisor BPMSoft.Core.AngularBuild.DataOperations.AngularValidationService BuildAngularModuleAsync - Поддержка Angular модулей отключена. Измените системную настройку "EnableAngularSupport"
+2025-11-05 10:22:24,938 [.NET TP Worker] WARN  BPMSoft.WebHost.Application Invoke - Application_End
+2025-11-05 10:22:25,006 [.NET TP Worker] INFO  BPMSoft.Core.InMemoryPubSubServer ExecutionContextCallback - InMemoryPubSubServer stopped.
+2025-11-05 10:22:26,764 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-11-05 10:22:32,368 [1] INFO  BPMSoft.Core.InMemoryPubSubServer .ctor - InMemoryPubSubServer started.
+2025-11-05 10:22:33,059 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Starting scheduler...
+2025-11-05 10:22:33,059 [.NET TP Worker] INFO  BPMStudio.Messaging.MessageBus.RabbitMQ.Actors.OperationModeDispatcherActor OnReceive - OperationModeDispatcher initialized
+2025-11-05 10:22:33,201 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BPMCRMQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 10:22:33,249 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "CampaignQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 10:22:33,261 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BulkEmailQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 10:22:33,277 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "TouchPointsQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 10:22:33,322 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Scheduler started
+2025-11-05 10:22:33,398 [1] INFO  BPMSoft.WebHost.Startup MapODataServiceRoute - Сервис OData успешно инициализирован
+2025-11-05 10:22:33,771 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob removed.
+2025-11-05 10:22:33,781 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob scheduled with 60 minutes frequency.
+2025-11-05 10:22:33,835 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob Execute - MailSyncJob Synchronization started.
+2025-11-05 10:22:34,177 [1] WARN  BPMSoft.WebHost.Application OnStart - Application started
+2025-11-05 10:33:07,216 [.NET TP Worker] WARN Supervisor BPMSoft.Core.AngularBuild.DataOperations.AngularValidationService CheckEnableAngularSupport - Поддержка Angular модулей отключена. Измените системную настройку "EnableAngularSupport"
+2025-11-05 10:33:07,250 [.NET TP Worker] WARN  BPMSoft.WebHost.Application OnShutdown - Application_End
+2025-11-05 10:33:07,317 [.NET TP Worker] INFO  BPMSoft.Core.InMemoryPubSubServer ExecutionContextCallback - InMemoryPubSubServer stopped.
+2025-11-05 10:33:09,355 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-11-05 10:33:15,671 [1] INFO  BPMSoft.Core.InMemoryPubSubServer .ctor - InMemoryPubSubServer started.
+2025-11-05 10:33:16,368 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Starting scheduler...
+2025-11-05 10:33:16,368 [.NET TP Worker] INFO  BPMStudio.Messaging.MessageBus.RabbitMQ.Actors.OperationModeDispatcherActor OnReceive - OperationModeDispatcher initialized
+2025-11-05 10:33:16,497 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BPMCRMQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 10:33:16,540 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "CampaignQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 10:33:16,556 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BulkEmailQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 10:33:16,580 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "TouchPointsQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 10:33:16,628 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Scheduler started
+2025-11-05 10:33:16,703 [1] INFO  BPMSoft.WebHost.Startup MapODataServiceRoute - Сервис OData успешно инициализирован
+2025-11-05 10:33:17,076 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob removed.
+2025-11-05 10:33:17,087 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob scheduled with 60 minutes frequency.
+2025-11-05 10:33:17,157 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob Execute - MailSyncJob Synchronization started.
+2025-11-05 10:33:17,430 [1] WARN  BPMSoft.WebHost.Application OnStart - Application started
+2025-11-05 10:41:25,366 [.NET TP Worker] WARN Supervisor BPMSoft.Core.AngularBuild.DataOperations.AngularValidationService CheckEnableAngularSupport - Поддержка Angular модулей отключена. Измените системную настройку "EnableAngularSupport"
+2025-11-05 10:41:25,407 [.NET TP Worker] WARN  BPMSoft.WebHost.Application OnShutdown - Application_End
+2025-11-05 10:41:25,496 [.NET TP Worker] INFO  BPMSoft.Core.InMemoryPubSubServer ExecutionContextCallback - InMemoryPubSubServer stopped.
+2025-11-05 10:41:27,463 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-11-05 10:41:33,309 [1] INFO  BPMSoft.Core.InMemoryPubSubServer .ctor - InMemoryPubSubServer started.
+2025-11-05 10:41:33,991 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Starting scheduler...
+2025-11-05 10:41:33,991 [.NET TP Worker] INFO  BPMStudio.Messaging.MessageBus.RabbitMQ.Actors.OperationModeDispatcherActor OnReceive - OperationModeDispatcher initialized
+2025-11-05 10:41:34,115 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BPMCRMQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 10:41:34,158 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "CampaignQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 10:41:34,174 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BulkEmailQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 10:41:34,194 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "TouchPointsQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 10:41:34,242 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Scheduler started
+2025-11-05 10:41:34,312 [1] INFO  BPMSoft.WebHost.Startup MapODataServiceRoute - Сервис OData успешно инициализирован
+2025-11-05 10:41:34,742 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob removed.
+2025-11-05 10:41:34,752 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob scheduled with 60 minutes frequency.
+2025-11-05 10:41:34,822 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob Execute - MailSyncJob Synchronization started.
+2025-11-05 10:41:35,214 [1] WARN  BPMSoft.WebHost.Application OnStart - Application started
+2025-11-05 11:21:31,868 [.NET TP Worker] WARN Supervisor BPMSoft.Core.AngularBuild.DataOperations.AngularValidationService BuildAngularModuleAsync - Поддержка Angular модулей отключена. Измените системную настройку "EnableAngularSupport"
+2025-11-05 11:21:31,902 [.NET TP Worker] WARN  BPMSoft.WebHost.Application Invoke - Application_End
+2025-11-05 11:21:32,037 [.NET TP Worker] INFO  BPMSoft.Core.InMemoryPubSubServer ExecutionContextCallback - InMemoryPubSubServer stopped.
+2025-11-05 11:21:34,431 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-11-05 11:21:40,594 [1] INFO  BPMSoft.Core.InMemoryPubSubServer .ctor - InMemoryPubSubServer started.
+2025-11-05 11:21:41,388 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Starting scheduler...
+2025-11-05 11:21:41,389 [.NET TP Worker] INFO  BPMStudio.Messaging.MessageBus.RabbitMQ.Actors.OperationModeDispatcherActor OnReceive - OperationModeDispatcher initialized
+2025-11-05 11:21:41,509 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BPMCRMQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 11:21:41,565 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "CampaignQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 11:21:41,584 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BulkEmailQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 11:21:41,592 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "TouchPointsQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 11:21:41,641 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Scheduler started
+2025-11-05 11:21:41,719 [1] INFO  BPMSoft.WebHost.Startup MapODataServiceRoute - Сервис OData успешно инициализирован
+2025-11-05 11:21:42,062 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob removed.
+2025-11-05 11:21:42,081 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob scheduled with 60 minutes frequency.
+2025-11-05 11:21:42,133 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob Execute - MailSyncJob Synchronization started.
+2025-11-05 11:21:42,445 [1] WARN  BPMSoft.WebHost.Application OnStart - Application started
+2025-11-05 11:45:10,189 [.NET TP Worker] WARN Supervisor BPMSoft.Core.AngularBuild.DataOperations.AngularValidationService BuildAngularModuleAsync - Поддержка Angular модулей отключена. Измените системную настройку "EnableAngularSupport"
+2025-11-05 11:45:10,221 [.NET TP Worker] WARN  BPMSoft.WebHost.Application Invoke - Application_End
+2025-11-05 11:45:10,296 [.NET TP Worker] INFO  BPMSoft.Core.InMemoryPubSubServer ExecutionContextCallback - InMemoryPubSubServer stopped.
+2025-11-05 11:45:12,345 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-11-05 11:45:18,515 [1] INFO  BPMSoft.Core.InMemoryPubSubServer .ctor - InMemoryPubSubServer started.
+2025-11-05 11:45:19,204 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Starting scheduler...
+2025-11-05 11:45:19,205 [.NET TP Worker] INFO  BPMStudio.Messaging.MessageBus.RabbitMQ.Actors.OperationModeDispatcherActor OnReceive - OperationModeDispatcher initialized
+2025-11-05 11:45:19,356 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BPMCRMQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 11:45:19,369 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "CampaignQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 11:45:19,377 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BulkEmailQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 11:45:19,385 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "TouchPointsQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 11:45:19,435 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Scheduler started
+2025-11-05 11:45:19,518 [1] INFO  BPMSoft.WebHost.Startup MapODataServiceRoute - Сервис OData успешно инициализирован
+2025-11-05 11:45:19,933 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob removed.
+2025-11-05 11:45:19,946 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob scheduled with 60 minutes frequency.
+2025-11-05 11:45:20,004 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob Execute - MailSyncJob Synchronization started.
+2025-11-05 11:45:20,318 [1] WARN  BPMSoft.WebHost.Application OnStart - Application started
+2025-11-05 12:10:37,549 [.NET TP Worker] WARN Supervisor BPMSoft.Core.AngularBuild.DataOperations.AngularValidationService BuildAngularModuleAsync - Поддержка Angular модулей отключена. Измените системную настройку "EnableAngularSupport"
+2025-11-05 12:10:37,580 [.NET TP Worker] WARN  BPMSoft.WebHost.Application Invoke - Application_End
+2025-11-05 12:10:37,687 [.NET TP Worker] INFO  BPMSoft.Core.InMemoryPubSubServer ExecutionContextCallback - InMemoryPubSubServer stopped.
+2025-11-05 12:10:39,793 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-11-05 12:10:46,886 [1] INFO  BPMSoft.Core.InMemoryPubSubServer .ctor - InMemoryPubSubServer started.
+2025-11-05 12:10:47,580 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Starting scheduler...
+2025-11-05 12:10:47,581 [.NET TP Worker] INFO  BPMStudio.Messaging.MessageBus.RabbitMQ.Actors.OperationModeDispatcherActor OnReceive - OperationModeDispatcher initialized
+2025-11-05 12:10:47,709 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BPMCRMQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 12:10:47,721 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "CampaignQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 12:10:47,729 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BulkEmailQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 12:10:47,737 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "TouchPointsQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-11-05 12:10:47,783 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Scheduler started
+2025-11-05 12:10:47,872 [1] INFO  BPMSoft.WebHost.Startup MapODataServiceRoute - Сервис OData успешно инициализирован
+2025-11-05 12:10:48,199 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob removed.
+2025-11-05 12:10:48,210 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob scheduled with 60 minutes frequency.
+2025-11-05 12:10:48,232 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob Execute - MailSyncJob Synchronization started.
+2025-11-05 12:10:48,588 [1] WARN  BPMSoft.WebHost.Application OnStart - Application started
+2025-11-05 13:10:48,262 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob RunJobExecutor - MailSyncJob Synchronization started.
+2025-11-05 14:10:48,208 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob RunJobExecutor - MailSyncJob Synchronization started.
+2025-11-05 15:10:48,213 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob RunJobExecutor - MailSyncJob Synchronization started.

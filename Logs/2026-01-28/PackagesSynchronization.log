@@ -1,0 +1,22 @@
+2026-01-28 08:37:41,056 --> PackageDBStorage.Load
+2026-01-28 08:37:49,292 <-- PackageDBStorage.Load
+2026-01-28 11:49:20,291 --> PackageDBStorageInternal.Load
+2026-01-28 11:49:29,095 <-- PackageDBStorageInternal.Load
+2026-01-28 11:49:29,097 --> PackageStorageComposer.Compose
+2026-01-28 11:49:29,097 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-28 11:49:29,097 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-28 11:49:29,097 --> IntermediatePackageStorage.ActualizePackageResourcesState
+2026-01-28 11:49:29,097 <-- IntermediatePackageStorage.ActualizePackageResourcesState
+2026-01-28 11:49:29,097 <-- PackageStorageComposer.Compose
+2026-01-28 11:49:29,097 --> PackageZipFileStorage.SavePackage - Mcp
+2026-01-28 11:49:29,100 --> PackageZipFileStorage.SavePackageDescriptor - Mcp
+2026-01-28 11:49:29,100 <-- PackageZipFileStorage.SavePackageDescriptor - Mcp
+2026-01-28 11:49:29,100 --> PackageZipFileStorage.SavePackageSchemas - Mcp
+2026-01-28 11:49:29,136 <-- PackageZipFileStorage.SavePackageSchemas - Mcp
+2026-01-28 11:49:29,190 --> PackageZipFileStorage.SavePackageReferenceAssemblies - Mcp
+2026-01-28 11:49:29,190 <-- PackageZipFileStorage.SavePackageReferenceAssemblies - Mcp
+2026-01-28 11:49:29,190 --> PackageZipFileStorage.SavePackageSqlScripts - Mcp
+2026-01-28 11:49:29,190 <-- PackageZipFileStorage.SavePackageSqlScripts - Mcp
+2026-01-28 11:49:29,190 --> PackageZipFileStorage.SavePackageData - Mcp
+2026-01-28 11:49:29,190 <-- PackageZipFileStorage.SavePackageData - Mcp
+2026-01-28 11:49:29,190 <-- PackageZipFileStorage.SavePackage - Mcp

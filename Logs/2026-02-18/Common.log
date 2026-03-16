@@ -1,0 +1,29 @@
+2026-02-18 07:21:12,163 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2026-02-18 07:21:34,462 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2026-02-18 07:21:50,655 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2026-02-18 07:22:06,547 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2026-02-18 07:22:35,808 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2026-02-18 07:23:07,218 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2026-02-18 07:23:32,369 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2026-02-18 07:23:41,680 [1] INFO  BPMSoft.Core.InMemoryPubSubServer .ctor - InMemoryPubSubServer started.
+2026-02-18 07:23:42,380 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Starting scheduler...
+2026-02-18 07:23:42,381 [.NET TP Worker] INFO  BPMStudio.Messaging.MessageBus.RabbitMQ.Actors.OperationModeDispatcherActor OnReceive - OperationModeDispatcher initialized
+2026-02-18 07:23:42,630 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BPMCRMQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2026-02-18 07:23:42,674 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "CampaignQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2026-02-18 07:23:42,689 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BulkEmailQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2026-02-18 07:23:42,701 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "TouchPointsQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2026-02-18 07:23:42,746 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Scheduler started
+2026-02-18 07:23:42,831 [1] INFO  BPMSoft.WebHost.Startup MapODataServiceRoute - Сервис OData успешно инициализирован
+2026-02-18 07:23:43,169 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob removed.
+2026-02-18 07:23:43,180 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob scheduled with 60 minutes frequency.
+2026-02-18 07:23:43,581 [1] WARN  BPMSoft.WebHost.Application OnStart - Application started
+2026-02-18 07:23:45,588 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob Execute - MailSyncJob Synchronization started.
+2026-02-18 08:23:43,179 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob RunJobExecutor - MailSyncJob Synchronization started.
+2026-02-18 09:23:43,179 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob RunJobExecutor - MailSyncJob Synchronization started.
+2026-02-18 10:23:43,178 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob RunJobExecutor - MailSyncJob Synchronization started.
+2026-02-18 11:23:43,181 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob RunJobExecutor - MailSyncJob Synchronization started.
+2026-02-18 12:23:43,178 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob RunJobExecutor - MailSyncJob Synchronization started.
+2026-02-18 13:23:43,178 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob RunJobExecutor - MailSyncJob Synchronization started.
+2026-02-18 14:23:43,178 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob RunJobExecutor - MailSyncJob Synchronization started.
+2026-02-18 15:23:43,177 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob RunJobExecutor - MailSyncJob Synchronization started.
+2026-02-18 16:23:43,178 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob RunJobExecutor - MailSyncJob Synchronization started.

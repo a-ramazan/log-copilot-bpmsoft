@@ -1,0 +1,15 @@
+2025-11-01 08:38:07,579 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-11-01 09:17:00,644 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-11-01 09:49:45,675 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-11-01 10:03:50,540 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-11-01 10:24:14,354 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-11-01 10:31:08,474 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-11-01 10:31:13,945 [1] ERROR  BPMSoft.Core.Factories.DefaultBinder CheckForDuplicates - Check default binding duplicates error|BPMSoft.Core.DuplicateBindingException: Дублирование привязки для сервиса "BPMSoft.Configuration.AI.ILlmProvider": реализации "BPMSoft.Configuration.UsrOllamaProvider,BPMSoft.Configuration.AI.LlmOllamaProvider" с именем "ollama"
+2025-11-01 10:48:06,854 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-11-01 10:57:27,448 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-11-01 11:09:05,111 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-11-01 11:23:09,070 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-11-01 11:24:44,148 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-11-01 11:43:23,254 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-11-01 12:22:42,748 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-11-01 14:12:36,795 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token

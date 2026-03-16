@@ -1,0 +1,30 @@
+2025-11-12 08:42:46,014 [1] INFO  RunGlobalSearchConfigJob - Prepare GlobalSearchConfigsJob
+2025-11-12 08:42:46,016 [1] INFO  RemoveJobs - RemoveJobs GlobalSearchGroup 0 successfully
+2025-11-12 08:42:46,039 [1] INFO  RunGlobalSearchConfigJob - GlobalSearchConfigsJob started successfully
+2025-11-12 08:42:47,617 [.NET TP Worker] INFO  Execute - Global search config job started
+2025-11-12 08:42:47,620 [.NET TP Worker] INFO  Execute - GlobalSearch_V2 feature is False
+2025-11-12 13:02:40,667 [1] INFO  RunGlobalSearchConfigJob - Prepare GlobalSearchConfigsJob
+2025-11-12 13:02:40,675 [1] INFO  RemoveJobs - RemoveJobs GlobalSearchGroup 0 successfully
+2025-11-12 13:02:40,719 [1] INFO  RunGlobalSearchConfigJob - GlobalSearchConfigsJob started successfully
+2025-11-12 13:02:40,762 [.NET TP Worker] INFO  Execute - Global search config job started
+2025-11-12 13:02:40,763 [.NET TP Worker] INFO  Execute - GlobalSearch_V2 feature is False
+2025-11-12 14:20:10,943 [1] INFO  RunGlobalSearchConfigJob - Prepare GlobalSearchConfigsJob
+2025-11-12 14:20:10,948 [1] INFO  RemoveJobs - RemoveJobs GlobalSearchGroup 0 successfully
+2025-11-12 14:20:10,967 [1] INFO  RunGlobalSearchConfigJob - GlobalSearchConfigsJob started successfully
+2025-11-12 14:20:11,026 [.NET TP Worker] INFO  Execute - Global search config job started
+2025-11-12 14:20:11,033 [.NET TP Worker] INFO  Execute - GlobalSearch_V2 feature is False
+2025-11-12 14:52:37,420 [1] INFO  RunGlobalSearchConfigJob - Prepare GlobalSearchConfigsJob
+2025-11-12 14:52:37,425 [1] INFO  RemoveJobs - RemoveJobs GlobalSearchGroup 0 successfully
+2025-11-12 14:52:37,453 [1] INFO  RunGlobalSearchConfigJob - GlobalSearchConfigsJob started successfully
+2025-11-12 14:52:37,496 [.NET TP Worker] INFO  Execute - Global search config job started
+2025-11-12 14:52:37,498 [.NET TP Worker] INFO  Execute - GlobalSearch_V2 feature is False
+2025-11-12 14:59:53,074 [1] INFO  RunGlobalSearchConfigJob - Prepare GlobalSearchConfigsJob
+2025-11-12 14:59:53,079 [1] INFO  RemoveJobs - RemoveJobs GlobalSearchGroup 0 successfully
+2025-11-12 14:59:53,101 [1] INFO  RunGlobalSearchConfigJob - GlobalSearchConfigsJob started successfully
+2025-11-12 14:59:53,200 [.NET TP Worker] INFO  Execute - Global search config job started
+2025-11-12 14:59:53,215 [.NET TP Worker] INFO  Execute - GlobalSearch_V2 feature is False
+2025-11-12 15:26:31,184 [1] INFO  RunGlobalSearchConfigJob - Prepare GlobalSearchConfigsJob
+2025-11-12 15:26:31,189 [1] INFO  RemoveJobs - RemoveJobs GlobalSearchGroup 0 successfully
+2025-11-12 15:26:31,223 [1] INFO  RunGlobalSearchConfigJob - GlobalSearchConfigsJob started successfully
+2025-11-12 15:26:31,300 [.NET TP Worker] INFO  Execute - Global search config job started
+2025-11-12 15:26:31,339 [.NET TP Worker] INFO  Execute - GlobalSearch_V2 feature is False

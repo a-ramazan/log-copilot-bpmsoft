@@ -1,0 +1,715 @@
+2025-10-20 15:00:06,212 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob started
+2025-10-20 15:00:06,238 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:00:06,238 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:00:06,238 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:00:06,307 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:00:06,307 [.NET TP Worker] INFO  InfoFormat - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:00:06,307 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:00:06,307 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:00:06,307 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:00:06,311 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:00:06,311 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:00:06,311 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:00:06,311 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob ended
+2025-10-20 15:01:06,192 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:01:06,194 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:01:06,194 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:01:06,194 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:01:06,207 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:01:06,207 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:01:06,207 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:01:06,207 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:01:06,207 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:01:06,207 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:01:06,207 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:01:06,207 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:01:06,207 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:02:06,190 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:02:06,194 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:02:06,194 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:02:06,194 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:02:06,206 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:02:06,206 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:02:06,206 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:02:06,206 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:02:06,206 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:02:06,206 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:02:06,206 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:02:06,206 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:02:06,206 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:03:06,231 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:03:06,245 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:03:06,245 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:03:06,245 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:03:06,248 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:03:06,248 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:03:06,248 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:03:06,248 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:03:06,248 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:03:06,248 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:03:06,248 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:03:06,248 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:03:06,248 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:04:06,200 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:04:06,203 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:04:06,203 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:04:06,203 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:04:06,345 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:04:06,345 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:04:06,345 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:04:06,345 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:04:06,345 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:04:06,346 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:04:06,346 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:04:06,346 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:04:06,346 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:05:06,276 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:05:06,639 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:05:06,639 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:05:06,639 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:05:06,639 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:05:06,639 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:05:06,639 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:05:06,639 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:05:06,639 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:05:06,644 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:05:06,644 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:05:06,644 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:05:06,644 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:06:06,188 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:06:06,190 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:06:06,190 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:06:06,190 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:06:06,200 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:06:06,200 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:06:06,200 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:06:06,200 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:06:06,200 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:06:06,201 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:06:06,201 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:06:06,201 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:06:06,201 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:07:06,185 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:07:06,187 [.NET TP Worker] DEBUG  Execute - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:07:06,187 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:07:06,187 [.NET TP Worker] DEBUG  GetSynchronizableMailboxes - GetAllSynchronizableMailboxes started
+2025-10-20 15:07:06,203 [.NET TP Worker] DEBUG  GetSynchronizableMailboxes - GetAllSynchronizableMailboxes ended
+2025-10-20 15:07:06,203 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:07:06,203 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:07:06,203 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:07:06,203 [.NET TP Worker] DEBUG  ScheduleFailoverHandlers - StartFailoverHandlers started
+2025-10-20 15:07:06,203 [.NET TP Worker] DEBUG  ScheduleFailoverHandlers - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:07:06,203 [.NET TP Worker] DEBUG  ScheduleFailoverHandlers - StartFailoverHandlers ended
+2025-10-20 15:07:06,203 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:07:06,203 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:08:06,207 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:08:06,211 [.NET TP Worker] DEBUG  Execute - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:08:06,211 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:08:06,211 [.NET TP Worker] DEBUG  GetSynchronizableMailboxes - GetAllSynchronizableMailboxes started
+2025-10-20 15:08:06,223 [.NET TP Worker] DEBUG  GetSynchronizableMailboxes - GetAllSynchronizableMailboxes ended
+2025-10-20 15:08:06,223 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:08:06,223 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:08:06,223 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:08:06,223 [.NET TP Worker] DEBUG  ScheduleFailoverHandlers - StartFailoverHandlers started
+2025-10-20 15:08:06,225 [.NET TP Worker] DEBUG  ScheduleFailoverHandlers - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:08:06,225 [.NET TP Worker] DEBUG  ScheduleFailoverHandlers - StartFailoverHandlers ended
+2025-10-20 15:08:06,225 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:08:06,225 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:10:00,666 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:10:00,809 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:10:00,809 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:10:00,809 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:10:00,865 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:10:00,865 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:10:00,865 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:10:00,865 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:10:00,865 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:10:00,650 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:10:00,653 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:10:00,653 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:10:00,653 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:10:10,016 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:10:10,078 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:10:10,078 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:10:10,078 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:10:10,084 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:10:10,084 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:10:10,084 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:10:10,084 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:10:10,085 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:10:10,085 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:10:10,085 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:10:10,085 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:10:10,085 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:11:06,190 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:11:06,190 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:11:06,190 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:11:06,190 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:11:06,207 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:11:06,207 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:11:06,207 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:11:06,207 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:11:06,207 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:11:06,207 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:11:06,207 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:11:06,207 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:11:06,207 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:12:06,185 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:12:06,185 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:12:06,185 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:12:06,185 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:12:06,188 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:12:06,188 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:12:06,188 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:12:06,188 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:12:06,188 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:12:06,188 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:12:06,188 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:12:06,188 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:12:06,188 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:13:06,193 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob started
+2025-10-20 15:13:06,197 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:13:06,197 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:13:06,197 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:13:06,201 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:13:06,201 [.NET TP Worker] INFO  Execute - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:13:06,201 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:13:06,201 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:13:06,201 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:13:06,201 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:13:06,201 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:13:06,201 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:13:06,201 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob ended
+2025-10-20 15:14:06,186 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob started
+2025-10-20 15:14:06,186 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:14:06,186 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:14:06,186 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:14:06,190 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:14:06,190 [.NET TP Worker] INFO  Execute - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:14:06,190 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:14:06,190 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:14:06,190 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:14:06,190 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:14:06,190 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:14:06,190 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:14:06,190 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob ended
+2025-10-20 15:15:07,634 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob started
+2025-10-20 15:15:07,706 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:15:07,706 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:15:07,706 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:15:07,741 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:15:07,745 [.NET TP Worker] INFO  Execute - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:15:07,745 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:15:07,745 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:15:07,745 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:15:07,745 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:15:07,745 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:15:07,745 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:15:07,745 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob ended
+2025-10-20 15:16:06,187 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob started
+2025-10-20 15:16:06,200 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:16:06,200 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:16:06,200 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:16:06,206 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:16:06,210 [.NET TP Worker] INFO  InfoFormat - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:16:06,210 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:16:06,210 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:16:06,210 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:16:06,210 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:16:06,210 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:16:06,210 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:16:06,210 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob ended
+2025-10-20 15:17:06,220 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob started
+2025-10-20 15:17:06,223 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:17:06,223 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:17:06,223 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:17:06,223 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:17:06,226 [.NET TP Worker] INFO  InfoFormat - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:17:06,226 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:17:06,226 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:17:06,226 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:17:06,226 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:17:06,226 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:17:06,226 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:17:06,226 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob ended
+2025-10-20 15:18:06,210 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:18:06,210 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:18:06,210 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:18:06,210 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:18:06,213 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:18:06,213 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:18:06,213 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:18:06,213 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:18:06,213 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:18:06,213 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:18:06,213 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:18:06,213 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:18:06,213 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:19:06,250 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob started
+2025-10-20 15:19:06,260 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:19:06,260 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:19:06,260 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:19:06,271 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:19:06,271 [.NET TP Worker] INFO  InfoFormat - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:19:06,271 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:19:06,271 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:19:06,271 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:19:06,277 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:19:06,277 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:19:06,277 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:19:06,277 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob ended
+2025-10-20 15:20:06,241 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:20:06,252 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:20:06,252 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:20:06,252 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:20:06,254 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:20:06,254 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:20:06,254 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:20:06,254 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:20:06,254 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:20:06,254 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:20:06,254 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:20:06,254 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:20:06,254 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:21:06,191 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:21:06,193 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:21:06,193 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:21:06,193 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:21:06,193 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:21:06,193 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:21:06,193 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:21:06,193 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:21:06,193 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:21:06,193 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:21:06,193 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:21:06,193 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:21:06,193 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:22:06,248 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:22:06,248 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:22:06,248 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:22:06,248 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:22:06,248 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:22:06,248 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:22:06,248 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:22:06,248 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:22:06,248 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:22:06,252 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:22:06,252 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:22:06,252 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:22:06,252 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:23:06,224 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:23:06,224 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:23:06,224 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:23:06,224 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:23:06,224 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:23:06,224 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:23:06,224 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:23:06,224 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:23:06,224 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:23:06,228 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:23:06,228 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:23:06,228 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:23:06,228 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:24:06,187 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:24:06,216 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:24:06,216 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:24:06,216 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:24:06,236 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:24:06,236 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:24:06,236 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:24:06,236 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:24:06,236 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:24:06,237 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:24:06,237 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:24:06,237 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:24:06,237 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:25:06,185 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:25:06,187 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:25:06,187 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:25:06,187 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:25:06,233 [.NET TP Worker] DEBUG  GetSynchronizableMailboxes - GetAllSynchronizableMailboxes ended
+2025-10-20 15:25:06,233 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:25:06,233 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:25:06,233 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:25:06,233 [.NET TP Worker] DEBUG  ScheduleFailoverHandlers - StartFailoverHandlers started
+2025-10-20 15:25:06,234 [.NET TP Worker] DEBUG  ScheduleFailoverHandlers - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:25:06,234 [.NET TP Worker] DEBUG  ScheduleFailoverHandlers - StartFailoverHandlers ended
+2025-10-20 15:25:06,234 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:25:06,234 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:26:06,185 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:26:06,195 [.NET TP Worker] DEBUG  Execute - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:26:06,195 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:26:06,195 [.NET TP Worker] DEBUG  GetSynchronizableMailboxes - GetAllSynchronizableMailboxes started
+2025-10-20 15:26:06,197 [.NET TP Worker] DEBUG  GetSynchronizableMailboxes - GetAllSynchronizableMailboxes ended
+2025-10-20 15:26:06,197 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:26:06,197 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:26:06,197 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:26:06,197 [.NET TP Worker] DEBUG  ScheduleFailoverHandlers - StartFailoverHandlers started
+2025-10-20 15:26:06,197 [.NET TP Worker] DEBUG  ScheduleFailoverHandlers - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:26:06,197 [.NET TP Worker] DEBUG  ScheduleFailoverHandlers - StartFailoverHandlers ended
+2025-10-20 15:26:06,197 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:26:06,197 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:27:06,190 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:27:06,190 [.NET TP Worker] DEBUG  Execute - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:27:06,190 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:27:06,190 [.NET TP Worker] DEBUG  GetSynchronizableMailboxes - GetAllSynchronizableMailboxes started
+2025-10-20 15:27:06,198 [.NET TP Worker] DEBUG  GetSynchronizableMailboxes - GetAllSynchronizableMailboxes ended
+2025-10-20 15:27:06,198 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:27:06,198 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:27:06,198 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:27:06,198 [.NET TP Worker] DEBUG  ScheduleFailoverHandlers - StartFailoverHandlers started
+2025-10-20 15:27:06,198 [.NET TP Worker] DEBUG  ScheduleFailoverHandlers - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:27:06,198 [.NET TP Worker] DEBUG  ScheduleFailoverHandlers - StartFailoverHandlers ended
+2025-10-20 15:27:06,198 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:27:06,198 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:28:06,194 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob started
+2025-10-20 15:28:06,202 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:28:06,202 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:28:06,202 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:28:06,218 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:28:06,218 [.NET TP Worker] INFO  InfoFormat - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:28:06,218 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:28:06,218 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:28:06,218 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:28:06,222 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:28:06,222 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:28:06,222 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:28:06,222 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob ended
+2025-10-20 15:29:06,188 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob started
+2025-10-20 15:29:06,190 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:29:06,190 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:29:06,190 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:29:06,190 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:29:06,190 [.NET TP Worker] INFO  InfoFormat - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:29:06,190 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:29:06,190 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:29:06,190 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:29:06,190 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:29:06,190 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:29:06,190 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:29:06,190 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob ended
+2025-10-20 15:30:06,187 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:30:06,187 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:30:06,187 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:30:06,187 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:30:06,191 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:30:06,191 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:30:06,191 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:30:06,191 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:30:06,191 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:30:06,191 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:30:06,191 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:30:06,191 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:30:06,191 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:31:06,187 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:31:06,187 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:31:06,187 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:31:06,187 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:31:06,192 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:31:06,192 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:31:06,192 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:31:06,192 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:31:06,192 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:31:06,192 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:31:06,192 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:31:06,192 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:31:06,192 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:32:06,186 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:32:06,188 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:32:06,188 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:32:06,188 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:32:06,188 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:32:06,188 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:32:06,188 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:32:06,188 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:32:06,188 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:32:06,188 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:32:06,188 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:32:06,188 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:32:06,188 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:33:06,185 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:33:06,206 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:33:06,206 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:33:06,206 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:33:06,228 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:33:06,228 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:33:06,228 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:33:06,228 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:33:06,228 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:33:06,228 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:33:06,228 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:33:06,228 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:33:06,228 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:34:06,187 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:34:06,194 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:34:06,194 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:34:06,194 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:34:06,206 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:34:06,206 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:34:06,206 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:34:06,206 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:34:06,206 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:34:06,206 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:34:06,206 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:34:06,206 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:34:06,206 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:35:06,186 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:35:06,186 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:35:06,186 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:35:06,186 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:35:06,190 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:35:06,190 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:35:06,190 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:35:06,190 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:35:06,190 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:35:06,190 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:35:06,190 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:35:06,190 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:35:06,190 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:36:06,186 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:36:06,188 [.NET TP Worker] DEBUG  Execute - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:36:06,188 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:36:06,188 [.NET TP Worker] DEBUG  GetSynchronizableMailboxes - GetAllSynchronizableMailboxes started
+2025-10-20 15:36:06,191 [.NET TP Worker] DEBUG  GetSynchronizableMailboxes - GetAllSynchronizableMailboxes ended
+2025-10-20 15:36:06,191 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:36:06,191 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:36:06,191 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:36:06,191 [.NET TP Worker] DEBUG  ScheduleFailoverHandlers - StartFailoverHandlers started
+2025-10-20 15:36:06,191 [.NET TP Worker] DEBUG  ScheduleFailoverHandlers - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:36:06,191 [.NET TP Worker] DEBUG  ScheduleFailoverHandlers - StartFailoverHandlers ended
+2025-10-20 15:36:06,191 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:36:06,191 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:37:06,222 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:37:06,225 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:37:06,225 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:37:06,225 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:37:06,225 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:37:06,225 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:37:06,225 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:37:06,225 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:37:06,225 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:37:06,228 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:37:06,228 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:37:06,228 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:37:06,228 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:38:06,187 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:38:06,220 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:38:06,220 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:38:06,220 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:38:06,247 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:38:06,247 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:38:06,247 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:38:06,247 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:38:06,247 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:38:06,247 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:38:06,247 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:38:06,247 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:38:06,247 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:39:06,185 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:39:06,185 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:39:06,185 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:39:06,185 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:39:06,202 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:39:06,202 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:39:06,202 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:39:06,202 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:39:06,202 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:39:06,202 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:39:06,202 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:39:06,202 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:39:06,202 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:40:06,185 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:40:06,185 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:40:06,185 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:40:06,185 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:40:06,200 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:40:06,200 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:40:06,200 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:40:06,200 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:40:06,200 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:40:06,201 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:40:06,201 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:40:06,201 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:40:06,201 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended
+2025-10-20 15:41:06,187 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob started
+2025-10-20 15:41:06,187 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:41:06,187 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:41:06,187 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:41:06,191 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:41:06,191 [.NET TP Worker] INFO  Execute - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:41:06,191 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:41:06,191 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:41:06,191 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:41:06,191 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:41:06,191 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:41:06,191 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:41:06,191 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob ended
+2025-10-20 15:42:06,191 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob started
+2025-10-20 15:42:06,191 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:42:06,191 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:42:06,191 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:42:06,195 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:42:06,195 [.NET TP Worker] INFO  Execute - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:42:06,195 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:42:06,195 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:42:06,195 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:42:06,195 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:42:06,195 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:42:06,195 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:42:06,195 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob ended
+2025-10-20 15:43:06,196 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob started
+2025-10-20 15:43:06,228 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:43:06,228 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:43:06,228 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:43:06,245 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:43:06,245 [.NET TP Worker] INFO  Execute - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:43:06,245 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:43:06,245 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:43:06,245 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:43:06,246 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:43:06,246 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:43:06,246 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:43:06,246 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob ended
+2025-10-20 15:44:06,189 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob started
+2025-10-20 15:44:06,214 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:44:06,214 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:44:06,214 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:44:06,220 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:44:06,220 [.NET TP Worker] INFO  Execute - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:44:06,220 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:44:06,220 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:44:06,220 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:44:06,220 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:44:06,220 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:44:06,220 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:44:06,220 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob ended
+2025-10-20 15:45:06,187 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob started
+2025-10-20 15:45:06,187 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:45:06,187 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:45:06,187 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:45:06,192 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:45:06,192 [.NET TP Worker] INFO  Execute - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:45:06,192 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:45:06,192 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:45:06,192 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:45:06,192 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:45:06,192 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:45:06,192 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:45:06,192 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob ended
+2025-10-20 15:46:06,187 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob started
+2025-10-20 15:46:06,189 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:46:06,189 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:46:06,189 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:46:06,189 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:46:06,189 [.NET TP Worker] INFO  Execute - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:46:06,189 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:46:06,189 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:46:06,189 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:46:06,189 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:46:06,189 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:46:06,189 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:46:06,189 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob ended
+2025-10-20 15:47:06,187 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob started
+2025-10-20 15:47:06,187 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:47:06,187 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:47:06,187 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:47:06,191 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:47:06,191 [.NET TP Worker] INFO  Execute - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:47:06,191 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:47:06,191 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:47:06,191 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:47:06,191 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:47:06,191 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:47:06,191 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:47:06,191 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob ended
+2025-10-20 15:48:06,214 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob started
+2025-10-20 15:48:06,227 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:48:06,227 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:48:06,227 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:48:06,229 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:48:06,229 [.NET TP Worker] INFO  Execute - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:48:06,229 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:48:06,229 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:48:06,229 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:48:06,231 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:48:06,231 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:48:06,231 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:48:06,231 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob ended
+2025-10-20 15:49:06,191 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob started
+2025-10-20 15:49:06,193 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:49:06,193 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:49:06,193 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:49:06,209 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:49:06,209 [.NET TP Worker] INFO  Execute - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:49:06,209 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:49:06,209 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:49:06,209 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:49:06,209 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:49:06,209 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:49:06,209 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:49:06,209 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob ended
+2025-10-20 15:50:06,186 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob started
+2025-10-20 15:50:06,196 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:50:06,196 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:50:06,196 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:50:06,198 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:50:06,198 [.NET TP Worker] INFO  Execute - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:50:06,198 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:50:06,198 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:50:06,198 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:50:06,198 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:50:06,198 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:50:06,198 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:50:06,198 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob ended
+2025-10-20 15:51:06,190 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob started
+2025-10-20 15:51:06,190 [.NET TP Worker] DEBUG  RunJobExecutor - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:51:06,190 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:51:06,190 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes started
+2025-10-20 15:51:06,194 [.NET TP Worker] DEBUG  GetMailboxesWithoutSubscriptions - GetAllSynchronizableMailboxes ended
+2025-10-20 15:51:06,194 [.NET TP Worker] INFO  Execute - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:51:06,194 [.NET TP Worker] DEBUG  Execute - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:51:06,194 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:51:06,194 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers started
+2025-10-20 15:51:06,194 [.NET TP Worker] DEBUG  Execute - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:51:06,194 [.NET TP Worker] DEBUG  Execute - StartFailoverHandlers ended
+2025-10-20 15:51:06,194 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:51:06,194 [.NET TP Worker] INFO  RunJobExecutor - ListenerServiceFailJob ended
+2025-10-20 15:52:06,188 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob started
+2025-10-20 15:52:06,198 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:52:06,198 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:52:06,198 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:52:06,205 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:52:06,205 [.NET TP Worker] INFO  InfoFormat - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:52:06,205 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:52:06,205 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:52:06,205 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:52:06,208 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:52:06,208 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:52:06,208 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:52:06,208 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob ended
+2025-10-20 15:53:06,186 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob started
+2025-10-20 15:53:06,189 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:53:06,189 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:53:06,189 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:53:06,204 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:53:06,204 [.NET TP Worker] INFO  InfoFormat - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:53:06,204 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:53:06,204 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:53:06,204 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:53:06,205 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:53:06,205 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:53:06,205 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:53:06,205 [.NET TP Worker] INFO  InfoFormat - ListenerServiceFailJob ended
+2025-10-20 15:54:06,191 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob started
+2025-10-20 15:54:06,191 [.NET TP Worker] DEBUG  DebugFormat - ListenerServiceFailJob: _listenerManager initiated
+2025-10-20 15:54:06,191 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method started
+2025-10-20 15:54:06,191 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes started
+2025-10-20 15:54:06,194 [.NET TP Worker] DEBUG  DebugFormat - GetAllSynchronizableMailboxes ended
+2025-10-20 15:54:06,194 [.NET TP Worker] INFO  GetMailboxesWithoutSubscriptions - GetMailboxesWithoutSubscriptions: selected 0 mailboxes
+2025-10-20 15:54:06,194 [.NET TP Worker] DEBUG  DebugFormat - GetMailboxesWithoutSubscriptions method ended
+2025-10-20 15:54:06,194 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: mailboxes recived
+2025-10-20 15:54:06,194 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers started
+2025-10-20 15:54:06,194 [.NET TP Worker] DEBUG  DebugFormat - All jobs from ExchangeListenerHandler job group deleted.
+2025-10-20 15:54:06,194 [.NET TP Worker] DEBUG  DebugFormat - StartFailoverHandlers ended
+2025-10-20 15:54:06,194 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob: Failover handlers scheduled
+2025-10-20 15:54:06,194 [.NET TP Worker] INFO  Execute - ListenerServiceFailJob ended

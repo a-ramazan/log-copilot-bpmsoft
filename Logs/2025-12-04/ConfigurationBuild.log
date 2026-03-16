@@ -1,0 +1,60 @@
+2025-12-04 09:24:33,909 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [BuildAll] started
+2025-12-04 09:24:37,134 [.NET TP Worker] WARN Supervisor ConfigurationBuild GetSchemasInfo - Resources without schema:
+EntitySchemaManager.MLPrediction
+
+2025-12-04 09:25:23,581 [.NET TP Worker] INFO Supervisor ConfigurationBuild LogGenerationResult - Schema count: 0
+2025-12-04 09:25:23,585 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentDescriptors] started
+2025-12-04 09:25:25,675 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentDescriptors] took 2 s 90 ms
+2025-12-04 09:25:25,675 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentBootstraps] started
+2025-12-04 09:25:25,783 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentBootstraps] took 0 s 107 ms
+2025-12-04 09:27:29,049 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [BuildAll] took 175 s 147 ms
+2025-12-04 09:34:23,430 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [BuildChanged] started
+2025-12-04 09:34:26,363 [.NET TP Worker] WARN Supervisor ConfigurationBuild ConvertFileSystemHashesToSchemaPublishInfos - Resources without schema:
+EntitySchemaManager.MLPrediction
+
+2025-12-04 09:34:26,999 [.NET TP Worker] INFO Supervisor ConfigurationBuild LogGenerationResult - Schema count: 0
+2025-12-04 09:34:26,999 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentDescriptors] started
+2025-12-04 09:34:28,917 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentDescriptors] took 1 s 917 ms
+2025-12-04 09:34:28,917 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentBootstraps] started
+2025-12-04 09:34:29,053 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentBootstraps] took 0 s 134 ms
+2025-12-04 09:36:05,545 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [BuildChanged] took 102 s 111 ms
+2025-12-04 09:44:03,957 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [BuildChanged] started
+2025-12-04 09:44:07,150 [.NET TP Worker] WARN Supervisor ConfigurationBuild ConvertFileSystemHashesToSchemaPublishInfos - Resources without schema:
+EntitySchemaManager.MLPrediction
+
+2025-12-04 09:44:07,717 [.NET TP Worker] INFO Supervisor ConfigurationBuild LogGenerationResult - Schema count: 0
+2025-12-04 09:44:07,717 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentDescriptors] started
+2025-12-04 09:44:09,763 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentDescriptors] took 2 s 44 ms
+2025-12-04 09:44:09,763 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentBootstraps] started
+2025-12-04 09:44:09,862 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentBootstraps] took 0 s 98 ms
+2025-12-04 09:45:41,674 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [BuildChanged] took 97 s 721 ms
+2025-12-04 09:51:41,761 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [BuildChanged] started
+2025-12-04 09:51:44,952 [.NET TP Worker] WARN Supervisor ConfigurationBuild ConvertFileSystemHashesToSchemaPublishInfos - Resources without schema:
+EntitySchemaManager.MLPrediction
+
+2025-12-04 09:51:45,456 [.NET TP Worker] INFO Supervisor ConfigurationBuild LogGenerationResult - Schema count: 0
+2025-12-04 09:51:45,456 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentDescriptors] started
+2025-12-04 09:51:47,476 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentDescriptors] took 2 s 17 ms
+2025-12-04 09:51:47,476 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentBootstraps] started
+2025-12-04 09:51:47,607 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentBootstraps] took 0 s 131 ms
+2025-12-04 09:53:21,636 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [BuildChanged] took 99 s 877 ms
+2025-12-04 11:48:49,174 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [BuildChanged] started
+2025-12-04 11:48:52,401 [.NET TP Worker] WARN Supervisor ConfigurationBuild GetSchemasInfo - Resources without schema:
+EntitySchemaManager.MLPrediction
+
+2025-12-04 11:48:52,723 [.NET TP Worker] INFO Supervisor ConfigurationBuild LogGenerationResult - Schema count: 0
+2025-12-04 11:48:52,723 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentDescriptors] started
+2025-12-04 11:48:54,596 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentDescriptors] took 1 s 871 ms
+2025-12-04 11:48:54,596 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentBootstraps] started
+2025-12-04 11:48:54,719 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentBootstraps] took 0 s 122 ms
+2025-12-04 11:50:21,249 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [BuildChanged] took 92 s 79 ms
+2025-12-04 12:04:44,368 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [BuildChanged] started
+2025-12-04 12:04:47,529 [.NET TP Worker] WARN Supervisor ConfigurationBuild ConvertFileSystemHashesToSchemaPublishInfos - Resources without schema:
+EntitySchemaManager.MLPrediction
+
+2025-12-04 12:04:47,809 [.NET TP Worker] INFO Supervisor ConfigurationBuild LogGenerationResult - Schema count: 0
+2025-12-04 12:04:47,809 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentDescriptors] started
+2025-12-04 12:04:49,814 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentDescriptors] took 2 s 3 ms
+2025-12-04 12:04:49,814 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentBootstraps] started
+2025-12-04 12:04:49,919 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentBootstraps] took 0 s 104 ms
+2025-12-04 12:06:24,488 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [BuildChanged] took 100 s 125 ms

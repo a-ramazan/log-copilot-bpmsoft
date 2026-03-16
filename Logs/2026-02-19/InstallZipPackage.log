@@ -1,0 +1,24 @@
+2026-02-19 17:01:57,714 [.NET TP Worker] INFO Supervisor InstallZipPackage ConfigurationBuildStarted - Сборка конфигурации запущена
+2026-02-19 17:01:57,719 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Информация о существующих схемах загружена
+2026-02-19 17:02:01,999 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Информация о новых схемах загружена
+2026-02-19 17:02:02,341 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Состояние конфигурации загружено
+2026-02-19 17:02:02,343 [.NET TP Worker] INFO Supervisor InstallZipPackage BuildChangedServerContent - Генерация серверного контента конфигурации запущена
+2026-02-19 17:02:02,372 [.NET TP Worker] INFO Supervisor InstallZipPackage BuildChangedServerContent - Серверный контент конфигурации сгенерирован
+2026-02-19 17:02:02,391 [.NET TP Worker] INFO Supervisor InstallZipPackage UpdateMetaInfo - Файл мета информации обновлен
+2026-02-19 17:02:02,394 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Генерация файлового контента запущена
+2026-02-19 17:02:04,411 [.NET TP Worker] INFO Supervisor InstallZipPackage WriteFileContentDescriptors - Дескрипторы файлового контента загружены
+2026-02-19 17:02:04,415 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Дескрипторы файлового контента сгенерированы
+2026-02-19 17:02:04,533 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Загрузчик файлового контента сгенерирован
+2026-02-19 17:03:48,710 [.NET TP Worker] INFO Supervisor InstallZipPackage ConfigurationBuildFinished - Сборка конфигурации завершена
+2026-02-19 17:26:28,082 [.NET TP Worker] INFO Supervisor InstallZipPackage ConfigurationBuildStarted - Сборка конфигурации запущена
+2026-02-19 17:26:28,086 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Информация о существующих схемах загружена
+2026-02-19 17:26:32,068 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Информация о новых схемах загружена
+2026-02-19 17:26:32,429 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Состояние конфигурации загружено
+2026-02-19 17:26:32,431 [.NET TP Worker] INFO Supervisor InstallZipPackage BuildChangedServerContent - Генерация серверного контента конфигурации запущена
+2026-02-19 17:26:32,500 [.NET TP Worker] INFO Supervisor InstallZipPackage BuildChangedServerContent - Серверный контент конфигурации сгенерирован
+2026-02-19 17:26:32,521 [.NET TP Worker] INFO Supervisor InstallZipPackage UpdateMetaInfo - Файл мета информации обновлен
+2026-02-19 17:26:32,523 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Генерация файлового контента запущена
+2026-02-19 17:26:34,476 [.NET TP Worker] INFO Supervisor InstallZipPackage WriteFileContentDescriptors - Дескрипторы файлового контента загружены
+2026-02-19 17:26:34,479 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Дескрипторы файлового контента сгенерированы
+2026-02-19 17:26:34,590 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Загрузчик файлового контента сгенерирован
+2026-02-19 17:28:15,419 [.NET TP Worker] INFO Supervisor InstallZipPackage ConfigurationBuildFinished - Сборка конфигурации завершена

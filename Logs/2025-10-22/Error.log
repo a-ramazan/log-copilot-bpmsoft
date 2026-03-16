@@ -1,0 +1,109 @@
+2025-10-22 07:34:13,657 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-10-22 08:19:05,986 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-10-22 08:29:40,771 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-10-22 08:44:43,622 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-10-22 08:53:09,533 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-10-22 09:08:44,775 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-10-22 09:09:10,647 [.NET TP Worker] ERROR Supervisor BPMSoft.Nui.ServiceModel.AspNetCore.Controllers.CrudDataServiceController Post - Query was cancelled|System.OperationCanceledException: Query was cancelled
+ ---> Npgsql.PostgresException (0x80004005): 57014: canceling statement due to user request
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+  Exception data:
+    Severity: ERROR
+    SqlState: 57014
+    MessageText: canceling statement due to user request
+    File: postgres.c
+    Line: 3424
+    Routine: ProcessInterrupts
+   --- End of inner exception stack trace ---
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at BPMSoft.Core.DB.DBExecutor.<>c__DisplayClass139_1.<<InternalExecuteReaderAsync>b__1>d.MoveNext() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 815
+--- End of stack trace from previous location ---
+   at Polly.Policy.<>c__DisplayClass208_0`1.<<ExecuteAsyncInternal>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Polly.Policy.<>c__DisplayClass100_0.<<NoOpAsync>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Polly.NoOp.NoOpEngine.ImplementationAsync[TResult](Func`3 action, Context context, CancellationToken cancellationToken, Boolean continueOnCapturedContext)
+   at Polly.Policy.ExecuteAsyncInternal[TResult](Func`3 action, Context context, CancellationToken cancellationToken, Boolean continueOnCapturedContext)
+   at BPMSoft.Core.DB.DBExecutor.FailoverExecuteReaderAsync(DbCommand command, Func`1 func) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 704
+   at BPMSoft.Core.DB.DBExecutor.<>c__DisplayClass139_0.<<InternalExecuteReaderAsync>b__0>d.MoveNext() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 814
+--- End of stack trace from previous location ---
+   at BPMSoft.Core.DB.DBExecutor.ExecuteCommandAsync[TResult](Func`2 commandExecutionCallback, Func`2 commandExecutionCallbackAsync, String sqlText, QueryParameterCollection queryParameters, CancellationToken cancellationToken, Boolean sync)
+   at BPMSoft.Core.DB.DBExecutor.InternalExecuteReaderAsync(String sqlText, QueryParameterCollection queryParameters, CommandBehavior behavior, CancellationToken cancellationToken) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 813
+   at BPMSoft.DB.PostgreSql.PostgreSqlExecutor.<>c__DisplayClass44_0.<<InternalExecuteReaderAsync>b__0>d.MoveNext() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.DB.PostgreSql/PostgreSqlExecutor.cs:line 461
+--- End of stack trace from previous location ---
+   at BPMSoft.DB.PostgreSql.PostgreSqlExecutor.ExecuteInSemaphoreIfInTransaction[TResult](Func`1 action) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.DB.PostgreSql/PostgreSqlExecutor.cs:line 284
+   at BPMSoft.DB.PostgreSql.PostgreSqlExecutor.InternalExecuteReaderAsync(String sqlText, QueryParameterCollection queryParameters, CommandBehavior behavior, CancellationToken cancellationToken) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.DB.PostgreSql/PostgreSqlExecutor.cs:line 457
+   at BPMSoft.Core.DB.DBExecutor.InternalExecuteReaderAsync(String sqlText, QueryParameterCollection queryParameters, CancellationToken cancellationToken) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 924
+   at BPMSoft.Core.DB.Select.ExecuteReaderAsync(DBExecutor dbExecutor, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/Select.cs:line 1135
+   at BPMSoft.Core.Entities.EntitySchemaQuery.GetNativeDataReaderAsync(UserConnection userConnection, Select selectQuery, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/EntitySchemaQuery.cs:line 2882
+   at BPMSoft.Core.Entities.EntitySchemaQuery.GetDataReaderAsync(UserConnection userConnection, Select selectQuery, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/EntitySchemaQuery.cs:line 2908
+   at BPMSoft.Core.Entities.EntitySchemaQuery.GetEntityCollectionAsync(UserConnection userConnection, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/EntitySchemaQuery.cs:line 3507
+   at BPMSoft.Nui.ServiceModel.Extensions.QueryExtension.ExecuteGetEntityCollectionAsync(EntitySchemaQuery esq, EntitySchemaQueryOptions options, UserConnection userConnection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Nui.ServiceModel/Extensions/QueryExtension.cs:line 1229
+   at BPMSoft.Nui.ServiceModel.Extensions.QueryExtension.ExecuteCoreEntitiesAsync(SelectQuery source, UserConnection userConnection, Nullable`1 cancellationToken, EntitySchemaQuery esq, EntitySchemaQueryOptions options) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Nui.ServiceModel/Extensions/QueryExtension.cs:line 1058
+   at BPMSoft.Nui.ServiceModel.Extensions.QueryExtension.ExecuteSelectQueryAsync(SelectQuery source, UserConnection userConnection, Nullable`1 cancellationToken, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Nui.ServiceModel/Extensions/QueryExtension.cs:line 1307
+   at BPMSoft.Nui.ServiceModel.BaseCrudDataService.InternalPostAsync(SelectQuery query) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Nui.ServiceModel/ServiceBase/BaseCrudDataService.cs:line 556
+   at BPMSoft.Nui.ServiceModel.AspNetCore.Controllers.CrudDataServiceController.Post(SelectQuery query) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Nui.ServiceModel.AspNetCore/Controllers/CrudDataServiceController.cs:line 88
+2025-10-22 09:09:19,269 [.NET TP Worker] ERROR Supervisor BPMSoft.Nui.ServiceModel.AspNetCore.Controllers.CrudDataServiceController Post - Query was cancelled|System.OperationCanceledException: Query was cancelled
+ ---> Npgsql.PostgresException (0x80004005): 57014: canceling statement due to user request
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+  Exception data:
+    Severity: ERROR
+    SqlState: 57014
+    MessageText: canceling statement due to user request
+    File: postgres.c
+    Line: 3424
+    Routine: ProcessInterrupts
+   --- End of inner exception stack trace ---
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at BPMSoft.Core.DB.DBExecutor.<>c__DisplayClass139_1.<<InternalExecuteReaderAsync>b__1>d.MoveNext() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 815
+--- End of stack trace from previous location ---
+   at Polly.Policy.<>c__DisplayClass208_0`1.<<ExecuteAsyncInternal>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Polly.Policy.<>c__DisplayClass100_0.<<NoOpAsync>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Polly.NoOp.NoOpEngine.ImplementationAsync[TResult](Func`3 action, Context context, CancellationToken cancellationToken, Boolean continueOnCapturedContext)
+   at Polly.Policy.ExecuteAsyncInternal[TResult](Func`3 action, Context context, CancellationToken cancellationToken, Boolean continueOnCapturedContext)
+   at BPMSoft.Core.DB.DBExecutor.FailoverExecuteReaderAsync(DbCommand command, Func`1 func) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 704
+   at BPMSoft.Core.DB.DBExecutor.<>c__DisplayClass139_0.<<InternalExecuteReaderAsync>b__0>d.MoveNext() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 814
+--- End of stack trace from previous location ---
+   at BPMSoft.Core.DB.DBExecutor.ExecuteCommandAsync[TResult](Func`2 commandExecutionCallback, Func`2 commandExecutionCallbackAsync, String sqlText, QueryParameterCollection queryParameters, CancellationToken cancellationToken, Boolean sync)
+   at BPMSoft.Core.DB.DBExecutor.InternalExecuteReaderAsync(String sqlText, QueryParameterCollection queryParameters, CommandBehavior behavior, CancellationToken cancellationToken) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 813
+   at BPMSoft.DB.PostgreSql.PostgreSqlExecutor.<>c__DisplayClass44_0.<<InternalExecuteReaderAsync>b__0>d.MoveNext() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.DB.PostgreSql/PostgreSqlExecutor.cs:line 461
+--- End of stack trace from previous location ---
+   at BPMSoft.DB.PostgreSql.PostgreSqlExecutor.ExecuteInSemaphoreIfInTransaction[TResult](Func`1 action) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.DB.PostgreSql/PostgreSqlExecutor.cs:line 284
+   at BPMSoft.DB.PostgreSql.PostgreSqlExecutor.InternalExecuteReaderAsync(String sqlText, QueryParameterCollection queryParameters, CommandBehavior behavior, CancellationToken cancellationToken) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.DB.PostgreSql/PostgreSqlExecutor.cs:line 457
+   at BPMSoft.Core.DB.DBExecutor.InternalExecuteReaderAsync(String sqlText, QueryParameterCollection queryParameters, CancellationToken cancellationToken) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/DBExecutor.cs:line 924
+   at BPMSoft.Core.DB.Select.ExecuteReaderAsync(DBExecutor dbExecutor, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/Select.cs:line 1135
+   at BPMSoft.Core.Entities.EntitySchemaQuery.GetNativeDataReaderAsync(UserConnection userConnection, Select selectQuery, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/EntitySchemaQuery.cs:line 2882
+   at BPMSoft.Core.Entities.EntitySchemaQuery.GetDataReaderAsync(UserConnection userConnection, Select selectQuery, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/EntitySchemaQuery.cs:line 2908
+   at BPMSoft.Core.Entities.EntitySchemaQuery.ExecuteReaderAsync(UserConnection userConnection, EntitySchemaQueryOptions options, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/EntitySchemaQuery.cs:line 2755
+   at BPMSoft.Core.Entities.EntitySchemaQuery.GetEntityCollectionAsync(UserConnection userConnection, EntitySchemaQueryOptions options, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/EntitySchemaQuery.cs:line 3475
+   at BPMSoft.Nui.ServiceModel.Extensions.QueryExtension.ExecuteGetEntityCollectionAsync(EntitySchemaQuery esq, EntitySchemaQueryOptions options, UserConnection userConnection) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Nui.ServiceModel/Extensions/QueryExtension.cs:line 1229
+   at BPMSoft.Nui.ServiceModel.Extensions.QueryExtension.ExecuteCoreEntitiesAsync(SelectQuery source, UserConnection userConnection, Nullable`1 cancellationToken, EntitySchemaQuery esq, EntitySchemaQueryOptions options) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Nui.ServiceModel/Extensions/QueryExtension.cs:line 1058
+   at BPMSoft.Nui.ServiceModel.Extensions.QueryExtension.ExecuteSelectQueryAsync(SelectQuery source, UserConnection userConnection, Nullable`1 cancellationToken, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Nui.ServiceModel/Extensions/QueryExtension.cs:line 1307
+   at BPMSoft.Nui.ServiceModel.BaseCrudDataService.InternalPostAsync(SelectQuery query) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Nui.ServiceModel/ServiceBase/BaseCrudDataService.cs:line 556
+   at BPMSoft.Nui.ServiceModel.AspNetCore.Controllers.CrudDataServiceController.Post(SelectQuery query) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Nui.ServiceModel.AspNetCore/Controllers/CrudDataServiceController.cs:line 88
+2025-10-22 09:41:16,734 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-10-22 09:50:26,974 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-10-22 09:58:05,101 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-10-22 10:06:59,615 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-10-22 14:23:08,161 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-10-22 14:53:10,615 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-10-22 15:08:42,591 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-10-22 15:36:13,702 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-10-22 15:41:43,354 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-10-22 15:54:36,603 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-10-22 15:59:26,955 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-10-22 16:04:36,256 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token

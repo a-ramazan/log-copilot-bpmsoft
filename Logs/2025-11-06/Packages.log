@@ -1,0 +1,22 @@
+2025-11-06 11:03:54,432 Operation [Rebuild] started
+2025-11-06 11:06:03,567 Operation [Rebuild] took 129 s 141 ms
+2025-11-06 11:08:30,925 Operation [AngularRebuildAsync] started
+2025-11-06 11:08:30,932 Operation [AngularRebuildAsync] took 0 s 6 ms
+2025-11-06 11:35:51,111 PackageValidator.ValidateMessage.SchemaData.ReferenceSchemaDataValueNotLoaded SysAdminUnit SysAdminUnit 13ea91f2-5cfd-42f2-b021-08fbd5470754 existingData [16] newData [3]
+2025-11-06 11:35:51,173 PackageValidator.ValidateMessage.SchemaData.ReferenceSchemaDataValueNotLoaded SysAdminUnit SysAdminUnit 13ea91f2-5cfd-42f2-b021-08fbd5470754 existingData [16] newData [3]
+2025-11-06 11:42:47,495 PackageValidator.ValidateMessage.SchemaData.ReferenceSchemaDataValueNotLoaded SysMsgLib SysMsgLib 8af6722c-b340-4145-b908-49cc74467a68 existingData [6] newData [26]
+2025-11-06 11:42:47,505 PackageValidator.ValidateMessage.SchemaData.ReferenceSchemaDataValueNotLoaded SysMsgLib SysMsgLib 8af6722c-b340-4145-b908-49cc74467a68 existingData [6] newData [26]
+2025-11-06 11:43:47,440 PackageValidator.ValidateMessage.SchemaData.ReferenceSchemaDataValueNotLoaded Lookup Lookup 6cb8a8eb-7a0a-419e-bd46-447c5531e8df existingData [144] newData [1]
+2025-11-06 11:43:47,515 PackageValidator.ValidateMessage.SchemaData.ReferenceSchemaDataValueNotLoaded Lookup Lookup 6cb8a8eb-7a0a-419e-bd46-447c5531e8df existingData [144] newData [1]
+2025-11-06 11:45:01,785 Operation [Rebuild] started
+2025-11-06 11:46:47,602 Operation [Rebuild] took 105 s 823 ms
+2025-11-06 11:50:21,545 Operation [Rebuild] started
+2025-11-06 11:52:16,261 Operation [Rebuild] took 114 s 721 ms
+2025-11-06 11:54:32,220 Operation [AngularRebuildAsync] started
+2025-11-06 11:54:32,230 Operation [AngularRebuildAsync] took 0 s 9 ms
+2025-11-06 14:54:02,095 Operation [Build] started
+2025-11-06 14:56:23,829 Operation [Build] took 141 s 738 ms
+2025-11-06 15:42:47,285 Operation [Rebuild] started
+2025-11-06 15:44:59,339 Operation [Rebuild] took 132 s 58 ms
+2025-11-06 15:47:29,239 Operation [AngularRebuildAsync] started
+2025-11-06 15:47:29,246 Operation [AngularRebuildAsync] took 0 s 6 ms

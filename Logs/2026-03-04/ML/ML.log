@@ -1,0 +1,378 @@
+2026-03-04 08:59:42,434 [.NET TP Worker] INFO  ProcessAllModels - ML model batch prediction job started
+2026-03-04 08:59:42,460 [.NET TP Worker] ERROR  Execute - Exception was thrown during ML model batch prediction job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLBatchPredictionJob.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLBatchPredictionJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 08:59:42,526 [.NET TP Worker] INFO  ProcessAllModels - Start to process (training, state sync) ML models
+2026-03-04 08:59:42,536 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 08:59:45,282 [.NET TP Worker] INFO  ProcessAllModels - ML model batch prediction job started
+2026-03-04 08:59:45,286 [.NET TP Worker] ERROR  Execute - Exception was thrown during ML model batch prediction job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLBatchPredictionJob.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLBatchPredictionJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 08:59:45,309 [.NET TP Worker] INFO  ProcessAllModels - Start to process (training, state sync) ML models
+2026-03-04 08:59:45,315 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 09:14:45,321 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 09:14:45,350 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 09:29:45,361 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 09:29:45,369 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 09:44:45,378 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 09:44:45,390 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 09:59:45,347 [.NET TP Worker] INFO  Execute - ML model batch prediction job started
+2026-03-04 09:59:45,353 [.NET TP Worker] ERROR  Execute - Exception was thrown during ML model batch prediction job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLBatchPredictionJob.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLBatchPredictionJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 09:59:45,399 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 09:59:45,404 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 10:14:45,413 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 10:14:45,424 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 10:29:45,472 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 10:29:45,479 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 10:44:45,528 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 10:44:45,538 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 10:59:45,500 [.NET TP Worker] INFO  Execute - ML model batch prediction job started
+2026-03-04 10:59:45,516 [.NET TP Worker] ERROR  Execute - Exception was thrown during ML model batch prediction job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLBatchPredictionJob.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLBatchPredictionJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 10:59:45,581 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 10:59:45,581 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 11:14:45,592 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 11:14:45,605 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 11:29:45,611 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 11:29:45,620 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 11:44:45,629 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 11:44:45,646 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 11:59:45,537 [.NET TP Worker] INFO  Execute - ML model batch prediction job started
+2026-03-04 11:59:45,548 [.NET TP Worker] ERROR  Execute - Exception was thrown during ML model batch prediction job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLBatchPredictionJob.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLBatchPredictionJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 11:59:45,655 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 11:59:45,660 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 12:14:45,669 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 12:14:45,681 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 12:29:45,691 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 12:29:45,703 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 12:44:45,711 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 12:44:45,720 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 12:59:45,571 [.NET TP Worker] INFO  Execute - ML model batch prediction job started
+2026-03-04 12:59:45,578 [.NET TP Worker] ERROR  Execute - Exception was thrown during ML model batch prediction job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLBatchPredictionJob.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLBatchPredictionJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 12:59:45,731 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 12:59:45,737 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 13:14:45,747 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 13:14:45,757 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 13:29:45,764 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 13:29:45,774 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 13:44:45,782 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 13:44:45,793 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 13:59:45,596 [.NET TP Worker] INFO  Execute - ML model batch prediction job started
+2026-03-04 13:59:45,602 [.NET TP Worker] ERROR  Execute - Exception was thrown during ML model batch prediction job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLBatchPredictionJob.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLBatchPredictionJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 13:59:45,802 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 13:59:45,807 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 14:14:45,813 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 14:14:45,824 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 14:29:45,835 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 14:29:45,844 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 14:44:45,850 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 14:44:45,866 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 14:59:45,624 [.NET TP Worker] INFO  Execute - ML model batch prediction job started
+2026-03-04 14:59:45,633 [.NET TP Worker] ERROR  Execute - Exception was thrown during ML model batch prediction job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLBatchPredictionJob.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLBatchPredictionJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 14:59:45,872 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 14:59:45,877 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 15:14:45,886 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 15:14:45,895 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 15:29:45,903 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 15:29:45,915 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 15:44:45,924 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 15:44:45,933 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 15:59:45,656 [.NET TP Worker] INFO  Execute - ML model batch prediction job started
+2026-03-04 15:59:45,663 [.NET TP Worker] ERROR  Execute - Exception was thrown during ML model batch prediction job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLBatchPredictionJob.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLBatchPredictionJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 15:59:45,940 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 15:59:45,944 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 16:14:45,950 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 16:14:45,962 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 16:29:45,969 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 16:29:45,977 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)
+2026-03-04 16:44:45,984 [.NET TP Worker] INFO  Execute - Start to process (training, state sync) ML models
+2026-03-04 16:44:45,991 [.NET TP Worker] ERROR  LogError - Exception was thrown during ML model trainer job|System.ServiceModel.ServiceActivationException: Set AspNetCompatibilityEnabled true
+   at BPMSoft.Web.Common.BaseService.get_UserConnection() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Web.Common/BaseService.cs:line 59
+   at BPMSoft.Configuration.ML.MLHelperService.GetSysSettingTextValue(Guid sysSettingValueId)
+   at BPMSoft.Configuration.ML.MLHelperService.GetMLServiceApiKey()
+   at BPMSoft.Configuration.ML.MLHelperService.AreApiKeysEmpty()
+   at BPMSoft.Configuration.ML.MLUtils.CheckApiKey()
+   at BPMSoft.Configuration.ML.MLTrainingManager.ProcessAllModels(UserConnection userConnection)
+   at BPMSoft.Configuration.ML.MLModelTrainerJob.Execute(UserConnection userConnection, IDictionary`2 parameters)

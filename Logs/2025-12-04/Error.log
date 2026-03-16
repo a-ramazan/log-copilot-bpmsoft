@@ -1,0 +1,19 @@
+2025-12-04 07:39:37,364 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-12-04 09:27:32,706 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-12-04 09:36:09,065 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-12-04 09:39:47,807 [.NET TP Worker] ERROR Supervisor BPMSoft.Nui.ServiceModel.Extensions.QueryExtension AddQueryColumns - BPMSoft.Common.ItemNotFoundException: Колонка по пути Timeout не найдена в схеме LlmModel.
+   at BPMSoft.Core.Entities.EntitySchema.GetSchemaColumnByPath(String columnPath) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/EntitySchema.cs:line 2935
+   at BPMSoft.Core.Entities.EntitySchemaQuery.CreateColumn(String columnPath) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/EntitySchemaQuery.cs:line 1776
+   at BPMSoft.Core.Entities.EntitySchemaQuery.AddColumn(String columnPath) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/EntitySchemaQuery.cs:line 5089
+   at BPMSoft.Nui.ServiceModel.Extensions.QueryExtension.EsqBuilder.AddQueryColumn(SelectQueryColumn columnConfig) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Nui.ServiceModel/Extensions/QueryExtension.cs:line 187
+   at BPMSoft.Nui.ServiceModel.Extensions.QueryExtension.EsqBuilder.AddQueryColumns(SelectQueryColumns columnConfigs) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Nui.ServiceModel/Extensions/QueryExtension.cs:line 151
+2025-12-04 09:39:52,756 [.NET TP Worker] ERROR Supervisor BPMSoft.Nui.ServiceModel.Extensions.QueryExtension AddQueryColumns - BPMSoft.Common.ItemNotFoundException: Колонка по пути Timeout не найдена в схеме LlmModel.
+   at BPMSoft.Core.Entities.EntitySchema.GetSchemaColumnByPath(String columnPath) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/EntitySchema.cs:line 2935
+   at BPMSoft.Core.Entities.EntitySchemaQuery.CreateColumn(String columnPath) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/EntitySchemaQuery.cs:line 1776
+   at BPMSoft.Core.Entities.EntitySchemaQuery.AddColumn(String columnPath) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/EntitySchemaQuery.cs:line 5089
+   at BPMSoft.Nui.ServiceModel.Extensions.QueryExtension.EsqBuilder.AddQueryColumn(SelectQueryColumn columnConfig) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Nui.ServiceModel/Extensions/QueryExtension.cs:line 187
+   at BPMSoft.Nui.ServiceModel.Extensions.QueryExtension.EsqBuilder.AddQueryColumns(SelectQueryColumns columnConfigs) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Nui.ServiceModel/Extensions/QueryExtension.cs:line 151
+2025-12-04 09:45:45,277 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-12-04 09:53:25,226 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-12-04 11:50:24,662 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-12-04 12:06:27,599 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token

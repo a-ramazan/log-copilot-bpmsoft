@@ -1,0 +1,156 @@
+2026-02-09 07:51:10,132 --> PackageDBStorage.Load
+2026-02-09 07:51:15,289 <-- PackageDBStorage.Load
+2026-02-09 08:00:35,823 --> PackageDBStorage.Load
+2026-02-09 08:00:42,249 <-- PackageDBStorage.Load
+2026-02-09 09:21:40,686 --> PackageInstallUtilities.LoadPackagesToDB
+2026-02-09 09:21:40,687 --> PackageFileDesignModeStorage.Load
+2026-02-09 09:22:02,780 <-- PackageFileDesignModeStorage.Load
+2026-02-09 09:22:02,780 --> PackageFileDesignModeDBStorage.Load
+2026-02-09 09:22:12,158 <-- PackageFileDesignModeDBStorage.Load
+2026-02-09 09:22:12,161 --> PackageStorageComposer.Compose
+2026-02-09 09:22:12,161 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-02-09 09:22:12,165 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-02-09 09:22:12,168 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-02-09 09:22:12,168 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-02-09 09:22:12,173 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-02-09 09:22:12,205 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-02-09 09:22:12,278 --> PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2026-02-09 09:22:12,278 <-- PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2026-02-09 09:22:12,278 <-- PackageStorageComposer.Compose
+2026-02-09 09:22:12,282 --> PackageFileDesignModeDBStorage.Save: Packages [1] Schemas [1] ReferenceAssemblies [0] SqlScripts [0] PackageData [0] SchemaResources [0] CoreResources [0]
+2026-02-09 09:22:12,338 --> PackageFileDesignModeDBStorage.SavePackage - Mcp
+2026-02-09 09:22:12,494 <-- PackageFileDesignModeDBStorage.SavePackage - Mcp
+2026-02-09 09:22:13,424 InstallColumnLookupValues. Count (total): 0
+2026-02-09 09:22:13,580 <-- PackageFileDesignModeDBStorage.Save
+2026-02-09 09:22:13,580 <-- PackageInstallUtilities.LoadPackagesToDB
+2026-02-09 09:22:29,947 --> PackageDBStorageInternal.Load
+2026-02-09 09:22:37,352 <-- PackageDBStorageInternal.Load
+2026-02-09 09:22:37,353 --> PackageStorageComposer.Compose
+2026-02-09 09:22:37,353 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-02-09 09:22:37,353 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-02-09 09:22:37,353 --> IntermediatePackageStorage.ActualizePackageResourcesState
+2026-02-09 09:22:37,353 <-- IntermediatePackageStorage.ActualizePackageResourcesState
+2026-02-09 09:22:37,353 <-- PackageStorageComposer.Compose
+2026-02-09 09:22:37,353 --> PackageZipFileStorage.SavePackage - Mcp
+2026-02-09 09:22:37,353 --> PackageZipFileStorage.SavePackageDescriptor - Mcp
+2026-02-09 09:22:37,357 <-- PackageZipFileStorage.SavePackageDescriptor - Mcp
+2026-02-09 09:22:37,357 --> PackageZipFileStorage.SavePackageSchemas - Mcp
+2026-02-09 09:22:37,372 <-- PackageZipFileStorage.SavePackageSchemas - Mcp
+2026-02-09 09:22:37,423 --> PackageZipFileStorage.SavePackageReferenceAssemblies - Mcp
+2026-02-09 09:22:37,423 <-- PackageZipFileStorage.SavePackageReferenceAssemblies - Mcp
+2026-02-09 09:22:37,423 --> PackageZipFileStorage.SavePackageSqlScripts - Mcp
+2026-02-09 09:22:37,423 <-- PackageZipFileStorage.SavePackageSqlScripts - Mcp
+2026-02-09 09:22:37,423 --> PackageZipFileStorage.SavePackageData - Mcp
+2026-02-09 09:22:37,423 <-- PackageZipFileStorage.SavePackageData - Mcp
+2026-02-09 09:22:37,423 <-- PackageZipFileStorage.SavePackage - Mcp
+2026-02-09 09:23:40,990 --> PackageDBStorage.Load
+2026-02-09 09:23:48,085 <-- PackageDBStorage.Load
+2026-02-09 09:23:48,116 --> PackageDBStorage.Load
+2026-02-09 09:23:55,223 <-- PackageDBStorage.Load
+2026-02-09 09:25:51,429 --> PackageInstallUtilities.LoadPackagesToFileSystem
+2026-02-09 09:25:51,429 --> PackageStorageComposer.Compose
+2026-02-09 09:25:51,429 --> PackageFileDesignModeDBStorage.Load
+2026-02-09 09:25:59,814 <-- PackageFileDesignModeDBStorage.Load
+2026-02-09 09:25:59,814 --> PackageFileDesignModeStorage.Load
+2026-02-09 09:26:17,003 <-- PackageFileDesignModeStorage.Load
+2026-02-09 09:26:17,003 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-02-09 09:26:17,015 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-02-09 09:26:17,042 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-02-09 09:26:17,042 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-02-09 09:26:17,042 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-02-09 09:26:17,042 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-02-09 09:26:17,047 --> PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-02-09 09:26:17,047 <-- PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-02-09 09:26:17,047 <-- PackageStorageComposer.Compose
+2026-02-09 09:26:17,050 --> PackageFileDesignModeStorage.Save: Packages [95] Schemas [5182] ReferenceAssemblies [53] SqlScripts [1193] PackageData [2557] SchemaResources [86261] CoreResources [0]
+2026-02-09 09:26:17,050 --> PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-02-09 09:26:17,050 <-- PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-02-09 09:26:17,050 <-- PackageFileDesignModeStorage.Save
+2026-02-09 09:26:17,050 --> PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2026-02-09 09:26:17,050 --> PackageDBStorage.Load
+2026-02-09 09:26:24,627 <-- PackageDBStorage.Load
+2026-02-09 09:26:51,268 --> PackageInstallUtilities.UpdateWorkspaceSolution
+2026-02-09 09:26:51,268 --> PackageDBStorage.Load
+2026-02-09 09:26:58,276 <-- PackageDBStorage.Load
+2026-02-09 09:27:29,772 <-- PackageInstallUtilities.UpdateWorkspaceSolution
+2026-02-09 09:27:29,772 <-- PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2026-02-09 09:27:29,772 <-- PackageInstallUtilities.LoadPackagesToFileSystem
+2026-02-09 09:27:33,312 --> PackageDBStorage.Load
+2026-02-09 09:27:38,104 <-- PackageDBStorage.Load
+2026-02-09 11:55:37,076 --> PackageDBStorage.Load
+2026-02-09 11:55:43,876 <-- PackageDBStorage.Load
+2026-02-09 14:59:14,899 --> PackageInstallUtilities.LoadPackagesToDB
+2026-02-09 14:59:14,899 --> PackageFileDesignModeStorage.Load
+2026-02-09 14:59:34,292 <-- PackageFileDesignModeStorage.Load
+2026-02-09 14:59:34,292 --> PackageFileDesignModeDBStorage.Load
+2026-02-09 14:59:43,057 <-- PackageFileDesignModeDBStorage.Load
+2026-02-09 14:59:43,063 --> PackageStorageComposer.Compose
+2026-02-09 14:59:43,063 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-02-09 14:59:43,069 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-02-09 14:59:43,071 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-02-09 14:59:43,071 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-02-09 14:59:43,077 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-02-09 14:59:43,110 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-02-09 14:59:43,186 --> PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2026-02-09 14:59:43,189 <-- PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2026-02-09 14:59:43,189 <-- PackageStorageComposer.Compose
+2026-02-09 14:59:43,189 --> PackageFileDesignModeDBStorage.Save: Packages [1] Schemas [1] ReferenceAssemblies [0] SqlScripts [0] PackageData [0] SchemaResources [0] CoreResources [0]
+2026-02-09 14:59:43,246 --> PackageFileDesignModeDBStorage.SavePackage - Mcp
+2026-02-09 14:59:43,368 <-- PackageFileDesignModeDBStorage.SavePackage - Mcp
+2026-02-09 14:59:44,177 InstallColumnLookupValues. Count (total): 0
+2026-02-09 14:59:44,307 <-- PackageFileDesignModeDBStorage.Save
+2026-02-09 14:59:44,307 <-- PackageInstallUtilities.LoadPackagesToDB
+2026-02-09 14:59:54,881 --> PackageDBStorage.Load
+2026-02-09 15:00:02,611 <-- PackageDBStorage.Load
+2026-02-09 15:00:02,644 --> PackageDBStorage.Load
+2026-02-09 15:00:11,105 <-- PackageDBStorage.Load
+2026-02-09 15:02:49,927 --> PackageInstallUtilities.LoadPackagesToFileSystem
+2026-02-09 15:02:49,927 --> PackageStorageComposer.Compose
+2026-02-09 15:02:49,927 --> PackageFileDesignModeDBStorage.Load
+2026-02-09 15:02:56,065 <-- PackageFileDesignModeDBStorage.Load
+2026-02-09 15:02:56,065 --> PackageFileDesignModeStorage.Load
+2026-02-09 15:03:13,406 <-- PackageFileDesignModeStorage.Load
+2026-02-09 15:03:13,406 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-02-09 15:03:13,424 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-02-09 15:03:13,457 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-02-09 15:03:13,457 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-02-09 15:03:13,457 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-02-09 15:03:13,457 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-02-09 15:03:13,462 --> PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-02-09 15:03:13,462 <-- PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-02-09 15:03:13,462 <-- PackageStorageComposer.Compose
+2026-02-09 15:03:13,462 --> PackageFileDesignModeStorage.Save: Packages [95] Schemas [5182] ReferenceAssemblies [53] SqlScripts [1193] PackageData [2557] SchemaResources [86261] CoreResources [0]
+2026-02-09 15:03:13,465 --> PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-02-09 15:03:13,465 <-- PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-02-09 15:03:13,465 <-- PackageFileDesignModeStorage.Save
+2026-02-09 15:03:13,465 --> PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2026-02-09 15:03:13,465 --> PackageDBStorage.Load
+2026-02-09 15:03:20,721 <-- PackageDBStorage.Load
+2026-02-09 15:03:42,912 --> PackageInstallUtilities.UpdateWorkspaceSolution
+2026-02-09 15:03:42,912 --> PackageDBStorage.Load
+2026-02-09 15:03:48,758 <-- PackageDBStorage.Load
+2026-02-09 15:04:22,242 <-- PackageInstallUtilities.UpdateWorkspaceSolution
+2026-02-09 15:04:22,242 <-- PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2026-02-09 15:04:22,242 <-- PackageInstallUtilities.LoadPackagesToFileSystem
+2026-02-09 15:04:26,197 --> PackageDBStorage.Load
+2026-02-09 15:04:30,831 <-- PackageDBStorage.Load
+2026-02-09 15:19:01,038 --> PackageDBStorageInternal.Load
+2026-02-09 15:19:07,181 <-- PackageDBStorageInternal.Load
+2026-02-09 15:19:07,181 --> PackageStorageComposer.Compose
+2026-02-09 15:19:07,181 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-02-09 15:19:07,181 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-02-09 15:19:07,181 --> IntermediatePackageStorage.ActualizePackageResourcesState
+2026-02-09 15:19:07,181 <-- IntermediatePackageStorage.ActualizePackageResourcesState
+2026-02-09 15:19:07,181 <-- PackageStorageComposer.Compose
+2026-02-09 15:19:07,185 --> PackageZipFileStorage.SavePackage - Mcp
+2026-02-09 15:19:07,185 --> PackageZipFileStorage.SavePackageDescriptor - Mcp
+2026-02-09 15:19:07,185 <-- PackageZipFileStorage.SavePackageDescriptor - Mcp
+2026-02-09 15:19:07,185 --> PackageZipFileStorage.SavePackageSchemas - Mcp
+2026-02-09 15:19:07,212 <-- PackageZipFileStorage.SavePackageSchemas - Mcp
+2026-02-09 15:19:07,267 --> PackageZipFileStorage.SavePackageReferenceAssemblies - Mcp
+2026-02-09 15:19:07,267 <-- PackageZipFileStorage.SavePackageReferenceAssemblies - Mcp
+2026-02-09 15:19:07,267 --> PackageZipFileStorage.SavePackageSqlScripts - Mcp
+2026-02-09 15:19:07,267 <-- PackageZipFileStorage.SavePackageSqlScripts - Mcp
+2026-02-09 15:19:07,267 --> PackageZipFileStorage.SavePackageData - Mcp
+2026-02-09 15:19:07,267 <-- PackageZipFileStorage.SavePackageData - Mcp
+2026-02-09 15:19:07,267 <-- PackageZipFileStorage.SavePackage - Mcp

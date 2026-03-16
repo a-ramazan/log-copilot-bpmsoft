@@ -1,0 +1,184 @@
+2025-10-20 14:58:58,354 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-10-20 14:59:05,171 [1] INFO  BPMSoft.Core.InMemoryPubSubServer .ctor - InMemoryPubSubServer started.
+2025-10-20 14:59:06,027 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Starting scheduler...
+2025-10-20 14:59:06,027 [.NET TP Worker] INFO  BPMStudio.Messaging.MessageBus.RabbitMQ.Actors.OperationModeDispatcherActor OnReceive - OperationModeDispatcher initialized
+2025-10-20 14:59:06,301 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BPMCRMQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 14:59:06,351 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "CampaignQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 14:59:06,359 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BulkEmailQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 14:59:06,375 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "TouchPointsQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 14:59:06,426 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Scheduler started
+2025-10-20 14:59:06,519 [1] INFO  BPMSoft.WebHost.Startup MapODataServiceRoute - Сервис OData успешно инициализирован
+2025-10-20 14:59:06,977 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob scheduled with 60 minutes frequency.
+2025-10-20 14:59:07,428 [1] WARN  BPMSoft.WebHost.Application OnStart - Application started
+2025-10-20 14:59:08,808 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob Execute - MailSyncJob Synchronization started.
+2025-10-20 15:15:46,449 [.NET TP Worker] WARN Supervisor BPMSoft.Core.AngularBuild.DataOperations.AngularValidationService CheckEnableAngularSupport - Поддержка Angular модулей отключена. Измените системную настройку "EnableAngularSupport"
+2025-10-20 15:15:46,509 [.NET TP Worker] WARN  BPMSoft.WebHost.Application OnShutdown - Application_End
+2025-10-20 15:15:46,928 [.NET TP Worker] INFO  BPMSoft.Core.InMemoryPubSubServer ExecutionContextCallback - InMemoryPubSubServer stopped.
+2025-10-20 15:15:49,373 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-10-20 15:15:56,890 [1] INFO  BPMSoft.Core.InMemoryPubSubServer .ctor - InMemoryPubSubServer started.
+2025-10-20 15:15:57,716 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Starting scheduler...
+2025-10-20 15:15:57,716 [.NET TP Worker] INFO  BPMStudio.Messaging.MessageBus.RabbitMQ.Actors.OperationModeDispatcherActor OnReceive - OperationModeDispatcher initialized
+2025-10-20 15:15:57,881 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BPMCRMQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 15:15:57,951 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "CampaignQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 15:15:57,959 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BulkEmailQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 15:15:57,975 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "TouchPointsQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 15:15:58,024 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Scheduler started
+2025-10-20 15:15:58,094 [1] INFO  BPMSoft.WebHost.Startup MapODataServiceRoute - Сервис OData успешно инициализирован
+2025-10-20 15:15:58,501 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob removed.
+2025-10-20 15:15:58,513 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob scheduled with 60 minutes frequency.
+2025-10-20 15:15:58,575 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob Execute - MailSyncJob Synchronization started.
+2025-10-20 15:15:59,019 [1] WARN  BPMSoft.WebHost.Application OnStart - Application started
+2025-10-20 15:18:09,580 [.NET Signal Handler] WARN  BPMSoft.WebHost.Application OnShutdown - Application_End
+2025-10-20 15:18:09,636 [.NET TP Worker] INFO  BPMSoft.Core.InMemoryPubSubServer ExecutionContextCallback - InMemoryPubSubServer stopped.
+2025-10-20 15:18:11,240 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-10-20 15:18:18,087 [1] INFO  BPMSoft.Core.InMemoryPubSubServer .ctor - InMemoryPubSubServer started.
+2025-10-20 15:18:18,833 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Starting scheduler...
+2025-10-20 15:18:18,833 [.NET TP Worker] INFO  BPMStudio.Messaging.MessageBus.RabbitMQ.Actors.OperationModeDispatcherActor OnReceive - OperationModeDispatcher initialized
+2025-10-20 15:18:18,977 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BPMCRMQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 15:18:18,984 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "CampaignQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 15:18:19,028 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BulkEmailQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 15:18:19,033 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "TouchPointsQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 15:18:19,081 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Scheduler started
+2025-10-20 15:18:19,163 [1] INFO  BPMSoft.WebHost.Startup MapODataServiceRoute - Сервис OData успешно инициализирован
+2025-10-20 15:18:19,574 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob removed.
+2025-10-20 15:18:19,585 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob scheduled with 60 minutes frequency.
+2025-10-20 15:18:19,612 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob Execute - MailSyncJob Synchronization started.
+2025-10-20 15:18:19,937 [1] WARN  BPMSoft.WebHost.Application OnStart - Application started
+2025-10-20 15:21:46,582 [.NET TP Worker] WARN Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer LogWarn - Запуск актуализации иерархии пакетов
+2025-10-20 15:21:46,603 [.NET TP Worker] WARN Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer LogWarn - Инициализация пакетов и зависимостей пакетов завершена
+2025-10-20 15:21:46,603 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 6f1af5c9-c5c0-4ddc-b05d-d348cb221e34
+2025-10-20 15:21:46,607 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 97107cec-cc2d-40ca-acc6-971fe2dbcde6
+2025-10-20 15:21:46,607 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: ce2f09ed-16df-4b9a-8585-0bb72c4c907f
+2025-10-20 15:21:46,607 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 96bde41e-4ed5-472d-ab7d-477dac4cedeb
+2025-10-20 15:21:46,607 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 3b8cafe4-7b28-4721-9d09-aa042038aa5a
+2025-10-20 15:21:46,607 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: ac349f30-8414-4c77-b718-c2036b19007f
+2025-10-20 15:21:46,607 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 15c247d7-6d0d-4150-95ae-66d36faf075d
+2025-10-20 15:21:46,607 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: c6d9ea48-18c5-44ac-80f4-55fb145ec8c1
+2025-10-20 15:21:46,607 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: d11fa397-2740-4a04-bfba-231c42bba954
+2025-10-20 15:21:46,607 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 591b06f4-bd01-4674-baf8-3b39287cfc1c
+2025-10-20 15:21:46,607 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: d35ed59a-cd0a-47fc-9fa3-471b752a87e9
+2025-10-20 15:21:46,607 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 58cb4a8e-e790-43ac-8569-7c4213b9b773
+2025-10-20 15:21:46,607 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 72ff6beb-5bb2-4e55-9af4-b2501dec7507
+2025-10-20 15:21:46,607 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 40cf7ff2-a112-4ade-85e0-8757fa9b5ba6
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 21ec689a-f30e-45f4-bbc0-a500600e3e6f
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 0406a445-ff39-4186-a6ca-1ecb2e2cca16
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 8cdd0a3c-22ee-482f-a48f-a7cc5d208c1a
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 17236456-c5f5-4b33-90f6-409c62d4ea67
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: b2d0720f-8d9c-4854-b030-02b7ba9d2eb5
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 3eb2b0a0-8643-4517-8cf3-a1e7d53bad9b
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: cda62254-3d04-449a-80f6-e71ff59ebce0
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: fddb3db6-9a31-4df8-8152-a628751bc929
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: fa5a5098-fecd-4219-8378-940b04560a02
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: dd5fe8df-2c3d-4081-b2b2-011356e2d5c3
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 367a86ff-c244-4423-b5eb-878d6044f342
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 0c78b738-8b0d-4270-bea5-af90f753c446
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 098f26bb-bb08-41a3-ac1a-2f7a8d1d8603
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 24a107aa-9a97-48af-9bdd-eac299d821dd
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 507bfee8-05e8-46a0-824c-003205395dff
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 00deab2d-c358-46ba-8e5f-1d1b4ba6eea4
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 51c28182-ed98-43b0-b5dc-7f58f634d8d2
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 1afb58f8-915f-4af0-a02d-a00294efa41e
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: ac9444c0-eb01-4d10-be92-24b448c5a3b6
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 4f2e8a91-c070-48b1-9d80-def4944110cb
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 7b5fb6fd-f6d9-4745-b71b-6b3266d52187
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 1212cf88-abac-43fd-a06d-e7ef79a4e283
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 0cd8a91d-ec4c-4108-b269-02f6da7e015c
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 1832addf-3d36-4f2f-bd0b-0099d01bacc9
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 88003436-c666-43f6-846d-a8fdecb5f7c7
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: cc3c94be-fa6d-4b89-bdbb-d6ae6efc6ae4
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 02108bdc-c13c-4112-81ef-9adb73e58137
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 7c3f5146-d8b8-46ed-ad9c-02a6403dfa5d
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: edf45a8b-e7c0-4bc9-9a0a-924c67ea810d
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: e785931c-de15-46a3-8c4a-74c3140d8f7d
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 546067dc-3b60-4df1-9904-5d8906c1d1ee
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 51af581c-789f-4920-bda9-b6a7b205d248
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: f148a01e-428a-439f-99a3-d123d8129dfd
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 90863fec-58a0-489e-a228-257cea151f78
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: fd19d307-7a9e-4503-a59d-402ad0ed202c
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 873417a8-6cbd-4015-bf9e-dbd9fec1c1e4
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 081c71e0-f7ba-4b16-b481-9579f885006a
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 5faea1d8-f502-4db2-9809-ba3c1115396f
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: bcffc823-9068-45df-8eeb-b64807df9bdd
+2025-10-20 15:21:46,610 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: ca3090cb-7cbd-4956-acde-76442c58fa1e
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: f6ea5193-c100-440b-8266-573fb0407ee6
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 678b0bcd-aa13-435f-9290-8cdd0b57a497
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 2d07ceeb-5855-496c-9d85-2b978b950aa6
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 3be08f08-4afd-4fd8-abfe-4084658bcc8e
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 710c4979-46fd-40b0-b424-3c0f5b00095b
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: c8bfee52-b2ec-4000-b83a-314ef128fc47
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: a786f8fc-140f-424b-8565-6e63a9a37826
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 8604002d-17a9-4dfb-9e94-697b8b0df749
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: de46fafd-c3bb-4e9b-80f7-e968031982f9
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 2723f2be-73df-4175-945c-39baabc52c82
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 3ed96543-adae-4131-be0f-6ed9c6f8c917
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 64aac2aa-cad6-49d0-b667-bac77e5257b1
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 495bb8c5-ab03-47d0-a0a1-ece7d991a207
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 83221534-3d57-463e-ae42-755af34b6d74
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 46adc534-0ad3-4846-b821-e00a14c59cdc
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: ca80f8a0-f16c-4614-8269-7cd7772b52d4
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 837c8b49-9266-4475-bd9f-7f17431e2943
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 456397a8-af0b-460f-992a-3624d376f283
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 6c013eb3-2878-4988-8ec5-476de7668dd9
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 4513d00e-4fcd-4b4a-acff-19cd5c89fafb
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 4eb1d675-c16c-4e5e-916f-f1f71884e885
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: dc694f56-29b0-4963-a145-d611408f0a37
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: baf4748f-0205-4faf-9b1d-61c42fb5402e
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: aa4306bb-3176-493f-a4fd-94454514fd0f
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 08d5ed9f-98ec-4e2e-a657-73dc4de78fdc
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: fd3231e2-7be3-4b99-8b20-6c316a2cd094
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 3f3d52f1-84d8-46f6-8650-fef411fd0d32
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: dfbea1fc-0e3d-4d1d-8e18-89309548c0d1
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: ae74d83e-bb7b-4728-8391-95d39cfa6c2d
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 1c8f276b-9e4f-43bf-9e14-e34ad750d400
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 737ae2ac-d32b-4171-8f6a-567e078cccb1
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 4258022a-9be7-42dd-a719-8d41ed9a8c3f
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: ec341534-7bc3-48c4-b5f8-7624f559a1aa
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 31b5d7f7-badf-48c1-9851-9c5977a10469
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 52db3f8a-7ce6-4d35-8983-f3a12d7b905e
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 9315d3c1-ec6f-40f2-91b9-94bd78378f81
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 835d0d28-20e3-45f3-87d0-fef3b1acbd5a
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 1d281873-5267-4c41-ad3c-10f366cf40b0
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 9b1c7d21-c9b1-496f-8d2f-7f738cfca17a
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 13b9c287-707b-4588-95dc-f40709dfb679
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: ec2bee4a-abe5-40cc-b2ec-8ddc62cd9807
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 2b162043-5f58-4132-afad-8579f16af8d6
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: 0dd70d92-db55-43fe-8d1d-7227ad0f5b31
+2025-10-20 15:21:46,614 [.NET TP Worker] INFO Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer ForEach - Запуск расчета иерархии пакета. Package Id: bba4c845-42c8-4398-8175-fd460f94b8e8
+2025-10-20 15:21:46,614 [.NET TP Worker] WARN Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer LogWarn - Расчет иерархии пакетов завершен
+2025-10-20 15:21:46,620 [.NET TP Worker] WARN Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer LogWarn - Инициализация иерархии пакетов завершена
+2025-10-20 15:21:46,651 [.NET TP Worker] WARN Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer LogWarn - Иерархия пакетов успешно обновлена в БД. Добавляемых записей: 2, удаляемых записей: 0, измененных записей: 2
+2025-10-20 15:21:46,651 [.NET TP Worker] WARN Supervisor BPMSoft.Core.PackageHierarchy.PackageHierarchyActualizer LogWarn - Актуализации иерархии пакетов завершена
+2025-10-20 15:27:19,019 [.NET TP Worker] WARN Supervisor BPMSoft.Core.AngularBuild.DataOperations.AngularValidationService CheckEnableAngularSupport - Поддержка Angular модулей отключена. Измените системную настройку "EnableAngularSupport"
+2025-10-20 15:27:19,052 [.NET TP Worker] WARN  BPMSoft.WebHost.Application OnShutdown - Application_End
+2025-10-20 15:27:19,139 [.NET TP Worker] INFO  BPMSoft.Core.InMemoryPubSubServer ExecutionContextCallback - InMemoryPubSubServer stopped.
+2025-10-20 15:27:21,299 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-10-20 15:27:27,138 [1] INFO  BPMSoft.Core.InMemoryPubSubServer .ctor - InMemoryPubSubServer started.
+2025-10-20 15:27:27,885 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Starting scheduler...
+2025-10-20 15:27:27,885 [.NET TP Worker] INFO  BPMStudio.Messaging.MessageBus.RabbitMQ.Actors.OperationModeDispatcherActor OnReceive - OperationModeDispatcher initialized
+2025-10-20 15:27:28,026 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BPMCRMQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 15:27:28,073 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "CampaignQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 15:27:28,089 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BulkEmailQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 15:27:28,097 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "TouchPointsQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 15:27:28,147 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Scheduler started
+2025-10-20 15:27:28,220 [1] INFO  BPMSoft.WebHost.Startup MapODataServiceRoute - Сервис OData успешно инициализирован
+2025-10-20 15:27:28,554 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob removed.
+2025-10-20 15:27:28,563 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob scheduled with 60 minutes frequency.
+2025-10-20 15:27:28,635 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob Execute - MailSyncJob Synchronization started.
+2025-10-20 15:27:28,908 [1] WARN  BPMSoft.WebHost.Application OnStart - Application started
+2025-10-20 15:51:27,291 [.NET TP Worker] WARN Supervisor BPMSoft.Core.AngularBuild.DataOperations.AngularValidationService BuildAngularModuleAsync - Поддержка Angular модулей отключена. Измените системную настройку "EnableAngularSupport"
+2025-10-20 15:51:27,331 [.NET TP Worker] WARN  BPMSoft.WebHost.Application Invoke - Application_End
+2025-10-20 15:51:27,412 [.NET TP Worker] INFO  BPMSoft.Core.InMemoryPubSubServer ExecutionContextCallback - InMemoryPubSubServer stopped.
+2025-10-20 15:51:29,371 [1] WARN  BPMSoft.WebHost.Application OnAfterConfigure - Application starting
+2025-10-20 15:51:35,755 [1] INFO  BPMSoft.Core.InMemoryPubSubServer .ctor - InMemoryPubSubServer started.
+2025-10-20 15:51:36,495 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Starting scheduler...
+2025-10-20 15:51:36,495 [.NET TP Worker] INFO  BPMStudio.Messaging.MessageBus.RabbitMQ.Actors.OperationModeDispatcherActor OnReceive - OperationModeDispatcher initialized
+2025-10-20 15:51:36,637 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BPMCRMQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 15:51:36,688 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "CampaignQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 15:51:36,736 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "BulkEmailQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 15:51:36,745 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Планировщик "TouchPointsQuartzScheduler" запущен. InstanceId: "NON_CLUSTERED"
+2025-10-20 15:51:36,793 [1] INFO  BPMSoft.WebHost.Application StartApplicationScheduler - Scheduler started
+2025-10-20 15:51:36,868 [1] INFO  BPMSoft.WebHost.Startup MapODataServiceRoute - Сервис OData успешно инициализирован
+2025-10-20 15:51:37,221 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob removed.
+2025-10-20 15:51:37,234 [1] INFO  BPMSoft.Configuration.MailSyncJob Register - MailSyncJob scheduled with 60 minutes frequency.
+2025-10-20 15:51:37,289 [.NET TP Worker] INFO  BPMSoft.Configuration.MailSyncJob Execute - MailSyncJob Synchronization started.
+2025-10-20 15:51:37,655 [1] WARN  BPMSoft.WebHost.Application OnStart - Application started

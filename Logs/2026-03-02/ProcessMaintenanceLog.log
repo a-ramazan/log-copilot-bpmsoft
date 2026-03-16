@@ -1,0 +1,4 @@
+2026-03-02 08:36:06,620 [1] INFO  ProcessMaintenanceLog Register - ProcessMaintenanceJob removed.
+2026-03-02 08:36:06,628 [1] INFO  ProcessMaintenanceLog Register - ProcessMaintenanceJob scheduled with 5 minutes frequency.
+2026-03-02 08:36:06,645 [1] INFO  ProcessMaintenanceLog Register - ProcessTempDataCleanupJob removed.
+2026-03-02 08:36:06,653 [1] INFO  ProcessMaintenanceLog Register - ProcessTempDataCleanupJob scheduled with 60 minutes frequency.

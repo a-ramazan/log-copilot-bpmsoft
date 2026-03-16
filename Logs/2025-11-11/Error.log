@@ -1,0 +1,2 @@
+2025-11-11 08:35:01,214 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token
+2025-11-11 08:35:19,561 [1] ERROR  BPMSoft.Core.Factories.DefaultBinder CheckForDuplicates - Check default binding duplicates error|BPMSoft.Core.DuplicateBindingException: Дублирование привязки для сервиса "BPMSoft.Configuration.AI.ILlmPdfExtractor": реализации "BPMSoft.Configuration.UsrPdfExtractor,BPMSoft.Configuration.AI.LlmPdfExtractor" с именем ""

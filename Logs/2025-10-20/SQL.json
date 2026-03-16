@@ -1,0 +1,680 @@
+{ "time": "2025-10-20 14:59:08.0627", "level": "WARN", "app": "dotnet", "thread": "55", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 14:59:08.0927", "level": "WARN", "app": "dotnet", "thread": "55", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 14:59:08.1452", "level": "WARN", "app": "dotnet", "thread": "55", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 14:59:08.1767", "level": "WARN", "app": "dotnet", "thread": "55", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:00:00.1725", "level": "WARN", "app": "dotnet", "thread": "99", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:00:00.2166", "level": "WARN", "app": "dotnet", "thread": "49", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:00:00.2252", "level": "WARN", "app": "dotnet", "thread": "99", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:00:00.2443", "level": "WARN", "app": "dotnet", "thread": "49", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:01:00.0370", "level": "WARN", "app": "dotnet", "thread": "93", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:01:00.0465", "level": "WARN", "app": "dotnet", "thread": "93", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:02:00.0609", "level": "WARN", "app": "dotnet", "thread": "92", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:02:00.0662", "level": "WARN", "app": "dotnet", "thread": "92", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:03:00.2180", "level": "WARN", "app": "dotnet", "thread": "78", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:03:00.2790", "level": "WARN", "app": "dotnet", "thread": "78", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:04:00.2978", "level": "WARN", "app": "dotnet", "thread": "93", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:04:00.3522", "level": "WARN", "app": "dotnet", "thread": "93", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:05:00.0896", "level": "WARN", "app": "dotnet", "thread": "70", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:05:00.0921", "level": "WARN", "app": "dotnet", "thread": "70", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:05:00.1257", "level": "WARN", "app": "dotnet", "thread": "60", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:05:00.2447", "level": "WARN", "app": "dotnet", "thread": "60", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:06:00.0694", "level": "WARN", "app": "dotnet", "thread": "74", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:06:00.0749", "level": "WARN", "app": "dotnet", "thread": "74", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:07:00.0194", "level": "WARN", "app": "dotnet", "thread": "51", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:07:00.0346", "level": "WARN", "app": "dotnet", "thread": "51", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:08:00.6781", "level": "WARN", "app": "dotnet", "thread": "51", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:08:00.6821", "level": "WARN", "app": "dotnet", "thread": "51", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:10:00.8030", "level": "WARN", "app": "dotnet", "thread": "71", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:10:00.9617", "level": "WARN", "app": "dotnet", "thread": "71", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:10:01.5378", "level": "WARN", "app": "dotnet", "thread": "47", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:10:01.8956", "level": "WARN", "app": "dotnet", "thread": "47", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:10:01.9061", "level": "WARN", "app": "dotnet", "thread": "102", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:10:01.9191", "level": "WARN", "app": "dotnet", "thread": "102", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:11:00.0667", "level": "WARN", "app": "dotnet", "thread": "98", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:11:01.0031", "level": "WARN", "app": "dotnet", "thread": "98", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:12:00.0647", "level": "WARN", "app": "dotnet", "thread": "103", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:12:00.0687", "level": "WARN", "app": "dotnet", "thread": "103", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:13:00.0486", "level": "WARN", "app": "dotnet", "thread": "103", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:13:00.0506", "level": "WARN", "app": "dotnet", "thread": "103", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:14:00.1308", "level": "WARN", "app": "dotnet", "thread": "62", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:14:00.1881", "level": "WARN", "app": "dotnet", "thread": "62", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:15:00.1874", "level": "WARN", "app": "dotnet", "thread": "104", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:15:00.2234", "level": "WARN", "app": "dotnet", "thread": "98", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:15:00.2335", "level": "WARN", "app": "dotnet", "thread": "98", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:15:00.2350", "level": "WARN", "app": "dotnet", "thread": "104", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:16:00.4572", "level": "WARN", "app": "dotnet", "thread": "60", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:16:00.5069", "level": "WARN", "app": "dotnet", "thread": "60", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:17:00.0747", "level": "WARN", "app": "dotnet", "thread": "109", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:17:00.0925", "level": "WARN", "app": "dotnet", "thread": "109", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:18:00.0300", "level": "WARN", "app": "dotnet", "thread": "50", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:18:00.0549", "level": "WARN", "app": "dotnet", "thread": "50", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:19:00.3206", "level": "WARN", "app": "dotnet", "thread": "65", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:19:00.3680", "level": "WARN", "app": "dotnet", "thread": "65", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:20:00.1068", "level": "WARN", "app": "dotnet", "thread": "57", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:20:00.1324", "level": "WARN", "app": "dotnet", "thread": "68", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:20:00.1324", "level": "WARN", "app": "dotnet", "thread": "57", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:20:00.1777", "level": "WARN", "app": "dotnet", "thread": "68", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:21:00.0504", "level": "WARN", "app": "dotnet", "thread": "65", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:21:00.0639", "level": "WARN", "app": "dotnet", "thread": "65", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:22:00.0378", "level": "WARN", "app": "dotnet", "thread": "15", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:22:00.0468", "level": "WARN", "app": "dotnet", "thread": "15", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:23:00.0362", "level": "WARN", "app": "dotnet", "thread": "65", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:23:00.0510", "level": "WARN", "app": "dotnet", "thread": "65", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:24:00.1087", "level": "WARN", "app": "dotnet", "thread": "13", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:24:00.1301", "level": "WARN", "app": "dotnet", "thread": "13", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:25:00.0734", "level": "WARN", "app": "dotnet", "thread": "78", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:25:00.0757", "level": "WARN", "app": "dotnet", "thread": "77", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:25:00.0757", "level": "WARN", "app": "dotnet", "thread": "78", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:25:00.0788", "level": "WARN", "app": "dotnet", "thread": "77", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:26:00.0343", "level": "WARN", "app": "dotnet", "thread": "3", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:26:00.0619", "level": "WARN", "app": "dotnet", "thread": "3", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:27:00.0320", "level": "WARN", "app": "dotnet", "thread": "44", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:27:00.0361", "level": "WARN", "app": "dotnet", "thread": "44", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:28:00.2973", "level": "WARN", "app": "dotnet", "thread": "62", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:28:00.3154", "level": "WARN", "app": "dotnet", "thread": "62", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:29:00.0465", "level": "WARN", "app": "dotnet", "thread": "79", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:29:00.0520", "level": "WARN", "app": "dotnet", "thread": "79", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:30:00.0543", "level": "WARN", "app": "dotnet", "thread": "16", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:30:00.0593", "level": "WARN", "app": "dotnet", "thread": "16", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:30:00.0602", "level": "WARN", "app": "dotnet", "thread": "96", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:30:00.0642", "level": "WARN", "app": "dotnet", "thread": "96", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:31:00.0271", "level": "WARN", "app": "dotnet", "thread": "94", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:31:00.0345", "level": "WARN", "app": "dotnet", "thread": "94", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:32:00.0328", "level": "WARN", "app": "dotnet", "thread": "104", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:32:00.0345", "level": "WARN", "app": "dotnet", "thread": "104", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:33:00.0961", "level": "WARN", "app": "dotnet", "thread": "106", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:33:00.1088", "level": "WARN", "app": "dotnet", "thread": "106", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:34:00.0451", "level": "WARN", "app": "dotnet", "thread": "106", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:34:00.0704", "level": "WARN", "app": "dotnet", "thread": "106", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:35:00.0197", "level": "WARN", "app": "dotnet", "thread": "117", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:35:00.0234", "level": "WARN", "app": "dotnet", "thread": "117", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:35:00.0315", "level": "WARN", "app": "dotnet", "thread": "106", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:35:00.0354", "level": "WARN", "app": "dotnet", "thread": "106", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:36:00.3759", "level": "WARN", "app": "dotnet", "thread": "3", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:36:00.3779", "level": "WARN", "app": "dotnet", "thread": "3", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:37:00.0300", "level": "WARN", "app": "dotnet", "thread": "125", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:37:00.0300", "level": "WARN", "app": "dotnet", "thread": "125", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:38:00.1639", "level": "WARN", "app": "dotnet", "thread": "129", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:38:00.1693", "level": "WARN", "app": "dotnet", "thread": "129", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:39:00.0584", "level": "WARN", "app": "dotnet", "thread": "134", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:39:00.0629", "level": "WARN", "app": "dotnet", "thread": "134", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:40:00.0602", "level": "WARN", "app": "dotnet", "thread": "132", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:40:00.0640", "level": "WARN", "app": "dotnet", "thread": "132", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:40:00.1036", "level": "WARN", "app": "dotnet", "thread": "139", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:40:00.1085", "level": "WARN", "app": "dotnet", "thread": "139", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:41:00.0626", "level": "WARN", "app": "dotnet", "thread": "125", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:41:00.0842", "level": "WARN", "app": "dotnet", "thread": "125", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:42:00.0400", "level": "WARN", "app": "dotnet", "thread": "131", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:42:00.0400", "level": "WARN", "app": "dotnet", "thread": "131", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:43:00.2730", "level": "WARN", "app": "dotnet", "thread": "152", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:43:00.2934", "level": "WARN", "app": "dotnet", "thread": "152", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:44:00.1276", "level": "WARN", "app": "dotnet", "thread": "150", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:44:00.2434", "level": "WARN", "app": "dotnet", "thread": "150", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:45:00.0356", "level": "WARN", "app": "dotnet", "thread": "156", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:45:00.0398", "level": "WARN", "app": "dotnet", "thread": "156", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:45:00.0561", "level": "WARN", "app": "dotnet", "thread": "150", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:45:00.0601", "level": "WARN", "app": "dotnet", "thread": "150", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:46:00.0499", "level": "WARN", "app": "dotnet", "thread": "147", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:46:00.0555", "level": "WARN", "app": "dotnet", "thread": "147", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:47:00.0281", "level": "WARN", "app": "dotnet", "thread": "170", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:47:00.0281", "level": "WARN", "app": "dotnet", "thread": "170", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:48:00.1285", "level": "WARN", "app": "dotnet", "thread": "166", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:48:00.1534", "level": "WARN", "app": "dotnet", "thread": "166", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:49:00.0672", "level": "WARN", "app": "dotnet", "thread": "187", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:49:00.0910", "level": "WARN", "app": "dotnet", "thread": "187", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:50:00.1243", "level": "WARN", "app": "dotnet", "thread": "173", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:50:00.1939", "level": "WARN", "app": "dotnet", "thread": "173", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:50:00.1951", "level": "WARN", "app": "dotnet", "thread": "191", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:50:00.2447", "level": "WARN", "app": "dotnet", "thread": "191", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:51:00.0296", "level": "WARN", "app": "dotnet", "thread": "95", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:51:00.0617", "level": "WARN", "app": "dotnet", "thread": "95", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:52:00.3077", "level": "WARN", "app": "dotnet", "thread": "80", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:52:00.3335", "level": "WARN", "app": "dotnet", "thread": "80", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:53:00.0220", "level": "WARN", "app": "dotnet", "thread": "60", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:53:00.0404", "level": "WARN", "app": "dotnet", "thread": "60", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:54:00.0558", "level": "WARN", "app": "dotnet", "thread": "78", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }
+{ "time": "2025-10-20 15:54:00.0596", "level": "WARN", "app": "dotnet", "thread": "78", "message": { SQL = 
+INSERT INTO "public"."SysProcessElementLog"("Id", "CreatedOn", "CreatedById", "ModifiedOn", "ModifiedById", "StartDate", "SysProcessId", "Caption", "StatusId", "Type", "SchemaElementUId", "OwnerId", "ErrorDescription", "NodeId")
+	VALUES(@Id, @CreatedOn, @CreatedById, @ModifiedOn, @ModifiedById, @StartDate, @SysProcessId, @Caption, @StatusId, @Type, @SchemaElementUId, @OwnerId, @ErrorDescription, @NodeId), ErrorMessage = 23503: insert or update on table "SysProcessElementLog" violates foreign key constraint "FKTQLhPckOuXfL4S8XTK2ODa6vErc"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information., Parameters = System.Collections.Generic.List`1[System.Object] } }

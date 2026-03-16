@@ -1,0 +1,8 @@
+2025-11-13 10:04:44,624 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogClientMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: undefined
+ line: undefined
+ column: undefined
+ message: Cannot read properties of null (reading 'value') 
+ date: Thu Nov 13 2025 13:04:44 GMT+0300 (Москва, стандартное время)
+ moduleId: UserProfile__SetupTelephonyParametersPageModule
+ moduleName: SetupTelephonyParametersPageModule

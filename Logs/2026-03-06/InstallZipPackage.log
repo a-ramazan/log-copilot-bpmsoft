@@ -1,0 +1,112 @@
+2026-03-06 14:33:13,680 [.NET TP Worker] INFO Supervisor InstallZipPackage Validate - Началась проверка пакетов
+2026-03-06 14:33:13,693 [.NET TP Worker] INFO Supervisor InstallZipPackage UploadNonChunkedFile - Загрузка файла: MLSummary_1.10.0.7002.zip 100%
+2026-03-06 14:33:13,708 [.NET TP Worker] INFO Supervisor InstallZipPackage Validate - Проверка пакетов завершена
+2026-03-06 14:33:13,886 [.NET TP Worker] INFO Supervisor InstallZipPackage CreateBackup - Началось резервное копирование конфигурации.
+2026-03-06 14:33:13,915 [.NET TP Worker] INFO Supervisor InstallZipPackage Load - Загрузка пакетов из архива
+2026-03-06 14:33:14,030 [.NET TP Worker] INFO Supervisor InstallZipPackage Load - Пакет "MLSummary" загружен
+2026-03-06 14:33:14,034 [.NET TP Worker] INFO Supervisor InstallZipPackage Load - Пакет "MLSummaryPage" загружен
+2026-03-06 14:33:14,330 [.NET TP Worker] INFO Supervisor InstallZipPackage CreateBackup - Резервная копия конфигурации успешно создана.
+2026-03-06 14:33:14,373 [.NET TP Worker] WARN Supervisor InstallZipPackage LogWarn - Установка приложения из файла началась. Имя приложения: MLSummary_1.10.0.7002. Код: MLSummary_1.10.0.7002.
+2026-03-06 14:33:14,373 [.NET TP Worker] WARN Supervisor InstallZipPackage LogWarn - Подготовка пакетов к инсталляции
+2026-03-06 14:33:14,398 [.NET TP Worker] INFO Supervisor InstallZipPackage Load - Загрузка пакетов из архива
+2026-03-06 14:33:14,451 [.NET TP Worker] INFO Supervisor InstallZipPackage Load - Пакет "MLSummary" загружен
+2026-03-06 14:33:14,451 [.NET TP Worker] INFO Supervisor InstallZipPackage Load - Пакет "MLSummaryPage" загружен
+2026-03-06 14:33:14,475 [.NET TP Worker] INFO Supervisor InstallZipPackage GetTargetPackages - Пропущено - Загрузка пакетов из базы данных (новое приложение)
+2026-03-06 14:33:14,475 [.NET TP Worker] INFO Supervisor InstallZipPackage Save - Сравнение пакетов
+2026-03-06 14:33:14,733 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "AdditionalObjects" в пакете "MLSummary"
+2026-03-06 14:33:14,769 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "MLSummaryConfigurationConstants" в пакете "MLSummary"
+2026-03-06 14:33:14,802 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "BootstrapModulesV2" в пакете "MLSummary"
+2026-03-06 14:33:14,840 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "MLSummaryElement" в пакете "MLSummary"
+2026-03-06 14:33:14,885 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "MLSummaryGenerateFeedback" в пакете "MLSummary"
+2026-03-06 14:33:14,909 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "BaseDtoClasses" в пакете "MLSummary"
+2026-03-06 14:33:14,950 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "MLSummary" в пакете "MLSummary"
+2026-03-06 14:33:14,987 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "MLSummaryService" в пакете "MLSummary"
+2026-03-06 14:33:15,041 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "ToneTypeInTag" в пакете "MLSummary"
+2026-03-06 14:33:15,086 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "ToneTypeLookupSection" в пакете "MLSummary"
+2026-03-06 14:33:15,126 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "ToneTypeFolder" в пакете "MLSummary"
+2026-03-06 14:33:15,173 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "MLSummaryBlock" в пакете "MLSummary"
+2026-03-06 14:33:15,211 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "ToneType" в пакете "MLSummary"
+2026-03-06 14:33:15,236 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "StringExtensions" в пакете "MLSummary"
+2026-03-06 14:33:15,259 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "ToneObjectForMessage" в пакете "MLSummary"
+2026-03-06 14:33:15,293 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "ToneTypePage" в пакете "MLSummary"
+2026-03-06 14:33:15,336 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "ToneTypeFile" в пакете "MLSummary"
+2026-03-06 14:33:15,373 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "ToneTypeInFolder" в пакете "MLSummary"
+2026-03-06 14:33:15,408 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "MLSummaryAngularGridLayoutEditItemModel" в пакете "MLSummary"
+2026-03-06 14:33:15,438 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "ToneTypePageCSS" в пакете "MLSummary"
+2026-03-06 14:33:15,472 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "Tone" в пакете "MLSummary"
+2026-03-06 14:33:15,494 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "MLDtoClasses" в пакете "MLSummary"
+2026-03-06 14:33:15,526 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "ToneTypeSection" в пакете "MLSummary"
+2026-03-06 14:33:15,562 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "ToneTypeTag" в пакете "MLSummary"
+2026-03-06 14:33:15,586 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "MLSummaryServerConstants" в пакете "MLSummary"
+2026-03-06 14:33:15,604 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSqlScriptSaved - Сохранен SQL скрипт "AddSysToneTypeRightsMSSql" в пакете "MLSummary"
+2026-03-06 14:33:15,607 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSqlScriptSaved - Сохранен SQL скрипт "AddSysToneTypeRightsPostgreSql" в пакете "MLSummary"
+2026-03-06 14:33:15,754 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaDataSaved - Сохранены данные "Lookup_Tone" в пакете "MLSummary"
+2026-03-06 14:33:15,769 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaDataSaved - Сохранены данные "SysModuleEntity_ToneType" в пакете "MLSummary"
+2026-03-06 14:33:15,846 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaDataSaved - Сохранены данные "ToneType_Values" в пакете "MLSummary"
+2026-03-06 14:33:15,946 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaDataSaved - Сохранены данные "SysModule_ToneTypeSection" в пакете "MLSummary"
+2026-03-06 14:33:15,976 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaDataSaved - Сохранены данные "SysImage_ToneTypeIcons" в пакете "MLSummary"
+2026-03-06 14:33:15,991 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaDataSaved - Сохранены данные "SysSettingsInFolder_MLSummaryServiceURL" в пакете "MLSummary"
+2026-03-06 14:33:16,026 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaDataSaved - Сохранены данные "SysProfileData_Tone" в пакете "MLSummary"
+2026-03-06 14:33:16,137 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaDataSaved - Сохранены данные "SysModuleEdit_ToneTypePage" в пакете "MLSummary"
+2026-03-06 14:33:16,223 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaDataSaved - Сохранены данные "LlmModel_Qwen" в пакете "MLSummary"
+2026-03-06 14:33:16,304 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaDataSaved - Сохранены данные "SysSettings_MLSummaryServiceURL" в пакете "MLSummary"
+2026-03-06 14:33:16,391 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaDataSaved - Сохранены данные "Lookup_ToneType" в пакете "MLSummary"
+2026-03-06 14:33:16,427 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaDataSaved - Сохранены данные "SysProfileData_ToneType" в пакете "MLSummary"
+2026-03-06 14:33:16,520 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaDataSaved - Сохранены данные "SysDetail_ToneTypeFileDetail" в пакете "MLSummary"
+2026-03-06 14:33:16,628 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaDataSaved - Сохранены данные "Tone_Values" в пакете "MLSummary"
+2026-03-06 14:33:16,630 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSaved - Пакет "MLSummary" сохранен
+2026-03-06 14:33:16,707 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "CasePage" в пакете "MLSummaryPage"
+2026-03-06 14:33:16,761 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "OpportunityPageV2" в пакете "MLSummaryPage"
+2026-03-06 14:33:16,800 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "MLSummaryCasePageCSS" в пакете "MLSummaryPage"
+2026-03-06 14:33:16,846 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "OpportunityPageCSS" в пакете "MLSummaryPage"
+2026-03-06 14:33:16,888 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "ClientMessageBridge" в пакете "MLSummaryPage"
+2026-03-06 14:33:16,888 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSaved - Пакет "MLSummaryPage" сохранен
+2026-03-06 14:33:17,540 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageResourceSaved - Добавлено - ресурсы в пакете "MLSummary"
+2026-03-06 14:33:17,559 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageResourceSaved - Добавлено - ресурсы в пакете "MLSummaryPage"
+2026-03-06 14:33:17,665 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageDependenciesSaved - Добавлено - зависимости пакета "MLSummary"
+2026-03-06 14:33:17,674 [.NET TP Worker] ERROR Supervisor InstallZipPackage InvokeWithLogging - System.ApplicationException: Зависимый пакет "Case" не найден
+   at BPMSoft.Core.Packages.PackageDBStorage.SavePackageDependencies(Package package) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Packages/PackageDBStorage.cs:line 1090
+   at BPMSoft.Core.Packages.PackageDBStorage.SaveDependencies() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Packages/PackageDBStorage.cs:line 2458
+   at BPMSoft.Core.Packages.PackageDBStorage.Save(IPackageContentProvider packageContentProvider) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Packages/PackageDBStorage.cs:line 3322
+   at BPMSoft.Core.Applications.Packages.Operations.SystemPackageOperations.PackageDBStorageInternal.Save(IPackageContentProvider packageContentProvider) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core.Applications/Packages/Operations/SystemPackageOperations.cs:line 90
+   at BPMSoft.Core.Applications.Packages.Operations.SystemPackageOperations.Save(IEnumerable`1 packages, PackageInstallOptions options) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core.Applications/Packages/Operations/SystemPackageOperations.cs:line 569
+   at BPMSoft.Core.Applications.Packages.SystemPackageManager.Save(PackageInstallOptions installOptions) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core.Applications/Packages/SystemPackageManager.cs:line 153
+   at BPMSoft.Core.Applications.Installation.PackageZipInstaller.Install(String sourcePath, String destinationPath, PackageInstallOptions installOptions) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core.Applications/Installation/PackageZipInstaller.cs:line 138
+   at BPMSoft.Core.Applications.Installation.AppInstaller.Install(String sourcePath, String destinationPath, PackageInstallOptions installOptions, IInstalledAppInfo installedAppInfo) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core.Applications/Installation/AppInstaller.cs:line 413
+   at BPMSoft.Core.ServiceModelContract.PackageInstaller.AppInstallerServiceInternal.<>c__DisplayClass10_0.<InstallApp>b__0() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core.ServiceModelContract/PackageInstaller/AppInstallerServiceInternal.cs:line 125
+   at BPMSoft.Core.ServiceModelContract.PackageInstaller.BaseInstallerServiceInternal.InvokeWithLogging[TResult](Func`1 action) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core.ServiceModelContract/PackageInstaller/BaseInstallerServiceInternal.cs:line 106
+2026-03-06 14:33:37,758 [.NET TP Worker] INFO Supervisor InstallZipPackage RestoreFromBackup - Начало восстановления конфигурации из резервной копии
+2026-03-06 14:33:37,758 [.NET TP Worker] INFO Supervisor InstallZipPackage Load - Загрузка пакетов из архива
+2026-03-06 14:33:37,767 [.NET TP Worker] INFO Supervisor InstallZipPackage Load - Загрузка пакетов из базы данных
+2026-03-06 14:33:47,567 [.NET TP Worker] INFO Supervisor InstallZipPackage Save - Сравнение пакетов
+2026-03-06 14:33:49,299 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSaved - Пакет "MLSummaryPage" сохранен
+2026-03-06 14:33:50,543 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSaved - Пакет "MLSummary" сохранен
+2026-03-06 14:33:50,664 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageHierarchyUpdating - Актуализация иерархии пакетов запущена
+2026-03-06 14:33:50,698 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageHierarchyUpdated - Актуализация иерархии пакетов завершена. Измененных записей: 0
+2026-03-06 14:33:50,698 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageHierarchySaved - Иерархия пакетов обновлена
+2026-03-06 14:33:50,698 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallStart - Обновление измененных схем
+2026-03-06 14:33:50,703 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallFinish - Обновлены измененные схемы
+2026-03-06 14:33:50,703 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallStart - Обновление измененных схем
+2026-03-06 14:33:50,703 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallFinish - Обновлены измененные схемы
+2026-03-06 14:33:51,297 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallStart - Обновление структуры таблиц в базе данных
+2026-03-06 14:33:51,321 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallStart - Установка данных
+2026-03-06 14:33:51,326 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallStart - Установка SQL скриптов
+2026-03-06 14:33:51,331 [.NET TP Worker] INFO Supervisor InstallZipPackage Save - Компиляция конфигурационной библиотеки
+2026-03-06 14:36:15,890 [.NET TP Worker] INFO Supervisor InstallZipPackage Save - При компиляции конфигурационной библиотеки возникли ошибки и (или) предупреждения
+2026-03-06 14:36:15,894 [.NET TP Worker] WARN Supervisor InstallZipPackage LogWarning - /usr/share/dotnet/sdk/8.0.410/Microsoft.Common.CurrentVersion.targets(2412,5) предупреждение MSB3245: Could not resolve this reference. Could not locate the assembly "System.Collections.Immutable". Check to make sure the assembly exists on disk. If this reference is required by your code, you may get compilation errors.
+2026-03-06 14:36:15,894 [.NET TP Worker] WARN Supervisor InstallZipPackage LogWarning - /usr/share/dotnet/sdk/8.0.410/Microsoft.Common.CurrentVersion.targets(2412,5) предупреждение MSB3243: No way to resolve conflict between "System.Drawing.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" and "System.Drawing.Common, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51". Choosing "System.Drawing.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" arbitrarily.
+2026-03-06 14:36:15,894 [.NET TP Worker] WARN Supervisor InstallZipPackage LogWarning - /usr/share/dotnet/sdk/8.0.410/Microsoft.Common.CurrentVersion.targets(2412,5) предупреждение MSB3243: No way to resolve conflict between "System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" and "System.Collections.Immutable". Choosing "System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" arbitrarily.
+2026-03-06 14:36:15,894 [.NET TP Worker] INFO Supervisor InstallZipPackage Save - Компиляция Angular модулей
+2026-03-06 14:36:15,902 [.NET TP Worker] INFO Supervisor InstallZipPackage ConfigurationBuildStarted - Сборка конфигурации запущена
+2026-03-06 14:36:15,918 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Информация о существующих схемах загружена
+2026-03-06 14:36:22,546 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Информация о новых схемах загружена
+2026-03-06 14:36:23,055 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Состояние конфигурации загружено
+2026-03-06 14:36:23,063 [.NET TP Worker] INFO Supervisor InstallZipPackage BuildChangedServerContent - Генерация серверного контента конфигурации запущена
+2026-03-06 14:36:23,063 [.NET TP Worker] INFO Supervisor InstallZipPackage BuildChangedServerContent - Серверный контент конфигурации сгенерирован
+2026-03-06 14:36:23,115 [.NET TP Worker] INFO Supervisor InstallZipPackage UpdateMetaInfo - Файл мета информации обновлен
+2026-03-06 14:36:23,125 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Генерация файлового контента запущена
+2026-03-06 14:36:26,791 [.NET TP Worker] INFO Supervisor InstallZipPackage WriteFileContentDescriptors - Дескрипторы файлового контента загружены
+2026-03-06 14:36:26,801 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Дескрипторы файлового контента сгенерированы
+2026-03-06 14:36:26,962 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Загрузчик файлового контента сгенерирован
+2026-03-06 14:38:50,542 [.NET TP Worker] INFO Supervisor InstallZipPackage ConfigurationBuildFinished - Сборка конфигурации завершена
+2026-03-06 14:38:50,562 [.NET TP Worker] INFO Supervisor InstallZipPackage RestoreFromBackup - Восстановление конфигурации из резервной копии завершено

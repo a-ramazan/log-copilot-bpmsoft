@@ -1,0 +1,133 @@
+2026-02-24 08:38:39,389 [.NET TP Worker] INFO Supervisor InstallZipPackage Validate - Началась проверка пакетов
+2026-02-24 08:38:39,392 [.NET TP Worker] INFO Supervisor InstallZipPackage Validate - Проверка пакетов завершена
+2026-02-24 08:38:39,496 [.NET TP Worker] INFO Supervisor InstallZipPackage Validate - Началась проверка пакетов
+2026-02-24 08:38:39,502 [.NET TP Worker] INFO Supervisor InstallZipPackage UploadNonChunkedFile - Загрузка файла: GoAI_2026-02-12_11.32.48.zip 100%
+2026-02-24 08:38:39,516 [.NET TP Worker] INFO Supervisor InstallZipPackage Validate - Проверка пакетов завершена
+2026-02-24 08:38:39,668 [.NET TP Worker] INFO Supervisor InstallZipPackage CreateBackup - Началось резервное копирование конфигурации.
+2026-02-24 08:38:39,677 [.NET TP Worker] INFO Supervisor InstallZipPackage Load - Загрузка пакетов из архива
+2026-02-24 08:38:39,733 [.NET TP Worker] INFO Supervisor InstallZipPackage Load - Пакет "GoAI" загружен
+2026-02-24 08:38:39,741 [.NET TP Worker] INFO Supervisor InstallZipPackage CreateBackup - Резервная копия конфигурации успешно создана.
+2026-02-24 08:38:39,780 [.NET TP Worker] WARN Supervisor InstallZipPackage LogWarn - Установка приложения из файла началась. Имя приложения: GoAI_2026-02-12_11.32.48. Код: GoAI_2026-02-12_11.32.48.
+2026-02-24 08:38:39,781 [.NET TP Worker] WARN Supervisor InstallZipPackage LogWarn - Подготовка пакетов к инсталляции
+2026-02-24 08:38:39,806 [.NET TP Worker] INFO Supervisor InstallZipPackage Load - Загрузка пакетов из архива
+2026-02-24 08:38:39,838 [.NET TP Worker] INFO Supervisor InstallZipPackage Load - Пакет "GoAI" загружен
+2026-02-24 08:38:39,844 [.NET TP Worker] INFO Supervisor InstallZipPackage GetTargetPackages - Пропущено - Загрузка пакетов из базы данных (новое приложение)
+2026-02-24 08:38:39,844 [.NET TP Worker] INFO Supervisor InstallZipPackage Save - Сравнение пакетов
+2026-02-24 08:38:40,016 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "GoAiChatViewModelStyles" в пакете "GoAI"
+2026-02-24 08:38:40,141 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "CommunicationPanel" в пакете "GoAI"
+2026-02-24 08:38:40,181 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "GoAiService" в пакете "GoAI"
+2026-02-24 08:38:40,218 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "GoAiChatModule" в пакете "GoAI"
+2026-02-24 08:38:40,252 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "GoCommunicationPanelCSS" в пакете "GoAI"
+2026-02-24 08:38:40,280 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaSaved - Сохранена схема "GoAiChatViewModel" в пакете "GoAI"
+2026-02-24 08:38:40,381 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaDataSaved - Сохранены данные "SysSettingsValue_GoAi" в пакете "GoAI"
+2026-02-24 08:38:40,394 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaDataSaved - Сохранены данные "SysSettingsInFolder_GoAi" в пакете "GoAI"
+2026-02-24 08:38:40,491 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaDataSaved - Сохранены данные "SysSettings_GoAi" в пакете "GoAI"
+2026-02-24 08:38:40,560 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSchemaDataSaved - Сохранены данные "SysSettingsFolder_GoAi" в пакете "GoAI"
+2026-02-24 08:38:40,688 [.NET TP Worker] INFO Supervisor InstallZipPackage OnFileContentChanged - Сохранены файлы в пакете "GoAI"
+2026-02-24 08:38:40,688 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageSaved - Пакет "GoAI" сохранен
+2026-02-24 08:38:40,775 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageResourceSaved - Добавлено - ресурсы в пакете "GoAI"
+2026-02-24 08:38:40,795 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageDependenciesSaved - Добавлено - зависимости пакета "GoAI"
+2026-02-24 08:38:40,835 [.NET TP Worker] INFO Supervisor InstallZipPackage OnSchemasCaptionLocalizationSaved - Добавлено - локализации заголовков схем в пакете "GoAI"
+2026-02-24 08:38:40,938 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageHierarchyUpdating - Актуализация иерархии пакетов запущена
+2026-02-24 08:38:40,989 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageHierarchyUpdated - Актуализация иерархии пакетов завершена. Измененных записей: 12
+2026-02-24 08:38:40,989 [.NET TP Worker] INFO Supervisor InstallZipPackage OnPackageHierarchySaved - Иерархия пакетов обновлена
+2026-02-24 08:38:40,989 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallStart - Обновление измененных схем
+2026-02-24 08:38:41,675 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallStart - Обновление структуры таблиц в базе данных
+2026-02-24 08:38:41,693 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallStart - Установка данных
+2026-02-24 08:38:42,123 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallSuccess - Генерация исходного кода схемы "GoAiChatViewModelStyles" из пакета "GoAI"
+2026-02-24 08:38:42,236 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallSuccess - Генерация исходного кода схемы "CommunicationPanel" из пакета "GoAI"
+2026-02-24 08:38:42,997 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallSuccess - Генерация исходного кода схемы "GoAiService" из пакета "GoAI"
+2026-02-24 08:38:43,053 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallSuccess - Генерация исходного кода схемы "GoAiChatModule" из пакета "GoAI"
+2026-02-24 08:38:43,109 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallSuccess - Генерация исходного кода схемы "GoCommunicationPanelCSS" из пакета "GoAI"
+2026-02-24 08:38:43,186 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallSuccess - Генерация исходного кода схемы "GoAiChatViewModel" из пакета "GoAI"
+2026-02-24 08:38:43,241 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallSuccess - Установлены данные "SysSettingsInFolder_GoAi" из пакета "GoAI"
+2026-02-24 08:38:43,442 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallSuccess - Установлены данные "SysSettings_GoAi" из пакета "GoAI"
+2026-02-24 08:38:43,591 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallSuccess - Установлены данные "SysSettingsFolder_GoAi" из пакета "GoAI"
+2026-02-24 08:38:43,734 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallSuccess - Установлены данные "SysSettingsValue_GoAi" из пакета "GoAI"
+2026-02-24 08:38:43,743 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallSuccess - Установлены справочные значения "SysSettingsValue_GoAi" из пакета "GoAI"
+2026-02-24 08:38:43,766 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallSuccess - Установлены справочные значения "SysSettingsInFolder_GoAi" из пакета "GoAI"
+2026-02-24 08:38:43,800 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallSuccess - Установлены справочные значения "SysSettingsFolder_GoAi" из пакета "GoAI"
+2026-02-24 08:38:44,115 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallFinish - Обновлены измененные схемы
+2026-02-24 08:38:44,115 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallStart - Обновление измененных схем
+2026-02-24 08:38:44,115 [.NET TP Worker] INFO Supervisor InstallZipPackage OnInstallFinish - Обновлены измененные схемы
+2026-02-24 08:38:44,115 [.NET TP Worker] INFO Supervisor InstallZipPackage Save - Компиляция конфигурационной библиотеки
+2026-02-24 08:40:32,104 [.NET TP Worker] INFO Supervisor InstallZipPackage Save - При компиляции конфигурационной библиотеки возникли ошибки и (или) предупреждения
+2026-02-24 08:40:32,104 [.NET TP Worker] WARN Supervisor InstallZipPackage LogWarning - /usr/share/dotnet/sdk/8.0.410/Microsoft.Common.CurrentVersion.targets(2412,5) предупреждение MSB3245: Could not resolve this reference. Could not locate the assembly "System.Collections.Immutable". Check to make sure the assembly exists on disk. If this reference is required by your code, you may get compilation errors.
+2026-02-24 08:40:32,104 [.NET TP Worker] WARN Supervisor InstallZipPackage LogWarning - /usr/share/dotnet/sdk/8.0.410/Microsoft.Common.CurrentVersion.targets(2412,5) предупреждение MSB3243: No way to resolve conflict between "System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" and "System.Collections.Immutable". Choosing "System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" arbitrarily.
+2026-02-24 08:40:32,104 [.NET TP Worker] WARN Supervisor InstallZipPackage LogWarning - /usr/share/dotnet/sdk/8.0.410/Microsoft.Common.CurrentVersion.targets(2412,5) предупреждение MSB3243: No way to resolve conflict between "System.Drawing.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" and "System.Drawing.Common, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51". Choosing "System.Drawing.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" arbitrarily.
+2026-02-24 08:40:32,104 [.NET TP Worker] INFO Supervisor InstallZipPackage Save - Компиляция Angular модулей
+2026-02-24 08:40:32,108 [.NET TP Worker] INFO Supervisor InstallZipPackage ConfigurationBuildStarted - Сборка конфигурации запущена
+2026-02-24 08:40:32,113 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Информация о существующих схемах загружена
+2026-02-24 08:40:36,869 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Информация о новых схемах загружена
+2026-02-24 08:40:37,156 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Состояние конфигурации загружено
+2026-02-24 08:40:37,160 [.NET TP Worker] INFO Supervisor InstallZipPackage BuildChangedServerContent - Генерация серверного контента конфигурации запущена
+2026-02-24 08:40:37,160 [.NET TP Worker] INFO Supervisor InstallZipPackage BuildChangedServerContent - Серверный контент конфигурации сгенерирован
+2026-02-24 08:40:37,181 [.NET TP Worker] INFO Supervisor InstallZipPackage UpdateMetaInfo - Файл мета информации обновлен
+2026-02-24 08:40:37,183 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Генерация файлового контента запущена
+2026-02-24 08:40:39,090 [.NET TP Worker] INFO Supervisor InstallZipPackage WriteFileContentDescriptors - Дескрипторы файлового контента загружены
+2026-02-24 08:40:39,093 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Дескрипторы файлового контента сгенерированы
+2026-02-24 08:40:39,191 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Загрузчик файлового контента сгенерирован
+2026-02-24 08:42:26,342 [.NET TP Worker] INFO Supervisor InstallZipPackage ConfigurationBuildFinished - Сборка конфигурации завершена
+2026-02-24 08:42:26,557 [.NET TP Worker] WARN Supervisor InstallZipPackage LogWarn - Приложение установлено успешно
+2026-02-24 08:53:08,398 [.NET TP Worker] INFO Supervisor InstallZipPackage ConfigurationBuildStarted - Сборка конфигурации запущена
+2026-02-24 08:53:08,405 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Информация о существующих схемах загружена
+2026-02-24 08:53:12,547 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Информация о новых схемах загружена
+2026-02-24 08:53:12,922 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Состояние конфигурации загружено
+2026-02-24 08:53:12,922 [.NET TP Worker] INFO Supervisor InstallZipPackage BuildAllServerContent - Генерация серверного контента конфигурации запущена
+2026-02-24 08:54:09,464 [.NET TP Worker] INFO Supervisor InstallZipPackage BuildAllServerContent - Серверный контент конфигурации сгенерирован
+2026-02-24 08:54:09,481 [.NET TP Worker] INFO Supervisor InstallZipPackage UpdateMetaInfo - Файл мета информации обновлен
+2026-02-24 08:54:09,483 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Генерация файлового контента запущена
+2026-02-24 08:54:11,403 [.NET TP Worker] INFO Supervisor InstallZipPackage WriteFileContentDescriptors - Дескрипторы файлового контента загружены
+2026-02-24 08:54:11,407 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Дескрипторы файлового контента сгенерированы
+2026-02-24 08:54:11,519 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Загрузчик файлового контента сгенерирован
+2026-02-24 08:55:41,436 [.NET TP Worker] INFO Supervisor InstallZipPackage ConfigurationBuildFinished - Сборка конфигурации завершена
+2026-02-24 09:17:43,665 [.NET TP Worker] INFO Supervisor InstallZipPackage ConfigurationBuildStarted - Сборка конфигурации запущена
+2026-02-24 09:17:43,673 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Информация о существующих схемах загружена
+2026-02-24 09:17:47,453 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Информация о новых схемах загружена
+2026-02-24 09:17:47,842 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Состояние конфигурации загружено
+2026-02-24 09:17:47,842 [.NET TP Worker] INFO Supervisor InstallZipPackage BuildChangedServerContent - Генерация серверного контента конфигурации запущена
+2026-02-24 09:17:47,844 [.NET TP Worker] INFO Supervisor InstallZipPackage BuildChangedServerContent - Серверный контент конфигурации сгенерирован
+2026-02-24 09:17:47,872 [.NET TP Worker] INFO Supervisor InstallZipPackage UpdateMetaInfo - Файл мета информации обновлен
+2026-02-24 09:17:47,874 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Генерация файлового контента запущена
+2026-02-24 09:17:49,870 [.NET TP Worker] INFO Supervisor InstallZipPackage WriteFileContentDescriptors - Дескрипторы файлового контента загружены
+2026-02-24 09:17:49,873 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Дескрипторы файлового контента сгенерированы
+2026-02-24 09:17:49,974 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Загрузчик файлового контента сгенерирован
+2026-02-24 09:19:15,845 [.NET TP Worker] INFO Supervisor InstallZipPackage ConfigurationBuildFinished - Сборка конфигурации завершена
+2026-02-24 09:26:17,369 [.NET TP Worker] INFO Supervisor InstallZipPackage ConfigurationBuildStarted - Сборка конфигурации запущена
+2026-02-24 09:26:17,378 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Информация о существующих схемах загружена
+2026-02-24 09:26:20,933 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Информация о новых схемах загружена
+2026-02-24 09:26:21,282 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Состояние конфигурации загружено
+2026-02-24 09:26:21,284 [.NET TP Worker] INFO Supervisor InstallZipPackage BuildChangedServerContent - Генерация серверного контента конфигурации запущена
+2026-02-24 09:26:21,284 [.NET TP Worker] INFO Supervisor InstallZipPackage BuildChangedServerContent - Серверный контент конфигурации сгенерирован
+2026-02-24 09:26:21,318 [.NET TP Worker] INFO Supervisor InstallZipPackage UpdateMetaInfo - Файл мета информации обновлен
+2026-02-24 09:26:21,321 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Генерация файлового контента запущена
+2026-02-24 09:26:23,488 [.NET TP Worker] INFO Supervisor InstallZipPackage WriteFileContentDescriptors - Дескрипторы файлового контента загружены
+2026-02-24 09:26:23,491 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Дескрипторы файлового контента сгенерированы
+2026-02-24 09:26:23,602 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Загрузчик файлового контента сгенерирован
+2026-02-24 09:27:48,053 [.NET TP Worker] INFO Supervisor InstallZipPackage ConfigurationBuildFinished - Сборка конфигурации завершена
+2026-02-24 09:34:32,383 [.NET TP Worker] INFO Supervisor InstallZipPackage Load - Загрузка пакетов из базы данных
+2026-02-24 12:01:41,121 [.NET TP Worker] INFO Supervisor InstallZipPackage ConfigurationBuildStarted - Сборка конфигурации запущена
+2026-02-24 12:01:41,127 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Информация о существующих схемах загружена
+2026-02-24 12:01:44,971 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Информация о новых схемах загружена
+2026-02-24 12:01:45,135 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Состояние конфигурации загружено
+2026-02-24 12:01:45,135 [.NET TP Worker] INFO Supervisor InstallZipPackage BuildAllServerContent - Генерация серверного контента конфигурации запущена
+2026-02-24 12:02:16,827 [.NET TP Worker] INFO Supervisor InstallZipPackage BuildAllServerContent - Серверный контент конфигурации сгенерирован
+2026-02-24 12:02:16,847 [.NET TP Worker] INFO Supervisor InstallZipPackage UpdateMetaInfo - Файл мета информации обновлен
+2026-02-24 12:02:16,849 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Генерация файлового контента запущена
+2026-02-24 12:02:18,739 [.NET TP Worker] INFO Supervisor InstallZipPackage WriteFileContentDescriptors - Дескрипторы файлового контента загружены
+2026-02-24 12:02:18,742 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Дескрипторы файлового контента сгенерированы
+2026-02-24 12:02:18,850 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Загрузчик файлового контента сгенерирован
+2026-02-24 12:03:50,759 [.NET TP Worker] INFO Supervisor InstallZipPackage ConfigurationBuildFinished - Сборка конфигурации завершена
+2026-02-24 12:29:54,940 [.NET TP Worker] INFO Supervisor InstallZipPackage ConfigurationBuildStarted - Сборка конфигурации запущена
+2026-02-24 12:29:54,946 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Информация о существующих схемах загружена
+2026-02-24 12:29:58,518 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Информация о новых схемах загружена
+2026-02-24 12:29:58,659 [.NET TP Worker] INFO Supervisor InstallZipPackage GetConfigurationSchemasState - Состояние конфигурации загружено
+2026-02-24 12:29:58,660 [.NET TP Worker] INFO Supervisor InstallZipPackage BuildChangedServerContent - Генерация серверного контента конфигурации запущена
+2026-02-24 12:29:58,660 [.NET TP Worker] INFO Supervisor InstallZipPackage BuildChangedServerContent - Серверный контент конфигурации сгенерирован
+2026-02-24 12:29:58,679 [.NET TP Worker] INFO Supervisor InstallZipPackage UpdateMetaInfo - Файл мета информации обновлен
+2026-02-24 12:29:58,681 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Генерация файлового контента запущена
+2026-02-24 12:30:00,737 [.NET TP Worker] INFO Supervisor InstallZipPackage WriteFileContentDescriptors - Дескрипторы файлового контента загружены
+2026-02-24 12:30:00,737 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Дескрипторы файлового контента сгенерированы
+2026-02-24 12:30:00,849 [.NET TP Worker] INFO Supervisor InstallZipPackage GenerateAsync - Загрузчик файлового контента сгенерирован
+2026-02-24 12:31:35,976 [.NET TP Worker] INFO Supervisor InstallZipPackage ConfigurationBuildFinished - Сборка конфигурации завершена
+2026-02-24 12:33:56,342 [.NET TP Worker] INFO Supervisor InstallZipPackage LogInfo - Загрузка пакетов из базы данных

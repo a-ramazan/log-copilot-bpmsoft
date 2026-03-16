@@ -1,0 +1,473 @@
+2025-12-04 07:39:38,072 --> PackageDBStorage.Load
+2025-12-04 07:39:46,923 <-- PackageDBStorage.Load
+2025-12-04 09:09:58,497 --> PackageInstallUtilities.LoadPackagesToDB
+2025-12-04 09:09:58,497 --> PackageFileDesignModeStorage.Load
+2025-12-04 09:09:59,271 BPMSoft.Core.Packages.Exceptions.InvalidDescriptorInFileSystemException: Некорректный дескриптор:
+Файл по пути "/app/BPMSoft.Configuration/Pkg/AI/Schemas/LlmYandexVlmProvider/descriptor.json" не найден
+Путь: /app/BPMSoft.Configuration/Pkg/AI/Schemas/LlmYandexVlmProvider
+ ---> System.IO.FileNotFoundException: Файл по пути "/app/BPMSoft.Configuration/Pkg/AI/Schemas/LlmYandexVlmProvider/descriptor.json" не найден
+   at BPMSoft.Core.Packages.PackageFileStorage.CheckFileExist(String filePath, Boolean throwException) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Packages/PackageFileStorage.cs:line 1278
+   at BPMSoft.Core.Packages.PackageFileStorage.CreateDescriptor[T](String directoryPath, Action`2 initializeDescriptor) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Packages/PackageFileStorage.cs:line 579
+   --- End of inner exception stack trace ---
+2025-12-04 09:10:25,409 <-- PackageFileDesignModeStorage.Load
+2025-12-04 09:10:25,409 --> PackageFileDesignModeDBStorage.Load
+2025-12-04 09:10:34,331 <-- PackageFileDesignModeDBStorage.Load
+2025-12-04 09:10:34,335 --> PackageStorageComposer.Compose
+2025-12-04 09:10:34,335 --> PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 09:10:34,340 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:10:34,340 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:10:34,347 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:10:34,378 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 09:10:34,444 --> PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2025-12-04 09:10:34,444 <-- PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2025-12-04 09:10:34,444 <-- PackageStorageComposer.Compose
+2025-12-04 09:10:34,448 --> PackageFileDesignModeDBStorage.Save: Packages [2] Schemas [3] ReferenceAssemblies [0] SqlScripts [0] PackageData [0] SchemaResources [2] CoreResources [0]
+2025-12-04 09:10:34,508 --> PackageFileDesignModeDBStorage.SavePackage - AI
+2025-12-04 09:10:34,632 <-- PackageFileDesignModeDBStorage.SavePackage - AI
+2025-12-04 09:10:34,632 --> PackageFileDesignModeDBStorage.SavePackage - ML
+2025-12-04 09:10:34,774 <-- PackageFileDesignModeDBStorage.SavePackage - ML
+2025-12-04 09:10:34,791 Deleted - resource en-US for schema 'LlmYandexVlmProvider'
+2025-12-04 09:10:34,792 Deleted - resource ru-RU for schema 'LlmYandexVlmProvider'
+2025-12-04 09:10:35,816 InstallColumnLookupValues. Count (total): 0
+2025-12-04 09:10:36,149 <-- PackageFileDesignModeDBStorage.Save
+2025-12-04 09:10:36,149 <-- PackageInstallUtilities.LoadPackagesToDB
+2025-12-04 09:11:16,699 --> PackageInstallUtilities.LoadPackagesToDB
+2025-12-04 09:11:16,699 --> PackageFileDesignModeStorage.Load
+2025-12-04 09:11:17,551 BPMSoft.Core.Packages.Exceptions.InvalidDescriptorInFileSystemException: Некорректный дескриптор:
+Файл по пути "/app/BPMSoft.Configuration/Pkg/AI/Schemas/LlmYandexVlmProvider/descriptor.json" не найден
+Путь: /app/BPMSoft.Configuration/Pkg/AI/Schemas/LlmYandexVlmProvider
+ ---> System.IO.FileNotFoundException: Файл по пути "/app/BPMSoft.Configuration/Pkg/AI/Schemas/LlmYandexVlmProvider/descriptor.json" не найден
+   at BPMSoft.Core.Packages.PackageFileStorage.CreateDescriptor[T](String directoryPath, Action`2 initializeDescriptor) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Packages/PackageFileStorage.cs:line 579
+   --- End of inner exception stack trace ---
+2025-12-04 09:11:35,192 <-- PackageFileDesignModeStorage.Load
+2025-12-04 09:11:35,192 --> PackageFileDesignModeDBStorage.Load
+2025-12-04 09:11:42,603 <-- PackageFileDesignModeDBStorage.Load
+2025-12-04 09:11:42,603 --> PackageStorageComposer.Compose
+2025-12-04 09:11:42,603 --> PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 09:11:42,607 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:11:42,612 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:11:42,644 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 09:11:42,716 --> PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2025-12-04 09:11:42,716 <-- PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2025-12-04 09:11:42,716 <-- PackageStorageComposer.Compose
+2025-12-04 09:11:42,716 --> PackageFileDesignModeDBStorage.Save: Packages [1] Schemas [25] ReferenceAssemblies [7] SqlScripts [0] PackageData [10] SchemaResources [101] CoreResources [0]
+2025-12-04 09:11:42,755 --> PackageFileDesignModeDBStorage.SavePackage - AI
+2025-12-04 09:11:42,777 --> PackageDBStorage.Load
+2025-12-04 09:11:42,783 <-- PackageDBStorage.Load
+2025-12-04 09:11:46,210 <-- PackageFileDesignModeDBStorage.SavePackage - AI
+2025-12-04 09:11:46,358 Added - 1 ru-RU resource values for schema 'AuthorizationUtilities'
+2025-12-04 09:11:46,370 Added - 1 ar-SA resource values for schema 'LlmModel'
+2025-12-04 09:11:46,370 Added - 1 en-US resource values for schema 'LlmAttachment'
+2025-12-04 09:11:46,370 Added - 1 fa-IR resource values for schema 'LlmModel'
+2025-12-04 09:11:46,370 Added - 1 ru-RU resource values for schema 'FileExtensions'
+2025-12-04 09:11:46,370 Added - 1 de-DE resource values for schema 'LlmModel'
+2025-12-04 09:11:46,370 Added - 1 en-US resource values for schema 'LlmAttachmentInjector'
+2025-12-04 09:11:46,370 Added - 1 en-US resource values for schema 'AuthorizationConstants'
+2025-12-04 09:11:46,370 Added - 1 fr-FR resource values for schema 'LlmModel'
+2025-12-04 09:11:46,370 Added - 1 en-US resource values for schema 'ILlmProvider'
+2025-12-04 09:11:46,382 Added - 1 es-ES resource values for schema 'LlmModel'
+2025-12-04 09:11:46,435 Added - 8 en-US resource values for schema 'LlmModel'
+2025-12-04 09:11:46,691 Added - 1 en-US resource values for schema 'AuthorizationUtilities'
+2025-12-04 09:11:46,692 Added - 1 ru-RU resource values for schema 'ILlmProvider'
+2025-12-04 09:11:46,692 Added - 1 ru-RU resource values for schema 'LlmAttachment'
+2025-12-04 09:11:46,692 Added - 1 ru-RU resource values for schema 'AuthorizationConstants'
+2025-12-04 09:11:46,692 Added - 1 ru-RU resource values for schema 'ILlmAttachmentInjector'
+2025-12-04 09:11:46,692 Added - 2 ru-RU resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,692 Added - 1 en-US resource values for schema 'ILlmPdfExtractor'
+2025-12-04 09:11:46,692 Added - 1 sv-SE resource values for schema 'LlmModel'
+2025-12-04 09:11:46,692 Added - 1 en-US resource values for schema 'FileExtensions'
+2025-12-04 09:11:46,692 Added - 1 it-IT resource values for schema 'LlmModel'
+2025-12-04 09:11:46,692 Added - 1 en-US resource values for schema 'LlmOllamaModel'
+2025-12-04 09:11:46,692 Added - 5 en-US resource values for schema 'LlmLocalizableStringConstants'
+2025-12-04 09:11:46,692 Added - 1 ru-RU resource values for schema 'LlmOpenAiCompatibleProvider'
+2025-12-04 09:11:46,692 Added - 1 en-US resource values for schema 'ILlmAttachmentInjector'
+2025-12-04 09:11:46,692 Added - 1 en-US resource values for schema 'LlmConstants'
+2025-12-04 09:11:46,692 Added - 1 fa-IR resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,692 Added - 1 en-US resource values for schema 'LlmYandexModel'
+2025-12-04 09:11:46,692 Added - 1 en-US resource values for schema 'LlmPdfExtractor'
+2025-12-04 09:11:46,692 Added - 1 th-TH resource values for schema 'LlmModel'
+2025-12-04 09:11:46,692 Added - 1 sv-SE resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,692 Added - 1 ro-RO resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,692 Added - 1 cs-CZ resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,692 Added - 1 fa-IR resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,692 Added - 1 es-ES resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,692 Added - 1 pt-BR resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,692 Added - 1 ru-RU resource values for schema 'LocalizableStringUtilities'
+2025-12-04 09:11:46,692 Added - 1 de-DE resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,692 Added - 1 en-US resource values for schema 'RestExtensions'
+2025-12-04 09:11:46,692 Added - 1 ru-RU resource values for schema 'LlmOllamaProvider'
+2025-12-04 09:11:46,692 Added - 1 ru-RU resource values for schema 'LlmConstants'
+2025-12-04 09:11:46,692 Added - 1 ru-RU resource values for schema 'RestExtensions'
+2025-12-04 09:11:46,692 Added - 5 en-US resource values for schema 'LlmUserTask'
+2025-12-04 09:11:46,692 Added - 1 th-TH resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,692 Added - 1 vi-VN resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,692 Added - 1 ar-SA resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,692 Added - 1 nl-NL resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,692 Added - 1 ru-RU resource values for schema 'LlmYandexProvider'
+2025-12-04 09:11:46,692 Added - 1 uk-UA resource values for schema 'LlmModel'
+2025-12-04 09:11:46,692 Added - 1 cs-CZ resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,692 Added - 1 cs-CZ resource values for schema 'LlmModel'
+2025-12-04 09:11:46,692 Added - 1 th-TH resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,692 Added - 1 ru-RU resource values for schema 'LlmOpenAiCompatibleModel'
+2025-12-04 09:11:46,692 Added - 2 ru-RU resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,692 Added - 1 pt-PT resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,692 Added - 1 es-ES resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,692 Added - 1 uk-UA resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,692 Added - 1 sv-SE resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,692 Added - 1 en-US resource values for schema 'LlmOllamaProvider'
+2025-12-04 09:11:46,692 Added - 1 vi-VN resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,692 Added - 8 ru-RU resource values for schema 'LlmUserTask'
+2025-12-04 09:11:46,692 Added - 1 pt-BR resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,692 Added - 1 it-IT resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,692 Added - 1 he-IL resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,692 Added - 1 it-IT resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,692 Added - 1 ru-RU resource values for schema 'LlmPdfExtractor'
+2025-12-04 09:11:46,692 Added - 1 ru-RU resource values for schema 'LlmProviderException'
+2025-12-04 09:11:46,692 Added - 1 en-US resource values for schema 'LlmOpenAiCompatibleModel'
+2025-12-04 09:11:46,692 Added - 1 pt-BR resource values for schema 'LlmModel'
+2025-12-04 09:11:46,692 Added - 1 de-DE resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,692 Added - 1 en-US resource values for schema 'LocalizableStringUtilities'
+2025-12-04 09:11:46,692 Added - 1 pl-PL resource values for schema 'LlmModel'
+2025-12-04 09:11:46,692 Added - 1 pt-PT resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,692 Added - 1 ro-RO resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,692 Added - 1 pl-PL resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,692 Added - 1 ru-RU resource values for schema 'LlmOllamaModel'
+2025-12-04 09:11:46,692 Added - 9 ru-RU resource values for schema 'LlmModel'
+2025-12-04 09:11:46,692 Added - 1 en-US resource values for schema 'LlmOpenAiCompatibleProvider'
+2025-12-04 09:11:46,692 Added - 1 en-US resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,692 Added - 1 ru-RU resource values for schema 'LlmYandexModel'
+2025-12-04 09:11:46,692 Added - 1 fr-FR resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,692 Added - 1 uk-UA resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,692 Added - 5 ru-RU resource values for schema 'LlmLocalizableStringConstants'
+2025-12-04 09:11:46,692 Added - 1 en-US resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,692 Added - 1 ro-RO resource values for schema 'LlmModel'
+2025-12-04 09:11:46,692 Added - 1 he-IL resource values for schema 'LlmModel'
+2025-12-04 09:11:46,692 Added - 1 pt-PT resource values for schema 'LlmModel'
+2025-12-04 09:11:46,692 Added - 1 en-US resource values for schema 'LlmYandexProvider'
+2025-12-04 09:11:46,692 Added - 1 nl-NL resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,692 Added - 1 ru-RU resource values for schema 'LlmAttachmentInjector'
+2025-12-04 09:11:46,697 Added - 1 fr-FR resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,697 Added - 1 vi-VN resource values for schema 'LlmModel'
+2025-12-04 09:11:46,697 Added - 1 he-IL resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,697 Added - 1 ru-RU resource values for schema 'ILlmPdfExtractor'
+2025-12-04 09:11:46,697 Added - 1 pl-PL resource values for schema 'LlmModelType'
+2025-12-04 09:11:46,697 Added - 1 nl-NL resource values for schema 'LlmModel'
+2025-12-04 09:11:46,697 Added - 1 en-US resource values for schema 'LlmProviderException'
+2025-12-04 09:11:46,697 Added - 1 ar-SA resource values for schema 'LlmModelApiType'
+2025-12-04 09:11:46,767 Added - 5 en-US resource values for schema 'LlmUserTaskPropertiesPage'
+2025-12-04 09:11:46,769 Added - 5 ru-RU resource values for schema 'LlmUserTaskPropertiesPage'
+2025-12-04 09:11:56,146 InstallColumnLookupValues. Count (total): 1
+2025-12-04 09:11:56,146 Count (by package [89735b9f-99b9-1565-973d-c243513be938]): 2
+2025-12-04 09:11:56,146 Count (by schema [SysProcessUserTask]): 1
+2025-12-04 09:11:56,149 Count (by schema [LlmModel]): 54
+2025-12-04 09:11:56,510 <-- PackageFileDesignModeDBStorage.Save
+2025-12-04 09:11:56,510 <-- PackageInstallUtilities.LoadPackagesToDB
+2025-12-04 09:13:20,333 --> PackageInstallUtilities.LoadPackagesToDB
+2025-12-04 09:13:20,333 --> PackageFileDesignModeStorage.Load
+2025-12-04 09:13:39,099 <-- PackageFileDesignModeStorage.Load
+2025-12-04 09:13:39,099 --> PackageFileDesignModeDBStorage.Load
+2025-12-04 09:13:46,510 <-- PackageFileDesignModeDBStorage.Load
+2025-12-04 09:13:46,510 --> PackageStorageComposer.Compose
+2025-12-04 09:13:46,510 --> PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 09:13:46,510 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:13:46,513 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:13:46,518 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:13:46,576 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 09:13:46,640 --> PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2025-12-04 09:13:46,642 <-- PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2025-12-04 09:13:46,642 <-- PackageStorageComposer.Compose
+2025-12-04 09:13:46,642 --> PackageFileDesignModeDBStorage.Save: Packages [1] Schemas [0] ReferenceAssemblies [0] SqlScripts [0] PackageData [0] SchemaResources [0] CoreResources [0]
+2025-12-04 09:13:46,700 --> PackageFileDesignModeDBStorage.SavePackage - Custom
+2025-12-04 09:13:46,727 <-- PackageFileDesignModeDBStorage.SavePackage - Custom
+2025-12-04 09:13:47,670 InstallColumnLookupValues. Count (total): 0
+2025-12-04 09:13:47,670 <-- PackageFileDesignModeDBStorage.Save
+2025-12-04 09:13:47,670 <-- PackageInstallUtilities.LoadPackagesToDB
+2025-12-04 09:22:34,955 --> PackageDBStorage.Load
+2025-12-04 09:22:42,098 <-- PackageDBStorage.Load
+2025-12-04 09:22:42,127 --> PackageDBStorage.Load
+2025-12-04 09:22:49,212 <-- PackageDBStorage.Load
+2025-12-04 09:25:25,784 --> PackageInstallUtilities.LoadPackagesToFileSystem
+2025-12-04 09:25:25,784 --> PackageStorageComposer.Compose
+2025-12-04 09:25:25,784 --> PackageFileDesignModeDBStorage.Load
+2025-12-04 09:25:32,241 <-- PackageFileDesignModeDBStorage.Load
+2025-12-04 09:25:32,241 --> PackageFileDesignModeStorage.Load
+2025-12-04 09:25:50,789 <-- PackageFileDesignModeStorage.Load
+2025-12-04 09:25:50,789 --> PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 09:25:50,808 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:25:50,846 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:25:50,848 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:25:50,848 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 09:25:50,851 --> PackageFileDesignModeStorage.ActualizePackageResourcesState
+2025-12-04 09:25:50,851 <-- PackageFileDesignModeStorage.ActualizePackageResourcesState
+2025-12-04 09:25:50,851 <-- PackageStorageComposer.Compose
+2025-12-04 09:25:50,861 --> PackageFileDesignModeStorage.Save: Packages [95] Schemas [5182] ReferenceAssemblies [53] SqlScripts [1193] PackageData [2557] SchemaResources [86261] CoreResources [0]
+2025-12-04 09:25:50,861 --> PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2025-12-04 09:25:50,861 <-- PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2025-12-04 09:25:50,863 <-- PackageFileDesignModeStorage.Save
+2025-12-04 09:25:50,863 --> PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2025-12-04 09:25:50,863 --> PackageDBStorage.Load
+2025-12-04 09:25:57,627 <-- PackageDBStorage.Load
+2025-12-04 09:26:47,758 --> PackageInstallUtilities.UpdateWorkspaceSolution
+2025-12-04 09:26:47,758 --> PackageDBStorage.Load
+2025-12-04 09:26:54,061 <-- PackageDBStorage.Load
+2025-12-04 09:27:29,049 <-- PackageInstallUtilities.UpdateWorkspaceSolution
+2025-12-04 09:27:29,049 <-- PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2025-12-04 09:27:29,049 <-- PackageInstallUtilities.LoadPackagesToFileSystem
+2025-12-04 09:27:33,136 --> PackageDBStorage.Load
+2025-12-04 09:27:37,974 <-- PackageDBStorage.Load
+2025-12-04 09:29:05,205 --> PackageDBStorage.Load
+2025-12-04 09:29:05,212 <-- PackageDBStorage.Load
+2025-12-04 09:29:05,782 --> PackageDBStorage.Load
+2025-12-04 09:29:05,785 <-- PackageDBStorage.Load
+2025-12-04 09:32:14,393 --> PackageDBStorage.Load
+2025-12-04 09:32:20,665 <-- PackageDBStorage.Load
+2025-12-04 09:32:21,987 --> PackageDBStorage.Load
+2025-12-04 09:32:28,300 <-- PackageDBStorage.Load
+2025-12-04 09:32:28,327 --> PackageDBStorage.Load
+2025-12-04 09:32:34,727 <-- PackageDBStorage.Load
+2025-12-04 09:34:29,053 --> PackageInstallUtilities.LoadPackagesToFileSystem
+2025-12-04 09:34:29,053 --> PackageStorageComposer.Compose
+2025-12-04 09:34:29,053 --> PackageFileDesignModeDBStorage.Load
+2025-12-04 09:34:35,219 <-- PackageFileDesignModeDBStorage.Load
+2025-12-04 09:34:35,219 --> PackageFileDesignModeStorage.Load
+2025-12-04 09:34:52,550 <-- PackageFileDesignModeStorage.Load
+2025-12-04 09:34:52,550 --> PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 09:34:52,569 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:34:52,609 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:34:52,609 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:34:52,609 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 09:34:52,614 --> PackageFileDesignModeStorage.ActualizePackageResourcesState
+2025-12-04 09:34:52,614 <-- PackageFileDesignModeStorage.ActualizePackageResourcesState
+2025-12-04 09:34:52,614 <-- PackageStorageComposer.Compose
+2025-12-04 09:34:52,619 --> PackageFileDesignModeStorage.Save: Packages [96] Schemas [5182] ReferenceAssemblies [53] SqlScripts [1193] PackageData [2558] SchemaResources [86261] CoreResources [0]
+2025-12-04 09:34:52,619 --> PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2025-12-04 09:34:52,619 <-- PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2025-12-04 09:34:52,619 --> PackageFileDesignModeStorage.DeletePackageItems - AI
+2025-12-04 09:34:52,622 <-- PackageFileDesignModeStorage.DeletePackageItems - AI
+2025-12-04 09:34:52,622 --> PackageFileDesignModeStorage.UpdatePackage - AI
+2025-12-04 09:34:52,622 --> PackageFileDesignModeStorage.SavePackage - AI
+2025-12-04 09:34:52,622 --> PackageFileDesignModeStorage.SavePackageDescriptor - AI
+2025-12-04 09:34:52,631 <-- PackageFileDesignModeStorage.SavePackageDescriptor - AI
+2025-12-04 09:34:52,631 --> PackageFileDesignModeStorage.SavePackageSchemas - AI
+2025-12-04 09:34:52,634 <-- PackageFileDesignModeStorage.SavePackageSchemas - AI
+2025-12-04 09:34:54,274 --> PackageFileDesignModeStorage.SavePackageReferenceAssemblies - AI
+2025-12-04 09:34:54,274 <-- PackageFileDesignModeStorage.SavePackageReferenceAssemblies - AI
+2025-12-04 09:34:54,274 --> PackageFileDesignModeStorage.SavePackageSqlScripts - AI
+2025-12-04 09:34:54,279 <-- PackageFileDesignModeStorage.SavePackageSqlScripts - AI
+2025-12-04 09:34:54,279 --> PackageFileDesignModeStorage.SavePackageData - AI
+2025-12-04 09:34:54,842 <-- PackageFileDesignModeStorage.SavePackageData - AI
+2025-12-04 09:34:54,842 <-- PackageFileDesignModeStorage.SavePackage - AI
+2025-12-04 09:34:54,842 <-- PackageFileDesignModeStorage.UpdatePackage - AI
+2025-12-04 09:34:56,315 <-- PackageFileDesignModeStorage.Save
+2025-12-04 09:34:56,315 --> PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2025-12-04 09:34:56,315 --> PackageDBStorage.Load
+2025-12-04 09:35:03,175 <-- PackageDBStorage.Load
+2025-12-04 09:35:24,973 --> PackageInstallUtilities.UpdateWorkspaceSolution
+2025-12-04 09:35:24,973 --> PackageDBStorage.Load
+2025-12-04 09:35:31,622 <-- PackageDBStorage.Load
+2025-12-04 09:36:05,542 <-- PackageInstallUtilities.UpdateWorkspaceSolution
+2025-12-04 09:36:05,542 <-- PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2025-12-04 09:36:05,542 <-- PackageInstallUtilities.LoadPackagesToFileSystem
+2025-12-04 09:36:09,492 --> PackageDBStorage.Load
+2025-12-04 09:36:14,039 <-- PackageDBStorage.Load
+2025-12-04 09:41:54,920 --> PackageDBStorage.Load
+2025-12-04 09:42:01,277 <-- PackageDBStorage.Load
+2025-12-04 09:42:02,948 --> PackageDBStorage.Load
+2025-12-04 09:42:09,185 <-- PackageDBStorage.Load
+2025-12-04 09:42:09,219 --> PackageDBStorage.Load
+2025-12-04 09:42:15,525 <-- PackageDBStorage.Load
+2025-12-04 09:44:09,862 --> PackageInstallUtilities.LoadPackagesToFileSystem
+2025-12-04 09:44:09,862 --> PackageStorageComposer.Compose
+2025-12-04 09:44:09,862 --> PackageFileDesignModeDBStorage.Load
+2025-12-04 09:44:16,080 <-- PackageFileDesignModeDBStorage.Load
+2025-12-04 09:44:16,080 --> PackageFileDesignModeStorage.Load
+2025-12-04 09:44:33,989 <-- PackageFileDesignModeStorage.Load
+2025-12-04 09:44:33,989 --> PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 09:44:34,005 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:44:34,043 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:44:34,045 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:44:34,045 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 09:44:34,048 --> PackageFileDesignModeStorage.ActualizePackageResourcesState
+2025-12-04 09:44:34,048 <-- PackageFileDesignModeStorage.ActualizePackageResourcesState
+2025-12-04 09:44:34,048 <-- PackageStorageComposer.Compose
+2025-12-04 09:44:34,052 --> PackageFileDesignModeStorage.Save: Packages [95] Schemas [5182] ReferenceAssemblies [53] SqlScripts [1193] PackageData [2557] SchemaResources [86261] CoreResources [0]
+2025-12-04 09:44:34,052 --> PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2025-12-04 09:44:34,052 <-- PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2025-12-04 09:44:34,052 <-- PackageFileDesignModeStorage.Save
+2025-12-04 09:44:34,052 --> PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2025-12-04 09:44:34,052 --> PackageDBStorage.Load
+2025-12-04 09:44:39,907 <-- PackageDBStorage.Load
+2025-12-04 09:45:01,528 --> PackageInstallUtilities.UpdateWorkspaceSolution
+2025-12-04 09:45:01,528 --> PackageDBStorage.Load
+2025-12-04 09:45:07,697 <-- PackageDBStorage.Load
+2025-12-04 09:45:41,674 <-- PackageInstallUtilities.UpdateWorkspaceSolution
+2025-12-04 09:45:41,674 <-- PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2025-12-04 09:45:41,674 <-- PackageInstallUtilities.LoadPackagesToFileSystem
+2025-12-04 09:45:45,670 --> PackageDBStorage.Load
+2025-12-04 09:45:50,253 <-- PackageDBStorage.Load
+2025-12-04 09:49:24,008 --> PackageDBStorage.Load
+2025-12-04 09:49:30,295 <-- PackageDBStorage.Load
+2025-12-04 09:49:31,885 --> PackageDBStorage.Load
+2025-12-04 09:49:38,137 <-- PackageDBStorage.Load
+2025-12-04 09:49:38,168 --> PackageDBStorage.Load
+2025-12-04 09:49:45,277 <-- PackageDBStorage.Load
+2025-12-04 09:51:47,608 --> PackageInstallUtilities.LoadPackagesToFileSystem
+2025-12-04 09:51:47,608 --> PackageStorageComposer.Compose
+2025-12-04 09:51:47,608 --> PackageFileDesignModeDBStorage.Load
+2025-12-04 09:51:53,806 <-- PackageFileDesignModeDBStorage.Load
+2025-12-04 09:51:53,806 --> PackageFileDesignModeStorage.Load
+2025-12-04 09:52:12,105 <-- PackageFileDesignModeStorage.Load
+2025-12-04 09:52:12,105 --> PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 09:52:12,123 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:52:12,160 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:52:12,160 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 09:52:12,160 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 09:52:12,165 --> PackageFileDesignModeStorage.ActualizePackageResourcesState
+2025-12-04 09:52:12,165 <-- PackageFileDesignModeStorage.ActualizePackageResourcesState
+2025-12-04 09:52:12,165 <-- PackageStorageComposer.Compose
+2025-12-04 09:52:12,171 --> PackageFileDesignModeStorage.Save: Packages [95] Schemas [5182] ReferenceAssemblies [53] SqlScripts [1193] PackageData [2557] SchemaResources [86261] CoreResources [0]
+2025-12-04 09:52:12,171 --> PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2025-12-04 09:52:12,171 <-- PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2025-12-04 09:52:12,171 <-- PackageFileDesignModeStorage.Save
+2025-12-04 09:52:12,171 --> PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2025-12-04 09:52:12,171 --> PackageDBStorage.Load
+2025-12-04 09:52:18,439 <-- PackageDBStorage.Load
+2025-12-04 09:52:41,122 --> PackageInstallUtilities.UpdateWorkspaceSolution
+2025-12-04 09:52:41,122 --> PackageDBStorage.Load
+2025-12-04 09:52:47,333 <-- PackageDBStorage.Load
+2025-12-04 09:53:21,636 <-- PackageInstallUtilities.UpdateWorkspaceSolution
+2025-12-04 09:53:21,636 <-- PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2025-12-04 09:53:21,636 <-- PackageInstallUtilities.LoadPackagesToFileSystem
+2025-12-04 09:53:25,612 --> PackageDBStorage.Load
+2025-12-04 09:53:30,847 <-- PackageDBStorage.Load
+2025-12-04 11:23:12,066 --> PackageDBStorage.Load
+2025-12-04 11:23:18,317 <-- PackageDBStorage.Load
+2025-12-04 11:35:55,539 --> PackageInstallUtilities.LoadPackagesToDB
+2025-12-04 11:35:55,539 --> PackageFileDesignModeStorage.Load
+2025-12-04 11:36:14,042 <-- PackageFileDesignModeStorage.Load
+2025-12-04 11:36:14,042 --> PackageFileDesignModeDBStorage.Load
+2025-12-04 11:36:20,482 <-- PackageFileDesignModeDBStorage.Load
+2025-12-04 11:36:20,486 --> PackageStorageComposer.Compose
+2025-12-04 11:36:20,486 --> PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 11:36:20,491 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 11:36:20,493 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 11:36:20,497 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 11:36:20,527 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 11:36:20,599 --> PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2025-12-04 11:36:20,599 <-- PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2025-12-04 11:36:20,599 <-- PackageStorageComposer.Compose
+2025-12-04 11:36:20,603 --> PackageFileDesignModeDBStorage.Save: Packages [1] Schemas [3] ReferenceAssemblies [0] SqlScripts [0] PackageData [1] SchemaResources [0] CoreResources [0]
+2025-12-04 11:36:20,671 --> PackageFileDesignModeDBStorage.SavePackage - AI
+2025-12-04 11:36:20,960 <-- PackageFileDesignModeDBStorage.SavePackage - AI
+2025-12-04 11:36:21,848 InstallColumnLookupValues. Count (total): 0
+2025-12-04 11:36:21,851 <-- PackageFileDesignModeDBStorage.Save
+2025-12-04 11:36:21,851 <-- PackageInstallUtilities.LoadPackagesToDB
+2025-12-04 11:42:32,417 --> PackageInstallUtilities.LoadPackagesToDB
+2025-12-04 11:42:32,417 --> PackageFileDesignModeStorage.Load
+2025-12-04 11:42:51,274 <-- PackageFileDesignModeStorage.Load
+2025-12-04 11:42:51,274 --> PackageFileDesignModeDBStorage.Load
+2025-12-04 11:42:57,048 <-- PackageFileDesignModeDBStorage.Load
+2025-12-04 11:42:57,048 --> PackageStorageComposer.Compose
+2025-12-04 11:42:57,048 --> PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 11:42:57,048 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 11:42:57,048 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 11:42:57,054 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 11:42:57,080 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 11:42:57,141 --> PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2025-12-04 11:42:57,144 <-- PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2025-12-04 11:42:57,144 <-- PackageStorageComposer.Compose
+2025-12-04 11:42:57,144 --> PackageFileDesignModeDBStorage.Save: Packages [1] Schemas [1] ReferenceAssemblies [0] SqlScripts [0] PackageData [0] SchemaResources [0] CoreResources [0]
+2025-12-04 11:42:57,193 --> PackageFileDesignModeDBStorage.SavePackage - AI
+2025-12-04 11:42:57,293 <-- PackageFileDesignModeDBStorage.SavePackage - AI
+2025-12-04 11:42:57,560 InstallColumnLookupValues. Count (total): 0
+2025-12-04 11:42:57,560 <-- PackageFileDesignModeDBStorage.Save
+2025-12-04 11:42:57,560 <-- PackageInstallUtilities.LoadPackagesToDB
+2025-12-04 11:46:40,755 --> PackageDBStorage.Load
+2025-12-04 11:46:46,731 <-- PackageDBStorage.Load
+2025-12-04 11:46:47,164 --> PackageDBStorage.Load
+2025-12-04 11:46:53,870 <-- PackageDBStorage.Load
+2025-12-04 11:46:53,897 --> PackageDBStorage.Load
+2025-12-04 11:46:59,583 <-- PackageDBStorage.Load
+2025-12-04 11:48:54,719 --> PackageInstallUtilities.LoadPackagesToFileSystem
+2025-12-04 11:48:54,719 --> PackageStorageComposer.Compose
+2025-12-04 11:48:54,719 --> PackageFileDesignModeDBStorage.Load
+2025-12-04 11:49:01,564 <-- PackageFileDesignModeDBStorage.Load
+2025-12-04 11:49:01,564 --> PackageFileDesignModeStorage.Load
+2025-12-04 11:49:17,271 <-- PackageFileDesignModeStorage.Load
+2025-12-04 11:49:17,271 --> PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 11:49:17,285 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 11:49:17,315 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 11:49:17,315 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 11:49:17,315 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 11:49:17,319 --> PackageFileDesignModeStorage.ActualizePackageResourcesState
+2025-12-04 11:49:17,319 <-- PackageFileDesignModeStorage.ActualizePackageResourcesState
+2025-12-04 11:49:17,319 <-- PackageStorageComposer.Compose
+2025-12-04 11:49:17,325 --> PackageFileDesignModeStorage.Save: Packages [95] Schemas [5182] ReferenceAssemblies [53] SqlScripts [1193] PackageData [2557] SchemaResources [86261] CoreResources [0]
+2025-12-04 11:49:17,325 --> PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2025-12-04 11:49:17,325 <-- PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2025-12-04 11:49:17,325 <-- PackageFileDesignModeStorage.Save
+2025-12-04 11:49:17,325 --> PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2025-12-04 11:49:17,325 --> PackageDBStorage.Load
+2025-12-04 11:49:22,839 <-- PackageDBStorage.Load
+2025-12-04 11:49:43,884 --> PackageInstallUtilities.UpdateWorkspaceSolution
+2025-12-04 11:49:43,884 --> PackageDBStorage.Load
+2025-12-04 11:49:49,417 <-- PackageDBStorage.Load
+2025-12-04 11:50:21,248 <-- PackageInstallUtilities.UpdateWorkspaceSolution
+2025-12-04 11:50:21,248 <-- PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2025-12-04 11:50:21,248 <-- PackageInstallUtilities.LoadPackagesToFileSystem
+2025-12-04 11:50:25,134 --> PackageDBStorage.Load
+2025-12-04 11:50:29,912 <-- PackageDBStorage.Load
+2025-12-04 12:02:32,329 --> PackageDBStorage.Load
+2025-12-04 12:02:38,244 <-- PackageDBStorage.Load
+2025-12-04 12:02:38,710 --> PackageDBStorage.Load
+2025-12-04 12:02:44,420 <-- PackageDBStorage.Load
+2025-12-04 12:02:44,450 --> PackageDBStorage.Load
+2025-12-04 12:02:50,068 <-- PackageDBStorage.Load
+2025-12-04 12:04:49,920 --> PackageInstallUtilities.LoadPackagesToFileSystem
+2025-12-04 12:04:49,920 --> PackageStorageComposer.Compose
+2025-12-04 12:04:49,920 --> PackageFileDesignModeDBStorage.Load
+2025-12-04 12:04:55,921 <-- PackageFileDesignModeDBStorage.Load
+2025-12-04 12:04:55,921 --> PackageFileDesignModeStorage.Load
+2025-12-04 12:05:14,441 <-- PackageFileDesignModeStorage.Load
+2025-12-04 12:05:14,441 --> PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 12:05:14,458 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 12:05:14,495 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 12:05:14,496 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 12:05:14,496 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 12:05:14,500 --> PackageFileDesignModeStorage.ActualizePackageResourcesState
+2025-12-04 12:05:14,500 <-- PackageFileDesignModeStorage.ActualizePackageResourcesState
+2025-12-04 12:05:14,500 <-- PackageStorageComposer.Compose
+2025-12-04 12:05:14,504 --> PackageFileDesignModeStorage.Save: Packages [95] Schemas [5182] ReferenceAssemblies [53] SqlScripts [1193] PackageData [2557] SchemaResources [86261] CoreResources [0]
+2025-12-04 12:05:14,504 --> PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2025-12-04 12:05:14,504 <-- PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2025-12-04 12:05:14,504 <-- PackageFileDesignModeStorage.Save
+2025-12-04 12:05:14,504 --> PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2025-12-04 12:05:14,504 --> PackageDBStorage.Load
+2025-12-04 12:05:20,493 <-- PackageDBStorage.Load
+2025-12-04 12:05:43,690 --> PackageInstallUtilities.UpdateWorkspaceSolution
+2025-12-04 12:05:43,690 --> PackageDBStorage.Load
+2025-12-04 12:05:49,929 <-- PackageDBStorage.Load
+2025-12-04 12:06:24,488 <-- PackageInstallUtilities.UpdateWorkspaceSolution
+2025-12-04 12:06:24,488 <-- PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2025-12-04 12:06:24,488 <-- PackageInstallUtilities.LoadPackagesToFileSystem
+2025-12-04 12:06:28,010 --> PackageDBStorage.Load
+2025-12-04 12:06:32,823 <-- PackageDBStorage.Load
+2025-12-04 12:25:45,224 --> PackageInstallUtilities.LoadPackagesToFileSystem
+2025-12-04 12:25:45,224 --> PackageStorageComposer.Compose
+2025-12-04 12:25:45,224 --> PackageFileDesignModeDBStorage.Load
+2025-12-04 12:25:51,173 <-- PackageFileDesignModeDBStorage.Load
+2025-12-04 12:25:51,173 --> PackageFileDesignModeStorage.Load
+2025-12-04 12:26:08,360 <-- PackageFileDesignModeStorage.Load
+2025-12-04 12:26:08,360 --> PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 12:26:08,377 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 12:26:08,415 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 12:26:08,417 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2025-12-04 12:26:08,417 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2025-12-04 12:26:08,417 --> PackageFileDesignModeStorage.ActualizePackageResourcesState
+2025-12-04 12:26:08,417 <-- PackageFileDesignModeStorage.ActualizePackageResourcesState
+2025-12-04 12:26:08,417 <-- PackageStorageComposer.Compose
+2025-12-04 12:26:08,424 --> PackageFileDesignModeStorage.Save: Packages [95] Schemas [5182] ReferenceAssemblies [53] SqlScripts [1193] PackageData [2557] SchemaResources [86261] CoreResources [0]
+2025-12-04 12:26:08,424 --> PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2025-12-04 12:26:08,424 <-- PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2025-12-04 12:26:08,425 <-- PackageFileDesignModeStorage.Save
+2025-12-04 12:26:08,425 <-- PackageInstallUtilities.LoadPackagesToFileSystem

@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "logcopilot"
+version = "0.1.0"
+description = "MVP log clustering pipeline for BPMSoft logs"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+parquet = ["pyarrow>=12"]
+semantic = [
+  "sentence-transformers>=3",
+  "scikit-learn>=1.4",
+  "hdbscan>=0.8.33",
+]
+full = [
+  "pyarrow>=12",
+  "sentence-transformers>=3",
+  "scikit-learn>=1.4",
+  "hdbscan>=0.8.33",
+]
+
+[tool.setuptools]
+packages = ["logcopilot"]
+

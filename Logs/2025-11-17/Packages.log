@@ -1,0 +1,4 @@
+2025-11-17 10:12:34,287 Operation [Rebuild] started
+2025-11-17 10:14:44,675 Operation [Rebuild] took 130 s 405 ms
+2025-11-17 10:17:30,925 Operation [AngularRebuildAsync] started
+2025-11-17 10:17:30,928 Operation [AngularRebuildAsync] took 0 s 3 ms

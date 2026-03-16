@@ -1,0 +1,32 @@
+2026-02-26 08:27:10,742 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogClientMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: undefined
+ line: undefined
+ column: undefined
+ message: Менеджер не инициализирован 
+ date: Thu Feb 26 2026 11:27:10 GMT+0300 (Москва, стандартное время)
+ moduleId: c54af51c-0947-4958-adb9-796c42da1cd0
+ moduleName: undefined
+2026-02-26 08:51:39,405 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogClientMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: undefined
+ line: undefined
+ column: undefined
+ message: Менеджер не инициализирован 
+ date: Thu Feb 26 2026 11:51:39 GMT+0300 (Москва, стандартное время)
+ moduleId: c54af51c-0947-4958-adb9-796c42da1cd0
+ moduleName: undefined
+2026-02-26 11:41:09,968 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: undefined
+ line: undefined
+ column: undefined
+ message: Менеджер не инициализирован 
+ date: Thu Feb 26 2026 14:41:09 GMT+0300 (Москва, стандартное время)
+ moduleId: c54af51c-0947-4958-adb9-796c42da1cd0
+ moduleName: undefined
+2026-02-26 11:41:23,512 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: undefined
+ line: undefined
+ column: undefined
+ message: Менеджер не инициализирован 
+ date: Thu Feb 26 2026 14:41:23 GMT+0300 (Москва, стандартное время)
+ moduleId: c54af51c-0947-4958-adb9-796c42da1cd0
+ moduleName: undefined

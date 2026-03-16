@@ -1,0 +1,17 @@
+2025-11-24 13:57:42,607 PackageValidator.ValidateMessage.SchemaData.ReferenceSchemaDataValueNotLoaded SysAdminUnit SysAdminUnit 13ea91f2-5cfd-42f2-b021-08fbd5470754 existingData [8] newData [3]
+2025-11-24 14:02:16,867 PackageValidator.ValidateMessage.SchemaData.ReferenceSchemaDataValueNotLoaded SysMsgLib SysMsgLib 8af6722c-b340-4145-b908-49cc74467a68 existingData [3] newData [26]
+2025-11-24 14:02:32,767 PackageValidator.ValidateMessage.SchemaData.ReferenceSchemaDataValueNotLoaded Lookup Lookup 6cb8a8eb-7a0a-419e-bd46-447c5531e8df existingData [72] newData [1]
+2025-11-24 14:09:15,674 Operation [Rebuild] started
+2025-11-24 14:11:12,448 Operation [Rebuild] took 116 s 786 ms
+2025-11-24 14:14:52,426 Operation [Rebuild] started
+2025-11-24 14:16:28,488 Operation [Rebuild] took 96 s 70 ms
+2025-11-24 14:19:21,526 InstallStart: SchemaAssociatedData
+2025-11-24 14:19:21,559 InstallFinish: SchemaAssociatedData
+2025-11-24 15:24:16,618 Operation [Build] started
+2025-11-24 15:26:25,166 Operation [Build] took 128 s 558 ms
+2025-11-24 15:28:07,524 Operation [AngularBuild] started
+2025-11-24 15:28:07,527 Operation [AngularBuild] took 0 s 3 ms
+2025-11-24 15:37:59,391 Operation [Rebuild] started
+2025-11-24 15:39:52,559 Operation [Rebuild] took 113 s 172 ms
+2025-11-24 15:42:53,483 Operation [AngularRebuildAsync] started
+2025-11-24 15:42:53,485 Operation [AngularRebuildAsync] took 0 s 2 ms

@@ -1,0 +1,155 @@
+2025-10-29 08:13:28,767 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - Start.
+2025-10-29 08:13:28,793 [.NET TP Worker] INFO Supervisor Enqueue - Deletes '1' records from queue.
+2025-10-29 08:13:28,806 [.NET TP Worker] INFO Supervisor Enqueue - Sets '1' records to queue.
+2025-10-29 08:13:28,829 [.NET TP Worker] INFO Supervisor ApplyOperations - Deleting entity: LlmModelApiType, id: 9ec6eade-3f44-4d93-bda0-61d3904652eb
+2025-10-29 08:13:28,843 [.NET TP Worker] INFO Supervisor ApplyOperations - False
+2025-10-29 08:13:28,843 [.NET TP Worker] ERROR Supervisor SaveLog - 9ec6eade-3f44-4d93-bda0-61d3904652ebupdate or delete on table "LlmModelApiType" violates foreign key constraint "FK3FD9eqIqwpOtn2FNKlzmdqPo1SI" on table "LlmModel"|BPMSoft.Common.DbOperationException: update or delete on table "LlmModelApiType" violates foreign key constraint "FK3FD9eqIqwpOtn2FNKlzmdqPo1SI" on table "LlmModel"
+ ---> Npgsql.PostgresException (0x80004005): 23503: update or delete on table "LlmModelApiType" violates foreign key constraint "FK3FD9eqIqwpOtn2FNKlzmdqPo1SI" on table "LlmModel"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at Polly.Policy.<>c__DisplayClass129_0`1.<ExecuteInternal>b__0(Context ctx, CancellationToken ct)
+   at Polly.Policy.<>c__DisplayClass103_0.<NoOp>b__1(Context ctx, CancellationToken ct)
+   at Polly.Policy.<>c.<NoOp>b__103_0(Action`2 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.ExecuteInternal[TResult](Func`3 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.Execute[TResult](Func`1 action)
+   at BPMSoft.Core.DB.DBExecutor.ExecuteCommandAsync[TResult](Func`2 commandExecutionCallback, Func`2 commandExecutionCallbackAsync, String sqlText, QueryParameterCollection queryParameters, CancellationToken cancellationToken, Boolean sync)
+   at BPMSoft.DB.PostgreSql.PostgreSqlExecutor.<>c__DisplayClass47_0.<InternalExecute>b__0() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.DB.PostgreSql/PostgreSqlExecutor.cs:line 519
+   at BPMSoft.DB.PostgreSql.PostgreSqlExecutor.ExecuteInLockIfInTransaction[TResult](Func`1 action) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.DB.PostgreSql/PostgreSqlExecutor.cs:line 266
+   at BPMSoft.Core.DB.Query.ExecuteAsync(DBExecutor dbExecutor, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/Query.cs:line 337
+   at BPMSoft.Core.DB.Query.Execute(DBExecutor dbExecutor) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/Query.cs:line 435
+   at BPMSoft.Core.Entities.Entity.ExecuteDeleteAsync(Delete delete, Object keyValue, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 2873
+   at BPMSoft.Core.Entities.Entity.ExecuteDelete(Delete delete, Object keyValue) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 2940
+   at BPMSoft.Core.Entities.Entity.InternalDeleteAsync(Object keyValue, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 2369
+  Exception data:
+    Severity: ERROR
+    SqlState: 23503
+    MessageText: update or delete on table "LlmModelApiType" violates foreign key constraint "FK3FD9eqIqwpOtn2FNKlzmdqPo1SI" on table "LlmModel"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: LlmModel
+    ConstraintName: FK3FD9eqIqwpOtn2FNKlzmdqPo1SI
+    File: ri_triggers.c
+    Line: 2621
+    Routine: ri_ReportViolation
+   --- End of inner exception stack trace ---
+   at BPMSoft.Core.Entities.Entity.InternalDeleteAsync(Object keyValue, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 2381
+   at BPMSoft.Core.Entities.Entity.InternalDelete(Object keyValue) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 2264
+   at BPMSoft.Core.Entities.Entity.DeleteAsync(Object keyValue, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 2639
+   at BPMSoft.Core.Entities.Entity.Delete(Object keyValue) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 4289
+   at BPMSoft.Core.Entities.Entity.DeleteAsync(Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 2656
+   at BPMSoft.Core.Entities.Entity.Delete() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 4263
+   at BPMSoft.Core.Entities.Entity.DeleteWithCancelProcess() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 4272
+   at BPMSoft.Configuration.RecordDeleter.DeleteOperation()
+   at BPMSoft.Configuration.BaseRecordExecutor.Execute(Entity item)
+2025-10-29 08:13:28,863 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - End.
+
+2025-10-29 08:13:38,413 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - Start.
+2025-10-29 08:13:38,446 [.NET TP Worker] INFO Supervisor Enqueue - Deletes '0' records from queue.
+2025-10-29 08:13:38,450 [.NET TP Worker] INFO Supervisor Enqueue - Sets '1' records to queue.
+2025-10-29 08:13:38,450 [.NET TP Worker] INFO Supervisor Enqueue - Deletes '0' records from queue.
+2025-10-29 08:13:38,455 [.NET TP Worker] INFO Supervisor Enqueue - Sets '1' records to queue.
+2025-10-29 08:13:38,465 [.NET TP Worker] INFO Supervisor ApplyOperations - Deleting entity: LlmModel, id: ae11b86f-0f32-468d-9bfb-536bca89de31
+2025-10-29 08:13:38,480 [.NET TP Worker] INFO Supervisor ApplyOperations - Done
+2025-10-29 08:13:38,480 [.NET TP Worker] INFO Supervisor GetRecordProcessedEventArgs - ae11b86f-0f32-468d-9bfb-536bca89de31success
+
+2025-10-29 08:13:38,486 [.NET TP Worker] INFO Supervisor ApplyOperations - Deleting entity: LlmModelApiType, id: 9ec6eade-3f44-4d93-bda0-61d3904652eb
+2025-10-29 08:13:38,499 [.NET TP Worker] INFO Supervisor ApplyOperations - Done
+2025-10-29 08:13:38,499 [.NET TP Worker] INFO Supervisor GetRecordProcessedEventArgs - 9ec6eade-3f44-4d93-bda0-61d3904652ebsuccess
+
+2025-10-29 08:13:38,504 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - End.
+
+2025-10-29 08:27:25,299 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - Start.
+2025-10-29 08:27:25,314 [.NET TP Worker] INFO Supervisor Enqueue - Deletes '0' records from queue.
+2025-10-29 08:27:25,320 [.NET TP Worker] INFO Supervisor Enqueue - Sets '1' records to queue.
+2025-10-29 08:27:25,332 [.NET TP Worker] INFO Supervisor ApplyOperations - Deleting entity: LlmModelApiType, id: 21691604-4f56-4367-8d46-a23a81747a6b
+2025-10-29 08:27:25,339 [.NET TP Worker] INFO Supervisor ApplyOperations - Done
+2025-10-29 08:27:25,339 [.NET TP Worker] INFO Supervisor GetRecordProcessedEventArgs - 21691604-4f56-4367-8d46-a23a81747a6bsuccess
+
+2025-10-29 08:27:25,344 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - End.
+
+2025-10-29 15:49:26,077 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - Start.
+2025-10-29 15:49:26,111 [.NET TP Worker] INFO Supervisor Enqueue - Deletes '0' records from queue.
+2025-10-29 15:49:26,121 [.NET TP Worker] INFO Supervisor Enqueue - Sets '1' records to queue.
+2025-10-29 15:49:26,138 [.NET TP Worker] INFO Supervisor ApplyOperations - Deleting entity: LlmModelApiType, id: 4809a3a5-a285-4c9b-9dcc-ad033781c393
+2025-10-29 15:49:26,152 [.NET TP Worker] INFO Supervisor ApplyOperations - False
+2025-10-29 15:49:26,152 [.NET TP Worker] ERROR Supervisor SaveLog - 4809a3a5-a285-4c9b-9dcc-ad033781c393update or delete on table "LlmModelApiType" violates foreign key constraint "FK3FD9eqIqwpOtn2FNKlzmdqPo1SI" on table "LlmModel"|BPMSoft.Common.DbOperationException: update or delete on table "LlmModelApiType" violates foreign key constraint "FK3FD9eqIqwpOtn2FNKlzmdqPo1SI" on table "LlmModel"
+ ---> Npgsql.PostgresException (0x80004005): 23503: update or delete on table "LlmModelApiType" violates foreign key constraint "FK3FD9eqIqwpOtn2FNKlzmdqPo1SI" on table "LlmModel"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at Polly.Policy.<>c__DisplayClass129_0`1.<ExecuteInternal>b__0(Context ctx, CancellationToken ct)
+   at Polly.Policy.<>c__DisplayClass103_0.<NoOp>b__1(Context ctx, CancellationToken ct)
+   at Polly.Policy.<>c.<NoOp>b__103_0(Action`2 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.ExecuteInternal[TResult](Func`3 action, Context context, CancellationToken cancellationToken)
+   at Polly.Policy.Execute[TResult](Func`1 action)
+   at BPMSoft.Core.DB.DBExecutor.ExecuteCommandAsync[TResult](Func`2 commandExecutionCallback, Func`2 commandExecutionCallbackAsync, String sqlText, QueryParameterCollection queryParameters, CancellationToken cancellationToken, Boolean sync)
+   at BPMSoft.DB.PostgreSql.PostgreSqlExecutor.ExecuteInLockIfInTransaction[TResult](Func`1 action) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.DB.PostgreSql/PostgreSqlExecutor.cs:line 268
+   at BPMSoft.Core.DB.Query.ExecuteAsync(DBExecutor dbExecutor, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/Query.cs:line 337
+   at BPMSoft.Core.DB.Query.Execute(DBExecutor dbExecutor) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/DB/Query.cs:line 435
+   at BPMSoft.Core.Entities.Entity.ExecuteDeleteAsync(Delete delete, Object keyValue, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 2873
+   at BPMSoft.Core.Entities.Entity.ExecuteDelete(Delete delete, Object keyValue) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 2940
+   at BPMSoft.Core.Entities.Entity.InternalDeleteAsync(Object keyValue, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 2369
+  Exception data:
+    Severity: ERROR
+    SqlState: 23503
+    MessageText: update or delete on table "LlmModelApiType" violates foreign key constraint "FK3FD9eqIqwpOtn2FNKlzmdqPo1SI" on table "LlmModel"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: LlmModel
+    ConstraintName: FK3FD9eqIqwpOtn2FNKlzmdqPo1SI
+    File: ri_triggers.c
+    Line: 2621
+    Routine: ri_ReportViolation
+   --- End of inner exception stack trace ---
+   at BPMSoft.Core.Entities.Entity.InternalDeleteAsync(Object keyValue, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 2381
+   at BPMSoft.Core.Entities.Entity.InternalDelete(Object keyValue) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 2264
+   at BPMSoft.Core.Entities.Entity.DeleteAsync(Object keyValue, Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 2639
+   at BPMSoft.Core.Entities.Entity.Delete(Object keyValue) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 4289
+   at BPMSoft.Core.Entities.Entity.DeleteAsync(Boolean sync) in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 2656
+   at BPMSoft.Core.Entities.Entity.Delete() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 4263
+   at BPMSoft.Core.Entities.Entity.DeleteWithCancelProcess() in /builds/bpmsoft/core/TSBpm/Src/Lib/BPMSoft.Core/Entities/Entity.cs:line 4272
+   at BPMSoft.Configuration.RecordDeleter.DeleteOperation()
+   at BPMSoft.Configuration.BaseRecordExecutor.Execute(Entity item)
+2025-10-29 15:49:26,189 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - End.
+
+2025-10-29 15:49:29,710 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - Start.
+2025-10-29 15:49:29,735 [.NET TP Worker] INFO Supervisor Enqueue - Deletes '0' records from queue.
+2025-10-29 15:49:29,744 [.NET TP Worker] INFO Supervisor Enqueue - Sets '1' records to queue.
+2025-10-29 15:49:29,744 [.NET TP Worker] INFO Supervisor Enqueue - Deletes '0' records from queue.
+2025-10-29 15:49:29,749 [.NET TP Worker] INFO Supervisor Enqueue - Sets '1' records to queue.
+2025-10-29 15:49:29,756 [.NET TP Worker] INFO Supervisor ApplyOperations - Deleting entity: LlmModel, id: d6b33e40-490a-49fa-ad71-1f56e9f98947
+2025-10-29 15:49:29,770 [.NET TP Worker] INFO Supervisor ApplyOperations - Done
+2025-10-29 15:49:29,770 [.NET TP Worker] INFO Supervisor GetRecordProcessedEventArgs - d6b33e40-490a-49fa-ad71-1f56e9f98947success
+
+2025-10-29 15:49:29,778 [.NET TP Worker] INFO Supervisor ApplyOperations - Deleting entity: LlmModelApiType, id: 4809a3a5-a285-4c9b-9dcc-ad033781c393
+2025-10-29 15:49:29,789 [.NET TP Worker] INFO Supervisor ApplyOperations - Done
+2025-10-29 15:49:29,789 [.NET TP Worker] INFO Supervisor GetRecordProcessedEventArgs - 4809a3a5-a285-4c9b-9dcc-ad033781c393success
+
+2025-10-29 15:49:29,789 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - End.
+
+2025-10-29 16:09:14,732 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - Start.
+2025-10-29 16:09:14,754 [.NET TP Worker] INFO Supervisor ClearMultiDeleteQueue - Deletes '0' records from queue.
+2025-10-29 16:09:14,762 [.NET TP Worker] INFO Supervisor Enqueue - Sets '1' records to queue.
+2025-10-29 16:09:14,794 [.NET TP Worker] INFO Supervisor ApplyOperations - Deleting entity: LlmModel, id: d6b33e40-490a-49fa-ad71-1f56e9f98947
+2025-10-29 16:09:14,874 [.NET TP Worker] INFO Supervisor ApplyOperations - Done
+2025-10-29 16:09:14,874 [.NET TP Worker] INFO Supervisor GetRecordProcessedEventArgs - d6b33e40-490a-49fa-ad71-1f56e9f98947success
+
+2025-10-29 16:09:14,886 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - End.
+

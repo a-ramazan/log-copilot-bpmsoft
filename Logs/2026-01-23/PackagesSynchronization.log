@@ -1,0 +1,376 @@
+2026-01-23 08:11:02,704 --> PackageDBStorage.Load
+2026-01-23 08:11:08,482 <-- PackageDBStorage.Load
+2026-01-23 10:45:06,907 --> PackageInstallUtilities.LoadPackagesToFileSystem
+2026-01-23 10:45:06,907 --> PackageStorageComposer.Compose
+2026-01-23 10:45:06,907 --> PackageFileDesignModeDBStorage.Load
+2026-01-23 10:45:20,108 <-- PackageFileDesignModeDBStorage.Load
+2026-01-23 10:45:20,108 --> PackageFileDesignModeStorage.Load
+2026-01-23 10:46:01,517 <-- PackageFileDesignModeStorage.Load
+2026-01-23 10:46:01,517 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 10:46:01,546 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 10:46:01,586 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 10:46:01,586 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 10:46:01,586 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 10:46:01,592 --> PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-01-23 10:46:01,592 <-- PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-01-23 10:46:01,592 <-- PackageStorageComposer.Compose
+2026-01-23 10:46:01,599 --> PackageFileDesignModeStorage.Save: Packages [95] Schemas [5182] ReferenceAssemblies [53] SqlScripts [1193] PackageData [2557] SchemaResources [86261] CoreResources [0]
+2026-01-23 10:46:01,599 --> PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-01-23 10:46:01,599 <-- PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-01-23 10:46:01,599 <-- PackageFileDesignModeStorage.Save
+2026-01-23 10:46:01,602 <-- PackageInstallUtilities.LoadPackagesToFileSystem
+2026-01-23 10:49:14,233 --> PackageInstallUtilities.LoadPackagesToFileSystem
+2026-01-23 10:49:14,233 --> PackageStorageComposer.Compose
+2026-01-23 10:49:14,233 --> PackageFileDesignModeDBStorage.Load
+2026-01-23 10:49:26,598 <-- PackageFileDesignModeDBStorage.Load
+2026-01-23 10:49:26,598 --> PackageFileDesignModeStorage.Load
+2026-01-23 10:50:02,089 <-- PackageFileDesignModeStorage.Load
+2026-01-23 10:50:02,089 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 10:50:02,109 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 10:50:02,141 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 10:50:02,142 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 10:50:02,142 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 10:50:02,146 --> PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-01-23 10:50:02,146 <-- PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-01-23 10:50:02,146 <-- PackageStorageComposer.Compose
+2026-01-23 10:50:02,150 --> PackageFileDesignModeStorage.Save: Packages [95] Schemas [5182] ReferenceAssemblies [53] SqlScripts [1193] PackageData [2557] SchemaResources [86261] CoreResources [0]
+2026-01-23 10:50:02,150 --> PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-01-23 10:50:02,150 <-- PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-01-23 10:50:02,150 <-- PackageFileDesignModeStorage.Save
+2026-01-23 10:50:02,150 <-- PackageInstallUtilities.LoadPackagesToFileSystem
+2026-01-23 10:53:45,280 --> PackageDBStorage.Load
+2026-01-23 10:53:45,305 <-- PackageDBStorage.Load
+2026-01-23 10:53:55,842 --> PackageInstallUtilities.LoadPackagesToFileSystem
+2026-01-23 10:53:55,842 --> PackageStorageComposer.Compose
+2026-01-23 10:53:55,842 --> PackageFileDesignModeDBStorage.Load
+2026-01-23 10:54:10,180 <-- PackageFileDesignModeDBStorage.Load
+2026-01-23 10:54:10,180 --> PackageFileDesignModeStorage.Load
+2026-01-23 10:54:39,224 <-- PackageFileDesignModeStorage.Load
+2026-01-23 10:54:39,224 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 10:54:39,236 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 10:54:39,266 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 10:54:39,266 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 10:54:39,266 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 10:54:39,270 --> PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-01-23 10:54:39,270 <-- PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-01-23 10:54:39,270 <-- PackageStorageComposer.Compose
+2026-01-23 10:54:39,275 --> PackageFileDesignModeStorage.Save: Packages [97] Schemas [5182] ReferenceAssemblies [53] SqlScripts [1193] PackageData [2557] SchemaResources [86261] CoreResources [0]
+2026-01-23 10:54:39,275 --> PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-01-23 10:54:39,275 <-- PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-01-23 10:54:39,275 --> PackageFileDesignModeStorage.DeletePackageItems - Custom
+2026-01-23 10:54:39,278 <-- PackageFileDesignModeStorage.DeletePackageItems - Custom
+2026-01-23 10:54:39,278 --> PackageFileDesignModeStorage.SavePackage - Mcp
+2026-01-23 10:54:39,285 --> PackageFileDesignModeStorage.SavePackageDescriptor - Mcp
+2026-01-23 10:54:39,298 <-- PackageFileDesignModeStorage.SavePackageDescriptor - Mcp
+2026-01-23 10:54:39,298 --> PackageFileDesignModeStorage.SavePackageSchemas - Mcp
+2026-01-23 10:54:39,308 <-- PackageFileDesignModeStorage.SavePackageSchemas - Mcp
+2026-01-23 10:54:39,349 --> PackageFileDesignModeStorage.SavePackageReferenceAssemblies - Mcp
+2026-01-23 10:54:39,361 <-- PackageFileDesignModeStorage.SavePackageReferenceAssemblies - Mcp
+2026-01-23 10:54:39,361 --> PackageFileDesignModeStorage.SavePackageSqlScripts - Mcp
+2026-01-23 10:54:39,371 <-- PackageFileDesignModeStorage.SavePackageSqlScripts - Mcp
+2026-01-23 10:54:39,371 --> PackageFileDesignModeStorage.SavePackageData - Mcp
+2026-01-23 10:54:39,383 <-- PackageFileDesignModeStorage.SavePackageData - Mcp
+2026-01-23 10:54:39,383 <-- PackageFileDesignModeStorage.SavePackage - Mcp
+2026-01-23 10:54:39,383 --> PackageFileDesignModeStorage.UpdatePackage - Custom
+2026-01-23 10:54:39,383 --> PackageFileDesignModeStorage.SavePackage - Custom
+2026-01-23 10:54:39,387 --> PackageFileDesignModeStorage.SavePackageDescriptor - Custom
+2026-01-23 10:54:39,454 <-- PackageFileDesignModeStorage.SavePackageDescriptor - Custom
+2026-01-23 10:54:39,454 --> PackageFileDesignModeStorage.SavePackageSchemas - Custom
+2026-01-23 10:54:39,461 <-- PackageFileDesignModeStorage.SavePackageSchemas - Custom
+2026-01-23 10:54:39,612 --> PackageFileDesignModeStorage.SavePackageReferenceAssemblies - Custom
+2026-01-23 10:54:39,618 <-- PackageFileDesignModeStorage.SavePackageReferenceAssemblies - Custom
+2026-01-23 10:54:39,618 --> PackageFileDesignModeStorage.SavePackageSqlScripts - Custom
+2026-01-23 10:54:39,628 <-- PackageFileDesignModeStorage.SavePackageSqlScripts - Custom
+2026-01-23 10:54:39,628 --> PackageFileDesignModeStorage.SavePackageData - Custom
+2026-01-23 10:54:39,633 <-- PackageFileDesignModeStorage.SavePackageData - Custom
+2026-01-23 10:54:39,633 <-- PackageFileDesignModeStorage.SavePackage - Custom
+2026-01-23 10:54:39,633 <-- PackageFileDesignModeStorage.UpdatePackage - Custom
+2026-01-23 10:54:39,829 <-- PackageFileDesignModeStorage.Save
+2026-01-23 10:54:39,829 --> PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2026-01-23 10:54:39,829 --> PackageDBStorage.Load
+2026-01-23 10:54:49,886 <-- PackageDBStorage.Load
+2026-01-23 10:55:47,475 --> PackageInstallUtilities.UpdateWorkspaceSolution
+2026-01-23 10:55:47,475 --> PackageDBStorage.Load
+2026-01-23 10:55:58,988 <-- PackageDBStorage.Load
+2026-01-23 10:57:29,337 <-- PackageInstallUtilities.UpdateWorkspaceSolution
+2026-01-23 10:57:29,337 <-- PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2026-01-23 10:57:29,337 <-- PackageInstallUtilities.LoadPackagesToFileSystem
+2026-01-23 10:58:43,040 --> PackageDBStorage.Load
+2026-01-23 10:58:52,690 <-- PackageDBStorage.Load
+2026-01-23 11:21:59,689 --> PackageInstallUtilities.LoadPackagesToDB
+2026-01-23 11:21:59,689 --> PackageFileDesignModeStorage.Load
+2026-01-23 11:22:30,055 <-- PackageFileDesignModeStorage.Load
+2026-01-23 11:22:30,055 --> PackageFileDesignModeDBStorage.Load
+2026-01-23 11:22:41,775 <-- PackageFileDesignModeDBStorage.Load
+2026-01-23 11:22:41,779 --> PackageStorageComposer.Compose
+2026-01-23 11:22:41,779 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 11:22:41,781 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 11:22:41,781 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 11:22:41,781 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 11:22:41,786 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 11:22:41,810 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 11:22:41,929 --> PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2026-01-23 11:22:41,933 <-- PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2026-01-23 11:22:41,933 <-- PackageStorageComposer.Compose
+2026-01-23 11:22:41,933 --> PackageFileDesignModeDBStorage.Save: Packages [1] Schemas [1] ReferenceAssemblies [0] SqlScripts [0] PackageData [0] SchemaResources [0] CoreResources [0]
+2026-01-23 11:22:41,999 --> PackageFileDesignModeDBStorage.SavePackage - Mcp
+2026-01-23 11:22:42,219 <-- PackageFileDesignModeDBStorage.SavePackage - Mcp
+2026-01-23 11:22:43,176 InstallColumnLookupValues. Count (total): 0
+2026-01-23 11:22:43,432 <-- PackageFileDesignModeDBStorage.Save
+2026-01-23 11:22:43,432 <-- PackageInstallUtilities.LoadPackagesToDB
+2026-01-23 11:23:23,527 --> PackageDBStorage.Load
+2026-01-23 11:23:34,526 <-- PackageDBStorage.Load
+2026-01-23 11:25:45,460 --> PackageDBStorage.Load
+2026-01-23 11:25:58,673 <-- PackageDBStorage.Load
+2026-01-23 11:25:58,767 --> PackageDBStorage.Load
+2026-01-23 11:26:14,860 <-- PackageDBStorage.Load
+2026-01-23 11:29:55,260 --> PackageInstallUtilities.LoadPackagesToFileSystem
+2026-01-23 11:29:55,260 --> PackageStorageComposer.Compose
+2026-01-23 11:29:55,260 --> PackageFileDesignModeDBStorage.Load
+2026-01-23 11:30:08,716 <-- PackageFileDesignModeDBStorage.Load
+2026-01-23 11:30:08,716 --> PackageFileDesignModeStorage.Load
+2026-01-23 11:30:51,849 <-- PackageFileDesignModeStorage.Load
+2026-01-23 11:30:51,849 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 11:30:51,872 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 11:30:51,907 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 11:30:51,907 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 11:30:51,907 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 11:30:51,907 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 11:30:51,913 --> PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-01-23 11:30:51,913 <-- PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-01-23 11:30:51,913 <-- PackageStorageComposer.Compose
+2026-01-23 11:30:51,918 --> PackageFileDesignModeStorage.Save: Packages [95] Schemas [5182] ReferenceAssemblies [53] SqlScripts [1193] PackageData [2557] SchemaResources [86261] CoreResources [0]
+2026-01-23 11:30:51,918 --> PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-01-23 11:30:51,918 <-- PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-01-23 11:30:51,918 <-- PackageFileDesignModeStorage.Save
+2026-01-23 11:30:51,918 --> PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2026-01-23 11:30:51,918 --> PackageDBStorage.Load
+2026-01-23 11:31:03,096 <-- PackageDBStorage.Load
+2026-01-23 11:31:45,879 --> PackageInstallUtilities.UpdateWorkspaceSolution
+2026-01-23 11:31:45,879 --> PackageDBStorage.Load
+2026-01-23 11:31:56,134 <-- PackageDBStorage.Load
+2026-01-23 11:33:01,371 <-- PackageInstallUtilities.UpdateWorkspaceSolution
+2026-01-23 11:33:01,371 <-- PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2026-01-23 11:33:01,371 <-- PackageInstallUtilities.LoadPackagesToFileSystem
+2026-01-23 11:33:06,232 --> PackageDBStorage.Load
+2026-01-23 11:33:14,825 <-- PackageDBStorage.Load
+2026-01-23 14:06:11,253 --> PackageDBStorage.Load
+2026-01-23 14:06:15,937 <-- PackageDBStorage.Load
+2026-01-23 16:13:54,807 --> PackageInstallUtilities.LoadPackagesToDB
+2026-01-23 16:13:54,807 --> PackageFileDesignModeStorage.Load
+2026-01-23 16:14:13,789 <-- PackageFileDesignModeStorage.Load
+2026-01-23 16:14:13,789 --> PackageFileDesignModeDBStorage.Load
+2026-01-23 16:14:22,967 <-- PackageFileDesignModeDBStorage.Load
+2026-01-23 16:14:22,971 --> PackageStorageComposer.Compose
+2026-01-23 16:14:22,971 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 16:14:22,975 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:14:22,978 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:14:22,978 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:14:22,982 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:14:23,011 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 16:14:23,073 --> PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2026-01-23 16:14:23,073 <-- PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2026-01-23 16:14:23,073 <-- PackageStorageComposer.Compose
+2026-01-23 16:14:23,077 --> PackageFileDesignModeDBStorage.Save: Packages [1] Schemas [1] ReferenceAssemblies [0] SqlScripts [0] PackageData [0] SchemaResources [0] CoreResources [0]
+2026-01-23 16:14:23,141 --> PackageFileDesignModeDBStorage.SavePackage - Mcp
+2026-01-23 16:14:23,266 <-- PackageFileDesignModeDBStorage.SavePackage - Mcp
+2026-01-23 16:14:24,169 InstallColumnLookupValues. Count (total): 0
+2026-01-23 16:14:24,267 <-- PackageFileDesignModeDBStorage.Save
+2026-01-23 16:14:24,267 <-- PackageInstallUtilities.LoadPackagesToDB
+2026-01-23 16:14:32,113 --> PackageDBStorage.Load
+2026-01-23 16:14:39,333 <-- PackageDBStorage.Load
+2026-01-23 16:14:39,377 --> PackageDBStorage.Load
+2026-01-23 16:14:46,667 <-- PackageDBStorage.Load
+2026-01-23 16:17:12,436 --> PackageInstallUtilities.LoadPackagesToFileSystem
+2026-01-23 16:17:12,436 --> PackageStorageComposer.Compose
+2026-01-23 16:17:12,436 --> PackageFileDesignModeDBStorage.Load
+2026-01-23 16:17:19,269 <-- PackageFileDesignModeDBStorage.Load
+2026-01-23 16:17:19,269 --> PackageFileDesignModeStorage.Load
+2026-01-23 16:17:38,852 <-- PackageFileDesignModeStorage.Load
+2026-01-23 16:17:38,852 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 16:17:38,866 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:17:38,899 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:17:38,899 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:17:38,899 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:17:38,901 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 16:17:38,901 --> PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-01-23 16:17:38,901 <-- PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-01-23 16:17:38,901 <-- PackageStorageComposer.Compose
+2026-01-23 16:17:38,907 --> PackageFileDesignModeStorage.Save: Packages [95] Schemas [5182] ReferenceAssemblies [53] SqlScripts [1193] PackageData [2557] SchemaResources [86261] CoreResources [0]
+2026-01-23 16:17:38,907 --> PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-01-23 16:17:38,907 <-- PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-01-23 16:17:38,907 <-- PackageFileDesignModeStorage.Save
+2026-01-23 16:17:38,907 --> PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2026-01-23 16:17:38,907 --> PackageDBStorage.Load
+2026-01-23 16:17:45,841 <-- PackageDBStorage.Load
+2026-01-23 16:18:13,868 --> PackageInstallUtilities.UpdateWorkspaceSolution
+2026-01-23 16:18:13,868 --> PackageDBStorage.Load
+2026-01-23 16:18:20,567 <-- PackageDBStorage.Load
+2026-01-23 16:19:00,777 <-- PackageInstallUtilities.UpdateWorkspaceSolution
+2026-01-23 16:19:00,777 <-- PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2026-01-23 16:19:00,777 <-- PackageInstallUtilities.LoadPackagesToFileSystem
+2026-01-23 16:19:04,880 --> PackageDBStorage.Load
+2026-01-23 16:19:10,033 <-- PackageDBStorage.Load
+2026-01-23 16:25:11,131 --> PackageInstallUtilities.LoadPackagesToDB
+2026-01-23 16:25:11,131 --> PackageFileDesignModeStorage.Load
+2026-01-23 16:25:28,726 <-- PackageFileDesignModeStorage.Load
+2026-01-23 16:25:28,726 --> PackageFileDesignModeDBStorage.Load
+2026-01-23 16:25:35,358 <-- PackageFileDesignModeDBStorage.Load
+2026-01-23 16:25:35,361 --> PackageStorageComposer.Compose
+2026-01-23 16:25:35,361 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 16:25:35,365 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:25:35,365 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:25:35,365 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:25:35,372 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:25:35,401 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 16:25:35,462 --> PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2026-01-23 16:25:35,464 <-- PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2026-01-23 16:25:35,464 <-- PackageStorageComposer.Compose
+2026-01-23 16:25:35,464 --> PackageFileDesignModeDBStorage.Save: Packages [1] Schemas [1] ReferenceAssemblies [0] SqlScripts [0] PackageData [0] SchemaResources [0] CoreResources [0]
+2026-01-23 16:25:35,544 --> PackageFileDesignModeDBStorage.SavePackage - Mcp
+2026-01-23 16:25:35,671 <-- PackageFileDesignModeDBStorage.SavePackage - Mcp
+2026-01-23 16:25:36,169 InstallColumnLookupValues. Count (total): 0
+2026-01-23 16:25:36,354 <-- PackageFileDesignModeDBStorage.Save
+2026-01-23 16:25:36,354 <-- PackageInstallUtilities.LoadPackagesToDB
+2026-01-23 16:26:48,411 --> PackageDBStorage.Load
+2026-01-23 16:26:55,461 <-- PackageDBStorage.Load
+2026-01-23 16:26:55,493 --> PackageDBStorage.Load
+2026-01-23 16:27:02,012 <-- PackageDBStorage.Load
+2026-01-23 16:29:07,474 --> PackageInstallUtilities.LoadPackagesToFileSystem
+2026-01-23 16:29:07,474 --> PackageStorageComposer.Compose
+2026-01-23 16:29:07,474 --> PackageFileDesignModeDBStorage.Load
+2026-01-23 16:29:13,777 <-- PackageFileDesignModeDBStorage.Load
+2026-01-23 16:29:13,777 --> PackageFileDesignModeStorage.Load
+2026-01-23 16:29:32,845 <-- PackageFileDesignModeStorage.Load
+2026-01-23 16:29:32,845 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 16:29:32,860 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:29:32,894 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:29:32,894 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:29:32,896 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:29:32,896 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 16:29:32,899 --> PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-01-23 16:29:32,899 <-- PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-01-23 16:29:32,899 <-- PackageStorageComposer.Compose
+2026-01-23 16:29:32,899 --> PackageFileDesignModeStorage.Save: Packages [95] Schemas [5182] ReferenceAssemblies [53] SqlScripts [1193] PackageData [2557] SchemaResources [86261] CoreResources [0]
+2026-01-23 16:29:32,899 --> PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-01-23 16:29:32,899 <-- PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-01-23 16:29:32,903 <-- PackageFileDesignModeStorage.Save
+2026-01-23 16:29:32,903 --> PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2026-01-23 16:29:32,903 --> PackageDBStorage.Load
+2026-01-23 16:29:39,513 <-- PackageDBStorage.Load
+2026-01-23 16:30:07,462 --> PackageInstallUtilities.UpdateWorkspaceSolution
+2026-01-23 16:30:07,462 --> PackageDBStorage.Load
+2026-01-23 16:30:14,216 <-- PackageDBStorage.Load
+2026-01-23 16:30:52,818 <-- PackageInstallUtilities.UpdateWorkspaceSolution
+2026-01-23 16:30:52,818 <-- PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2026-01-23 16:30:52,818 <-- PackageInstallUtilities.LoadPackagesToFileSystem
+2026-01-23 16:32:26,295 --> PackageInstallUtilities.LoadPackagesToDB
+2026-01-23 16:32:26,295 --> PackageFileDesignModeStorage.Load
+2026-01-23 16:32:43,784 <-- PackageFileDesignModeStorage.Load
+2026-01-23 16:32:43,784 --> PackageFileDesignModeDBStorage.Load
+2026-01-23 16:32:50,001 <-- PackageFileDesignModeDBStorage.Load
+2026-01-23 16:32:50,001 --> PackageStorageComposer.Compose
+2026-01-23 16:32:50,001 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 16:32:50,001 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:32:50,001 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:32:50,001 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:32:50,008 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:32:50,032 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 16:32:50,090 --> PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2026-01-23 16:32:50,093 <-- PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2026-01-23 16:32:50,093 <-- PackageStorageComposer.Compose
+2026-01-23 16:32:50,093 --> PackageFileDesignModeDBStorage.Save: Packages [1] Schemas [1] ReferenceAssemblies [0] SqlScripts [0] PackageData [0] SchemaResources [0] CoreResources [0]
+2026-01-23 16:32:50,135 --> PackageFileDesignModeDBStorage.SavePackage - Mcp
+2026-01-23 16:32:50,213 <-- PackageFileDesignModeDBStorage.SavePackage - Mcp
+2026-01-23 16:32:50,620 InstallColumnLookupValues. Count (total): 0
+2026-01-23 16:32:50,743 <-- PackageFileDesignModeDBStorage.Save
+2026-01-23 16:32:50,743 <-- PackageInstallUtilities.LoadPackagesToDB
+2026-01-23 16:32:56,730 --> PackageDBStorage.Load
+2026-01-23 16:33:02,904 <-- PackageDBStorage.Load
+2026-01-23 16:33:02,927 --> PackageDBStorage.Load
+2026-01-23 16:33:10,625 <-- PackageDBStorage.Load
+2026-01-23 16:35:15,186 --> PackageInstallUtilities.LoadPackagesToFileSystem
+2026-01-23 16:35:15,186 --> PackageStorageComposer.Compose
+2026-01-23 16:35:15,186 --> PackageFileDesignModeDBStorage.Load
+2026-01-23 16:35:21,681 <-- PackageFileDesignModeDBStorage.Load
+2026-01-23 16:35:21,681 --> PackageFileDesignModeStorage.Load
+2026-01-23 16:35:39,941 <-- PackageFileDesignModeStorage.Load
+2026-01-23 16:35:39,941 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 16:35:39,953 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:35:39,979 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:35:39,979 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:35:39,982 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:35:39,982 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 16:35:39,982 --> PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-01-23 16:35:39,982 <-- PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-01-23 16:35:39,982 <-- PackageStorageComposer.Compose
+2026-01-23 16:35:39,982 --> PackageFileDesignModeStorage.Save: Packages [95] Schemas [5182] ReferenceAssemblies [53] SqlScripts [1193] PackageData [2557] SchemaResources [86261] CoreResources [0]
+2026-01-23 16:35:39,982 --> PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-01-23 16:35:39,982 <-- PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-01-23 16:35:39,982 <-- PackageFileDesignModeStorage.Save
+2026-01-23 16:35:39,982 --> PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2026-01-23 16:35:39,982 --> PackageDBStorage.Load
+2026-01-23 16:35:46,375 <-- PackageDBStorage.Load
+2026-01-23 16:36:09,140 --> PackageInstallUtilities.UpdateWorkspaceSolution
+2026-01-23 16:36:09,140 --> PackageDBStorage.Load
+2026-01-23 16:36:16,721 <-- PackageDBStorage.Load
+2026-01-23 16:36:50,378 <-- PackageInstallUtilities.UpdateWorkspaceSolution
+2026-01-23 16:36:50,378 <-- PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2026-01-23 16:36:50,378 <-- PackageInstallUtilities.LoadPackagesToFileSystem
+2026-01-23 16:36:53,865 --> PackageDBStorage.Load
+2026-01-23 16:36:58,674 <-- PackageDBStorage.Load
+2026-01-23 16:41:26,515 --> PackageInstallUtilities.LoadPackagesToDB
+2026-01-23 16:41:26,515 --> PackageFileDesignModeStorage.Load
+2026-01-23 16:41:46,313 <-- PackageFileDesignModeStorage.Load
+2026-01-23 16:41:46,313 --> PackageFileDesignModeDBStorage.Load
+2026-01-23 16:41:52,715 <-- PackageFileDesignModeDBStorage.Load
+2026-01-23 16:41:52,715 --> PackageStorageComposer.Compose
+2026-01-23 16:41:52,715 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 16:41:52,722 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:41:52,725 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:41:52,725 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:41:52,730 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:41:52,759 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 16:41:52,826 --> PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2026-01-23 16:41:52,829 <-- PackageFileDesignModeDBStorage.ActualizePackageResourcesState
+2026-01-23 16:41:52,829 <-- PackageStorageComposer.Compose
+2026-01-23 16:41:52,829 --> PackageFileDesignModeDBStorage.Save: Packages [1] Schemas [1] ReferenceAssemblies [0] SqlScripts [0] PackageData [0] SchemaResources [0] CoreResources [0]
+2026-01-23 16:41:52,885 --> PackageFileDesignModeDBStorage.SavePackage - Mcp
+2026-01-23 16:41:52,994 <-- PackageFileDesignModeDBStorage.SavePackage - Mcp
+2026-01-23 16:41:53,484 InstallColumnLookupValues. Count (total): 0
+2026-01-23 16:41:53,597 <-- PackageFileDesignModeDBStorage.Save
+2026-01-23 16:41:53,597 <-- PackageInstallUtilities.LoadPackagesToDB
+2026-01-23 16:42:59,089 --> PackageDBStorage.Load
+2026-01-23 16:43:05,215 <-- PackageDBStorage.Load
+2026-01-23 16:43:05,241 --> PackageDBStorage.Load
+2026-01-23 16:43:11,038 <-- PackageDBStorage.Load
+2026-01-23 16:45:41,273 --> PackageInstallUtilities.LoadPackagesToFileSystem
+2026-01-23 16:45:41,273 --> PackageStorageComposer.Compose
+2026-01-23 16:45:41,273 --> PackageFileDesignModeDBStorage.Load
+2026-01-23 16:45:47,748 <-- PackageFileDesignModeDBStorage.Load
+2026-01-23 16:45:47,748 --> PackageFileDesignModeStorage.Load
+2026-01-23 16:46:06,718 <-- PackageFileDesignModeStorage.Load
+2026-01-23 16:46:06,718 --> PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 16:46:06,732 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:46:06,767 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:46:06,768 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:46:06,768 <-- PackageStorageComposer.ApplySourcePackageSqlScriptsChanges
+2026-01-23 16:46:06,768 <-- PackageStorageComposer.SpecifySourceStorageChanges
+2026-01-23 16:46:06,772 --> PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-01-23 16:46:06,772 <-- PackageFileDesignModeStorage.ActualizePackageResourcesState
+2026-01-23 16:46:06,772 <-- PackageStorageComposer.Compose
+2026-01-23 16:46:06,772 --> PackageFileDesignModeStorage.Save: Packages [95] Schemas [5182] ReferenceAssemblies [53] SqlScripts [1193] PackageData [2557] SchemaResources [86261] CoreResources [0]
+2026-01-23 16:46:06,776 --> PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-01-23 16:46:06,776 <-- PackageFileDesignModeStorage.MarkNotEditablePackagesAsNotChanged
+2026-01-23 16:46:06,776 <-- PackageFileDesignModeStorage.Save
+2026-01-23 16:46:06,776 --> PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2026-01-23 16:46:06,776 --> PackageDBStorage.Load
+2026-01-23 16:46:13,074 <-- PackageDBStorage.Load
+2026-01-23 16:46:33,033 --> PackageInstallUtilities.UpdateWorkspaceSolution
+2026-01-23 16:46:33,033 --> PackageDBStorage.Load
+2026-01-23 16:46:39,074 <-- PackageDBStorage.Load
+2026-01-23 16:47:13,523 <-- PackageInstallUtilities.UpdateWorkspaceSolution
+2026-01-23 16:47:13,523 <-- PackageInstallUtilities.UpdatePackagesAutogeneratedContent
+2026-01-23 16:47:13,523 <-- PackageInstallUtilities.LoadPackagesToFileSystem
+2026-01-23 16:47:16,592 --> PackageDBStorage.Load
+2026-01-23 16:47:21,364 <-- PackageDBStorage.Load

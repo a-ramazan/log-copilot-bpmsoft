@@ -1,0 +1,18 @@
+2025-11-07 08:50:34,292 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - Start.
+2025-11-07 08:50:34,318 [.NET TP Worker] INFO Supervisor Enqueue - Deletes '4' records from queue.
+2025-11-07 08:50:34,332 [.NET TP Worker] INFO Supervisor Enqueue - Sets '1' records to queue.
+2025-11-07 08:50:34,350 [.NET TP Worker] INFO Supervisor ApplyOperations - Deleting entity: LlmModel, id: ef78a686-b3be-430d-98f3-2af3868d8196
+2025-11-07 08:50:34,365 [.NET TP Worker] INFO Supervisor ApplyOperations - Done
+2025-11-07 08:50:34,365 [.NET TP Worker] INFO Supervisor GetRecordProcessedEventArgs - ef78a686-b3be-430d-98f3-2af3868d8196success
+
+2025-11-07 08:50:34,372 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - End.
+
+2025-11-07 08:50:39,175 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - Start.
+2025-11-07 08:50:39,175 [.NET TP Worker] INFO Supervisor Enqueue - Deletes '0' records from queue.
+2025-11-07 08:50:39,181 [.NET TP Worker] INFO Supervisor Enqueue - Sets '1' records to queue.
+2025-11-07 08:50:39,207 [.NET TP Worker] INFO Supervisor ApplyOperations - Deleting entity: LlmModel, id: 616bf0f2-713d-413d-b938-9fe587b53274
+2025-11-07 08:50:39,217 [.NET TP Worker] INFO Supervisor ApplyOperations - Done
+2025-11-07 08:50:39,218 [.NET TP Worker] INFO Supervisor GetRecordProcessedEventArgs - 616bf0f2-713d-413d-b938-9fe587b53274success
+
+2025-11-07 08:50:39,218 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - End.
+

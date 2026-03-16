@@ -1,0 +1,1 @@
+2026-03-04 08:59:31,345 [1] ERROR  BPMSoft.Core.AppConnection LoadSecretKey - Empty value of the secret key of the webhooks JWT token

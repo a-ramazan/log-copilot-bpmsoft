@@ -1,0 +1,40 @@
+2025-10-20 15:02:30,746 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [BuildAll] started
+2025-10-20 15:02:31,539 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentDescriptors] started
+2025-10-20 15:02:38,356 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentDescriptors] took 6 s 815 ms
+2025-10-20 15:02:38,356 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentBootstraps] started
+2025-10-20 15:02:38,651 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentBootstraps] took 0 s 295 ms
+2025-10-20 15:06:22,646 [.NET TP Worker] INFO Supervisor ConfigurationBuild Write - Ordered by CPU time (top 10)
+2025-10-20 15:06:22,646 [.NET TP Worker] INFO Supervisor ConfigurationBuild Write - [ClientUnitSchemaManager.MobileImageList] - Total: 12293 ms, GetInstance: 371 ms, Less: 5 ms, Images: 11589 ms, SourceCode: 116 ms, Resources: 212 ms
+2025-10-20 15:06:22,646 [.NET TP Worker] INFO Supervisor ConfigurationBuild Write - [ClientUnitSchemaManager.DuplicatesRuleSectionV2] - Total: 7067 ms, GetInstance: 90 ms, Less: 2 ms, Images: 6394 ms, SourceCode: 166 ms, Resources: 415 ms
+2025-10-20 15:06:22,646 [.NET TP Worker] INFO Supervisor ConfigurationBuild Write - [ClientUnitSchemaManager.SysOperationAuditArchiveSectionV2] - Total: 6697 ms, GetInstance: 105 ms, Less: 3 ms, Images: 6119 ms, SourceCode: 181 ms, Resources: 289 ms
+2025-10-20 15:06:22,646 [.NET TP Worker] INFO Supervisor ConfigurationBuild Write - [ClientUnitSchemaManager.SysMobileWorkplaceSection] - Total: 6656 ms, GetInstance: 109 ms, Less: 4 ms, Images: 6166 ms, SourceCode: 151 ms, Resources: 226 ms
+2025-10-20 15:06:22,646 [.NET TP Worker] INFO Supervisor ConfigurationBuild Write - [ClientUnitSchemaManager.ActivitySectionV2] - Total: 6515 ms, GetInstance: 1339 ms, Less: 6 ms, Images: 4335 ms, SourceCode: 578 ms, Resources: 257 ms
+2025-10-20 15:06:22,646 [.NET TP Worker] INFO Supervisor ConfigurationBuild Write - [ClientUnitSchemaManager.SystemDesigner] - Total: 5925 ms, GetInstance: 123 ms, Less: 4 ms, Images: 3630 ms, SourceCode: 1814 ms, Resources: 354 ms
+2025-10-20 15:06:22,646 [.NET TP Worker] INFO Supervisor ConfigurationBuild Write - [ClientUnitSchemaManager.SSPUsersSection] - Total: 5892 ms, GetInstance: 131 ms, Less: 3 ms, Images: 5122 ms, SourceCode: 288 ms, Resources: 348 ms
+2025-10-20 15:06:22,646 [.NET TP Worker] INFO Supervisor ConfigurationBuild Write - [ClientUnitSchemaManager.SysAdminOperationSectionV2] - Total: 5740 ms, GetInstance: 97 ms, Less: 3 ms, Images: 5234 ms, SourceCode: 204 ms, Resources: 202 ms
+2025-10-20 15:06:22,646 [.NET TP Worker] INFO Supervisor ConfigurationBuild Write - [ClientUnitSchemaManager.BaseDataView] - Total: 5727 ms, GetInstance: 96 ms, Less: 3 ms, Images: 4715 ms, SourceCode: 620 ms, Resources: 293 ms
+2025-10-20 15:06:22,646 [.NET TP Worker] INFO Supervisor ConfigurationBuild Write - [ClientUnitSchemaManager.CtiPanel] - Total: 5683 ms, GetInstance: 49 ms, Less: 7 ms, Images: 5116 ms, SourceCode: 251 ms, Resources: 260 ms
+2025-10-20 15:06:22,653 [.NET TP Worker] INFO Supervisor ConfigurationBuild Write - Total CPU time - GetInstance: 128 s, Less: 141 s, Images: 1034 s, SourceCode: 569 s, Resources: 631 s
+2025-10-20 15:06:22,653 [.NET TP Worker] INFO Supervisor ConfigurationBuild LogGenerationResult - Schema count: 3514
+2025-10-20 15:06:22,653 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [BuildAll] took 231 s 915 ms
+2025-10-20 15:15:43,104 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [BuildChanged] started
+2025-10-20 15:15:43,881 [.NET TP Worker] INFO Supervisor ConfigurationBuild LogGenerationResult - Schema count: 0
+2025-10-20 15:15:43,881 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentDescriptors] started
+2025-10-20 15:15:46,261 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentDescriptors] took 2 s 378 ms
+2025-10-20 15:15:46,261 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentBootstraps] started
+2025-10-20 15:15:46,388 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentBootstraps] took 0 s 127 ms
+2025-10-20 15:15:46,388 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [BuildChanged] took 3 s 282 ms
+2025-10-20 15:25:19,082 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [BuildAll] started
+2025-10-20 15:25:52,251 [.NET TP Worker] INFO Supervisor ConfigurationBuild LogGenerationResult - Schema count: 0
+2025-10-20 15:25:52,255 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentDescriptors] started
+2025-10-20 15:25:54,589 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentDescriptors] took 2 s 335 ms
+2025-10-20 15:25:54,589 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentBootstraps] started
+2025-10-20 15:25:54,681 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentBootstraps] took 0 s 91 ms
+2025-10-20 15:27:18,985 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [BuildAll] took 119 s 907 ms
+2025-10-20 15:50:02,992 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [BuildChanged] started
+2025-10-20 15:50:04,016 [.NET TP Worker] INFO Supervisor ConfigurationBuild LogGenerationResult - Schema count: 0
+2025-10-20 15:50:04,017 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentDescriptors] started
+2025-10-20 15:50:06,274 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentDescriptors] took 2 s 257 ms
+2025-10-20 15:50:06,274 [.NET TP Worker] INFO Supervisor ConfigurationBuild .ctor - Operation [GenerateFileContentBootstraps] started
+2025-10-20 15:50:06,396 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [GenerateFileContentBootstraps] took 0 s 120 ms
+2025-10-20 15:51:27,238 [.NET TP Worker] INFO Supervisor ConfigurationBuild Stop - Operation [BuildChanged] took 84 s 248 ms

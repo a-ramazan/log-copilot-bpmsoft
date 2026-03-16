@@ -1,0 +1,44 @@
+2025-10-27 07:31:12,684 Operation [Rebuild] started
+2025-10-27 07:33:17,318 Operation [Rebuild] took 124 s 643 ms
+2025-10-27 07:36:00,636 Operation [AngularRebuildAsync] started
+2025-10-27 07:36:00,640 Operation [AngularRebuildAsync] took 0 s 3 ms
+2025-10-27 08:15:51,598 Operation [Rebuild] started
+2025-10-27 08:17:42,753 Operation [Rebuild] took 111 s 167 ms
+2025-10-27 08:19:59,806 Operation [AngularRebuildAsync] started
+2025-10-27 08:19:59,806 Operation [AngularRebuildAsync] took 0 s 2 ms
+2025-10-27 08:45:41,934 Operation [Rebuild] started
+2025-10-27 08:47:28,243 Operation [Rebuild] took 106 s 315 ms
+2025-10-27 08:49:25,843 Operation [AngularRebuildAsync] started
+2025-10-27 08:49:25,845 Operation [AngularRebuildAsync] took 0 s 2 ms
+2025-10-27 09:02:56,323 Operation [Rebuild] started
+2025-10-27 09:04:52,916 Operation [Rebuild] took 116 s 596 ms
+2025-10-27 09:06:54,981 Operation [AngularRebuildAsync] started
+2025-10-27 09:06:54,983 Operation [AngularRebuildAsync] took 0 s 2 ms
+2025-10-27 09:13:09,394 Operation [Rebuild] started
+2025-10-27 09:14:49,426 Operation [Rebuild] took 100 s 36 ms
+2025-10-27 09:16:52,708 Operation [AngularRebuildAsync] started
+2025-10-27 09:16:52,708 Operation [AngularRebuildAsync] took 0 s 3 ms
+2025-10-27 09:21:00,080 Operation [Rebuild] started
+2025-10-27 09:22:53,143 Operation [Rebuild] took 113 s 65 ms
+2025-10-27 09:25:00,295 Operation [AngularRebuildAsync] started
+2025-10-27 09:25:00,295 Operation [AngularRebuildAsync] took 0 s 2 ms
+2025-10-27 09:30:03,728 Operation [Rebuild] started
+2025-10-27 09:31:50,250 Operation [Rebuild] took 106 s 528 ms
+2025-10-27 09:33:50,054 Operation [AngularRebuildAsync] started
+2025-10-27 09:33:50,054 Operation [AngularRebuildAsync] took 0 s 2 ms
+2025-10-27 11:29:08,643 Operation [Build] started
+2025-10-27 11:30:42,273 Operation [Build] took 93 s 635 ms
+2025-10-27 11:35:12,577 Operation [Build] started
+2025-10-27 11:36:42,825 Operation [Build] took 90 s 251 ms
+2025-10-27 14:54:44,463 Operation [Rebuild] started
+2025-10-27 14:58:00,471 Operation [Rebuild] took 196 s 37 ms
+2025-10-27 15:03:45,509 Operation [AngularRebuildAsync] started
+2025-10-27 15:03:45,517 Operation [AngularRebuildAsync] took 0 s 7 ms
+2025-10-27 15:11:19,492 Operation [Rebuild] started
+2025-10-27 15:13:46,043 Operation [Rebuild] took 146 s 559 ms
+2025-10-27 15:16:59,282 Operation [AngularRebuildAsync] started
+2025-10-27 15:16:59,282 Operation [AngularRebuildAsync] took 0 s 2 ms
+2025-10-27 15:38:15,243 Operation [Rebuild] started
+2025-10-27 15:40:01,511 Operation [Rebuild] took 106 s 274 ms
+2025-10-27 15:42:00,808 Operation [AngularRebuildAsync] started
+2025-10-27 15:42:00,808 Operation [AngularRebuildAsync] took 0 s 3 ms

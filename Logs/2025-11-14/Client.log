@@ -1,0 +1,25 @@
+2025-11-14 08:02:00,174 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogClientMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: undefined
+ line: undefined
+ column: undefined
+ message: Cannot read properties of null (reading 'value') 
+ date: Fri Nov 14 2025 11:02:00 GMT+0300 (Москва, стандартное время)
+ moduleId: UserProfile__SetupTelephonyParametersPageModule
+ moduleName: SetupTelephonyParametersPageModule
+2025-11-14 09:33:50,862 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
+ file: http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js
+ line: 1
+ column: 16702
+ message: Uncaught TypeError: Cannot read properties of undefined (reading 'uId') 
+ date: Fri Nov 14 2025 12:33:50 GMT+0300 (Москва, стандартное время)
+ stack: TypeError: Cannot read properties of undefined (reading 'uId')
+    at i.run (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:2233836)
+    at i.<anonymous> (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:2233040)
+    at i.showSaveConfirmationDialog (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:1906740)
+    at i.onRunProcessClick (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:2232765)
+    at i.callModelMethod (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:218783)
+    at i.<anonymous> (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:41:215912)
+    at i.fire (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:6:100085)
+    at i.continueFireEvent (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:6:115389)
+    at i.fireEventArgs (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:6:115170)
+    at i.fireEvent (http://localhost:5002/core/hash/combined/all-combined.js?v=D9A84F9B2CDAD6D5A4F151767496CE9D:6:114998)
