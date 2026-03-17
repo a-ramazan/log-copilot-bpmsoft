@@ -1,22 +1,39 @@
 # LogCopilot MVP
 
-MVP-движок для BPMSoft логов: ingestion -> parsing -> normalization -> signature clustering -> top incidents report.
+Explainable engine для логов: single-file intake -> parsing -> normalization -> embedding-ready events -> signature clustering -> quality metrics -> LLM-ready cluster payloads.
 
 ## Что умеет
 
-- Рекурсивно читает все `.log` в папке.
+- Принимает один лог-файл или директорию с `.log` файлами.
+- Определяет parser profile: `log4net_like`, `plain_text`, `iis_w3c`, `generic_text`.
 - Склеивает multiline stacktrace в одно событие.
-- Извлекает `timestamp`, `level`, `request_id`, `trace_id` там, где это возможно.
+- Сохраняет и `structured event`, и `raw_text`, чтобы не терять evidence.
+- Извлекает `timestamp`, `level`, `component`, `request_id`, `trace_id`, `http_status`, если это возможно.
 - Нормализует UUID, IP, email, токены, большие числа и даты.
+- Строит `embedding_text` для semantic-слоя с fallback на raw event text.
 - Строит сигнатуры ошибок по `normalized_message + exception_type + top stack frames`.
+- Считает quality metrics и confidence:
+  - parser coverage
+  - fallback rate
+  - cluster confidence
 - Генерирует:
   - `out/events.csv`
   - `out/clusters.csv`
+  - `out/analysis_summary.json`
+  - `out/llm_ready_clusters.json`
   - `out/top_clusters.md`
   - `out/events.parquet` при наличии `pyarrow`
   - `out/semantic_clusters.csv` при наличии ML-зависимостей и включённом semantic mode
 
 ## Быстрый запуск
+
+Один файл:
+
+```bash
+python3 -m logcopilot.pipeline --input Logs/2026-03-11/aspnetcore.log --out out
+```
+
+Папка логов:
 
 ```bash
 python3 -m logcopilot.pipeline --input Logs --out out
@@ -41,3 +58,15 @@ python3 -m logcopilot.pipeline --input Logs --out out --semantic auto
 
 `sentence-transformers/all-MiniLM-L6-v2` нужен только для semantic clustering. Для baseline clustering по сигнатурам скачивать модель не нужно.
 
+## Как использовать с LLM
+
+`out/llm_ready_clusters.json` — это готовый вход для следующего слоя, который пишет:
+
+- title
+- summary
+- probable cause
+- confidence
+- evidence
+- recommended checks
+
+LLM должен работать поверх кластеров, а не поверх всего сырого файла.

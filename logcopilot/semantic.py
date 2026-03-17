@@ -5,12 +5,7 @@ from .models import Event, SemanticClusterSummary
 
 
 def build_representative_text(event: Event) -> str:
-    parts = [event.normalized_message]
-    if event.exception_type:
-        parts.append(event.exception_type)
-    if event.stack_frames:
-        parts.extend(event.stack_frames)
-    return " | ".join(part for part in parts if part)
+    return event.embedding_text or event.normalized_message or event.raw_text
 
 
 def cluster_signatures_semantically(
@@ -100,4 +95,3 @@ def cluster_signatures_semantically(
     if not summaries:
         return [], f"{method_note}: no dense semantic groups found"
     return summaries, f"{method_note}: {len(summaries)} semantic clusters"
-

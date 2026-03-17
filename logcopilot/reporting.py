@@ -1,9 +1,10 @@
 import csv
 from contextlib import contextmanager
+import json
 from pathlib import Path
 from typing import Iterable, Iterator, List, Optional
 
-from .models import ClusterSummary, Event, SemanticClusterSummary
+from .models import AnalysisSummary, ClusterSummary, Event, SemanticClusterSummary
 
 
 def format_timestamp(value) -> str:
@@ -14,12 +15,16 @@ def event_to_row(event: Event) -> dict:
     return {
         "event_id": event.event_id,
         "source_file": event.source_file,
+        "parser_profile": event.parser_profile,
         "timestamp": format_timestamp(event.timestamp),
         "level": event.level or "",
+        "component": event.component or "",
         "message": event.message,
         "stacktrace": event.stacktrace,
+        "raw_text": event.raw_text,
         "normalized_message": event.normalized_message,
         "signature_hash": event.signature_hash,
+        "embedding_text": event.embedding_text,
         "request_id": event.request_id or "",
         "trace_id": event.trace_id or "",
         "exception_type": event.exception_type or "",
@@ -33,12 +38,16 @@ def write_events_csv(path: Path, events: Iterable[Event]) -> None:
     fieldnames = [
         "event_id",
         "source_file",
+        "parser_profile",
         "timestamp",
         "level",
+        "component",
         "message",
         "stacktrace",
+        "raw_text",
         "normalized_message",
         "signature_hash",
+        "embedding_text",
         "request_id",
         "trace_id",
         "exception_type",
@@ -58,12 +67,16 @@ def open_events_csv_writer(path: Path) -> Iterator[csv.DictWriter]:
     fieldnames = [
         "event_id",
         "source_file",
+        "parser_profile",
         "timestamp",
         "level",
+        "component",
         "message",
         "stacktrace",
+        "raw_text",
         "normalized_message",
         "signature_hash",
+        "embedding_text",
         "request_id",
         "trace_id",
         "exception_type",
@@ -83,11 +96,15 @@ def write_clusters_csv(path: Path, clusters: Iterable[ClusterSummary]) -> None:
         "hits",
         "first_seen",
         "last_seen",
+        "parser_profiles",
         "source_files",
         "sample_messages",
         "example_exception",
         "levels",
         "incident_hits",
+        "confidence_score",
+        "confidence_label",
+        "clustering_method",
     ]
     with path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
@@ -99,11 +116,15 @@ def write_clusters_csv(path: Path, clusters: Iterable[ClusterSummary]) -> None:
                     "hits": cluster.hits,
                     "first_seen": format_timestamp(cluster.first_seen),
                     "last_seen": format_timestamp(cluster.last_seen),
+                    "parser_profiles": cluster.parser_profiles,
                     "source_files": cluster.source_files,
                     "sample_messages": cluster.sample_messages,
                     "example_exception": cluster.example_exception or "",
                     "levels": cluster.levels,
                     "incident_hits": cluster.incident_hits,
+                    "confidence_score": cluster.confidence_score,
+                    "confidence_label": cluster.confidence_label,
+                    "clustering_method": cluster.clustering_method,
                 }
             )
 
@@ -113,6 +134,7 @@ def write_top_clusters_md(
     clusters: List[ClusterSummary],
     event_count: int,
     cluster_count: int,
+    analysis_summary: Optional[AnalysisSummary] = None,
     semantic_note: Optional[str] = None,
 ) -> None:
     lines = [
@@ -121,6 +143,17 @@ def write_top_clusters_md(
         f"- Events: {event_count}",
         f"- Signature clusters: {cluster_count}",
     ]
+    if analysis_summary:
+        lines.extend(
+            [
+                f"- Parser quality: {analysis_summary.parser_quality_label} ({analysis_summary.parser_quality_score:.2f})",
+                f"- Timestamp coverage: {analysis_summary.timestamp_coverage:.1%}",
+                f"- Level coverage: {analysis_summary.level_coverage:.1%}",
+                f"- Exception coverage: {analysis_summary.exception_coverage:.1%}",
+                f"- Stacktrace coverage: {analysis_summary.stacktrace_coverage:.1%}",
+                f"- Fallback parser rate: {analysis_summary.fallback_profile_rate:.1%}",
+            ]
+        )
     if semantic_note:
         lines.append(f"- Semantic clustering: {semantic_note}")
     lines.extend(["", "## Top-10 incidents", ""])
@@ -134,6 +167,8 @@ def write_top_clusters_md(
             lines.append(f"- Incident hits: {cluster.incident_hits}")
             lines.append(f"- First seen: {format_timestamp(cluster.first_seen) or 'n/a'}")
             lines.append(f"- Last seen: {format_timestamp(cluster.last_seen) or 'n/a'}")
+            lines.append(f"- Confidence: {cluster.confidence_label} ({cluster.confidence_score:.2f})")
+            lines.append(f"- Parser profiles: {cluster.parser_profiles or 'n/a'}")
             lines.append(f"- Levels: {cluster.levels or 'n/a'}")
             lines.append(f"- Exception: {cluster.example_exception or 'n/a'}")
             lines.append(f"- Source files: {cluster.source_files or 'n/a'}")
@@ -181,12 +216,16 @@ def write_events_parquet(path: Path, events: List[Event]) -> bool:
             {
                 "event_id": event.event_id,
                 "source_file": event.source_file,
+                "parser_profile": event.parser_profile,
                 "timestamp": format_timestamp(event.timestamp),
                 "level": event.level or "",
+                "component": event.component or "",
                 "message": event.message,
                 "stacktrace": event.stacktrace,
+                "raw_text": event.raw_text,
                 "normalized_message": event.normalized_message,
                 "signature_hash": event.signature_hash,
+                "embedding_text": event.embedding_text,
                 "request_id": event.request_id or "",
                 "trace_id": event.trace_id or "",
                 "exception_type": event.exception_type or "",
@@ -198,3 +237,48 @@ def write_events_parquet(path: Path, events: List[Event]) -> bool:
     table = pa.Table.from_pylist(rows)
     pq.write_table(table, path)
     return True
+
+
+def write_analysis_summary_json(path: Path, summary: AnalysisSummary) -> None:
+    payload = {
+        "source_name": summary.source_name,
+        "event_count": summary.event_count,
+        "cluster_count": summary.cluster_count,
+        "incident_event_count": summary.incident_event_count,
+        "timestamp_coverage": summary.timestamp_coverage,
+        "level_coverage": summary.level_coverage,
+        "component_coverage": summary.component_coverage,
+        "exception_coverage": summary.exception_coverage,
+        "stacktrace_coverage": summary.stacktrace_coverage,
+        "request_id_coverage": summary.request_id_coverage,
+        "trace_id_coverage": summary.trace_id_coverage,
+        "fallback_profile_rate": summary.fallback_profile_rate,
+        "parser_quality_score": summary.parser_quality_score,
+        "parser_quality_label": summary.parser_quality_label,
+        "parser_profiles": summary.parser_profiles,
+    }
+    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+
+def write_llm_ready_clusters_json(path: Path, clusters: List[ClusterSummary]) -> None:
+    payload = []
+    for cluster in clusters:
+        payload.append(
+            {
+                "cluster_id": cluster.cluster_id,
+                "hits": cluster.hits,
+                "incident_hits": cluster.incident_hits,
+                "first_seen": format_timestamp(cluster.first_seen),
+                "last_seen": format_timestamp(cluster.last_seen),
+                "confidence_score": cluster.confidence_score,
+                "confidence_label": cluster.confidence_label,
+                "parser_profiles": cluster.parser_profiles,
+                "levels": cluster.levels,
+                "exception_type": cluster.example_exception,
+                "source_files": cluster.source_files,
+                "sample_messages": [
+                    sample for sample in cluster.sample_messages.split(" || ") if sample
+                ],
+            }
+        )
+    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")

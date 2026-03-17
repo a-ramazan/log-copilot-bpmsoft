@@ -6,16 +6,19 @@ import uuid
 from .clustering import ClusterAccumulator, top_incident_clusters
 from .models import Event
 from .parsing import iter_events
+from .quality import AnalysisQualityAccumulator
 from .reporting import (
     event_to_row,
     open_events_csv_writer,
+    write_analysis_summary_json,
     write_clusters_csv,
     write_events_parquet,
+    write_llm_ready_clusters_json,
     write_semantic_clusters_csv,
     write_top_clusters_md,
 )
 from .semantic import cluster_signatures_semantically
-from .signatures import build_signature, make_event_signature
+from .signatures import build_embedding_text, build_signature, make_event_signature
 
 
 def parse_args() -> argparse.Namespace:
@@ -52,6 +55,7 @@ def main() -> None:
     keep_events = _should_keep_events(args.semantic)
     event_count = 0
     accumulator = ClusterAccumulator()
+    quality = AnalysisQualityAccumulator(source_name=input_path.name)
 
     with open_events_csv_writer(output_path / "events.csv") as events_writer:
         for raw_event in iter_events(input_path):
@@ -61,32 +65,40 @@ def main() -> None:
             event = Event(
                 event_id=str(uuid.uuid4()),
                 source_file=raw_event.source_file,
+                parser_profile=raw_event.parser_profile,
                 timestamp=raw_event.timestamp,
                 level=raw_event.level,
                 message=raw_event.message,
                 stacktrace=raw_event.stacktrace,
-                raw_text="",
+                raw_text=raw_event.raw_text,
                 normalized_message=normalized_message,
                 signature_hash=build_signature(
                     normalized_message, exception_type, stack_frames
                 ),
+                embedding_text="",
                 exception_type=exception_type,
                 stack_frames=stack_frames,
+                component=raw_event.component,
                 request_id=raw_event.request_id,
                 trace_id=raw_event.trace_id,
                 http_status=raw_event.http_status,
                 is_incident=is_incident,
             )
+            event.embedding_text = build_embedding_text(event)
             events_writer.writerow(event_to_row(event))
             accumulator.add(event)
+            quality.add(event)
             event_count += 1
             if keep_events:
                 events_for_optional_outputs.append(event)
 
     clusters = accumulator.build_summaries()
+    analysis_summary = quality.build_summary(cluster_count=len(clusters))
     top_clusters = top_incident_clusters(clusters, limit=10)
 
     write_clusters_csv(output_path / "clusters.csv", clusters)
+    write_analysis_summary_json(output_path / "analysis_summary.json", analysis_summary)
+    write_llm_ready_clusters_json(output_path / "llm_ready_clusters.json", top_clusters)
     parquet_written = write_events_parquet(
         output_path / "events.parquet", events_for_optional_outputs
     ) if events_for_optional_outputs else False
@@ -104,6 +116,7 @@ def main() -> None:
         top_clusters,
         event_count=event_count,
         cluster_count=len(clusters),
+        analysis_summary=analysis_summary,
         semantic_note=semantic_note if args.semantic != "off" else None,
     )
 
@@ -111,8 +124,14 @@ def main() -> None:
     print(f"Events: {event_count}")
     print(f"Signature clusters: {len(clusters)}")
     print(f"Incident-like clusters in top report: {len(top_clusters)}")
+    print(
+        f"Parser quality: {analysis_summary.parser_quality_label} "
+        f"({analysis_summary.parser_quality_score:.2f})"
+    )
     print(f"events.csv: {output_path / 'events.csv'}")
     print(f"clusters.csv: {output_path / 'clusters.csv'}")
+    print(f"analysis_summary.json: {output_path / 'analysis_summary.json'}")
+    print(f"llm_ready_clusters.json: {output_path / 'llm_ready_clusters.json'}")
     print(f"top_clusters.md: {output_path / 'top_clusters.md'}")
     if parquet_written:
         print(f"events.parquet: {output_path / 'events.parquet'}")

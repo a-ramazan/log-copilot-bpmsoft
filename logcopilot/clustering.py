@@ -3,6 +3,7 @@ from datetime import datetime
 from typing import Dict, Iterable, List, Optional
 
 from .models import ClusterSummary, Event
+from .quality import confidence_label
 
 
 def choose_first_non_null(values: Iterable[Optional[str]]) -> Optional[str]:
@@ -105,10 +106,16 @@ class ClusterAccumulator:
                 "example_exception": None,
                 "level_counts": Counter(),
                 "incident_hits": 0,
+                "timestamp_count": 0,
+                "component_count": 0,
+                "exception_count": 0,
+                "stacktrace_count": 0,
+                "profile_counts": Counter(),
             },
         )
         bucket["hits"] += 1
         if event.timestamp:
+            bucket["timestamp_count"] += 1
             first_seen = bucket["first_seen"]
             last_seen = bucket["last_seen"]
             bucket["first_seen"] = (
@@ -123,10 +130,17 @@ class ClusterAccumulator:
             )
         bucket["source_counts"][event.source_file] += 1
         bucket["level_counts"][(event.level or "UNKNOWN").upper()] += 1
+        bucket["profile_counts"][event.parser_profile] += 1
+        if event.component:
+            bucket["component_count"] += 1
         if event.is_incident:
             bucket["incident_hits"] += 1
         if not bucket["example_exception"] and event.exception_type:
             bucket["example_exception"] = event.exception_type
+        if event.exception_type:
+            bucket["exception_count"] += 1
+        if event.stacktrace.strip():
+            bucket["stacktrace_count"] += 1
         if event.message.strip() and event.message not in bucket["sample_seen"]:
             bucket["sample_seen"].add(event.message)
             if len(bucket["sample_messages"]) < 5:
@@ -148,12 +162,19 @@ class ClusterAccumulator:
         for signature_hash, bucket in self._clusters.items():
             source_counts = bucket["source_counts"]
             level_counts = bucket["level_counts"]
+            profile_counts = bucket["profile_counts"]
+            hits = bucket["hits"]
+            confidence_score = _cluster_confidence_score(bucket)
             clusters.append(
                 ClusterSummary(
                     cluster_id=signature_hash,
-                    hits=bucket["hits"],
+                    hits=hits,
                     first_seen=bucket["first_seen"],
                     last_seen=bucket["last_seen"],
+                    parser_profiles="; ".join(
+                        f"{profile} ({count})"
+                        for profile, count in profile_counts.most_common(3)
+                    ),
                     source_files="; ".join(
                         f"{source} ({hits})"
                         for source, hits in source_counts.most_common(5)
@@ -164,6 +185,9 @@ class ClusterAccumulator:
                         f"{level}:{hits}" for level, hits in level_counts.most_common()
                     ),
                     incident_hits=bucket["incident_hits"],
+                    confidence_score=confidence_score,
+                    confidence_label=confidence_label(confidence_score),
+                    clustering_method="signature",
                 )
             )
         clusters.sort(
@@ -175,3 +199,24 @@ class ClusterAccumulator:
             reverse=True,
         )
         return clusters
+
+
+def _cluster_confidence_score(bucket: Dict[str, object]) -> float:
+    hits = int(bucket["hits"])
+    if hits <= 0:
+        return 0.0
+    incident_ratio = int(bucket["incident_hits"]) / hits
+    exception_ratio = int(bucket["exception_count"]) / hits
+    stacktrace_ratio = int(bucket["stacktrace_count"]) / hits
+    timestamp_ratio = int(bucket["timestamp_count"]) / hits
+    component_ratio = int(bucket["component_count"]) / hits
+    hit_score = min(1.0, hits / 20.0)
+    score = (
+        0.3 * incident_ratio
+        + 0.25 * exception_ratio
+        + 0.15 * stacktrace_ratio
+        + 0.15 * timestamp_ratio
+        + 0.05 * component_ratio
+        + 0.1 * hit_score
+    )
+    return round(score, 3)

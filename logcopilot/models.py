@@ -6,11 +6,13 @@ from typing import List, Optional
 @dataclass
 class RawEvent:
     source_file: str
+    parser_profile: str
     timestamp: Optional[datetime]
     level: Optional[str]
     message: str
     stacktrace: str
     raw_text: str
+    component: Optional[str] = None
     request_id: Optional[str] = None
     trace_id: Optional[str] = None
     http_status: Optional[int] = None
@@ -20,6 +22,7 @@ class RawEvent:
 class Event:
     event_id: str
     source_file: str
+    parser_profile: str
     timestamp: Optional[datetime]
     level: Optional[str]
     message: str
@@ -27,8 +30,10 @@ class Event:
     raw_text: str
     normalized_message: str
     signature_hash: str
+    embedding_text: str
     exception_type: Optional[str] = None
     stack_frames: List[str] = field(default_factory=list)
+    component: Optional[str] = None
     request_id: Optional[str] = None
     trace_id: Optional[str] = None
     http_status: Optional[int] = None
@@ -41,11 +46,15 @@ class ClusterSummary:
     hits: int
     first_seen: Optional[datetime]
     last_seen: Optional[datetime]
+    parser_profiles: str
     source_files: str
     sample_messages: str
     example_exception: Optional[str] = None
     levels: str = ""
     incident_hits: int = 0
+    confidence_score: float = 0.0
+    confidence_label: str = "low"
+    clustering_method: str = "signature"
 
 
 @dataclass
@@ -54,3 +63,22 @@ class SemanticClusterSummary:
     signature_hash: str
     hits: int
     representative_text: str
+
+
+@dataclass
+class AnalysisSummary:
+    source_name: str
+    event_count: int
+    cluster_count: int
+    incident_event_count: int
+    timestamp_coverage: float
+    level_coverage: float
+    component_coverage: float
+    exception_coverage: float
+    stacktrace_coverage: float
+    request_id_coverage: float
+    trace_id_coverage: float
+    fallback_profile_rate: float
+    parser_quality_score: float
+    parser_quality_label: str
+    parser_profiles: str

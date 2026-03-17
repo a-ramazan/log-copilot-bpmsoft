@@ -2,7 +2,7 @@ import hashlib
 import re
 from typing import List, Optional
 
-from .models import RawEvent
+from .models import Event, RawEvent
 from .normalization import normalize_text
 
 EXCEPTION_RE = re.compile(r"\b([A-Za-z_][\w.]+(?:Exception|Error))\b")
@@ -66,3 +66,27 @@ def make_event_signature(event: RawEvent) -> tuple[str, Optional[str], List[str]
     is_incident = is_incident_candidate(event, exception_type)
     return normalized_message, exception_type, stack_frames, is_incident
 
+
+def build_embedding_text(event: Event) -> str:
+    parts = [
+        f"profile={event.parser_profile}",
+        f"level={(event.level or 'unknown').lower()}",
+        f"component={event.component or 'unknown'}",
+        f"message={event.normalized_message or normalize_text(event.message)}",
+    ]
+    if event.exception_type:
+        parts.append(f"exception={event.exception_type}")
+    if event.stack_frames:
+        parts.append("stack=" + " | ".join(event.stack_frames))
+    elif event.stacktrace.strip():
+        parts.append("stack=" + normalize_text(event.stacktrace))
+    if event.http_status is not None:
+        parts.append(f"http_status={event.http_status}")
+    if event.request_id:
+        parts.append("has_request_id=true")
+    if event.trace_id:
+        parts.append("has_trace_id=true")
+    raw_fallback = normalize_text(event.raw_text) if event.raw_text else ""
+    if raw_fallback and raw_fallback not in " ".join(parts):
+        parts.append(f"raw={raw_fallback}")
+    return " || ".join(part for part in parts if part)
