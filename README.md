@@ -53,8 +53,10 @@ python3 -m pip install .[parquet]
 
 ```bash
 python3 -m pip install .[semantic]
-python3 -m logcopilot.pipeline --input Logs --out out --semantic auto
+python3 -m logcopilot.pipeline --input Logs --out out
 ```
+
+Semantic layer включён по умолчанию. Если зависимости или модель недоступны, pipeline не падает, а печатает причину пропуска semantic clustering.
 
 `sentence-transformers/all-MiniLM-L6-v2` нужен только для semantic clustering. Для baseline clustering по сигнатурам скачивать модель не нужно.
 

@@ -28,7 +28,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--semantic",
         choices=("off", "auto", "on"),
-        default="off",
+        default="on",
         help="Enable optional embedding-based semantic clustering",
     )
     parser.add_argument(
@@ -145,8 +145,6 @@ def main() -> None:
 
 
 def _should_keep_events(semantic_mode: str) -> bool:
-    if semantic_mode != "off":
-        return True
     try:
         import pyarrow  # noqa: F401
     except ImportError:
