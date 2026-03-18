@@ -1,4 +1,7 @@
+from collections import Counter, defaultdict
+from dataclasses import dataclass, field
 import re
+from typing import Dict, Iterable, List, Optional, Tuple
 
 UUID_RE = re.compile(
     r"\b[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\b"
@@ -23,22 +26,79 @@ TRACE_ID_RE = re.compile(
 TOKENISH_RE = re.compile(r"\b[A-Za-z0-9_-]{24,}\b")
 WHITESPACE_RE = re.compile(r"\s+")
 
+MASK_SPECS: List[Tuple[str, re.Pattern[str], str]] = [
+    ("UUID", UUID_RE, "<UUID>"),
+    ("DATETIME", DATETIME_RE, "<DATETIME>"),
+    ("DATE", DATE_ONLY_RE, "<DATE>"),
+    ("TIME", TIME_ONLY_RE, "<TIME>"),
+    ("IP", IPV4_RE, "<IP>"),
+    ("IP", IPV6_RE, "<IP>"),
+    ("EMAIL", EMAIL_RE, "<EMAIL>"),
+    ("JWT", JWT_RE, "<JWT>"),
+    ("HEX", HEX_RE, "<HEX>"),
+    ("HEX", LONG_HEX_RE, "<HEX>"),
+    ("REQ_ID", REQUEST_ID_RE, r"\1<REQ_ID>"),
+    ("TRACE_ID", TRACE_ID_RE, r"\1<TRACE_ID>"),
+    ("NUM", LONG_ID_RE, "<NUM>"),
+    ("TOKEN", TOKENISH_RE, "<TOKEN>"),
+]
+MASK_TOKEN_NAMES = ("UUID", "IP", "EMAIL", "JWT", "HEX", "REQ_ID", "TRACE_ID", "NUM", "TOKEN")
 
-def normalize_text(text: str) -> str:
+
+@dataclass
+class NormalizationStats:
+    mask_counts: Counter[str] = field(default_factory=Counter)
+    raw_patterns: Dict[str, Counter[str]] = field(default_factory=lambda: defaultdict(Counter))
+    total_events: int = 0
+
+    def observe_mask(self, mask_name: str, raw_value: str) -> None:
+        self.mask_counts[mask_name] += 1
+        preview = WHITESPACE_RE.sub(" ", raw_value.strip())[:120]
+        if preview:
+            self.raw_patterns[mask_name][preview] += 1
+
+    def snapshot(self, top_n: int = 10) -> dict:
+        return {
+            "mask_counts": dict(self.mask_counts),
+            "top_replaced_patterns": {
+                name: patterns.most_common(top_n)
+                for name, patterns in self.raw_patterns.items()
+            },
+        }
+
+
+def _apply_mask(
+    text: str,
+    mask_name: str,
+    pattern: re.Pattern[str],
+    replacement: str,
+    stats: Optional[NormalizationStats],
+) -> str:
+    if stats is None:
+        return pattern.sub(replacement, text)
+
+    def replacer(match: re.Match[str]) -> str:
+        stats.observe_mask(mask_name, match.group(0))
+        return match.expand(replacement)
+
+    return pattern.sub(replacer, text)
+
+
+def normalize_text(text: str, stats: Optional[NormalizationStats] = None) -> str:
     normalized = text or ""
-    normalized = UUID_RE.sub("<UUID>", normalized)
-    normalized = DATETIME_RE.sub("<DATETIME>", normalized)
-    normalized = DATE_ONLY_RE.sub("<DATE>", normalized)
-    normalized = TIME_ONLY_RE.sub("<TIME>", normalized)
-    normalized = IPV4_RE.sub("<IP>", normalized)
-    normalized = IPV6_RE.sub("<IP>", normalized)
-    normalized = EMAIL_RE.sub("<EMAIL>", normalized)
-    normalized = JWT_RE.sub("<JWT>", normalized)
-    normalized = HEX_RE.sub("<HEX>", normalized)
-    normalized = LONG_HEX_RE.sub("<HEX>", normalized)
-    normalized = REQUEST_ID_RE.sub(r"\1<REQ_ID>", normalized)
-    normalized = TRACE_ID_RE.sub(r"\1<TRACE_ID>", normalized)
-    normalized = LONG_ID_RE.sub("<NUM>", normalized)
-    normalized = TOKENISH_RE.sub("<TOKEN>", normalized)
+    if stats is not None:
+        stats.total_events += 1
+    for mask_name, pattern, replacement in MASK_SPECS:
+        normalized = _apply_mask(normalized, mask_name, pattern, replacement, stats)
     normalized = WHITESPACE_RE.sub(" ", normalized).strip().lower()
     return normalized
+
+
+def count_mask_tokens(texts: Iterable[str]) -> Counter[str]:
+    counts: Counter[str] = Counter()
+    for text in texts:
+        upper = (text or "").upper()
+        for token_name in MASK_TOKEN_NAMES:
+            token = f"<{token_name}>"
+            counts[token_name] += upper.count(token)
+    return counts

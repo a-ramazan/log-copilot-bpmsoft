@@ -1,8 +1,13 @@
-__pycache__/
-.pytest_cache/
-.venv/
+Logs/
+data/
 out/
-out_sample/
-out_verified/
+*.log
+*.zip
+*.parquet
+*.csv
+*.json
+__pycache__/
+.venv/
+.pytest_cache/
 *.pyc
 

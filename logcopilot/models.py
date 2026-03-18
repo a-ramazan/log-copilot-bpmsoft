@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import List, Optional
+from typing import Dict, List, Optional
 
 
 @dataclass
@@ -12,6 +12,7 @@ class RawEvent:
     message: str
     stacktrace: str
     raw_text: str
+    line_count: int = 1
     component: Optional[str] = None
     request_id: Optional[str] = None
     trace_id: Optional[str] = None
@@ -28,6 +29,7 @@ class Event:
     message: str
     stacktrace: str
     raw_text: str
+    line_count: int
     normalized_message: str
     signature_hash: str
     embedding_text: str
@@ -55,6 +57,10 @@ class ClusterSummary:
     confidence_score: float = 0.0
     confidence_label: str = "low"
     clustering_method: str = "signature"
+    representative_raw: str = ""
+    representative_normalized: str = ""
+    representative_signature_text: str = ""
+    top_stack_frames: str = ""
 
 
 @dataclass
@@ -63,6 +69,8 @@ class SemanticClusterSummary:
     signature_hash: str
     hits: int
     representative_text: str
+    member_signature_hashes: str = ""
+    avg_cosine_similarity: float = 0.0
 
 
 @dataclass
@@ -82,3 +90,15 @@ class AnalysisSummary:
     parser_quality_score: float
     parser_quality_label: str
     parser_profiles: str
+
+
+@dataclass
+class PipelineRunResult:
+    output_dir: str
+    event_count: int
+    cluster_count: int
+    semantic_cluster_count: int
+    analysis_summary: AnalysisSummary
+    semantic_note: str
+    artifact_paths: Dict[str, str]
+    debug_trace: Dict[str, object]

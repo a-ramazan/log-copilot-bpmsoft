@@ -158,6 +158,7 @@ def parse_buffer(lines: List[str], source_file: str, parser_profile: str) -> Raw
         message=message or body.strip(),
         stacktrace=stacktrace,
         raw_text=raw_text,
+        line_count=len(lines),
         component=extract_component(context, source_file, parser_profile),
         request_id=request_id,
         trace_id=trace_id,

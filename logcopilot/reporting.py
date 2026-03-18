@@ -22,6 +22,7 @@ def event_to_row(event: Event) -> dict:
         "message": event.message,
         "stacktrace": event.stacktrace,
         "raw_text": event.raw_text,
+        "line_count": event.line_count,
         "normalized_message": event.normalized_message,
         "signature_hash": event.signature_hash,
         "embedding_text": event.embedding_text,
@@ -45,6 +46,7 @@ def write_events_csv(path: Path, events: Iterable[Event]) -> None:
         "message",
         "stacktrace",
         "raw_text",
+        "line_count",
         "normalized_message",
         "signature_hash",
         "embedding_text",
@@ -74,6 +76,7 @@ def open_events_csv_writer(path: Path) -> Iterator[csv.DictWriter]:
         "message",
         "stacktrace",
         "raw_text",
+        "line_count",
         "normalized_message",
         "signature_hash",
         "embedding_text",
@@ -100,6 +103,11 @@ def write_clusters_csv(path: Path, clusters: Iterable[ClusterSummary]) -> None:
         "source_files",
         "sample_messages",
         "example_exception",
+        "exception_type",
+        "top_stack_frames",
+        "representative_raw",
+        "representative_normalized",
+        "representative_signature_text",
         "levels",
         "incident_hits",
         "confidence_score",
@@ -120,6 +128,11 @@ def write_clusters_csv(path: Path, clusters: Iterable[ClusterSummary]) -> None:
                     "source_files": cluster.source_files,
                     "sample_messages": cluster.sample_messages,
                     "example_exception": cluster.example_exception or "",
+                    "exception_type": cluster.example_exception or "",
+                    "top_stack_frames": cluster.top_stack_frames,
+                    "representative_raw": cluster.representative_raw,
+                    "representative_normalized": cluster.representative_normalized,
+                    "representative_signature_text": cluster.representative_signature_text,
                     "levels": cluster.levels,
                     "incident_hits": cluster.incident_hits,
                     "confidence_score": cluster.confidence_score,
@@ -188,6 +201,8 @@ def write_semantic_clusters_csv(
         "signature_hash",
         "hits",
         "representative_text",
+        "member_signature_hashes",
+        "avg_cosine_similarity",
     ]
     with path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
@@ -199,6 +214,8 @@ def write_semantic_clusters_csv(
                     "signature_hash": cluster.signature_hash,
                     "hits": cluster.hits,
                     "representative_text": cluster.representative_text,
+                    "member_signature_hashes": cluster.member_signature_hashes,
+                    "avg_cosine_similarity": cluster.avg_cosine_similarity,
                 }
             )
 
@@ -223,6 +240,7 @@ def write_events_parquet(path: Path, events: List[Event]) -> bool:
                 "message": event.message,
                 "stacktrace": event.stacktrace,
                 "raw_text": event.raw_text,
+                "line_count": event.line_count,
                 "normalized_message": event.normalized_message,
                 "signature_hash": event.signature_hash,
                 "embedding_text": event.embedding_text,
@@ -275,6 +293,10 @@ def write_llm_ready_clusters_json(path: Path, clusters: List[ClusterSummary]) ->
                 "parser_profiles": cluster.parser_profiles,
                 "levels": cluster.levels,
                 "exception_type": cluster.example_exception,
+                "top_stack_frames": cluster.top_stack_frames,
+                "representative_raw": cluster.representative_raw,
+                "representative_normalized": cluster.representative_normalized,
+                "representative_signature_text": cluster.representative_signature_text,
                 "source_files": cluster.source_files,
                 "sample_messages": [
                     sample for sample in cluster.sample_messages.split(" || ") if sample
@@ -282,3 +304,45 @@ def write_llm_ready_clusters_json(path: Path, clusters: List[ClusterSummary]) ->
             }
         )
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+
+def write_debug_samples_md(path: Path, events: List[Event]) -> None:
+    lines = ["# Debug Samples", ""]
+    if not events:
+        lines.append("No debug samples were captured.")
+    for index, event in enumerate(events, start=1):
+        lines.extend(
+            [
+                f"## Sample {index}",
+                "",
+                f"- source_file: {event.source_file}",
+                f"- parser_profile: {event.parser_profile}",
+                f"- cluster_id: {event.signature_hash}",
+                f"- level: {event.level or 'n/a'}",
+                f"- component: {event.component or 'n/a'}",
+                "",
+                "### Raw",
+                "",
+                "```text",
+                event.raw_text[:3000],
+                "```",
+                "",
+                "### Normalized",
+                "",
+                "```text",
+                event.normalized_message,
+                "```",
+                "",
+                "### Signature / Embedding Text",
+                "",
+                "```text",
+                event.embedding_text,
+                "```",
+                "",
+            ]
+        )
+    path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+
+
+def write_trace_summary_json(path: Path, trace_summary: dict) -> None:
+    path.write_text(json.dumps(trace_summary, indent=2), encoding="utf-8")

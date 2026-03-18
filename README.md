@@ -1,74 +1,73 @@
-# LogCopilot MVP
+# LogCopilot
 
-Explainable engine для логов: single-file intake -> parsing -> normalization -> embedding-ready events -> signature clustering -> quality metrics -> LLM-ready cluster payloads.
+LogCopilot превращает сырой лог в:
 
-## Что умеет
+- `events.csv` — структурированные события
+- `clusters.csv` — сигнатурные кластеры
+- `semantic_clusters.csv` — semantic groups поверх сигнатур
+- `analysis_summary.json` — coverage и quality metrics
+- `trace_summary.json` — тайминги, counters, normalization audit
+- `debug_samples.md` — примеры `raw -> normalized -> cluster`
 
-- Принимает один лог-файл или директорию с `.log` файлами.
-- Определяет parser profile: `log4net_like`, `plain_text`, `iis_w3c`, `generic_text`.
-- Склеивает multiline stacktrace в одно событие.
-- Сохраняет и `structured event`, и `raw_text`, чтобы не терять evidence.
-- Извлекает `timestamp`, `level`, `component`, `request_id`, `trace_id`, `http_status`, если это возможно.
-- Нормализует UUID, IP, email, токены, большие числа и даты.
-- Строит `embedding_text` для semantic-слоя с fallback на raw event text.
-- Строит сигнатуры ошибок по `normalized_message + exception_type + top stack frames`.
-- Считает quality metrics и confidence:
-  - parser coverage
-  - fallback rate
-  - cluster confidence
-- Генерирует:
-  - `out/events.csv`
-  - `out/clusters.csv`
-  - `out/analysis_summary.json`
-  - `out/llm_ready_clusters.json`
-  - `out/top_clusters.md`
-  - `out/events.parquet` при наличии `pyarrow`
-  - `out/semantic_clusters.csv` при наличии ML-зависимостей и включённом semantic mode
+## How To Run
 
-## Быстрый запуск
-
-Один файл:
+1. Слить много файлов в один:
 
 ```bash
-python3 -m logcopilot.pipeline --input Logs/2026-03-11/aspnetcore.log --out out
+python scripts/merge_logs.py --input Logs/2025-10-20 --out data/merged.log
 ```
 
-Папка логов:
+Merged file по умолчанию сохраняется в `data/merged.log`.
+
+2. Запустить pipeline:
 
 ```bash
-python3 -m logcopilot.pipeline --input Logs --out out
+python -m logcopilot.pipeline --input data/merged.log --out out --clean-out --log-level DEBUG --sample-events 20
 ```
 
-## Опциональные зависимости
-
-Базовый MVP работает без дополнительных библиотек.
-
-Для parquet:
+3. Открыть notebook:
 
 ```bash
-python3 -m pip install .[parquet]
+jupyter notebook notebooks/EDA.ipynb
 ```
 
-Для semantic clustering:
+## Что делает pipeline
+
+Архитектура всегда одна и та же:
+
+`parsing -> normalization -> signature clustering -> semantic clustering -> reporting`
+
+- `parsing.py` режет лог на события
+- `normalization.py` убирает шум и считает mask stats
+- `signatures.py` строит signature и embedding text
+- `clustering.py` делает baseline clustering по `signature_hash`
+- `semantic.py` объединяет похожие сигнатуры через embeddings
+- `quality.py` считает coverage/confidence
+- `reporting.py` пишет артефакты
+- `pipeline.py` всё связывает и управляет run-level trace
+
+## Semantic Layer
+
+Semantic clustering включён по умолчанию.
+
+Если зависимостей нет, pipeline должен завершиться с понятной ошибкой. Установить всё можно так:
 
 ```bash
-python3 -m pip install .[semantic]
-python3 -m logcopilot.pipeline --input Logs --out out
+pip install -r requirements.txt
 ```
 
-Semantic layer включён по умолчанию. Если зависимости или модель недоступны, pipeline не падает, а печатает причину пропуска semantic clustering.
+По умолчанию используется модель:
 
-`sentence-transformers/all-MiniLM-L6-v2` нужен только для semantic clustering. Для baseline clustering по сигнатурам скачивать модель не нужно.
+`sentence-transformers/all-MiniLM-L6-v2`
 
-## Как использовать с LLM
+## Notebook / EDA
 
-`out/llm_ready_clusters.json` — это готовый вход для следующего слоя, который пишет:
+Notebook `notebooks/EDA.ipynb` умеет:
 
-- title
-- summary
-- probable cause
-- confidence
-- evidence
-- recommended checks
-
-LLM должен работать поверх кластеров, а не поверх всего сырого файла.
+- запускать pipeline как Python-функцию `run_pipeline(...)`
+- загружать артефакты из одного `OUT_DIR`
+- показывать summary metrics
+- исследовать top clusters
+- смотреть raw/normalized примеры
+- смотреть normalization audit
+- переигрывать semantic clustering с другими параметрами без повторного парсинга

@@ -3,7 +3,7 @@ import re
 from typing import List, Optional
 
 from .models import Event, RawEvent
-from .normalization import normalize_text
+from .normalization import NormalizationStats, normalize_text
 
 EXCEPTION_RE = re.compile(r"\b([A-Za-z_][\w.]+(?:Exception|Error))\b")
 STACK_FRAME_RE = re.compile(r"^\s*at\s+(.+?)(?:\(|\s+in\s+|$)")
@@ -58,8 +58,10 @@ def is_incident_candidate(event: RawEvent, exception_type: Optional[str]) -> boo
     return any(token in message for token in (" exception", " failed", " error"))
 
 
-def make_event_signature(event: RawEvent) -> tuple[str, Optional[str], List[str], bool]:
-    normalized_message = normalize_text(event.message)
+def make_event_signature(
+    event: RawEvent, normalization_stats: Optional[NormalizationStats] = None
+) -> tuple[str, Optional[str], List[str], bool]:
+    normalized_message = normalize_text(event.message, normalization_stats)
     exception_type = extract_exception_type(event.stacktrace, event.message)
     stack_frames = extract_stack_frames(event.stacktrace)
     signature_hash = build_signature(normalized_message, exception_type, stack_frames)
@@ -90,3 +92,16 @@ def build_embedding_text(event: Event) -> str:
     if raw_fallback and raw_fallback not in " ".join(parts):
         parts.append(f"raw={raw_fallback}")
     return " || ".join(part for part in parts if part)
+
+
+def build_signature_text(
+    normalized_message: str,
+    exception_type: Optional[str],
+    stack_frames: List[str],
+) -> str:
+    parts = [f"normalized_message={normalized_message}"]
+    if exception_type:
+        parts.append(f"exception_type={exception_type}")
+    if stack_frames:
+        parts.append("top_stack_frames=" + " | ".join(stack_frames))
+    return " || ".join(parts)

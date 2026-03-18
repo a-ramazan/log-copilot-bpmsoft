@@ -4,6 +4,7 @@ from typing import Dict, Iterable, List, Optional
 
 from .models import ClusterSummary, Event
 from .quality import confidence_label
+from .signatures import build_signature_text
 
 
 def choose_first_non_null(values: Iterable[Optional[str]]) -> Optional[str]:
@@ -61,6 +62,12 @@ def build_cluster_summaries(events: List[Event]) -> List[ClusterSummary]:
                 hits=len(cluster_events),
                 first_seen=min_timestamp(cluster_events),
                 last_seen=max_timestamp(cluster_events),
+                parser_profiles="; ".join(
+                    f"{profile} ({hits})"
+                    for profile, hits in Counter(
+                        event.parser_profile for event in cluster_events
+                    ).most_common(3)
+                ),
                 source_files=top_source_files(cluster_events),
                 sample_messages=sample_messages(cluster_events),
                 example_exception=choose_first_non_null(
@@ -68,6 +75,10 @@ def build_cluster_summaries(events: List[Event]) -> List[ClusterSummary]:
                 ),
                 levels=levels_summary(cluster_events),
                 incident_hits=incident_hits,
+                representative_raw=cluster_events[0].raw_text[:1000],
+                representative_normalized=cluster_events[0].normalized_message,
+                representative_signature_text="",
+                top_stack_frames=" | ".join(cluster_events[0].stack_frames),
             )
         )
     clusters.sort(
@@ -111,6 +122,7 @@ class ClusterAccumulator:
                 "exception_count": 0,
                 "stacktrace_count": 0,
                 "profile_counts": Counter(),
+                "representative_event": None,
             },
         )
         bucket["hits"] += 1
@@ -149,10 +161,13 @@ class ClusterAccumulator:
         representative = self._representatives.get(event.signature_hash)
         if representative is None:
             self._representatives[event.signature_hash] = event
+            bucket["representative_event"] = event
         elif event.is_incident and not representative.is_incident:
             self._representatives[event.signature_hash] = event
+            bucket["representative_event"] = event
         elif len(event.stacktrace) > len(representative.stacktrace):
             self._representatives[event.signature_hash] = event
+            bucket["representative_event"] = event
 
     def representatives(self) -> List[Event]:
         return list(self._representatives.values())
@@ -165,6 +180,9 @@ class ClusterAccumulator:
             profile_counts = bucket["profile_counts"]
             hits = bucket["hits"]
             confidence_score = _cluster_confidence_score(bucket)
+            representative_event = bucket["representative_event"] or self._representatives.get(
+                signature_hash
+            )
             clusters.append(
                 ClusterSummary(
                     cluster_id=signature_hash,
@@ -188,6 +206,26 @@ class ClusterAccumulator:
                     confidence_score=confidence_score,
                     confidence_label=confidence_label(confidence_score),
                     clustering_method="signature",
+                    representative_raw=(
+                        representative_event.raw_text[:2000] if representative_event else ""
+                    ),
+                    representative_normalized=(
+                        representative_event.normalized_message if representative_event else ""
+                    ),
+                    representative_signature_text=(
+                        build_signature_text(
+                            representative_event.normalized_message,
+                            representative_event.exception_type,
+                            representative_event.stack_frames,
+                        )
+                        if representative_event
+                        else ""
+                    ),
+                    top_stack_frames=(
+                        " | ".join(representative_event.stack_frames)
+                        if representative_event
+                        else ""
+                    ),
                 )
             )
         clusters.sort(
