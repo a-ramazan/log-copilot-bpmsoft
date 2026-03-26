@@ -1,0 +1,10 @@
+* @Karimkhab
+
+/logcopilot/core/ @Karimkhab
+/logcopilot/storage/ @Karimkhab
+/logcopilot/profiles/incidents.py @Karimkhab
+/logcopilot/profiles/heatmap.py @Karimkhab
+/logcopilot/profiles/traffic.py @Karimkhab
+/logcopilot/agent/ @Karimkhab
+/docs/ @Karimkhab
+/tests/ @Karimkhab
