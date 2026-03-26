@@ -90,6 +90,7 @@ tests/
 ## Как работаем командой
 
 - Основная ветка: `main`.
+- Отдельную `dev` ветку не используем.
 - Рабочие ветки:
   - `feature/<scope>`
   - `fix/<scope>`
@@ -98,3 +99,4 @@ tests/
 - Перед merge должны пройти тесты.
 
 Подробности в [docs/team_workflow.md](docs/team_workflow.md).
+Настройка GitHub описана в [docs/github_setup.md](docs/github_setup.md).
