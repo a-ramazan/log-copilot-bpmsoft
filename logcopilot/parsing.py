@@ -22,6 +22,29 @@ TRACE_ID_RE = re.compile(
     re.IGNORECASE,
 )
 HTTP_STATUS_RE = re.compile(r"\s(?P<status>\d{3})\s+\d+\s*$")
+HTTP_METHOD_RE = re.compile(r"\b(?P<method>GET|POST|PUT|PATCH|DELETE|OPTIONS|HEAD)\b", re.IGNORECASE)
+METHOD_PATH_RE = re.compile(
+    r"\b(?P<method>GET|POST|PUT|PATCH|DELETE|OPTIONS|HEAD)\s+(?P<path>/\S+)",
+    re.IGNORECASE,
+)
+LATENCY_LABELED_RE = re.compile(
+    r"\b(?:latency|duration|elapsed|elapsed_ms|time|time_ms)\s*[:=]?\s*(?P<value>\d+(?:\.\d+)?)\s*ms\b",
+    re.IGNORECASE,
+)
+LATENCY_SUFFIX_RE = re.compile(r"\b(?P<value>\d+(?:\.\d+)?)ms\b", re.IGNORECASE)
+RESPONSE_SIZE_RE = re.compile(
+    r"\b(?:size|bytes|response_bytes)\s*[:=]?\s*(?P<value>\d+)\b",
+    re.IGNORECASE,
+)
+CLIENT_IP_RE = re.compile(
+    r"\b(?:client_ip|ip|c-ip|remote_ip)\s*[:=]?\s*(?P<value>(?:\d{1,3}\.){3}\d{1,3})\b",
+    re.IGNORECASE,
+)
+USER_AGENT_RE = re.compile(
+    r"\b(?:user-agent|user_agent|ua|agent)\s*[:=]?\s*(?P<value>.+)$",
+    re.IGNORECASE,
+)
+BARE_IP_RE = re.compile(r"\b(?P<value>(?:\d{1,3}\.){3}\d{1,3})\b")
 
 TIMESTAMP_FORMATS = (
     "%Y-%m-%d %H:%M:%S,%f",
@@ -92,15 +115,89 @@ def parse_ids(raw_text: str) -> tuple[Optional[str], Optional[str]]:
 
 
 def parse_http_status(source_file: str, message: str) -> Optional[int]:
-    if not source_file.endswith("Request.log"):
-        return None
     match = HTTP_STATUS_RE.search(message)
+    if not match:
+        labeled = re.search(r"\bstatus\s*[:=]?\s*(?P<status>\d{3})\b", message, re.IGNORECASE)
+        if labeled:
+            match = labeled
+        elif source_file.endswith("Request.log"):
+            parts = [part for part in re.split(r"\s+", message) if part]
+            for part in reversed(parts):
+                if part.isdigit() and len(part) == 3:
+                    match = re.match(r"(?P<status>\d{3})", part)
+                    break
     if not match:
         return None
     try:
         return int(match.group("status"))
     except ValueError:
         return None
+
+
+def parse_float(value: Optional[str]) -> Optional[float]:
+    if value in (None, ""):
+        return None
+    try:
+        return float(value)
+    except ValueError:
+        return None
+
+
+def parse_int(value: Optional[str]) -> Optional[int]:
+    if value in (None, ""):
+        return None
+    try:
+        return int(value)
+    except ValueError:
+        return None
+
+
+def parse_http_fields(message: str, raw_text: str) -> tuple[
+    Optional[str],
+    Optional[str],
+    Optional[float],
+    Optional[int],
+    Optional[str],
+    Optional[str],
+]:
+    method = None
+    path = None
+    latency_ms = None
+    response_size = None
+    client_ip = None
+    user_agent = None
+
+    method_match = METHOD_PATH_RE.search(raw_text)
+    if method_match:
+        method = method_match.group("method").upper()
+        path = method_match.group("path")
+    else:
+        method_only = HTTP_METHOD_RE.search(raw_text)
+        if method_only:
+            method = method_only.group("method").upper()
+
+    latency_match = LATENCY_LABELED_RE.search(raw_text) or LATENCY_SUFFIX_RE.search(raw_text)
+    if latency_match:
+        latency_ms = parse_float(latency_match.group("value"))
+
+    size_match = RESPONSE_SIZE_RE.search(raw_text)
+    if size_match:
+        response_size = parse_int(size_match.group("value"))
+
+    client_ip_match = CLIENT_IP_RE.search(raw_text) or BARE_IP_RE.search(raw_text)
+    if client_ip_match:
+        client_ip = client_ip_match.group("value")
+
+    ua_match = USER_AGENT_RE.search(raw_text)
+    if ua_match:
+        user_agent = ua_match.group("value").strip()
+
+    if path is None:
+        message_path = re.search(r"\s(?P<path>/\S+)", message)
+        if message_path:
+            path = message_path.group("path")
+
+    return method, path, latency_ms, response_size, client_ip, user_agent
 
 
 def split_message_and_stack(body: str, continuation_lines: List[str]) -> tuple[str, str]:
@@ -150,6 +247,10 @@ def parse_buffer(lines: List[str], source_file: str, parser_profile: str) -> Raw
     raw_text = "\n".join(line.rstrip("\n") for line in lines).strip()
     request_id, trace_id = parse_ids(raw_text)
     http_status = parse_http_status(source_file, raw_text)
+    method, path, latency_ms, response_size, client_ip, user_agent = parse_http_fields(
+        message,
+        raw_text,
+    )
     return RawEvent(
         source_file=source_file,
         parser_profile=parser_profile,
@@ -163,6 +264,12 @@ def parse_buffer(lines: List[str], source_file: str, parser_profile: str) -> Raw
         request_id=request_id,
         trace_id=trace_id,
         http_status=http_status,
+        method=method,
+        path=path,
+        latency_ms=latency_ms,
+        response_size=response_size,
+        client_ip=client_ip,
+        user_agent=user_agent,
     )
 
 

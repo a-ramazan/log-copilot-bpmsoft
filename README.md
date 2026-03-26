@@ -1,73 +1,100 @@
 # LogCopilot
 
-LogCopilot превращает сырой лог в:
+`LogCopilot` это monorepo для обработки логов с одним общим ядром, тремя сценариями анализа и агентом, который читает уже обработанные данные, а не сырые логи.
 
-- `events.csv` — структурированные события
-- `clusters.csv` — сигнатурные кластеры
-- `semantic_clusters.csv` — semantic groups поверх сигнатур
-- `analysis_summary.json` — coverage и quality metrics
-- `trace_summary.json` — тайминги, counters, normalization audit
-- `debug_samples.md` — примеры `raw -> normalized -> cluster`
+## Что зафиксировано в MVP
 
-## How To Run
+- Один запуск принимает ровно один входной файл `.log`.
+- Пользователь выбирает один сценарий: `heatmap`, `incidents` или `traffic`.
+- Каждый запуск получает свой `run_id`.
+- Результат сохраняется в:
+  - SQLite: `out/logcopilot.sqlite`
+  - файлы: `out/runs/<run_id>/...`
 
-1. Слить много файлов в один:
+## Сценарии
 
-```bash
-python scripts/merge_logs.py --input Logs/2025-10-20 --out data/merged.log
-```
+- `heatmap`: нагрузка, пики, активные модули, qps, p95 latency.
+- `incidents`: ошибки, сигнатуры, кластеры, semantic-группы, top incident report.
+- `traffic`: endpoint-ы, статусы, IP, latency, подозрительные паттерны.
 
-Merged file по умолчанию сохраняется в `data/merged.log`.
+## Быстрый старт
 
-2. Запустить pipeline:
-
-```bash
-python -m logcopilot.pipeline --input data/merged.log --out out --clean-out --log-level DEBUG --sample-events 20
-```
-
-3. Открыть notebook:
+Установить зависимости:
 
 ```bash
-jupyter notebook notebooks/EDA.ipynb
+python -m pip install -r requirements.txt
+python -m pip install -e .
 ```
 
-## Что делает pipeline
-
-Архитектура всегда одна и та же:
-
-`parsing -> normalization -> signature clustering -> semantic clustering -> reporting`
-
-- `parsing.py` режет лог на события
-- `normalization.py` убирает шум и считает mask stats
-- `signatures.py` строит signature и embedding text
-- `clustering.py` делает baseline clustering по `signature_hash`
-- `semantic.py` объединяет похожие сигнатуры через embeddings
-- `quality.py` считает coverage/confidence
-- `reporting.py` пишет артефакты
-- `pipeline.py` всё связывает и управляет run-level trace
-
-## Semantic Layer
-
-Semantic clustering включён по умолчанию.
-
-Если зависимостей нет, pipeline должен завершиться с понятной ошибкой. Установить всё можно так:
+Запустить обработку:
 
 ```bash
-pip install -r requirements.txt
+python -m logcopilot.cli run --input data/sample.log --profile incidents --out out
 ```
 
-По умолчанию используется модель:
+Старый incident entrypoint пока оставлен:
 
-`sentence-transformers/all-MiniLM-L6-v2`
+```bash
+python -m logcopilot.pipeline --input data/sample.log --out out --semantic off
+```
 
-## Notebook / EDA
+Запустить тесты:
 
-Notebook `notebooks/EDA.ipynb` умеет:
+```bash
+python -m unittest discover -s tests
+```
 
-- запускать pipeline как Python-функцию `run_pipeline(...)`
-- загружать артефакты из одного `OUT_DIR`
-- показывать summary metrics
-- исследовать top clusters
-- смотреть raw/normalized примеры
-- смотреть normalization audit
-- переигрывать semantic clustering с другими параметрами без повторного парсинга
+## Что должно появиться на выходе
+
+Общее для любого запуска:
+
+- `manifest.json`
+- `run_summary.json`
+- `events.csv`
+- `events.parquet`, если доступен parquet
+
+Для `heatmap`:
+
+- `heatmap_timeseries.csv`
+- `top_hotspots.md`
+
+Для `incidents`:
+
+- `clusters.csv`
+- `semantic_clusters.csv`
+- `top_incidents.md`
+- `llm_ready_clusters.json`
+
+Для `traffic`:
+
+- `traffic_summary.csv`
+- `latency_report.md`
+- `suspicious_traffic.md`
+
+## Структура репозитория
+
+```text
+logcopilot/
+  core/       общее ядро и сборка Event
+  profiles/   heatmap / incidents / traffic
+  storage/    SQLite и read API
+  agent/      tools и оркестрация агента
+docs/
+  architecture.md
+  contracts.md
+  team_workflow.md
+  task_briefs/
+tests/
+```
+
+## Как работаем командой
+
+- Основная ветка: `main`.
+- Рабочие ветки:
+  - `feature/<scope>`
+  - `fix/<scope>`
+  - `docs/<scope>`
+- Все изменения идут через PR.
+- Перед merge должны пройти тесты.
+
+Подробности в [docs/team_workflow.md](docs/team_workflow.md).

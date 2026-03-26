@@ -17,6 +17,12 @@ class RawEvent:
     request_id: Optional[str] = None
     trace_id: Optional[str] = None
     http_status: Optional[int] = None
+    method: Optional[str] = None
+    path: Optional[str] = None
+    latency_ms: Optional[float] = None
+    response_size: Optional[int] = None
+    client_ip: Optional[str] = None
+    user_agent: Optional[str] = None
 
 
 @dataclass
@@ -33,12 +39,19 @@ class Event:
     normalized_message: str
     signature_hash: str
     embedding_text: str
+    run_id: str = ""
     exception_type: Optional[str] = None
     stack_frames: List[str] = field(default_factory=list)
     component: Optional[str] = None
     request_id: Optional[str] = None
     trace_id: Optional[str] = None
     http_status: Optional[int] = None
+    method: Optional[str] = None
+    path: Optional[str] = None
+    latency_ms: Optional[float] = None
+    response_size: Optional[int] = None
+    client_ip: Optional[str] = None
+    user_agent: Optional[str] = None
     is_incident: bool = False
 
 
@@ -93,8 +106,32 @@ class AnalysisSummary:
 
 
 @dataclass
-class PipelineRunResult:
+class RunArtifact:
+    run_id: str
+    artifact_name: str
+    artifact_type: str
+    path: str
+
+
+@dataclass
+class RunResult:
+    run_id: str
+    profile: str
+    status: str
     output_dir: str
+    db_path: str
+    event_count: int
+    artifact_paths: Dict[str, str]
+    run_summary: Dict[str, object]
+
+
+@dataclass
+class PipelineRunResult:
+    run_id: str
+    profile: str
+    status: str
+    output_dir: str
+    db_path: str
     event_count: int
     cluster_count: int
     semantic_cluster_count: int

@@ -14,6 +14,7 @@ def format_timestamp(value) -> str:
 def event_to_row(event: Event) -> dict:
     return {
         "event_id": event.event_id,
+        "run_id": event.run_id,
         "source_file": event.source_file,
         "parser_profile": event.parser_profile,
         "timestamp": format_timestamp(event.timestamp),
@@ -31,6 +32,12 @@ def event_to_row(event: Event) -> dict:
         "exception_type": event.exception_type or "",
         "stack_frames": " | ".join(event.stack_frames),
         "http_status": event.http_status or "",
+        "method": event.method or "",
+        "path": event.path or "",
+        "latency_ms": "" if event.latency_ms is None else event.latency_ms,
+        "response_size": "" if event.response_size is None else event.response_size,
+        "client_ip": event.client_ip or "",
+        "user_agent": event.user_agent or "",
         "is_incident": str(event.is_incident).lower(),
     }
 
@@ -38,6 +45,7 @@ def event_to_row(event: Event) -> dict:
 def write_events_csv(path: Path, events: Iterable[Event]) -> None:
     fieldnames = [
         "event_id",
+        "run_id",
         "source_file",
         "parser_profile",
         "timestamp",
@@ -55,6 +63,12 @@ def write_events_csv(path: Path, events: Iterable[Event]) -> None:
         "exception_type",
         "stack_frames",
         "http_status",
+        "method",
+        "path",
+        "latency_ms",
+        "response_size",
+        "client_ip",
+        "user_agent",
         "is_incident",
     ]
     with path.open("w", encoding="utf-8", newline="") as handle:
@@ -68,6 +82,7 @@ def write_events_csv(path: Path, events: Iterable[Event]) -> None:
 def open_events_csv_writer(path: Path) -> Iterator[csv.DictWriter]:
     fieldnames = [
         "event_id",
+        "run_id",
         "source_file",
         "parser_profile",
         "timestamp",
@@ -85,6 +100,12 @@ def open_events_csv_writer(path: Path) -> Iterator[csv.DictWriter]:
         "exception_type",
         "stack_frames",
         "http_status",
+        "method",
+        "path",
+        "latency_ms",
+        "response_size",
+        "client_ip",
+        "user_agent",
         "is_incident",
     ]
     with path.open("w", encoding="utf-8", newline="") as handle:
@@ -249,6 +270,12 @@ def write_events_parquet(path: Path, events: List[Event]) -> bool:
                 "exception_type": event.exception_type or "",
                 "stack_frames": event.stack_frames,
                 "http_status": event.http_status,
+                "method": event.method or "",
+                "path": event.path or "",
+                "latency_ms": event.latency_ms,
+                "response_size": event.response_size,
+                "client_ip": event.client_ip or "",
+                "user_agent": event.user_agent or "",
                 "is_incident": event.is_incident,
             }
         )
@@ -346,3 +373,11 @@ def write_debug_samples_md(path: Path, events: List[Event]) -> None:
 
 def write_trace_summary_json(path: Path, trace_summary: dict) -> None:
     path.write_text(json.dumps(trace_summary, indent=2), encoding="utf-8")
+
+
+def write_manifest_json(path: Path, payload: dict) -> None:
+    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+
+def write_run_summary_json(path: Path, payload: dict) -> None:
+    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
