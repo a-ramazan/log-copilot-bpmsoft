@@ -34,3 +34,23 @@
 ```bash
 python -m unittest tests.test_agent_tools
 ```
+
+## Быстрый запуск первой версии
+
+Один вопрос:
+
+```bash
+python -m logcopilot.agent.chat --run-id <run_id> --question "Покажи топ инциденты"
+```
+
+Интерактивный режим:
+
+```bash
+python -m logcopilot.agent.chat --run-id <run_id>
+```
+
+Если нужно включить старый rule-based режим без LLM:
+
+```bash
+python -m logcopilot.agent.chat --run-id <run_id> --mode rule
+```
