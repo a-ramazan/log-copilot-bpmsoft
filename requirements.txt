@@ -1,0 +1,12 @@
+pandas
+pyarrow
+tqdm
+sentence-transformers
+scikit-learn
+hdbscan
+umap-learn
+matplotlib
+ipywidgets
+langchain
+langchain_openai
+langgraph
