@@ -1,318 +1,216 @@
 from __future__ import annotations
 
+from dataclasses import dataclass
 import json
-from typing import Any
+from typing import Iterator
 
-from langchain_openai import ChatOpenAI
-from langchain_core.messages import SystemMessage, HumanMessage, AIMessage, ToolMessage
+from langchain_core.messages import HumanMessage, SystemMessage
+from torchvision import message
 
-from .tools import (
-    get_run_summary,
-    get_top_incidents,
-    find_incident_cluster,
-    get_heatmap,
-    get_traffic_summary,
-    get_traffic_anomalies,
-)
-
-SYSTEM_PROMPT = """
-Ты LogCopilot.
-Отвечай кратко, по-русски и по делу.
-
-Ты анализируешь только уже обработанные логи конкретного run_id.
-Используй tools, когда реально нужны данные.
-Не выдумывай факты, числа или метрики.
-Если данных недостаточно, так и скажи.
-
-ВАЖНЫЕ ПРАВИЛА:
-1. Не вызывай один и тот же tool повторно с теми же аргументами, если уже получил результат.
-2. После получения результата tool постарайся сразу дать финальный ответ.
-3. Для простых вопросов старайся делать не более 1-2 tool calls.
-4. Если пользователь просит "что интересного", кратко суммаризируй то, что вернул tool.
-5. Не зацикливайся на повторных вызовах tools.
-"""
-
-MAX_TOOL_CALLS = 4
+from .config import DEFAULT_DB_PATH, AgentModelConfig, build_chat_model, resolve_model_config
+from .graph import build_agent_graph
+from .prompts import build_answer_system_prompt
 
 
-def _sanitize_text(text: str) -> str:
-    return text.encode("utf-8", "replace").decode("utf-8")
+@dataclass
+class AgentExecutionResult:
+    answer: str
+    profile: str
+    plan: dict
+    facts: dict
+    memory: dict
+    trace: list[str]
 
 
-def _safe_json_dumps(data: Any) -> str:
-    return json.dumps(data, ensure_ascii=False, default=str)
+def _clean_text(value: str) -> str:
+    if not isinstance(value, str):
+        return str(value)
+    return value.encode("utf-8", errors="replace").decode("utf-8", errors="replace")
 
 
-def _compact_run_summary(data: dict | None) -> dict | str:
-    if not data:
-        return "Run summary не найден."
-
-    return {
-        "run_id": data.get("run_id"),
-        "input_path": data.get("input_path"),
-        "events_total": data.get("events_total"),
-        "clusters_total": data.get("clusters_total"),
-        "incidents_total": data.get("incidents_total"),
-        "artifacts": data.get("artifacts", [])[:5],
-    }
+def _sanitize_data(value):
+    if isinstance(value, dict):
+        return {_clean_text(str(key)): _sanitize_data(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [_sanitize_data(item) for item in value]
+    if isinstance(value, tuple):
+        return tuple(_sanitize_data(item) for item in value)
+    if isinstance(value, str):
+        return _clean_text(value)
+    return value
 
 
-def build_chat_model(
-    model: str = "qwen/qwen3.5-9b",
-    base_url: str = "http://127.0.0.1:1234/v1",
-    api_key: str = "lm-studio",
-    temperature: float = 0.0,
-):
-    return ChatOpenAI(
-        model=model,
-        base_url=base_url,
-        api_key=api_key,
-        temperature=temperature,
-    )
+def _safe_json(data) -> str:
+    return json.dumps(_sanitize_data(data), ensure_ascii=False, indent=2, default=str)
 
 
-def build_tool_registry(run_id: str, db_path: str) -> dict[str, Any]:
-    def run_summary() -> dict | str:
-        data = get_run_summary(run_id, db_path=db_path)
-        return _compact_run_summary(data)
+def _build_fallback_answer(plan: dict, facts: dict) -> str:
+    action = plan.get("action")
 
-    def top_incidents(limit: int = 10) -> list[dict] | str:
-        return get_top_incidents(run_id, limit=limit, db_path=db_path)
+    if facts.get("error"):
+        return f"Ошибка: {facts['error']}"
 
-    def incident_cluster(cluster_id: str) -> dict | str:
-        row = find_incident_cluster(run_id, cluster_id, db_path=db_path)
-        return row or f"Кластер {cluster_id} не найден."
+    if action == "capabilities":
+        lines = [facts.get("message", "Я готов работать с этим run_id.")]
+        for item in facts.get("examples", []):
+            lines.append(f"- {item}")
+        return "\n".join(lines)
 
-    def heatmap(limit: int = 20) -> list[dict] | str:
-        return get_heatmap(run_id, limit=limit, db_path=db_path)
+    if action == "profile_scope":
+        return facts.get("message", "Этот сценарий для текущего run_id недоступен.")
 
-    def traffic_summary(status: int | None = None, limit: int = 20) -> list[dict] | str:
-        return get_traffic_summary(run_id, status=status, limit=limit, db_path=db_path)
+    if action == "top_incidents":
+        rows = facts.get("top_incidents", [])
+        if not rows:
+            return "Инциденты не найдены."
+        lines = ["Топ инциденты:"]
+        for index, row in enumerate(rows, start=1):
+            payload = row.get("payload_json", {}) or {}
+            lines.append(
+                f"{index}. {row['cluster_id']} | "
+                f"hits={row['incident_hits']} | "
+                f"exception={payload.get('exception_type', 'n/a')}"
+            )
+        return "\n".join(lines)
 
-    def traffic_anomalies(limit: int = 20) -> list[dict] | str:
-        return get_traffic_anomalies(run_id, limit=limit, db_path=db_path)
+    if action == "incident_cluster":
+        row = facts.get("incident_cluster")
+        if not row:
+            return "Кластер не найден."
+        payload = row.get("payload_json", {}) or {}
+        sample = _clean_text(row.get("representative_text") or "").replace("\n", " ").strip()
+        lines = [
+            f"Кластер: {row['cluster_id']}",
+            f"Повторений: {row['incident_hits']}",
+            f"Ошибка: {payload.get('exception_type', 'n/a')}",
+        ]
+        if sample:
+            lines.append(f"Пример: {sample[:240]}")
+        return "\n".join(lines)
 
-    return {
-        "run_summary": run_summary,
-        "top_incidents": top_incidents,
-        "incident_cluster": incident_cluster,
-        "heatmap": heatmap,
-        "traffic_summary": traffic_summary,
-        "traffic_anomalies": traffic_anomalies,
-    }
+    if action == "heatmap":
+        rows = facts.get("heatmap", [])
+        if not rows:
+            return "Heatmap данные не найдены."
+        lines = ["Топ heatmap points:"]
+        for index, row in enumerate(rows, start=1):
+            lines.append(
+                f"{index}. {row['bucket_start']} | {row['component']} | "
+                f"{row['operation']} | hits={row['hits']}"
+            )
+        return "\n".join(lines)
 
+    if action in {"traffic_summary", "traffic_500"}:
+        rows = facts.get("traffic_summary", [])
+        if not rows:
+            return "Traffic данные не найдены."
+        lines = ["Traffic summary:"]
+        for index, row in enumerate(rows, start=1):
+            lines.append(
+                f"{index}. {row['method']} {row['path']} | "
+                f"status={row['http_status']} | hits={row['hits']}"
+            )
+        return "\n".join(lines)
 
-def build_tools_schema() -> list[dict]:
-    return [
-        {
-            "type": "function",
-            "function": {
-                "name": "run_summary",
-                "description": "Get high-level summary of the current processed log run.",
-                "parameters": {"type": "object", "properties": {}},
-            },
-        },
-        {
-            "type": "function",
-            "function": {
-                "name": "top_incidents",
-                "description": "Get top incident clusters for the current run.",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "limit": {"type": "integer", "default": 10},
-                    },
-                },
-            },
-        },
-        {
-            "type": "function",
-            "function": {
-                "name": "incident_cluster",
-                "description": "Get detailed information about one incident cluster by cluster_id.",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "cluster_id": {"type": "string"},
-                    },
-                    "required": ["cluster_id"],
-                },
-            },
-        },
-        {
-            "type": "function",
-            "function": {
-                "name": "heatmap",
-                "description": "Get top hotspots from the current run heatmap.",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "limit": {"type": "integer", "default": 20},
-                    },
-                },
-            },
-        },
-        {
-            "type": "function",
-            "function": {
-                "name": "traffic_summary",
-                "description": "Get endpoint traffic summary, optionally filtered by HTTP status.",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "status": {"type": ["integer", "null"], "default": None},
-                        "limit": {"type": "integer", "default": 20},
-                    },
-                },
-            },
-        },
-        {
-            "type": "function",
-            "function": {
-                "name": "traffic_anomalies",
-                "description": "Get suspicious traffic anomalies for the current run.",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "limit": {"type": "integer", "default": 20},
-                    },
-                },
-            },
-        },
-    ]
+    if action == "traffic_anomalies":
+        rows = facts.get("traffic_anomalies", [])
+        if not rows:
+            return "Аномалии не найдены."
+        lines = ["Аномалии трафика:"]
+        for index, row in enumerate(rows, start=1):
+            lines.append(f"{index}. [{row['severity']}] {row['title']}")
+        return "\n".join(lines)
+
+    return _safe_json(facts)
 
 
-def _parse_tool_args(raw_args: Any) -> dict:
-    if raw_args is None:
-        return {}
-
-    if isinstance(raw_args, dict):
-        return raw_args
-
-    if isinstance(raw_args, str):
-        raw_args = raw_args.strip()
-        if not raw_args:
-            return {}
-        try:
-            return json.loads(raw_args)
-        except json.JSONDecodeError:
-            return {}
-
-    return {}
 
 
-def _make_call_signature(tool_name: str, args: dict) -> str:
-    return f"{tool_name}:{json.dumps(args, sort_keys=True, ensure_ascii=False)}"
-
-
-def ask_agent(
+def prepare_agent_context(
     question: str,
     run_id: str,
-    db_path: str = "out/logcopilot.sqlite",
-    model: str = "qwen/qwen3.5-9b",
-    base_url: str = "http://127.0.0.1:1234/v1",
-    api_key: str = "lm-studio",
-    temperature: float = 0.0,
-    debug: bool = False,
-) -> str:
-    llm = build_chat_model(
+    db_path: str = DEFAULT_DB_PATH,
+    session_state: dict | None = None,
+) -> AgentExecutionResult:
+    graph = build_agent_graph()
+    state = graph.invoke(
+        {
+            "question": _clean_text(question),
+            "run_id": run_id,
+            "db_path": db_path,
+            "profile": "",
+            "run_summary": {},
+            "plan": {},
+            "facts": {},
+            "memory": session_state or {},
+            "trace": [],
+        }
+    )
+    return AgentExecutionResult(
+        answer="",
+        profile=state["profile"],
+        plan=state["plan"],
+        facts=_sanitize_data(state["facts"]),
+        memory=state.get("memory", {}),
+        trace=state["trace"],
+    )
+
+def _build_answer_messages(question: str, profile: str, plan: dict, facts: dict) -> list:
+    return [
+        SystemMessage(content=build_answer_system_prompt(profile)),
+        HumanMessage(
+            content=(
+                f"Вопрос пользователя:\n{_clean_text(question)}\n\n"
+                f"Выбранное действие:\n{_safe_json(plan)}\n\n"
+                f"Факты из БД:\n{_safe_json(facts)}\n\n"
+                "Ответь по-человечески. Если вопрос про причину или исправление, "
+                "дай краткое объяснение и практические шаги проверки."
+            )
+        ),
+    ]
+
+def stream_agent(
+    question: str,
+    run_id: str,
+    provider: str = "local",
+    session_state: dict | None = None,
+    model: str | None = None,
+    base_url: str | None = None,
+    api_key: str | None = None,
+    folder_id: str | None = None,
+) -> tuple[AgentExecutionResult, Iterator[str]]:
+
+    result = prepare_agent_context(
+        question=question,
+        run_id=run_id,
+        db_path=DEFAULT_DB_PATH,
+        session_state=session_state,
+    )
+    model_config = resolve_model_config(
+        provider=provider,
         model=model,
         base_url=base_url,
         api_key=api_key,
-        temperature=temperature,
+        folder_id=folder_id,
     )
+    llm = build_chat_model(model_config)
 
-    tools_schema = build_tools_schema()
-    tool_registry = build_tool_registry(run_id, db_path)
-
-    messages: list[Any] = [
-        SystemMessage(content=_sanitize_text(SYSTEM_PROMPT)),
-        HumanMessage(content=_sanitize_text(question)),
-    ]
-
-    seen_calls: set[str] = set()
-
-    for step in range(MAX_TOOL_CALLS + 1):
-        response = llm.invoke(messages, tools=tools_schema)
-        messages.append(response)
-
-        tool_calls = getattr(response, "tool_calls", None) or []
-
-        if debug:
-            print(f"[debug] step={step}")
-            print(f"[debug] content={repr(getattr(response, 'content', None))}")
-            print(f"[debug] parsed_tool_calls={tool_calls}")
-
-        if not tool_calls:
-            additional_kwargs = getattr(response, "additional_kwargs", {}) or {}
-            raw_tool_calls = additional_kwargs.get("tool_calls", [])
-
-            normalized_calls = []
-            for call in raw_tool_calls:
-                fn = call.get("function", {})
-                normalized_calls.append(
-                    {
-                        "id": call.get("id", ""),
-                        "name": fn.get("name", ""),
-                        "args": fn.get("arguments", "{}"),
-                    }
-                )
-            tool_calls = normalized_calls
-
-        if step >= MAX_TOOL_CALLS:
-            messages.append(
-                HumanMessage(
-                    content=(
-                        "Хватит вызывать tools. "
-                        "Сформируй финальный краткий ответ на основе уже полученных результатов."
-                    )
-                )
+    def _iterator() -> Iterator[str]:
+        try:
+            message = _build_answer_messages(
+                question=question,
+                profile=result.profile,
+                plan=result.plan,
+                facts=result.facts
             )
-            final_response = llm.invoke(messages, tools=[])
-            content = final_response.content
-            return content.strip() if isinstance(content, str) else str(content)
+            for chunk in llm.stream(message):
+                content = getattr(chunk, "content", "")
+                if content:
+                    yield str(content)
+            result.trace.append("answer: llm_stream")
+        except Exception as exc:
+            result.answer = _build_fallback_answer(result.plan, result.facts)
+            result.trace.append(f"answer: fallback_stream -> {exc}")
+            yield result.answer
 
-        for call in tool_calls:
-            tool_name = call["name"]
-            tool_args = _parse_tool_args(call.get("args", {}))
-            tool_call_id = call["id"]
-
-            signature = _make_call_signature(tool_name, tool_args)
-
-            if signature in seen_calls:
-                messages.append(
-                    ToolMessage(
-                        tool_call_id=tool_call_id,
-                        content=_safe_json_dumps(
-                            {
-                                "error": (
-                                    f"Tool {tool_name} с теми же аргументами уже вызывался. "
-                                    "Не повторяй вызов, дай финальный ответ по имеющимся данным."
-                                )
-                            }
-                        ),
-                    )
-                )
-                continue
-
-            seen_calls.add(signature)
-
-            tool_fn = tool_registry.get(tool_name)
-            if tool_fn is None:
-                tool_result = {"error": f"Неизвестный tool: {tool_name}"}
-            else:
-                try:
-                    tool_result = tool_fn(**tool_args)
-                except TypeError as exc:
-                    tool_result = {"error": f"Неверные аргументы для {tool_name}: {exc}"}
-                except Exception as exc:
-                    tool_result = {"error": f"Ошибка tool {tool_name}: {exc}"}
-
-            messages.append(
-                ToolMessage(
-                    tool_call_id=tool_call_id,
-                    content=_safe_json_dumps(tool_result),
-                )
-            )
-
-    return "Не удалось получить финальный ответ."
+    return result, _iterator()

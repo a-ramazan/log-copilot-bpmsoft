@@ -90,6 +90,7 @@ def run_profile(
     semantic_min_cluster_size: int = 3,
     semantic_min_samples: Optional[int] = None,
 ) -> RunResult:
+
     input_path_obj = ensure_single_log_file(Path(input_path).expanduser().resolve())
     run_id = uuid.uuid4().hex
     base_output_dir, run_dir = _resolve_output_paths(out_dir, run_id)

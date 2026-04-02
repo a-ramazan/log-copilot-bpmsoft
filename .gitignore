@@ -1,6 +1,7 @@
 .DS_Store
 .idea/
 .venv/
+venv/
 __pycache__/
 .pytest_cache/
 .mypy_cache/
@@ -9,3 +10,4 @@ Logs/
 out/
 data/*.log
 *.pyc
+.env

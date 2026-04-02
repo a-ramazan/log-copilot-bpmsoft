@@ -1,56 +1,99 @@
 # `logcopilot/agent`
 
-## Назначение
+## Что это
 
-Слой для ИИ-агента. Tools читают только SQLite и готовые артефакты. Агент не должен сам разбирать сырые логи.
+Простой агент поверх уже обработанного `run_id`.
 
-## Что на входе
+Он не читает сырой лог.
+Он читает только данные из SQLite и отвечает по выбранному сценарию:
 
-- `run_id`
-- при необходимости `db_path`
-- стабильные методы storage
+- `incidents`
+- `heatmap`
+- `traffic`
 
-## Что на выходе
+## Структура
 
-- summary по запуску
-- поиск incident cluster
-- heatmap данные
-- traffic summary и anomalies
-- содержимое артефактов
+- `config.py` — загрузка `.env` и выбор модели: `local` или `yandex`
+- `tools.py` — детерминированный роутинг вопросов и чтение данных из БД
+- `session.py` — простая память диалога внутри одной сессии чата
+- `graph.py` — LangGraph: `bootstrap -> plan -> fetch -> remember`
+- `prompts.py` — системный prompt для LLM
+- `agent.py` — запуск графа и генерация ответа через LLM
+- `chat.py` — CLI-чат
 
-## Зависимости
+## Как работает граф
 
-- `logcopilot.storage`
-- optional `langchain` / `langgraph`
+1. `bootstrap`
+   Читает `run_id` и определяет, какой у него профиль.
 
-## Что не менять без причины
+2. `plan`
+   Детерминированно выбирает действие по вопросу.
+   Пример:
+   - для `incidents` может выбрать только incident-функции
+   - для `traffic` может выбрать только traffic-функции
 
-- названия tools
-- аргументы tools
-- контракт чтения из storage
+3. `fetch`
+   Забирает нужные данные из SQLite.
 
-## Как проверять
+4. `remember`
+   Запоминает, какой инцидент был выбран последним.
+   Это нужно для follow-up вопросов вроде `в чем проблема?` или `как исправить?`
+
+После графа LLM получает:
+- вопрос пользователя
+- выбранное действие
+- факты из БД
+
+И уже на их основе пишет понятный ответ.
+
+## Почему так
+
+Здесь LLM не выбирает tools сама.
+Выбор функций делается кодом, чтобы поведение было предсказуемым.
+
+LLM нужна для другого:
+- объяснить, что произошло
+- кратко пересказать данные
+- предложить гипотезы и шаги проверки
+
+## Настройка
+
+Один раз заполни `.env`.
+
+Главное:
+
+- для локальной модели:
+  - `LOCAL_LLM_MODEL`
+  - `LOCAL_LLM_BASE_URL`
+  - `LOCAL_LLM_API_KEY`
+
+- для Yandex:
+  - `YC_FOLDER_ID`
+  - `YC_AI_API_KEY`
+
+## Запуск
+
+Локальная модель:
 
 ```bash
-python -m unittest tests.test_agent_tools
+python3 -m logcopilot.agent.chat --run-id <run_id> --provider local
 ```
 
-## Быстрый запуск первой версии
-
-Один вопрос:
+Yandex:
 
 ```bash
-python -m logcopilot.agent.chat --run-id <run_id> --question "Покажи топ инциденты"
+python3 -m logcopilot.agent.chat --run-id <run_id> --provider yandex
 ```
 
-Интерактивный режим:
+Debug trace:
 
 ```bash
-python -m logcopilot.agent.chat --run-id <run_id>
+python3 -m logcopilot.agent.chat --run-id <run_id> --provider yandex --debug
 ```
 
-Если нужно включить старый rule-based режим без LLM:
+## Что важно помнить
 
-```bash
-python -m logcopilot.agent.chat --run-id <run_id> --mode rule
-```
+- стрим включён всегда
+- БД одна: `out/logcopilot.sqlite`
+- если `run_id` относится к `incidents`, агент не пойдёт в `heatmap` и `traffic`
+- если `run_id` относится к `traffic`, агент не пойдёт в incident-функции
