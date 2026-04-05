@@ -5,7 +5,6 @@ import json
 from typing import Iterator
 
 from langchain_core.messages import HumanMessage, SystemMessage
-from torchvision import message
 
 from .config import DEFAULT_DB_PATH, AgentModelConfig, build_chat_model, resolve_model_config
 from .graph import build_agent_graph
@@ -197,13 +196,13 @@ def stream_agent(
 
     def _iterator() -> Iterator[str]:
         try:
-            message = _build_answer_messages(
+            message_iter = _build_answer_messages(
                 question=question,
                 profile=result.profile,
                 plan=result.plan,
                 facts=result.facts
             )
-            for chunk in llm.stream(message):
+            for chunk in llm.stream(message_iter):
                 content = getattr(chunk, "content", "")
                 if content:
                     yield str(content)
