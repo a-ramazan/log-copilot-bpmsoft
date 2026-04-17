@@ -52,6 +52,7 @@ python -m unittest discover -s tests
 - `run_summary.json`
 - `events.csv`
 - `events.parquet`, если доступен parquet
+- `charts/*.png`, если агент построил визуализацию по вопросу в чате
 
 Для `heatmap`:
 

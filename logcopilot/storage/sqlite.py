@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
@@ -9,12 +10,16 @@ from typing import Iterable, List, Optional
 from ..models import ClusterSummary, Event, SemanticClusterSummary
 from ..reporting import format_timestamp
 
+logger = logging.getLogger(__name__)
+
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
 class StorageRepository:
+    """SQLite-репозиторий run-данных и profile-агрегатов."""
+
     def __init__(self, db_path: Path) -> None:
         self.db_path = Path(db_path)
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
@@ -46,6 +51,7 @@ class StorageRepository:
                     run_id TEXT NOT NULL,
                     source_file TEXT NOT NULL,
                     parser_profile TEXT NOT NULL,
+                    parser_confidence REAL NOT NULL DEFAULT 0,
                     timestamp TEXT,
                     level TEXT,
                     component TEXT,
@@ -67,6 +73,7 @@ class StorageRepository:
                     response_size INTEGER,
                     client_ip TEXT,
                     user_agent TEXT,
+                    attributes_json TEXT DEFAULT '{}',
                     is_incident INTEGER NOT NULL DEFAULT 0,
                     FOREIGN KEY(run_id) REFERENCES runs(run_id)
                 );
@@ -149,8 +156,19 @@ class StorageRepository:
                 );
                 """
             )
+            self._ensure_column(connection, "events", "parser_confidence", "REAL NOT NULL DEFAULT 0")
+            self._ensure_column(connection, "events", "attributes_json", "TEXT DEFAULT '{}'")
+
+    def _ensure_column(self, connection: sqlite3.Connection, table_name: str, column_name: str, ddl: str) -> None:
+        columns = {
+            row["name"]
+            for row in connection.execute(f"PRAGMA table_info({table_name})").fetchall()
+        }
+        if column_name not in columns:
+            connection.execute(f"ALTER TABLE {table_name} ADD COLUMN {column_name} {ddl}")
 
     def create_run(self, run_id: str, input_path: str, profile: str, output_dir: str) -> None:
+        """Фиксирует старт запуска в таблице runs."""
         with self.connect() as connection:
             connection.execute(
                 """
@@ -159,8 +177,15 @@ class StorageRepository:
                 """,
                 (run_id, input_path, profile, output_dir, utc_now(), "running"),
             )
+        logger.info(
+            "storage_create_run: run_id=%s profile=%s output_dir=%s",
+            run_id,
+            profile,
+            output_dir,
+        )
 
     def complete_run(self, run_id: str, status: str, event_count: int, summary: dict) -> None:
+        """Фиксирует завершение запуска и итоговую summary."""
         with self.connect() as connection:
             connection.execute(
                 """
@@ -170,6 +195,12 @@ class StorageRepository:
                 """,
                 (status, utc_now(), event_count, json.dumps(summary, indent=2), run_id),
             )
+        logger.info(
+            "storage_complete_run: run_id=%s status=%s event_count=%d",
+            run_id,
+            status,
+            event_count,
+        )
 
     def insert_events(self, events: Iterable[Event]) -> None:
         rows = [
@@ -178,6 +209,7 @@ class StorageRepository:
                 event.run_id,
                 event.source_file,
                 event.parser_profile,
+                event.parser_confidence,
                 format_timestamp(event.timestamp),
                 event.level,
                 event.component,
@@ -199,6 +231,7 @@ class StorageRepository:
                 event.response_size,
                 event.client_ip,
                 event.user_agent,
+                json.dumps(event.attributes, ensure_ascii=False, sort_keys=True),
                 int(event.is_incident),
             )
             for event in events
@@ -209,15 +242,16 @@ class StorageRepository:
             connection.executemany(
                 """
                 INSERT INTO events (
-                    event_id, run_id, source_file, parser_profile, timestamp, level, component,
+                    event_id, run_id, source_file, parser_profile, parser_confidence, timestamp, level, component,
                     message, stacktrace, raw_text, line_count, normalized_message, signature_hash,
                     embedding_text, exception_type, stack_frames, request_id, trace_id, http_status,
-                    method, path, latency_ms, response_size, client_ip, user_agent, is_incident
+                    method, path, latency_ms, response_size, client_ip, user_agent, attributes_json, is_incident
                 )
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 rows,
             )
+        logger.debug("storage_insert_events: rows=%d", len(rows))
 
     def register_artifact(self, run_id: str, artifact_name: str, artifact_type: str, path: str) -> None:
         with self.connect() as connection:
@@ -230,6 +264,13 @@ class StorageRepository:
                 """,
                 (run_id, artifact_name, artifact_type, path, utc_now()),
             )
+        logger.info(
+            "storage_register_artifact: run_id=%s artifact=%s type=%s path=%s",
+            run_id,
+            artifact_name,
+            artifact_type,
+            path,
+        )
 
     def insert_incident_clusters(self, run_id: str, clusters: Iterable[ClusterSummary]) -> None:
         rows = []
@@ -271,6 +312,7 @@ class StorageRepository:
                 """,
                 rows,
             )
+        logger.info("storage_insert_incident_clusters: run_id=%s rows=%d", run_id, len(rows))
 
     def insert_semantic_clusters(
         self,
@@ -300,6 +342,7 @@ class StorageRepository:
                 """,
                 rows,
             )
+        logger.info("storage_insert_semantic_clusters: run_id=%s rows=%d", run_id, len(rows))
 
     def insert_heatmap_metrics(self, run_id: str, rows: Iterable[dict]) -> None:
         values = [
@@ -324,6 +367,7 @@ class StorageRepository:
                 """,
                 values,
             )
+        logger.info("storage_insert_heatmap_metrics: run_id=%s rows=%d", run_id, len(values))
 
     def insert_traffic_metrics(self, run_id: str, rows: Iterable[dict]) -> None:
         values = [
@@ -351,6 +395,7 @@ class StorageRepository:
                 """,
                 values,
             )
+        logger.info("storage_insert_traffic_metrics: run_id=%s rows=%d", run_id, len(values))
 
     def insert_traffic_anomalies(self, run_id: str, rows: Iterable[dict]) -> None:
         values = [
@@ -374,6 +419,7 @@ class StorageRepository:
                 """,
                 values,
             )
+        logger.info("storage_insert_traffic_anomalies: run_id=%s rows=%d", run_id, len(values))
 
     def list_runs(self, limit: int = 20) -> List[sqlite3.Row]:
         with self.connect() as connection:
@@ -408,6 +454,40 @@ class StorageRepository:
         summary["summary_json"] = json.loads(summary["summary_json"] or "{}")
         summary["artifacts"] = [dict(item) for item in artifacts]
         return summary
+
+    def get_artifact(self, run_id: str, artifact_name: str) -> Optional[dict]:
+        with self.connect() as connection:
+            row = connection.execute(
+                """
+                SELECT artifact_name, artifact_type, path
+                FROM artifacts
+                WHERE run_id = ? AND artifact_name = ?
+                """,
+                (run_id, artifact_name),
+            ).fetchone()
+        return dict(row) if row is not None else None
+
+    def get_event_field_stats(self, run_id: str) -> dict:
+        with self.connect() as connection:
+            row = connection.execute(
+                """
+                SELECT
+                    COUNT(*) AS total_events,
+                    SUM(CASE WHEN timestamp IS NOT NULL THEN 1 ELSE 0 END) AS timestamp_count,
+                    SUM(CASE WHEN level IS NOT NULL AND level != '' THEN 1 ELSE 0 END) AS level_count,
+                    SUM(CASE WHEN component IS NOT NULL AND component != '' THEN 1 ELSE 0 END) AS component_count,
+                    SUM(CASE WHEN method IS NOT NULL AND method != '' THEN 1 ELSE 0 END) AS method_count,
+                    SUM(CASE WHEN path IS NOT NULL AND path != '' THEN 1 ELSE 0 END) AS path_count,
+                    SUM(CASE WHEN http_status IS NOT NULL THEN 1 ELSE 0 END) AS http_status_count,
+                    SUM(CASE WHEN latency_ms IS NOT NULL THEN 1 ELSE 0 END) AS latency_count,
+                    SUM(CASE WHEN client_ip IS NOT NULL AND client_ip != '' THEN 1 ELSE 0 END) AS client_ip_count,
+                    AVG(parser_confidence) AS avg_parser_confidence
+                FROM events
+                WHERE run_id = ?
+                """,
+                (run_id,),
+            ).fetchone()
+        return dict(row) if row is not None else {}
 
     def get_top_incidents(self, run_id: str, limit: int = 10) -> List[dict]:
         with self.connect() as connection:
@@ -446,18 +526,19 @@ class StorageRepository:
         item["payload_json"] = json.loads(item["payload_json"] or "{}")
         return item
 
-    def get_heatmap(self, run_id: str, limit: int = 100) -> List[dict]:
+    def get_heatmap(self, run_id: str, limit: Optional[int] = 100) -> List[dict]:
+        query = """
+            SELECT bucket_start, component, operation, hits, qps, p95_latency_ms
+            FROM heatmap_metrics
+            WHERE run_id = ?
+            ORDER BY hits DESC, bucket_start DESC
+        """
+        params: List[object] = [run_id]
+        if limit is not None:
+            query += " LIMIT ?"
+            params.append(limit)
         with self.connect() as connection:
-            rows = connection.execute(
-                """
-                SELECT bucket_start, component, operation, hits, qps, p95_latency_ms
-                FROM heatmap_metrics
-                WHERE run_id = ?
-                ORDER BY hits DESC, bucket_start DESC
-                LIMIT ?
-                """,
-                (run_id, limit),
-            ).fetchall()
+            rows = connection.execute(query, params).fetchall()
         return [dict(row) for row in rows]
 
     def get_traffic_summary(

@@ -7,6 +7,10 @@ from .normalization import NormalizationStats, normalize_text
 
 EXCEPTION_RE = re.compile(r"\b([A-Za-z_][\w.]+(?:Exception|Error))\b")
 STACK_FRAME_RE = re.compile(r"^\s*at\s+(.+?)(?:\(|\s+in\s+|$)")
+INCIDENT_KEYWORD_RE = re.compile(
+    r"\b(exception|error|failed|failure|fatal|timeout|timed out|refused|denied|unavailable|panic|crash|terminated|killed)\b",
+    re.IGNORECASE,
+)
 
 
 def extract_exception_type(*chunks: str) -> Optional[str]:
@@ -54,8 +58,9 @@ def is_incident_candidate(event: RawEvent, exception_type: Optional[str]) -> boo
         return True
     if event.http_status is not None and event.http_status >= 500:
         return True
-    message = event.message.lower()
-    return any(token in message for token in (" exception", " failed", " error"))
+    if level in {"WARN", "WARNING"} and INCIDENT_KEYWORD_RE.search(event.message):
+        return True
+    return bool(INCIDENT_KEYWORD_RE.search(event.message) or INCIDENT_KEYWORD_RE.search(event.raw_text))
 
 
 def make_event_signature(

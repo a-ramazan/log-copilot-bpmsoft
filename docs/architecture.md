@@ -2,7 +2,7 @@
 
 ## Поток выполнения
 
-`input .log -> ingest -> parse -> normalize -> сохранить events -> посчитать профиль -> сохранить агрегаты -> записать артефакты -> agent читает storage`
+`input .log -> ingest -> parse -> normalize -> сохранить events -> посчитать профиль -> сохранить агрегаты -> записать артефакты -> agent читает storage -> при необходимости строит chat-level PNG visuals`
 
 ## Границы слоёв
 

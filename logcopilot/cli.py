@@ -6,6 +6,10 @@ from .service import run_profile
 
 
 def build_parser() -> argparse.ArgumentParser:
+    """
+
+    :return:
+    """
     parser = argparse.ArgumentParser(description="LogCopilot CLI")
     subparsers = parser.add_subparsers(dest="command", required=True)
 

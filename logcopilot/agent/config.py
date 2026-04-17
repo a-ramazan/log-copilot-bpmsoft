@@ -33,6 +33,7 @@ def resolve_model_config(
 ) -> AgentModelConfig:
     load_dotenv()
 
+    # Если провайдер яндекс
     if provider == YANDEX_PROVIDER:
 
 
@@ -51,12 +52,12 @@ def resolve_model_config(
             model=model or os.getenv("YC_MODEL", f"gpt://{folder_id}/yandexgpt/latest"),
             base_url=base_url or os.getenv("YC_BASE_URL", "https://llm.api.cloud.yandex.net/v1"),
             api_key=api_key,
-            temperature=float(os.getenv("LLM_TEMPERATURE", DEFAULT_TEMPERATURE)),
-            folder_id=folder_id,
+            temperature = float(os.getenv("LLM_TEMPERATURE", DEFAULT_TEMPERATURE)),
+            folder_id = folder_id,
         )
-
+    # Если запуск производиться локально
     return AgentModelConfig(
-        provider=provider,
+        provider = provider,
         model=model or os.getenv("LOCAL_LLM_MODEL", "qwen/qwen3.5-9b"),
         base_url=base_url or os.getenv("LOCAL_LLM_BASE_URL", "http://127.0.0.1:1234/v1"),
         api_key=api_key or os.getenv("LOCAL_LLM_API_KEY", "lm-studio"),

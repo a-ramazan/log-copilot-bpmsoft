@@ -21,18 +21,18 @@ def parse_args() -> argparse.Namespace:
 
 
 def _print_trace(trace: list[str]) -> None:
-    print("[trace]")
+    print(Style.DIM + "[trace]")
     for item in trace:
-        print(f"- {item}")
+        print(Style.DIM + f"- {item}")
     print()
 
 
 def _chat_once(args: argparse.Namespace, question: str) -> None:
-    result, iterator = stream_agent(
-        question=question,
-        run_id=args.run_id,
-        provider=args.provider,
-        session_state=args._session_state,
+    result, tokens = stream_agent(
+        question = question,
+        run_id = args.run_id,
+        provider = args.provider,
+        session_state = args._session_state,
     )
     args._session_state = result.memory
 
@@ -40,9 +40,15 @@ def _chat_once(args: argparse.Namespace, question: str) -> None:
         _print_trace(result.trace)
 
     print(Fore.BLUE + Style.BRIGHT + "log-copilot> " + Style.RESET_ALL, end="", flush=True)
-    for token in iterator:
+    for token in tokens:
         print(token, end="", flush=True)
     print()
+    if result.visuals:
+        for visual in result.visuals[:1]:
+            print(
+                Fore.MAGENTA + Style.BRIGHT + "chart> " + Style.RESET_ALL
+                + f"{visual['title']}: {visual['path']}"
+            )
 
 
 

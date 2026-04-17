@@ -8,6 +8,7 @@ from logcopilot.agent.tools import (
     get_top_incidents,
     get_traffic_anomalies,
     get_traffic_summary,
+    open_artifact,
 )
 from logcopilot.service import run_profile
 
@@ -39,12 +40,15 @@ class AgentToolsTests(unittest.TestCase):
             traffic_rows = get_traffic_summary(traffic_result.run_id, db_path=db_path)
             anomaly_rows = get_traffic_anomalies(traffic_result.run_id, db_path=db_path)
             heatmap_rows = get_heatmap(heatmap_result.run_id, db_path=db_path)
+            artifact = open_artifact(heatmap_result.run_id, "top_hotspots_md", db_path=db_path)
 
             self.assertIsNotNone(incident_summary)
             self.assertTrue(incident_rows)
             self.assertTrue(traffic_rows)
             self.assertTrue(anomaly_rows)
             self.assertTrue(heatmap_rows)
+            self.assertIsNotNone(artifact)
+            self.assertTrue(artifact["path"].endswith("top_hotspots.md"))
 
 
 if __name__ == "__main__":

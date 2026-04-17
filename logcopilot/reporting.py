@@ -17,6 +17,7 @@ def event_to_row(event: Event) -> dict:
         "run_id": event.run_id,
         "source_file": event.source_file,
         "parser_profile": event.parser_profile,
+        "parser_confidence": event.parser_confidence,
         "timestamp": format_timestamp(event.timestamp),
         "level": event.level or "",
         "component": event.component or "",
@@ -38,6 +39,7 @@ def event_to_row(event: Event) -> dict:
         "response_size": "" if event.response_size is None else event.response_size,
         "client_ip": event.client_ip or "",
         "user_agent": event.user_agent or "",
+        "attributes_json": json.dumps(event.attributes, ensure_ascii=False, sort_keys=True),
         "is_incident": str(event.is_incident).lower(),
     }
 
@@ -48,6 +50,7 @@ def write_events_csv(path: Path, events: Iterable[Event]) -> None:
         "run_id",
         "source_file",
         "parser_profile",
+        "parser_confidence",
         "timestamp",
         "level",
         "component",
@@ -69,6 +72,7 @@ def write_events_csv(path: Path, events: Iterable[Event]) -> None:
         "response_size",
         "client_ip",
         "user_agent",
+        "attributes_json",
         "is_incident",
     ]
     with path.open("w", encoding="utf-8", newline="") as handle:
@@ -85,6 +89,7 @@ def open_events_csv_writer(path: Path) -> Iterator[csv.DictWriter]:
         "run_id",
         "source_file",
         "parser_profile",
+        "parser_confidence",
         "timestamp",
         "level",
         "component",
@@ -106,6 +111,7 @@ def open_events_csv_writer(path: Path) -> Iterator[csv.DictWriter]:
         "response_size",
         "client_ip",
         "user_agent",
+        "attributes_json",
         "is_incident",
     ]
     with path.open("w", encoding="utf-8", newline="") as handle:
@@ -180,12 +186,14 @@ def write_top_clusters_md(
     if analysis_summary:
         lines.extend(
             [
-                f"- Parser quality: {analysis_summary.parser_quality_label} ({analysis_summary.parser_quality_score:.2f})",
+                f"- Parse quality: {analysis_summary.parse_quality_label} ({analysis_summary.parse_quality_score:.2f})",
+                f"- Incident signal quality: {analysis_summary.incident_signal_label} ({analysis_summary.incident_signal_score:.2f})",
                 f"- Timestamp coverage: {analysis_summary.timestamp_coverage:.1%}",
                 f"- Level coverage: {analysis_summary.level_coverage:.1%}",
                 f"- Exception coverage: {analysis_summary.exception_coverage:.1%}",
                 f"- Stacktrace coverage: {analysis_summary.stacktrace_coverage:.1%}",
                 f"- Fallback parser rate: {analysis_summary.fallback_profile_rate:.1%}",
+                f"- Mean parser confidence: {analysis_summary.mean_parser_confidence:.2f}",
             ]
         )
     if semantic_note:
@@ -255,6 +263,7 @@ def write_events_parquet(path: Path, events: List[Event]) -> bool:
                 "event_id": event.event_id,
                 "source_file": event.source_file,
                 "parser_profile": event.parser_profile,
+                "parser_confidence": event.parser_confidence,
                 "timestamp": format_timestamp(event.timestamp),
                 "level": event.level or "",
                 "component": event.component or "",
@@ -276,6 +285,7 @@ def write_events_parquet(path: Path, events: List[Event]) -> bool:
                 "response_size": event.response_size,
                 "client_ip": event.client_ip or "",
                 "user_agent": event.user_agent or "",
+                "attributes_json": json.dumps(event.attributes, ensure_ascii=False, sort_keys=True),
                 "is_incident": event.is_incident,
             }
         )
@@ -300,6 +310,11 @@ def write_analysis_summary_json(path: Path, summary: AnalysisSummary) -> None:
         "fallback_profile_rate": summary.fallback_profile_rate,
         "parser_quality_score": summary.parser_quality_score,
         "parser_quality_label": summary.parser_quality_label,
+        "parse_quality_score": summary.parse_quality_score,
+        "parse_quality_label": summary.parse_quality_label,
+        "incident_signal_score": summary.incident_signal_score,
+        "incident_signal_label": summary.incident_signal_label,
+        "mean_parser_confidence": summary.mean_parser_confidence,
         "parser_profiles": summary.parser_profiles,
     }
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")

@@ -1,12 +1,13 @@
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 
 @dataclass
 class RawEvent:
     source_file: str
     parser_profile: str
+    parser_confidence: float
     timestamp: Optional[datetime]
     level: Optional[str]
     message: str
@@ -23,6 +24,7 @@ class RawEvent:
     response_size: Optional[int] = None
     client_ip: Optional[str] = None
     user_agent: Optional[str] = None
+    attributes: Dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -30,6 +32,7 @@ class Event:
     event_id: str
     source_file: str
     parser_profile: str
+    parser_confidence: float
     timestamp: Optional[datetime]
     level: Optional[str]
     message: str
@@ -52,6 +55,7 @@ class Event:
     response_size: Optional[int] = None
     client_ip: Optional[str] = None
     user_agent: Optional[str] = None
+    attributes: Dict[str, Any] = field(default_factory=dict)
     is_incident: bool = False
 
 
@@ -103,6 +107,11 @@ class AnalysisSummary:
     parser_quality_score: float
     parser_quality_label: str
     parser_profiles: str
+    parse_quality_score: float = 0.0
+    parse_quality_label: str = "low"
+    incident_signal_score: float = 0.0
+    incident_signal_label: str = "low"
+    mean_parser_confidence: float = 0.0
 
 
 @dataclass

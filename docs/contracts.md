@@ -56,6 +56,7 @@
 - `run_summary.json`
 - `events.csv`
 - `events.parquet`, если доступен parquet
+- `charts/*.png`, если агент построил визуализацию в чате
 
 Артефакты `heatmap`:
 

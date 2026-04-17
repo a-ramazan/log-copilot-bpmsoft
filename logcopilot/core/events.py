@@ -13,6 +13,14 @@ def build_event(
     run_id: str,
     normalization_stats: Optional[NormalizationStats] = None,
 ) -> Event:
+    """
+    Строит канонический Event из RawEvent.
+
+    Важно:
+    - здесь выполняется общая нормализация текста;
+    - часть полей (exception/stack/signature/is_incident) пока вычисляется здесь
+      для обратной совместимости текущего incidents-flow.
+    """
     normalized_message, exception_type, stack_frames, is_incident = make_event_signature(
         raw_event,
         normalization_stats=normalization_stats,
@@ -22,6 +30,7 @@ def build_event(
         run_id=run_id,
         source_file=raw_event.source_file,
         parser_profile=raw_event.parser_profile,
+        parser_confidence=raw_event.parser_confidence,
         timestamp=raw_event.timestamp,
         level=raw_event.level,
         message=raw_event.message,
@@ -47,6 +56,7 @@ def build_event(
         response_size=raw_event.response_size,
         client_ip=raw_event.client_ip,
         user_agent=raw_event.user_agent,
+        attributes=dict(raw_event.attributes),
         is_incident=is_incident,
     )
     event.embedding_text = build_embedding_text(event)

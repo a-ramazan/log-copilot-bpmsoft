@@ -1,13 +1,19 @@
 import csv
 from collections import defaultdict
+from hashlib import sha1
+import json
+import logging
 from pathlib import Path
-from typing import Iterable, List, Optional, Tuple
+from typing import Callable, Iterable, List, Optional, Tuple
 
 from .models import Event, SemanticClusterSummary
 from .reporting import write_semantic_clusters_csv
 
+logger = logging.getLogger(__name__)
+
 
 def build_representative_text(event: Event) -> str:
+    """Текст-представитель сигнатуры для семантического сравнения."""
     return event.embedding_text or event.normalized_message or event.raw_text
 
 
@@ -35,8 +41,12 @@ def cluster_signatures_semantically(
     model_name: str,
     min_cluster_size: int,
     min_samples: Optional[int] = None,
+    cache_dir: Optional[Path] = None,
+    max_signatures: int = 2500,
+    progress_callback: Optional[Callable[[str], None]] = None,
 ) -> Tuple[List[SemanticClusterSummary], str]:
     if enabled == "off":
+        logger.info("semantic_disabled: enabled=%s", enabled)
         return [], "disabled"
 
     _require_semantic_dependencies()
@@ -55,13 +65,42 @@ def cluster_signatures_semantically(
 
     signature_items = list(representatives.items())
     if len(signature_items) < 2:
+        logger.info("semantic_skipped: reason=not_enough_signatures signatures=%d", len(signature_items))
         return [], "skipped: not enough signature clusters"
+
+    signature_items.sort(
+        key=lambda item: (
+            int(item[1].is_incident),
+            hits_by_signature[item[0]],
+            len(item[1].stacktrace or ""),
+        ),
+        reverse=True,
+    )
+    capped = False
+    if len(signature_items) > max_signatures:
+        signature_items = signature_items[:max_signatures]
+        capped = True
+        logger.info(
+            "semantic_signatures_capped: max_signatures=%d used=%d",
+            max_signatures,
+            len(signature_items),
+        )
 
     texts = [build_representative_text(event) for _, event in signature_items]
     try:
+        if progress_callback:
+            progress_callback(f"semantic model: {model_name}")
         model = SentenceTransformer(model_name)
-        embeddings = model.encode(texts, normalize_embeddings=True, show_progress_bar=False)
+        embeddings = _encode_embeddings(
+            model=model,
+            model_name=model_name,
+            signature_items=signature_items,
+            texts=texts,
+            cache_dir=cache_dir,
+            progress_callback=progress_callback,
+        )
     except Exception as exc:
+        logger.exception("semantic_model_failed: model=%s", model_name)
         raise RuntimeError(
             f"Failed to load or run embedding model '{model_name}'. "
             "Ensure the model is downloadable or already cached."
@@ -80,6 +119,12 @@ def cluster_signatures_semantically(
         )
         labels = clusterer.fit_predict(embeddings)
         method_note = "HDBSCAN"
+        logger.info(
+            "semantic_clustering_method: method=%s min_cluster_size=%d min_samples=%d",
+            method_note,
+            max(2, min_cluster_size),
+            max(1, effective_min_samples),
+        )
     except ImportError:
         clusterer = DBSCAN(
             metric="cosine",
@@ -88,6 +133,11 @@ def cluster_signatures_semantically(
         )
         labels = clusterer.fit_predict(embeddings)
         method_note = "DBSCAN"
+        logger.info(
+            "semantic_clustering_method: method=%s eps=0.2 min_samples=%d",
+            method_note,
+            max(2, effective_min_samples),
+        )
 
     grouped = defaultdict(list)
     for index, ((signature_hash, event), label) in enumerate(zip(signature_items, labels)):
@@ -119,8 +169,92 @@ def cluster_signatures_semantically(
 
     summaries.sort(key=lambda item: item.hits, reverse=True)
     if not summaries:
+        logger.info("semantic_no_dense_groups: method=%s", method_note)
         return [], f"{method_note}: no dense semantic groups found"
-    return summaries, f"{method_note}: {len(summaries)} semantic clusters"
+    note = f"{method_note}: {len(summaries)} semantic clusters"
+    if capped:
+        note += f", capped to top {max_signatures} representative signatures"
+    logger.info("semantic_completed: %s", note)
+    return summaries, note
+
+
+def _cache_file_for_model(cache_dir: Path, model_name: str) -> Path:
+    digest = sha1(model_name.encode("utf-8")).hexdigest()[:16]
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    return cache_dir / f"{digest}.json"
+
+
+def _load_embedding_cache(cache_dir: Optional[Path], model_name: str) -> dict[str, list[float]]:
+    if cache_dir is None:
+        return {}
+    path = _cache_file_for_model(cache_dir, model_name)
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
+def _save_embedding_cache(cache_dir: Optional[Path], model_name: str, cache: dict[str, list[float]]) -> None:
+    if cache_dir is None:
+        return
+    path = _cache_file_for_model(cache_dir, model_name)
+    try:
+        path.write_text(json.dumps(cache), encoding="utf-8")
+    except OSError:
+        return
+
+
+def _encode_embeddings(
+    model,
+    model_name: str,
+    signature_items: list[tuple[str, Event]],
+    texts: list[str],
+    cache_dir: Optional[Path],
+    progress_callback: Optional[Callable[[str], None]],
+):
+    """Кодирует эмбеддинги с кешированием по signature_hash."""
+    import numpy as np
+
+    cache = _load_embedding_cache(cache_dir, model_name)
+    embeddings_by_signature: dict[str, list[float]] = {}
+    missing_pairs: list[tuple[str, str]] = []
+
+    for (signature_hash, _), text in zip(signature_items, texts):
+        cached = cache.get(signature_hash)
+        if cached is not None:
+            embeddings_by_signature[signature_hash] = cached
+        else:
+            missing_pairs.append((signature_hash, text))
+
+    if missing_pairs:
+        if progress_callback:
+            progress_callback(
+                f"semantic embeddings: cached={len(signature_items) - len(missing_pairs)}, new={len(missing_pairs)}"
+            )
+        logger.info(
+            "semantic_embeddings_cache: cached=%d new=%d",
+            len(signature_items) - len(missing_pairs),
+            len(missing_pairs),
+        )
+        encoded = model.encode(
+            [text for _, text in missing_pairs],
+            normalize_embeddings=True,
+            show_progress_bar=False,
+        )
+        for (signature_hash, _), vector in zip(missing_pairs, encoded):
+            vector_list = vector.tolist()
+            embeddings_by_signature[signature_hash] = vector_list
+            cache[signature_hash] = vector_list
+        _save_embedding_cache(cache_dir, model_name, cache)
+    elif progress_callback:
+        progress_callback(f"semantic embeddings: cached={len(signature_items)}, new=0")
+    else:
+        logger.info("semantic_embeddings_cache: cached=%d new=0", len(signature_items))
+
+    ordered = [embeddings_by_signature[signature_hash] for signature_hash, _ in signature_items]
+    return np.asarray(ordered)
 
 
 def load_representative_events_from_csv(events_csv_path: Path) -> List[Event]:
@@ -141,6 +275,7 @@ def load_representative_events_from_csv(events_csv_path: Path) -> List[Event]:
                     event_id=row["event_id"],
                     source_file=row["source_file"],
                     parser_profile=row["parser_profile"] or "unknown",
+                    parser_confidence=float(row.get("parser_confidence") or 0.0),
                     timestamp=None,
                     level=row["level"] or None,
                     message=row["message"],
@@ -163,6 +298,7 @@ def load_representative_events_from_csv(events_csv_path: Path) -> List[Event]:
                     response_size=int(row["response_size"]) if row.get("response_size") else None,
                     client_ip=row.get("client_ip") or None,
                     user_agent=row.get("user_agent") or None,
+                    attributes=json.loads(row.get("attributes_json") or "{}"),
                     is_incident=row["is_incident"] == "true",
                 )
             )
