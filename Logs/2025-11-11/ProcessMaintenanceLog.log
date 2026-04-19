@@ -1,4 +1,0 @@
-2025-11-11 08:35:23,419 [1] INFO  ProcessMaintenanceLog Register - ProcessMaintenanceJob removed.
-2025-11-11 08:35:23,434 [1] INFO  ProcessMaintenanceLog Register - ProcessMaintenanceJob scheduled with 5 minutes frequency.
-2025-11-11 08:35:23,455 [1] INFO  ProcessMaintenanceLog Register - ProcessTempDataCleanupJob removed.
-2025-11-11 08:35:23,472 [1] INFO  ProcessMaintenanceLog Register - ProcessTempDataCleanupJob scheduled with 60 minutes frequency.

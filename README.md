@@ -44,6 +44,33 @@ python -m logcopilot.pipeline --input data/sample.log --out out --semantic off
 python -m unittest discover -s tests
 ```
 
+
+
+```mermaid
+
+flowchart LR
+
+    A[Raw .log file] --> B[Ingest]
+
+    B --> C[Parse]
+
+    C --> D[Normalize]
+
+    D --> E[Store Events]
+
+    E --> F[Profile Computation]
+
+    F --> G[Store Aggregates]
+
+    G --> H[Artifacts Generation]
+
+    H --> I[Storage (DB + files)]
+
+    I --> J[LLM Agent (tools)]
+
+    J --> K[User Response]
+```
+
 ## Что должно появиться на выходе
 
 Общее для любого запуска:

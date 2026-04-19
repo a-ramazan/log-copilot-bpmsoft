@@ -1,9 +1,0 @@
-2025-11-01 09:42:19,561 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - Start.
-2025-11-01 09:42:19,596 [.NET TP Worker] INFO Supervisor Enqueue - Deletes '0' records from queue.
-2025-11-01 09:42:19,618 [.NET TP Worker] INFO Supervisor Enqueue - Sets '1' records to queue.
-2025-11-01 09:42:19,643 [.NET TP Worker] INFO Supervisor ApplyOperations - Deleting entity: LlmModelApiType, id: fb5aa8a1-fa42-409e-84b9-e64b4df7a35a
-2025-11-01 09:42:19,699 [.NET TP Worker] INFO Supervisor ApplyOperations - Done
-2025-11-01 09:42:19,699 [.NET TP Worker] INFO Supervisor GetRecordProcessedEventArgs - fb5aa8a1-fa42-409e-84b9-e64b4df7a35asuccess
-
-2025-11-01 09:42:19,705 [.NET TP Worker] INFO Supervisor DeleteRecordsAsync - End.
-

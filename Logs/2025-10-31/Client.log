@@ -1,7 +1,0 @@
-2025-10-31 11:09:11,793 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
- file: http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js
- line: 1
- column: 16702
- message: Uncaught BPMSoft.NullOrEmptyException: Несуществующее или пустое значение 
- date: Fri Oct 31 2025 14:09:11 GMT+0300 (Москва, стандартное время)
- stack: undefined
