@@ -1,7 +1,9 @@
 from __future__ import annotations
 
-import argparse
+"""Private runtime runner for LogCopilot pipeline execution."""
+
 from collections import Counter
+from dataclasses import asdict
 import logging
 from pathlib import Path
 import shutil
@@ -9,27 +11,38 @@ import time
 from typing import Dict, List, Optional
 import uuid
 
-from .core import build_event
-from .models import AnalysisSummary, PipelineRunResult, RunResult
-from .normalization import NormalizationStats
-from .parsing import canonical_to_raw_event, discover_log_files, parse_file
-from .profiles import run_heatmap_profile, run_incidents_profile, run_traffic_profile
-from .quality import AnalysisQualityAccumulator, assess_profile_fit
-from .reporting import (
+from ..analysis import AnalysisQualityAccumulator
+from ..analysis.quality import assess_profile_fit
+from ..core import build_event
+from ..domain import AnalysisSummary, PipelineRunResult, RunResult
+from ..output import (
     event_to_row,
     open_events_csv_writer,
     write_events_parquet,
     write_manifest_json,
     write_run_summary_json,
 )
-from .storage import StorageRepository
+from ..parsing import canonical_to_raw_event, discover_log_files, parse_file
+from ..profiles import run_heatmap_profile, run_incidents_profile, run_traffic_profile
+from ..storage import StorageRepository
+from ..text import NormalizationStats
 
 STORE_BATCH_SIZE = 1000
 logger = logging.getLogger(__name__)
 
 
 def ensure_single_log_file(input_path: Path) -> Path:
-    """MVP-контракт: один запуск принимает ровно один .log файл."""
+    """Validate that the run input is a single `.log` file.
+
+    Args:
+        input_path: Candidate input path supplied by the caller.
+
+    Returns:
+        Resolved path to the accepted log file.
+
+    Raises:
+        ValueError: If the input does not point to exactly one `.log` file.
+    """
     if input_path.is_file():
         if input_path.suffix.lower() != ".log":
             raise ValueError("MVP accepts a single .log file as input.")
@@ -38,7 +51,14 @@ def ensure_single_log_file(input_path: Path) -> Path:
 
 
 def clean_output_dir(output_path: Path) -> None:
-    """Очищает директорию запуска перед перезаписью артефактов."""
+    """Remove all files and directories from an existing run output directory.
+
+    Args:
+        output_path: Run directory that should be emptied in place.
+
+    Returns:
+        None.
+    """
     if not output_path.exists():
         return
     for child in output_path.iterdir():
@@ -57,6 +77,7 @@ def _build_trace_summary(
     timings: Dict[str, float],
     normalization_stats: NormalizationStats,
 ) -> dict:
+    """Build the trace diagnostics payload stored in the final run summary."""
     return {
         "input_path": str(input_path),
         "output_path": str(output_path),
@@ -69,7 +90,7 @@ def _build_trace_summary(
 
 
 def _resolve_output_paths(out_dir: Optional[str], run_id: str) -> tuple[Path, Path]:
-    """Возвращает базовую и run-директорию и гарантирует их наличие."""
+    """Resolve the base output directory and create the run-specific directory."""
     base_dir = Path(out_dir or "out").expanduser().resolve()
     run_dir = base_dir / "runs" / run_id
     run_dir.mkdir(parents=True, exist_ok=True)
@@ -77,12 +98,31 @@ def _resolve_output_paths(out_dir: Optional[str], run_id: str) -> tuple[Path, Pa
 
 
 def _print_phase(message: str) -> None:
-    # Сохраняем текущий консольный формат для CLI + дублируем этап в logging.
+    """Emit one user-visible phase message and mirror it to structured logs."""
     logger.info("run_phase: %s", message)
     print(f"[logcopilot] {message}")
 
 
+def _source_file_label(path: Path, input_path_obj: Path) -> str:
+    """Build the user-facing source file label for one parsed file."""
+    if input_path_obj.is_file():
+        return path.name
+    return str(path.relative_to(input_path_obj))
+
+
+def _parse_result_payload(source_file: str, parse_result) -> dict:
+    """Convert one parser result into the diagnostics payload stored for the run."""
+    return {
+        "source_file": source_file,
+        "parser_name": parse_result.parser_name,
+        "confidence": parse_result.confidence,
+        "stats": dict(parse_result.stats),
+        "warnings": list(parse_result.warnings),
+    }
+
+
 def _flush_event_batch(repository: StorageRepository, batch: List) -> float:
+    """Persist a pending batch of events and clear the in-memory buffer."""
     if not batch:
         return 0.0
     started = time.perf_counter()
@@ -94,11 +134,16 @@ def _flush_event_batch(repository: StorageRepository, batch: List) -> float:
 
 
 def _build_parser_diagnostics(file_results: list[dict], events: List, analysis_summary) -> dict:
+    """Aggregate parser quality diagnostics from per-file parse results."""
     parser_counts = Counter(event.parser_profile for event in events)
     total_lines = sum(int(item["stats"].get("total_lines", 0)) for item in file_results)
     total_events = sum(int(item["stats"].get("total_events", 0)) for item in file_results)
     fallback_ratio = (
-        sum(float(item["stats"].get("fallback_ratio", 0.0)) * max(int(item["stats"].get("total_events", 0)), 1) for item in file_results)
+        sum(
+            float(item["stats"].get("fallback_ratio", 0.0))
+            * max(int(item["stats"].get("total_events", 0)), 1)
+            for item in file_results
+        )
         / max(total_events, 1)
     )
     warnings = []
@@ -139,6 +184,7 @@ def _build_parser_diagnostics(file_results: list[dict], events: List, analysis_s
 
 
 def _build_analysis_summary(events: List, source_name: str, summary: dict) -> AnalysisSummary:
+    """Build a fallback analysis summary when a profile did not provide one."""
     quality = AnalysisQualityAccumulator(source_name=source_name)
     for event in events:
         quality.add(event)
@@ -157,12 +203,7 @@ def _start_run(
     out_dir: Optional[str],
     clean_out: bool,
 ) -> tuple[Path, str, Path, Path, StorageRepository]:
-    """
-    Инициализирует запуск:
-    - валидирует вход;
-    - создает run_id и директории;
-    - открывает storage и создает запись runs.
-    """
+    """Create the run record, output directory, and storage repository."""
     input_path_obj = ensure_single_log_file(Path(input_path).expanduser().resolve())
     run_id = uuid.uuid4().hex
     base_output_dir, run_dir = _resolve_output_paths(out_dir, run_id)
@@ -182,15 +223,7 @@ def _parse_events_stage(
     repository: StorageRepository,
     normalization_stats: NormalizationStats,
 ) -> dict:
-    """
-    Этап parse + build Event + первичная запись событий.
-
-    Возвращает:
-    - events: список канонических Event для profile-этапа;
-    - file_results: диагностика parse по каждому файлу;
-    - event_count/multiline_merges;
-    - timings для parse/store.
-    """
+    """Parse source logs, stream events to CSV, and batch-insert them into SQLite."""
     events = []
     db_batch: List = []
     file_results: list[dict] = []
@@ -204,18 +237,10 @@ def _parse_events_stage(
     _print_phase(f"parse started: profile={profile} input={input_path_obj.name}")
     with open_events_csv_writer(run_dir / "events.csv") as events_writer:
         for path in source_files:
-            source_file = path.name if input_path_obj.is_file() else str(path.relative_to(input_path_obj))
+            source_file = _source_file_label(path, input_path_obj)
             logger.debug("parse_file_started: run_id=%s source_file=%s", run_id, source_file)
             parse_result = parse_file(path, input_path_obj)
-            file_results.append(
-                {
-                    "source_file": source_file,
-                    "parser_name": parse_result.parser_name,
-                    "confidence": parse_result.confidence,
-                    "stats": dict(parse_result.stats),
-                    "warnings": list(parse_result.warnings),
-                }
-            )
+            file_results.append(_parse_result_payload(source_file, parse_result))
             _print_phase(
                 f"parsed {source_file}: parser={parse_result.parser_name} "
                 f"confidence={parse_result.confidence:.2f} events={len(parse_result.events)}"
@@ -228,7 +253,6 @@ def _parse_events_stage(
                     len(parse_result.warnings),
                 )
             for canonical_event in parse_result.events:
-                # Центральный переход из parsing-контракта в core-контракт.
                 raw_event = canonical_to_raw_event(canonical_event, source_file=source_file)
                 event = build_event(raw_event, run_id=run_id, normalization_stats=normalization_stats)
                 events.append(event)
@@ -270,7 +294,7 @@ def _run_profile_stage(
     semantic_min_samples: Optional[int],
     run_id: str,
 ) -> tuple[dict, float]:
-    """Этап профильных вычислений и записи профильных таблиц в SQLite."""
+    """Execute the selected profile and persist its profile-specific aggregates."""
     profile_started = time.perf_counter()
     _print_phase(f"profile compute started: profile={profile} events={len(events)}")
     if profile == "incidents":
@@ -303,7 +327,7 @@ def _run_profile_stage(
 
 
 def _write_parquet_stage(run_dir: Path, events: List, run_id: str) -> tuple[bool, float]:
-    """Пишет optional parquet-артефакт и логирует, почему этап был пропущен."""
+    """Attempt to write the optional Parquet artifact and measure its duration."""
     parquet_started = time.perf_counter()
     parquet_written = write_events_parquet(run_dir / "events.parquet", events)
     parquet_duration = time.perf_counter() - parquet_started
@@ -320,10 +344,7 @@ def _write_parquet_stage(run_dir: Path, events: List, run_id: str) -> tuple[bool
 
 
 def _ensure_profile_analysis_summary(events: List, source_name: str, profile_result: dict) -> AnalysisSummary:
-    """
-    Гарантирует наличие analysis_summary в profile_result.
-    Это нужно для единого формата run_summary независимо от профиля.
-    """
+    """Return the profile analysis summary, building and attaching it when missing."""
     analysis_summary_payload = profile_result["summary"].get("analysis_summary")
     if analysis_summary_payload is None:
         analysis_summary = _build_analysis_summary(
@@ -331,34 +352,22 @@ def _ensure_profile_analysis_summary(events: List, source_name: str, profile_res
             source_name=source_name,
             summary=profile_result["summary"],
         )
-        profile_result["summary"]["analysis_summary"] = {
-            "source_name": analysis_summary.source_name,
-            "event_count": analysis_summary.event_count,
-            "cluster_count": analysis_summary.cluster_count,
-            "incident_event_count": analysis_summary.incident_event_count,
-            "timestamp_coverage": analysis_summary.timestamp_coverage,
-            "level_coverage": analysis_summary.level_coverage,
-            "component_coverage": analysis_summary.component_coverage,
-            "exception_coverage": analysis_summary.exception_coverage,
-            "stacktrace_coverage": analysis_summary.stacktrace_coverage,
-            "request_id_coverage": analysis_summary.request_id_coverage,
-            "trace_id_coverage": analysis_summary.trace_id_coverage,
-            "fallback_profile_rate": analysis_summary.fallback_profile_rate,
-            "parser_quality_score": analysis_summary.parser_quality_score,
-            "parser_quality_label": analysis_summary.parser_quality_label,
-            "parse_quality_score": analysis_summary.parse_quality_score,
-            "parse_quality_label": analysis_summary.parse_quality_label,
-            "incident_signal_score": analysis_summary.incident_signal_score,
-            "incident_signal_label": analysis_summary.incident_signal_label,
-            "mean_parser_confidence": analysis_summary.mean_parser_confidence,
-            "parser_profiles": analysis_summary.parser_profiles,
-        }
+        profile_result["summary"]["analysis_summary"] = asdict(analysis_summary)
         return analysis_summary
     return AnalysisSummary(**analysis_summary_payload)
 
 
+def _artifact_type_for_path(artifact_path: str) -> str:
+    """Infer the registered artifact type from its file extension."""
+    if artifact_path.endswith(".md"):
+        return "report"
+    if artifact_path.endswith(".json"):
+        return "json"
+    return "table"
+
+
 def _build_artifact_paths(run_dir: Path, profile_result: dict, parquet_written: bool) -> Dict[str, str]:
-    """Собирает единый список артефактов запуска."""
+    """Merge common run artifacts with profile-specific artifact paths."""
     artifact_paths = {
         "events_csv": str(run_dir / "events.csv"),
         "run_summary_json": str(run_dir / "run_summary.json"),
@@ -377,31 +386,117 @@ def _register_artifacts(
     profile_result: dict,
     parquet_written: bool,
 ) -> None:
-    """Регистрирует общие и профильные артефакты в таблице artifacts."""
-    repository.register_artifact(run_id, "events_csv", "table", artifact_paths["events_csv"])
-    repository.register_artifact(run_id, "run_summary_json", "summary", artifact_paths["run_summary_json"])
-    repository.register_artifact(run_id, "manifest_json", "manifest", artifact_paths["manifest_json"])
+    """Register shared and profile-specific artifacts for the completed run."""
+    shared_artifacts = [
+        ("events_csv", "table"),
+        ("run_summary_json", "summary"),
+        ("manifest_json", "manifest"),
+    ]
+    for artifact_name, artifact_type in shared_artifacts:
+        repository.register_artifact(run_id, artifact_name, artifact_type, artifact_paths[artifact_name])
     if parquet_written:
         repository.register_artifact(run_id, "events_parquet", "table", artifact_paths["events_parquet"])
     for artifact_name, artifact_path in profile_result["artifact_paths"].items():
-        artifact_type = "report" if artifact_path.endswith(".md") else "table"
-        if artifact_path.endswith(".json"):
-            artifact_type = "json"
-        repository.register_artifact(run_id, artifact_name, artifact_type, artifact_path)
+        repository.register_artifact(
+            run_id,
+            artifact_name,
+            _artifact_type_for_path(artifact_path),
+            artifact_path,
+        )
 
 
-def run_profile(
-    input_path: str,
+def _build_run_summary_payload(
+    run_id: str,
     profile: str,
+    input_path_obj: Path,
+    run_dir: Path,
+    event_count: int,
+    trace_summary: dict,
+    parser_diagnostics: dict,
+    profile_fit: dict,
+    profile_result: dict,
+) -> dict:
+    """Build the persisted run summary payload."""
+    return {
+        "run_id": run_id,
+        "profile": profile,
+        "status": "completed",
+        "input_path": str(input_path_obj),
+        "output_dir": str(run_dir),
+        "event_count": event_count,
+        "trace_summary": trace_summary,
+        "parser_diagnostics": parser_diagnostics,
+        "profile_fit": profile_fit,
+        "profile_summary": profile_result["summary"],
+    }
+
+
+def _build_manifest_payload(
+    run_id: str,
+    profile: str,
+    repository: StorageRepository,
+    artifact_paths: Dict[str, str],
+) -> dict:
+    """Build the persisted manifest payload for one completed run."""
+    return {
+        "run_id": run_id,
+        "profile": profile,
+        "db_path": str(repository.db_path),
+        "artifacts": artifact_paths,
+    }
+
+
+def _legacy_analysis_summary(run_result: RunResult, summary: dict) -> AnalysisSummary:
+    """Build the legacy analysis summary object from stored summary payloads."""
+    analysis_summary_payload = summary.get("analysis_summary")
+    if analysis_summary_payload is not None:
+        return AnalysisSummary(**analysis_summary_payload)
+    return AnalysisSummary(
+        source_name=Path(run_result.run_summary["input_path"]).name,
+        event_count=run_result.event_count,
+        cluster_count=summary.get("cluster_count", 0),
+        incident_event_count=summary.get("incident_event_count", 0),
+        timestamp_coverage=0.0,
+        level_coverage=0.0,
+        component_coverage=0.0,
+        exception_coverage=0.0,
+        stacktrace_coverage=0.0,
+        request_id_coverage=0.0,
+        trace_id_coverage=0.0,
+        fallback_profile_rate=0.0,
+        parser_quality_score=0.0,
+        parser_quality_label="n/a",
+        parser_profiles="",
+    )
+
+
+def run_pipeline(
+    input_path: str,
+    profile: str = "incidents",
     out_dir: Optional[str] = None,
     clean_out: bool = False,
     sample_events: int = 0,
     semantic: str = "on",
     semantic_model: str = "sentence-transformers/all-MiniLM-L6-v2",
     semantic_min_cluster_size: int = 3,
-    semantic_min_samples: Optional[int] = None,
+    semantic_min_samples: int | None = None,
 ) -> RunResult:
-    """Главный runtime-проход: parse -> build Event -> profile -> storage/artifacts."""
+    """Run one processing profile end to end for a single log file.
+
+    Args:
+        input_path: Path to the source log file.
+        profile: Processing profile name.
+        out_dir: Base output directory for generated artifacts.
+        clean_out: Whether to clear the run directory before writing artifacts.
+        sample_events: Compatibility argument preserved for existing callers.
+        semantic: Semantic clustering mode.
+        semantic_model: Sentence-transformer model name for embeddings.
+        semantic_min_cluster_size: Minimum size for a semantic cluster.
+        semantic_min_samples: Minimum density threshold for semantic clustering.
+
+    Returns:
+        Completed run result with artifact locations and summary payload.
+    """
     del sample_events
     input_path_obj, run_id, base_output_dir, run_dir, repository = _start_run(
         input_path=input_path,
@@ -421,11 +516,11 @@ def run_profile(
 
     normalization_stats = NormalizationStats()
     parse_payload = _parse_events_stage(
-        input_path_obj = input_path_obj,
-        profile = profile,
-        run_id = run_id,
-        run_dir = run_dir,
-        repository = repository,
+        input_path_obj=input_path_obj,
+        profile=profile,
+        run_id=run_id,
+        run_dir=run_dir,
+        repository=repository,
         normalization_stats=normalization_stats,
     )
     events = parse_payload["events"]
@@ -476,24 +571,23 @@ def run_profile(
         parquet_written=parquet_written,
     )
 
-    run_summary = {
-        "run_id": run_id,
-        "profile": profile,
-        "status": "completed",
-        "input_path": str(input_path_obj),
-        "output_dir": str(run_dir),
-        "event_count": event_count,
-        "trace_summary": trace_summary,
-        "parser_diagnostics": parser_diagnostics,
-        "profile_fit": profile_fit,
-        "profile_summary": profile_result["summary"],
-    }
-    manifest = {
-        "run_id": run_id,
-        "profile": profile,
-        "db_path": str(repository.db_path),
-        "artifacts": artifact_paths,
-    }
+    run_summary = _build_run_summary_payload(
+        run_id=run_id,
+        profile=profile,
+        input_path_obj=input_path_obj,
+        run_dir=run_dir,
+        event_count=event_count,
+        trace_summary=trace_summary,
+        parser_diagnostics=parser_diagnostics,
+        profile_fit=profile_fit,
+        profile_result=profile_result,
+    )
+    manifest = _build_manifest_payload(
+        run_id=run_id,
+        profile=profile,
+        repository=repository,
+        artifact_paths=artifact_paths,
+    )
 
     write_run_summary_json(run_dir / "run_summary.json", run_summary)
     write_manifest_json(run_dir / "manifest.json", manifest)
@@ -534,28 +628,16 @@ def run_profile(
 
 
 def build_legacy_pipeline_result(run_result: RunResult) -> PipelineRunResult:
+    """Convert a modern run result into the legacy pipeline result shape.
+
+    Args:
+        run_result: Modern run result returned by `run_pipeline`.
+
+    Returns:
+        Compatibility wrapper used by legacy pipeline callers and tests.
+    """
     summary = run_result.run_summary["profile_summary"]
-    analysis_summary_payload = summary.get("analysis_summary")
-    if analysis_summary_payload is None:
-        analysis_summary = AnalysisSummary(
-            source_name=Path(run_result.run_summary["input_path"]).name,
-            event_count=run_result.event_count,
-            cluster_count=summary.get("cluster_count", 0),
-            incident_event_count=summary.get("incident_event_count", 0),
-            timestamp_coverage=0.0,
-            level_coverage=0.0,
-            component_coverage=0.0,
-            exception_coverage=0.0,
-            stacktrace_coverage=0.0,
-            request_id_coverage=0.0,
-            trace_id_coverage=0.0,
-            fallback_profile_rate=0.0,
-            parser_quality_score=0.0,
-            parser_quality_label="n/a",
-            parser_profiles="",
-        )
-    else:
-        analysis_summary = AnalysisSummary(**analysis_summary_payload)
+    analysis_summary = _legacy_analysis_summary(run_result, summary)
     return PipelineRunResult(
         run_id=run_result.run_id,
         profile=run_result.profile,
@@ -571,11 +653,9 @@ def build_legacy_pipeline_result(run_result: RunResult) -> PipelineRunResult:
         debug_trace=run_result.run_summary["trace_summary"],
     )
 
-
-def parse_run_args(argv: Optional[list[str]] = None) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Run a LogCopilot processing profile")
-    parser.add_argument("run", nargs="?")
-    parser.add_argument("--input", required=True, help="Path to a single .log file")
-    parser.add_argument("--profile", required=True, choices=("heatmap", "incidents", "traffic"))
-    parser.add_argument("--out", default="out", help="Base output directory")
-    return parser.parse_args(argv)
+__all__ = [
+    "build_legacy_pipeline_result",
+    "clean_output_dir",
+    "ensure_single_log_file",
+    "run_pipeline",
+]

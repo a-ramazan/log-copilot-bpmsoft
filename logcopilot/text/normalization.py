@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+"""Text normalization: regex masking of PII, IDs and timestamps."""
+
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 import re
@@ -47,17 +51,36 @@ MASK_TOKEN_NAMES = ("UUID", "IP", "EMAIL", "JWT", "HEX", "REQ_ID", "TRACE_ID", "
 
 @dataclass
 class NormalizationStats:
+    """Accumulator with counts and examples of applied normalization masks."""
+
     mask_counts: Counter[str] = field(default_factory=Counter)
     raw_patterns: Dict[str, Counter[str]] = field(default_factory=lambda: defaultdict(Counter))
     total_events: int = 0
 
     def observe_mask(self, mask_name: str, raw_value: str) -> None:
+        """Record one applied mask and its raw value preview.
+
+        Args:
+            mask_name: Logical mask identifier.
+            raw_value: Raw matched text before replacement.
+
+        Returns:
+            None.
+        """
         self.mask_counts[mask_name] += 1
         preview = WHITESPACE_RE.sub(" ", raw_value.strip())[:120]
         if preview:
             self.raw_patterns[mask_name][preview] += 1
 
     def snapshot(self, top_n: int = 10) -> dict:
+        """Build a serializable snapshot of collected normalization statistics.
+
+        Args:
+            top_n: Maximum number of sample raw patterns to keep per mask.
+
+        Returns:
+            Snapshot dictionary for reporting and diagnostics.
+        """
         return {
             "mask_counts": dict(self.mask_counts),
             "top_replaced_patterns": {
@@ -74,6 +97,18 @@ def _apply_mask(
     replacement: str,
     stats: Optional[NormalizationStats],
 ) -> str:
+    """Apply one regex mask and optionally record mask statistics.
+
+    Args:
+        text: Source text to normalize.
+        mask_name: Logical mask identifier.
+        pattern: Regex pattern to replace.
+        replacement: Replacement template.
+        stats: Optional stats accumulator.
+
+    Returns:
+        Text after applying the mask replacement.
+    """
     if stats is None:
         return pattern.sub(replacement, text)
 
@@ -85,6 +120,15 @@ def _apply_mask(
 
 
 def normalize_text(text: str, stats: Optional[NormalizationStats] = None) -> str:
+    """Normalize free-form text by masking identifiers and collapsing whitespace.
+
+    Args:
+        text: Source text to normalize.
+        stats: Optional stats accumulator for observed masks.
+
+    Returns:
+        Lowercased normalized text with masked volatile fragments.
+    """
     normalized = text or ""
     if stats is not None:
         stats.total_events += 1
@@ -95,6 +139,14 @@ def normalize_text(text: str, stats: Optional[NormalizationStats] = None) -> str
 
 
 def count_mask_tokens(texts: Iterable[str]) -> Counter[str]:
+    """Count how many mask tokens appear across normalized texts.
+
+    Args:
+        texts: Normalized texts to inspect.
+
+    Returns:
+        Counter keyed by logical mask token name.
+    """
     counts: Counter[str] = Counter()
     for text in texts:
         upper = (text or "").upper()

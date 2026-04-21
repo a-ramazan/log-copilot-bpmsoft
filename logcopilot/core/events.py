@@ -1,11 +1,17 @@
 from __future__ import annotations
 
+"""Canonical event builder shared by parsing and profile execution."""
+
 import uuid
 from typing import Optional
 
-from ..models import Event, RawEvent
-from ..normalization import NormalizationStats
-from ..signatures import build_embedding_text, build_signature, make_event_signature
+from ..domain import Event, RawEvent
+from ..text import (
+    NormalizationStats,
+    build_embedding_text,
+    build_signature,
+    make_event_signature,
+)
 
 
 def build_event(

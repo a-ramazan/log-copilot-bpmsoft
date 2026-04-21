@@ -1,13 +1,25 @@
+from __future__ import annotations
+
+"""Signature-based clustering helpers for incident-oriented event analysis."""
+
 from collections import Counter, defaultdict
 from datetime import datetime
 from typing import Dict, Iterable, List, Optional
 
-from .models import ClusterSummary, Event
+from ..domain import ClusterSummary, Event
+from ..text import build_signature_text
 from .quality import confidence_label
-from .signatures import build_signature_text
 
 
 def choose_first_non_null(values: Iterable[Optional[str]]) -> Optional[str]:
+    """Return the first truthy string from an iterable.
+
+    Args:
+        values: Candidate string values.
+
+    Returns:
+        First non-empty value, or `None` if none exists.
+    """
     for value in values:
         if value:
             return value
@@ -15,11 +27,29 @@ def choose_first_non_null(values: Iterable[Optional[str]]) -> Optional[str]:
 
 
 def top_source_files(events: List[Event], limit: int = 5) -> str:
+    """Summarize the most common source files for a cluster.
+
+    Args:
+        events: Events that belong to one signature cluster.
+        limit: Maximum number of source files to include.
+
+    Returns:
+        Human-readable source file summary string.
+    """
     counts = Counter(event.source_file for event in events)
     return "; ".join(f"{source} ({hits})" for source, hits in counts.most_common(limit))
 
 
 def sample_messages(events: List[Event], limit: int = 5) -> str:
+    """Collect distinct sample messages from cluster events.
+
+    Args:
+        events: Events that belong to one signature cluster.
+        limit: Maximum number of distinct messages to include.
+
+    Returns:
+        Concatenated sample message string.
+    """
     samples: List[str] = []
     seen = set()
     for event in events:
@@ -34,21 +64,53 @@ def sample_messages(events: List[Event], limit: int = 5) -> str:
 
 
 def levels_summary(events: List[Event]) -> str:
+    """Summarize event levels found inside a cluster.
+
+    Args:
+        events: Events that belong to one signature cluster.
+
+    Returns:
+        Human-readable level histogram string.
+    """
     counts = Counter((event.level or "UNKNOWN").upper() for event in events)
     return ", ".join(f"{level}:{hits}" for level, hits in counts.most_common())
 
 
 def min_timestamp(events: List[Event]) -> Optional[datetime]:
+    """Return the earliest timestamp present in a list of events.
+
+    Args:
+        events: Events to inspect.
+
+    Returns:
+        Earliest timestamp, or `None` when timestamps are absent.
+    """
     values = [event.timestamp for event in events if event.timestamp]
     return min(values) if values else None
 
 
 def max_timestamp(events: List[Event]) -> Optional[datetime]:
+    """Return the latest timestamp present in a list of events.
+
+    Args:
+        events: Events to inspect.
+
+    Returns:
+        Latest timestamp, or `None` when timestamps are absent.
+    """
     values = [event.timestamp for event in events if event.timestamp]
     return max(values) if values else None
 
 
 def build_cluster_summaries(events: List[Event]) -> List[ClusterSummary]:
+    """Build signature-based cluster summaries from canonical events.
+
+    Args:
+        events: Canonical events to group by signature hash.
+
+    Returns:
+        Sorted cluster summaries ready for reporting.
+    """
     grouped: Dict[str, List[Event]] = defaultdict(list)
     for event in events:
         grouped[event.signature_hash].append(event)
@@ -93,18 +155,102 @@ def build_cluster_summaries(events: List[Event]) -> List[ClusterSummary]:
 
 
 def top_incident_clusters(clusters: List[ClusterSummary], limit: int = 10) -> List[ClusterSummary]:
+    """Return the strongest incident-like clusters for reporting.
+
+    Args:
+        clusters: Cluster summaries sorted by severity and size.
+        limit: Maximum number of clusters to return.
+
+    Returns:
+        Incident-like clusters when present, otherwise the top clusters overall.
+    """
     incident_clusters = [cluster for cluster in clusters if cluster.incident_hits > 0]
     if incident_clusters:
         return incident_clusters[:limit]
     return clusters[:limit]
 
 
+def _pick_representative_event(
+    signature_hash: str,
+    bucket: Dict[str, object],
+    representatives: Dict[str, Event],
+) -> Event | None:
+    """Return the representative event chosen for one signature bucket."""
+    return bucket["representative_event"] or representatives.get(signature_hash)
+
+
+def _build_cluster_summary(
+    signature_hash: str,
+    bucket: Dict[str, object],
+    representative_event: Event | None,
+) -> ClusterSummary:
+    """Build one public cluster summary from an internal accumulator bucket."""
+    source_counts = bucket["source_counts"]
+    level_counts = bucket["level_counts"]
+    profile_counts = bucket["profile_counts"]
+    hits = bucket["hits"]
+    confidence_score = _cluster_confidence_score(bucket)
+    return ClusterSummary(
+        cluster_id=signature_hash,
+        hits=hits,
+        first_seen=bucket["first_seen"],
+        last_seen=bucket["last_seen"],
+        parser_profiles="; ".join(
+            f"{profile} ({count})"
+            for profile, count in profile_counts.most_common(3)
+        ),
+        source_files="; ".join(
+            f"{source} ({hits})"
+            for source, hits in source_counts.most_common(5)
+        ),
+        sample_messages=" || ".join(bucket["sample_messages"]),
+        example_exception=bucket["example_exception"],
+        levels=", ".join(
+            f"{level}:{hits}" for level, hits in level_counts.most_common()
+        ),
+        incident_hits=bucket["incident_hits"],
+        confidence_score=confidence_score,
+        confidence_label=confidence_label(confidence_score),
+        clustering_method="signature",
+        representative_raw=(
+            representative_event.raw_text[:2000] if representative_event else ""
+        ),
+        representative_normalized=(
+            representative_event.normalized_message if representative_event else ""
+        ),
+        representative_signature_text=(
+            build_signature_text(
+                representative_event.normalized_message,
+                representative_event.exception_type,
+                representative_event.stack_frames,
+            )
+            if representative_event
+            else ""
+        ),
+        top_stack_frames=(
+            " | ".join(representative_event.stack_frames)
+            if representative_event
+            else ""
+        ),
+    )
+
+
 class ClusterAccumulator:
+    """Incrementally accumulate events into signature-based cluster statistics."""
+
     def __init__(self) -> None:
         self._clusters: Dict[str, Dict[str, object]] = {}
         self._representatives: Dict[str, Event] = {}
 
     def add(self, event: Event) -> None:
+        """Add one canonical event to the accumulator.
+
+        Args:
+            event: Canonical event to aggregate.
+
+        Returns:
+            None.
+        """
         bucket = self._clusters.setdefault(
             event.signature_hash,
             {
@@ -170,62 +316,31 @@ class ClusterAccumulator:
             bucket["representative_event"] = event
 
     def representatives(self) -> List[Event]:
+        """Return representative events for each collected signature hash.
+
+        Returns:
+            Representative events selected during accumulation.
+        """
         return list(self._representatives.values())
 
     def build_summaries(self) -> List[ClusterSummary]:
+        """Convert accumulated cluster state into sorted summaries.
+
+        Returns:
+            Cluster summaries ready for downstream reporting.
+        """
         clusters: List[ClusterSummary] = []
         for signature_hash, bucket in self._clusters.items():
-            source_counts = bucket["source_counts"]
-            level_counts = bucket["level_counts"]
-            profile_counts = bucket["profile_counts"]
-            hits = bucket["hits"]
-            confidence_score = _cluster_confidence_score(bucket)
-            representative_event = bucket["representative_event"] or self._representatives.get(
-                signature_hash
+            representative_event = _pick_representative_event(
+                signature_hash=signature_hash,
+                bucket=bucket,
+                representatives=self._representatives,
             )
             clusters.append(
-                ClusterSummary(
-                    cluster_id=signature_hash,
-                    hits=hits,
-                    first_seen=bucket["first_seen"],
-                    last_seen=bucket["last_seen"],
-                    parser_profiles="; ".join(
-                        f"{profile} ({count})"
-                        for profile, count in profile_counts.most_common(3)
-                    ),
-                    source_files="; ".join(
-                        f"{source} ({hits})"
-                        for source, hits in source_counts.most_common(5)
-                    ),
-                    sample_messages=" || ".join(bucket["sample_messages"]),
-                    example_exception=bucket["example_exception"],
-                    levels=", ".join(
-                        f"{level}:{hits}" for level, hits in level_counts.most_common()
-                    ),
-                    incident_hits=bucket["incident_hits"],
-                    confidence_score=confidence_score,
-                    confidence_label=confidence_label(confidence_score),
-                    clustering_method="signature",
-                    representative_raw=(
-                        representative_event.raw_text[:2000] if representative_event else ""
-                    ),
-                    representative_normalized=(
-                        representative_event.normalized_message if representative_event else ""
-                    ),
-                    representative_signature_text=(
-                        build_signature_text(
-                            representative_event.normalized_message,
-                            representative_event.exception_type,
-                            representative_event.stack_frames,
-                        )
-                        if representative_event
-                        else ""
-                    ),
-                    top_stack_frames=(
-                        " | ".join(representative_event.stack_frames)
-                        if representative_event
-                        else ""
-                    ),
+                _build_cluster_summary(
+                    signature_hash=signature_hash,
+                    bucket=bucket,
+                    representative_event=representative_event,
                 )
             )
         clusters.sort(
@@ -240,6 +355,14 @@ class ClusterAccumulator:
 
 
 def _cluster_confidence_score(bucket: Dict[str, object]) -> float:
+    """Compute a heuristic confidence score for one cluster bucket.
+
+    Args:
+        bucket: Internal cluster accumulator bucket.
+
+    Returns:
+        Rounded confidence score in the `[0, 1]` range.
+    """
     hits = int(bucket["hits"])
     if hits <= 0:
         return 0.0

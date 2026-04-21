@@ -1,7 +1,11 @@
+from __future__ import annotations
+
+"""Quality scoring helpers for analysis summaries and profile-fit estimation."""
+
 from collections import Counter
 import re
 
-from .models import AnalysisSummary, Event
+from ..domain import AnalysisSummary, Event
 
 
 INCIDENT_HINT_RE = re.compile(
@@ -10,13 +14,55 @@ INCIDENT_HINT_RE = re.compile(
 )
 
 
-def coverage_ratio(numerator: int, denominator: int) -> float:
+def _event_ratio(events: list[Event], predicate) -> float:
+    """Compute a coverage ratio for events matching a predicate."""
+    total = len(events)
+    return coverage_ratio(sum(1 for event in events if predicate(event)), total)
+
+
+def _profile_fit_label(
+    selected_profile: str,
+    recommended_profile: str,
+    selected_score: float,
+    recommended_score: float,
+) -> str:
+    """Map profile scores onto a coarse fit label."""
+    fit_delta = recommended_score - selected_score
+    if recommended_profile == selected_profile:
+        return "high"
+    if recommended_score >= 0.5 and selected_score <= 0.35:
+        return "low"
+    if fit_delta <= 0.1:
+        return "high"
+    if fit_delta <= 0.2:
+        return "medium"
+    return "low"
+
+
+def coverage_ratio(numerator: float, denominator: int) -> float:
+    """Safely divide a coverage metric by its denominator.
+
+    Args:
+        numerator: Covered item count or accumulated score.
+        denominator: Total item count.
+
+    Returns:
+        Coverage ratio in the `[0, 1]` range when denominator is positive.
+    """
     if denominator <= 0:
         return 0.0
     return numerator / denominator
 
 
 def confidence_label(score: float) -> str:
+    """Map a numeric score onto a coarse confidence label.
+
+    Args:
+        score: Confidence score in the `[0, 1]` range.
+
+    Returns:
+        Confidence label string.
+    """
     if score >= 0.8:
         return "high"
     if score >= 0.55:
@@ -25,7 +71,14 @@ def confidence_label(score: float) -> str:
 
 
 class AnalysisQualityAccumulator:
+    """Accumulate field coverage and signal statistics for one source file."""
+
     def __init__(self, source_name: str) -> None:
+        """Initialize an empty quality accumulator.
+
+        Args:
+            source_name: Display name for the analyzed source.
+        """
         self.source_name = source_name
         self.event_count = 0
         self.incident_event_count = 0
@@ -41,6 +94,14 @@ class AnalysisQualityAccumulator:
         self.profile_counts: Counter[str] = Counter()
 
     def add(self, event: Event) -> None:
+        """Add one canonical event to the quality statistics.
+
+        Args:
+            event: Event to account for.
+
+        Returns:
+            None.
+        """
         self.event_count += 1
         self.profile_counts[event.parser_profile] += 1
         if event.is_incident:
@@ -64,6 +125,14 @@ class AnalysisQualityAccumulator:
         self.parser_confidence_total += float(event.parser_confidence or 0.0)
 
     def build_summary(self, cluster_count: int) -> AnalysisSummary:
+        """Build an immutable analysis summary from accumulated metrics.
+
+        Args:
+            cluster_count: Number of clusters produced for the analyzed source.
+
+        Returns:
+            Analysis summary with coverage and signal quality metrics.
+        """
         timestamp_coverage = coverage_ratio(self.timestamp_count, self.event_count)
         level_coverage = coverage_ratio(self.level_count, self.event_count)
         component_coverage = coverage_ratio(self.component_count, self.event_count)
@@ -88,6 +157,8 @@ class AnalysisQualityAccumulator:
             + 0.2 * stacktrace_coverage
             + 0.1 * level_coverage
         )
+        parse_quality_label = confidence_label(parse_quality_score)
+        incident_signal_label = confidence_label(incident_signal_score)
         parser_profiles = ", ".join(
             f"{profile}:{count}" for profile, count in self.profile_counts.most_common()
         )
@@ -105,17 +176,26 @@ class AnalysisQualityAccumulator:
             trace_id_coverage=trace_id_coverage,
             fallback_profile_rate=fallback_profile_rate,
             parser_quality_score=parse_quality_score,
-            parser_quality_label=confidence_label(parse_quality_score),
+            parser_quality_label=parse_quality_label,
             parse_quality_score=parse_quality_score,
-            parse_quality_label=confidence_label(parse_quality_score),
+            parse_quality_label=parse_quality_label,
             incident_signal_score=incident_signal_score,
-            incident_signal_label=confidence_label(incident_signal_score),
+            incident_signal_label=incident_signal_label,
             mean_parser_confidence=mean_parser_confidence,
             parser_profiles=parser_profiles,
         )
 
 
 def assess_profile_fit(events: list[Event], selected_profile: str) -> dict:
+    """Estimate how well the selected profile matches the parsed event structure.
+
+    Args:
+        events: Parsed canonical events for the run.
+        selected_profile: Profile chosen by the caller.
+
+    Returns:
+        Recommendation payload with per-profile scores and fit label.
+    """
     total = len(events)
     if total <= 0:
         return {
@@ -128,36 +208,36 @@ def assess_profile_fit(events: list[Event], selected_profile: str) -> dict:
             "scores": {"incidents": 0.0, "heatmap": 0.0, "traffic": 0.0},
         }
 
-    timestamp_ratio = coverage_ratio(sum(1 for event in events if event.timestamp), total)
-    level_ratio = coverage_ratio(sum(1 for event in events if event.level), total)
-    component_ratio = coverage_ratio(sum(1 for event in events if event.component), total)
-    method_ratio = coverage_ratio(sum(1 for event in events if event.method), total)
-    path_ratio = coverage_ratio(sum(1 for event in events if event.path), total)
-    status_ratio = coverage_ratio(sum(1 for event in events if event.http_status is not None), total)
-    latency_ratio = coverage_ratio(sum(1 for event in events if event.latency_ms is not None), total)
-    ip_ratio = coverage_ratio(sum(1 for event in events if event.client_ip), total)
-    incident_ratio = coverage_ratio(sum(1 for event in events if event.is_incident), total)
-    exception_ratio = coverage_ratio(sum(1 for event in events if event.exception_type), total)
-    stacktrace_ratio = coverage_ratio(sum(1 for event in events if event.stacktrace.strip()), total)
-    severity_ratio = coverage_ratio(
-        sum(1 for event in events if (event.level or "").upper() in {"WARN", "ERROR", "FATAL"}),
-        total,
+    timestamp_ratio = _event_ratio(events, lambda event: event.timestamp)
+    level_ratio = _event_ratio(events, lambda event: event.level)
+    component_ratio = _event_ratio(events, lambda event: event.component)
+    method_ratio = _event_ratio(events, lambda event: event.method)
+    path_ratio = _event_ratio(events, lambda event: event.path)
+    status_ratio = _event_ratio(events, lambda event: event.http_status is not None)
+    latency_ratio = _event_ratio(events, lambda event: event.latency_ms is not None)
+    ip_ratio = _event_ratio(events, lambda event: event.client_ip)
+    incident_ratio = _event_ratio(events, lambda event: event.is_incident)
+    exception_ratio = _event_ratio(events, lambda event: event.exception_type)
+    stacktrace_ratio = _event_ratio(events, lambda event: event.stacktrace.strip())
+    severity_ratio = _event_ratio(
+        events,
+        lambda event: (event.level or "").upper() in {"WARN", "ERROR", "FATAL"},
     )
-    incident_hint_ratio = coverage_ratio(
-        sum(1 for event in events if INCIDENT_HINT_RE.search(event.message or "")),
-        total,
+    incident_hint_ratio = _event_ratio(
+        events,
+        lambda event: INCIDENT_HINT_RE.search(event.message or ""),
     )
-    windows_servicing_ratio = coverage_ratio(
-        sum(1 for event in events if event.parser_profile == "windows_servicing"),
-        total,
+    windows_servicing_ratio = _event_ratio(
+        events,
+        lambda event: event.parser_profile == "windows_servicing",
     )
-    web_access_ratio = coverage_ratio(
-        sum(1 for event in events if event.parser_profile == "web_access"),
-        total,
+    web_access_ratio = _event_ratio(
+        events,
+        lambda event: event.parser_profile == "web_access",
     )
-    fallback_ratio = coverage_ratio(
-        sum(1 for event in events if event.parser_profile in {"generic_text", "generic_fallback"}),
-        total,
+    fallback_ratio = _event_ratio(
+        events,
+        lambda event: event.parser_profile in {"generic_text", "generic_fallback"},
     )
     traffic_signal_ratio = (method_ratio + path_ratio + status_ratio + ip_ratio) / 4.0
 
@@ -207,17 +287,12 @@ def assess_profile_fit(events: list[Event], selected_profile: str) -> dict:
     recommended_profile = max(scores, key=scores.get)
     selected_score = scores.get(selected_profile, 0.0)
     recommended_score = scores[recommended_profile]
-    fit_delta = recommended_score - selected_score
-    if recommended_profile == selected_profile:
-        fit_label = "high"
-    elif recommended_score >= 0.5 and selected_score <= 0.35:
-        fit_label = "low"
-    elif fit_delta <= 0.1:
-        fit_label = "high"
-    elif fit_delta <= 0.2:
-        fit_label = "medium"
-    else:
-        fit_label = "low"
+    fit_label = _profile_fit_label(
+        selected_profile=selected_profile,
+        recommended_profile=recommended_profile,
+        selected_score=selected_score,
+        recommended_score=recommended_score,
+    )
 
     if fit_label == "high":
         reason = f"selected profile '{selected_profile}' matches extracted structure"

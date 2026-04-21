@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+"""Semantic clustering helpers for grouping signature representatives by meaning."""
+
 import csv
 from collections import defaultdict
 from hashlib import sha1
@@ -6,18 +10,47 @@ import logging
 from pathlib import Path
 from typing import Callable, Iterable, List, Optional, Tuple
 
-from .models import Event, SemanticClusterSummary
-from .reporting import write_semantic_clusters_csv
+from ..domain import Event, SemanticClusterSummary
+from ..output import write_semantic_clusters_csv
 
 logger = logging.getLogger(__name__)
 
 
 def build_representative_text(event: Event) -> str:
-    """Текст-представитель сигнатуры для семантического сравнения."""
+    """Build representative text used for semantic comparison.
+
+    Args:
+        event: Representative event for a signature cluster.
+
+    Returns:
+        Text used as semantic embedding input.
+    """
     return event.embedding_text or event.normalized_message or event.raw_text
 
 
-def _require_semantic_dependencies():
+def _select_signature_representatives(
+    events: Iterable[Event],
+) -> tuple[list[tuple[str, Event]], dict[str, int]]:
+    """Pick one representative event per signature and count signature hits."""
+    representatives = {}
+    hits_by_signature = defaultdict(int)
+    for event in events:
+        hits_by_signature[event.signature_hash] += 1
+        current = representatives.get(event.signature_hash)
+        if current is None or (event.is_incident and not current.is_incident):
+            representatives[event.signature_hash] = event
+    return list(representatives.items()), dict(hits_by_signature)
+
+
+def _require_semantic_dependencies() -> None:
+    """Validate that semantic clustering dependencies are installed.
+
+    Returns:
+        None.
+
+    Raises:
+        RuntimeError: If sentence-transformers or scikit-learn are unavailable.
+    """
     try:
         from sentence_transformers import SentenceTransformer  # noqa: F401
     except ImportError as exc:
@@ -45,6 +78,21 @@ def cluster_signatures_semantically(
     max_signatures: int = 2500,
     progress_callback: Optional[Callable[[str], None]] = None,
 ) -> Tuple[List[SemanticClusterSummary], str]:
+    """Cluster signature representatives using semantic embeddings.
+
+    Args:
+        events: Representative events to cluster semantically.
+        enabled: Semantic mode flag.
+        model_name: Sentence-transformer model name.
+        min_cluster_size: Minimum size for semantic clusters.
+        min_samples: Optional density threshold override.
+        cache_dir: Optional cache directory for embeddings.
+        max_signatures: Maximum number of representative signatures to embed.
+        progress_callback: Optional callback for user-facing progress updates.
+
+    Returns:
+        Tuple of semantic cluster summaries and an explanatory status note.
+    """
     if enabled == "off":
         logger.info("semantic_disabled: enabled=%s", enabled)
         return [], "disabled"
@@ -55,15 +103,7 @@ def cluster_signatures_semantically(
     from sklearn.cluster import DBSCAN
     from sklearn.metrics.pairwise import cosine_similarity
 
-    representatives = {}
-    hits_by_signature = defaultdict(int)
-    for event in events:
-        hits_by_signature[event.signature_hash] += 1
-        current = representatives.get(event.signature_hash)
-        if current is None or (event.is_incident and not current.is_incident):
-            representatives[event.signature_hash] = event
-
-    signature_items = list(representatives.items())
+    signature_items, hits_by_signature = _select_signature_representatives(events)
     if len(signature_items) < 2:
         logger.info("semantic_skipped: reason=not_enough_signatures signatures=%d", len(signature_items))
         return [], "skipped: not enough signature clusters"
@@ -106,7 +146,6 @@ def cluster_signatures_semantically(
             "Ensure the model is downloadable or already cached."
         ) from exc
 
-    labels = None
     method_note = ""
     effective_min_samples = min_samples if min_samples is not None else max(2, min_cluster_size // 2)
     try:
@@ -139,6 +178,32 @@ def cluster_signatures_semantically(
             max(2, effective_min_samples),
         )
 
+    summaries = _build_semantic_cluster_summaries(
+        signature_items=signature_items,
+        labels=labels,
+        embeddings=embeddings,
+        hits_by_signature=hits_by_signature,
+        cosine_similarity=cosine_similarity,
+    )
+    summaries.sort(key=lambda item: item.hits, reverse=True)
+    if not summaries:
+        logger.info("semantic_no_dense_groups: method=%s", method_note)
+        return [], f"{method_note}: no dense semantic groups found"
+    note = f"{method_note}: {len(summaries)} semantic clusters"
+    if capped:
+        note += f", capped to top {max_signatures} representative signatures"
+    logger.info("semantic_completed: %s", note)
+    return summaries, note
+
+
+def _build_semantic_cluster_summaries(
+    signature_items: list[tuple[str, Event]],
+    labels,
+    embeddings,
+    hits_by_signature: dict[str, int],
+    cosine_similarity,
+) -> List[SemanticClusterSummary]:
+    """Build semantic cluster summary objects from fitted clustering labels."""
     grouped = defaultdict(list)
     for index, ((signature_hash, event), label) in enumerate(zip(signature_items, labels)):
         grouped[int(label)].append((index, signature_hash, event))
@@ -149,8 +214,9 @@ def cluster_signatures_semantically(
         if label == -1:
             continue
         total_hits = sum(hits_by_signature[signature_hash] for _, signature_hash, _ in members)
-        representative_index, representative_signature, representative_event = max(
-            members, key=lambda item: hits_by_signature[item[1]]
+        _, representative_signature, representative_event = max(
+            members,
+            key=lambda item: hits_by_signature[item[1]],
         )
         cluster_vectors = [embeddings[index] for index, _, _ in members]
         centroid = sum(cluster_vectors) / len(cluster_vectors)
@@ -166,25 +232,34 @@ def cluster_signatures_semantically(
             )
         )
         semantic_cluster_id += 1
-
-    summaries.sort(key=lambda item: item.hits, reverse=True)
-    if not summaries:
-        logger.info("semantic_no_dense_groups: method=%s", method_note)
-        return [], f"{method_note}: no dense semantic groups found"
-    note = f"{method_note}: {len(summaries)} semantic clusters"
-    if capped:
-        note += f", capped to top {max_signatures} representative signatures"
-    logger.info("semantic_completed: %s", note)
-    return summaries, note
+    return summaries
 
 
 def _cache_file_for_model(cache_dir: Path, model_name: str) -> Path:
+    """Return the JSON cache file path for one embedding model.
+
+    Args:
+        cache_dir: Base cache directory.
+        model_name: Sentence-transformer model name.
+
+    Returns:
+        Cache file path for the model.
+    """
     digest = sha1(model_name.encode("utf-8")).hexdigest()[:16]
     cache_dir.mkdir(parents=True, exist_ok=True)
     return cache_dir / f"{digest}.json"
 
 
 def _load_embedding_cache(cache_dir: Optional[Path], model_name: str) -> dict[str, list[float]]:
+    """Load cached embeddings for a model when available.
+
+    Args:
+        cache_dir: Optional cache directory.
+        model_name: Sentence-transformer model name.
+
+    Returns:
+        Mapping from signature hash to cached embedding vector.
+    """
     if cache_dir is None:
         return {}
     path = _cache_file_for_model(cache_dir, model_name)
@@ -197,6 +272,16 @@ def _load_embedding_cache(cache_dir: Optional[Path], model_name: str) -> dict[st
 
 
 def _save_embedding_cache(cache_dir: Optional[Path], model_name: str, cache: dict[str, list[float]]) -> None:
+    """Persist the embedding cache for a model when possible.
+
+    Args:
+        cache_dir: Optional cache directory.
+        model_name: Sentence-transformer model name.
+        cache: Cache payload keyed by signature hash.
+
+    Returns:
+        None.
+    """
     if cache_dir is None:
         return
     path = _cache_file_for_model(cache_dir, model_name)
@@ -213,8 +298,20 @@ def _encode_embeddings(
     texts: list[str],
     cache_dir: Optional[Path],
     progress_callback: Optional[Callable[[str], None]],
-):
-    """Кодирует эмбеддинги с кешированием по signature_hash."""
+) -> object:
+    """Encode embeddings with signature-based caching.
+
+    Args:
+        model: Loaded sentence-transformer model.
+        model_name: Sentence-transformer model name.
+        signature_items: Representative signature-event pairs.
+        texts: Embedding input texts aligned with `signature_items`.
+        cache_dir: Optional cache directory.
+        progress_callback: Optional callback for progress updates.
+
+    Returns:
+        Dense embedding matrix as a NumPy array.
+    """
     import numpy as np
 
     cache = _load_embedding_cache(cache_dir, model_name)
@@ -258,6 +355,14 @@ def _encode_embeddings(
 
 
 def load_representative_events_from_csv(events_csv_path: Path) -> List[Event]:
+    """Load one representative event per signature hash from an events CSV.
+
+    Args:
+        events_csv_path: Path to `events.csv`.
+
+    Returns:
+        Representative events reconstructed from CSV rows.
+    """
     events: List[Event] = []
     seen = set()
     with events_csv_path.open(encoding="utf-8", newline="") as handle:
@@ -267,42 +372,42 @@ def load_representative_events_from_csv(events_csv_path: Path) -> List[Event]:
             if signature_hash in seen:
                 continue
             seen.add(signature_hash)
-            stack_frames = [
-                part.strip() for part in row.get("stack_frames", "").split("|") if part.strip()
-            ]
-            events.append(
-                Event(
-                    event_id=row["event_id"],
-                    source_file=row["source_file"],
-                    parser_profile=row["parser_profile"] or "unknown",
-                    parser_confidence=float(row.get("parser_confidence") or 0.0),
-                    timestamp=None,
-                    level=row["level"] or None,
-                    message=row["message"],
-                    stacktrace=row["stacktrace"],
-                    raw_text=row["raw_text"],
-                    line_count=int(row["line_count"]) if row.get("line_count") else 1,
-                    normalized_message=row["normalized_message"],
-                    signature_hash=signature_hash,
-                    embedding_text=row["embedding_text"],
-                    run_id=row.get("run_id", ""),
-                    exception_type=row["exception_type"] or None,
-                    stack_frames=stack_frames,
-                    component=row["component"] or None,
-                    request_id=row["request_id"] or None,
-                    trace_id=row["trace_id"] or None,
-                    http_status=int(row["http_status"]) if row["http_status"] else None,
-                    method=row.get("method") or None,
-                    path=row.get("path") or None,
-                    latency_ms=float(row["latency_ms"]) if row.get("latency_ms") else None,
-                    response_size=int(row["response_size"]) if row.get("response_size") else None,
-                    client_ip=row.get("client_ip") or None,
-                    user_agent=row.get("user_agent") or None,
-                    attributes=json.loads(row.get("attributes_json") or "{}"),
-                    is_incident=row["is_incident"] == "true",
-                )
-            )
+            events.append(_event_from_csv_row(row))
     return events
+
+
+def _event_from_csv_row(row: dict[str, str]) -> Event:
+    """Reconstruct one canonical event from an `events.csv` row."""
+    return Event(
+        event_id=row["event_id"],
+        source_file=row["source_file"],
+        parser_profile=row["parser_profile"] or "unknown",
+        parser_confidence=float(row.get("parser_confidence") or 0.0),
+        timestamp=None,
+        level=row["level"] or None,
+        message=row["message"],
+        stacktrace=row["stacktrace"],
+        raw_text=row["raw_text"],
+        line_count=int(row["line_count"]) if row.get("line_count") else 1,
+        normalized_message=row["normalized_message"],
+        signature_hash=row["signature_hash"],
+        embedding_text=row["embedding_text"],
+        run_id=row.get("run_id", ""),
+        exception_type=row["exception_type"] or None,
+        stack_frames=[part.strip() for part in row.get("stack_frames", "").split("|") if part.strip()],
+        component=row["component"] or None,
+        request_id=row["request_id"] or None,
+        trace_id=row["trace_id"] or None,
+        http_status=int(row["http_status"]) if row["http_status"] else None,
+        method=row.get("method") or None,
+        path=row.get("path") or None,
+        latency_ms=float(row["latency_ms"]) if row.get("latency_ms") else None,
+        response_size=int(row["response_size"]) if row.get("response_size") else None,
+        client_ip=row.get("client_ip") or None,
+        user_agent=row.get("user_agent") or None,
+        attributes=json.loads(row.get("attributes_json") or "{}"),
+        is_incident=row["is_incident"] == "true",
+    )
 
 
 def rerun_semantic_clustering_from_events_csv(
@@ -312,6 +417,18 @@ def rerun_semantic_clustering_from_events_csv(
     min_cluster_size: int,
     min_samples: Optional[int] = None,
 ) -> Tuple[List[SemanticClusterSummary], str]:
+    """Rerun semantic clustering from a previously exported events CSV.
+
+    Args:
+        events_csv_path: Source events CSV path.
+        output_csv_path: Destination path for semantic clusters CSV.
+        model_name: Sentence-transformer model name.
+        min_cluster_size: Minimum size for semantic clusters.
+        min_samples: Optional density threshold override.
+
+    Returns:
+        Tuple of semantic cluster summaries and an explanatory status note.
+    """
     events = load_representative_events_from_csv(events_csv_path)
     clusters, note = cluster_signatures_semantically(
         events=events,

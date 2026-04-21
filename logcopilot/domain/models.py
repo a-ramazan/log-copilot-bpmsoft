@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+"""Domain dataclasses for raw events, enriched events, clusters and run results."""
+
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any, Dict, List, Optional
@@ -5,6 +9,8 @@ from typing import Any, Dict, List, Optional
 
 @dataclass
 class RawEvent:
+    """Raw parsed log event before canonical enrichment and signature generation."""
+
     source_file: str
     parser_profile: str
     parser_confidence: float
@@ -29,6 +35,8 @@ class RawEvent:
 
 @dataclass
 class Event:
+    """Canonical enriched event used by profiles, reports and storage."""
+
     event_id: str
     source_file: str
     parser_profile: str
@@ -61,6 +69,8 @@ class Event:
 
 @dataclass
 class ClusterSummary:
+    """Signature-based cluster summary for grouped incident-like events."""
+
     cluster_id: str
     hits: int
     first_seen: Optional[datetime]
@@ -82,6 +92,8 @@ class ClusterSummary:
 
 @dataclass
 class SemanticClusterSummary:
+    """Semantic grouping summary built from representative signature events."""
+
     semantic_cluster_id: int
     signature_hash: str
     hits: int
@@ -92,6 +104,8 @@ class SemanticClusterSummary:
 
 @dataclass
 class AnalysisSummary:
+    """Coverage and signal quality metrics for one analyzed source."""
+
     source_name: str
     event_count: int
     cluster_count: int
@@ -116,6 +130,8 @@ class AnalysisSummary:
 
 @dataclass
 class RunArtifact:
+    """Metadata entry describing one artifact produced by a pipeline run."""
+
     run_id: str
     artifact_name: str
     artifact_type: str
@@ -124,6 +140,8 @@ class RunArtifact:
 
 @dataclass
 class RunResult:
+    """Modern pipeline run result with artifact paths and full run summary."""
+
     run_id: str
     profile: str
     status: str
@@ -136,6 +154,8 @@ class RunResult:
 
 @dataclass
 class PipelineRunResult:
+    """Legacy pipeline compatibility result returned by `run_pipeline`."""
+
     run_id: str
     profile: str
     status: str

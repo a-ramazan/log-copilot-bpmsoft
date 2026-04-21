@@ -1,26 +1,41 @@
 from __future__ import annotations
 
+"""Incident profile: signature clustering, semantic grouping and report writers."""
+
+from dataclasses import asdict
 import logging
 from pathlib import Path
-from typing import List, Optional
+from typing import Callable, List, Optional
 
-from ..clustering import ClusterAccumulator, top_incident_clusters
-from ..models import AnalysisSummary, Event
-from ..quality import AnalysisQualityAccumulator
-from ..reporting import (
+from ..analysis import (
+    AnalysisQualityAccumulator,
+    ClusterAccumulator,
+    cluster_signatures_semantically,
+    top_incident_clusters,
+)
+from ..domain import AnalysisSummary, Event
+from ..output import (
     write_analysis_summary_json,
     write_clusters_csv,
     write_llm_ready_clusters_json,
     write_semantic_clusters_csv,
     write_top_clusters_md,
 )
-from ..semantic import cluster_signatures_semantically
 
 logger = logging.getLogger(__name__)
 
 
 def build_quality_summary(events: List[Event], source_name: str, cluster_count: int) -> AnalysisSummary:
-    """Сводка качества для incident-сценария (coverage + signal score)."""
+    """Build the quality summary for the incidents profile.
+
+    Args:
+        events: Parsed canonical events for the current run.
+        source_name: Source file name shown in the summary.
+        cluster_count: Number of signature clusters produced for the run.
+
+    Returns:
+        Aggregated quality summary for the incidents profile.
+    """
     quality = AnalysisQualityAccumulator(source_name=source_name)
     for event in events:
         quality.add(event)
@@ -37,9 +52,25 @@ def run_incidents_profile(
     semantic_min_samples: Optional[int] = None,
     semantic_cache_dir: Optional[Path] = None,
     semantic_max_signatures: int = 2500,
-    progress_callback=None,
+    progress_callback: Callable[[str], None] | None = None,
 ) -> dict:
-    """Основной incidents-runner: сигнатуры -> кластеры -> семантические группы -> артефакты."""
+    """Run the incidents profile and persist its report artifacts.
+
+    Args:
+        events: Parsed canonical events for the run.
+        output_dir: Directory where incidents artifacts should be written.
+        source_name: Display name for the source log file.
+        semantic: Semantic clustering mode.
+        semantic_model: Sentence-transformer model name for embeddings.
+        semantic_min_cluster_size: Minimum size for a semantic cluster.
+        semantic_min_samples: Minimum density threshold for semantic clustering.
+        semantic_cache_dir: Optional cache directory for embedding vectors.
+        semantic_max_signatures: Maximum number of representative signatures to embed.
+        progress_callback: Optional callback for progress messages.
+
+    Returns:
+        Profile payload with clusters, summaries, artifacts and compact metadata.
+    """
     accumulator = ClusterAccumulator()
     for event in events:
         accumulator.add(event)
@@ -113,27 +144,6 @@ def run_incidents_profile(
             "semantic_cluster_count": len(semantic_clusters),
             "incident_event_count": analysis_summary.incident_event_count,
             "semantic_note": semantic_note,
-            "analysis_summary": {
-                "source_name": analysis_summary.source_name,
-                "event_count": analysis_summary.event_count,
-                "cluster_count": analysis_summary.cluster_count,
-                "incident_event_count": analysis_summary.incident_event_count,
-                "timestamp_coverage": analysis_summary.timestamp_coverage,
-                "level_coverage": analysis_summary.level_coverage,
-                "component_coverage": analysis_summary.component_coverage,
-                "exception_coverage": analysis_summary.exception_coverage,
-                "stacktrace_coverage": analysis_summary.stacktrace_coverage,
-                "request_id_coverage": analysis_summary.request_id_coverage,
-                "trace_id_coverage": analysis_summary.trace_id_coverage,
-                "fallback_profile_rate": analysis_summary.fallback_profile_rate,
-                "parser_quality_score": analysis_summary.parser_quality_score,
-                "parser_quality_label": analysis_summary.parser_quality_label,
-                "parse_quality_score": analysis_summary.parse_quality_score,
-                "parse_quality_label": analysis_summary.parse_quality_label,
-                "incident_signal_score": analysis_summary.incident_signal_score,
-                "incident_signal_label": analysis_summary.incident_signal_label,
-                "mean_parser_confidence": analysis_summary.mean_parser_confidence,
-                "parser_profiles": analysis_summary.parser_profiles,
-            },
+            "analysis_summary": asdict(analysis_summary),
         },
     }

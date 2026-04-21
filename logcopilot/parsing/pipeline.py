@@ -4,7 +4,7 @@ import logging
 from pathlib import Path
 from typing import Iterator
 
-from ..models import RawEvent
+from ..domain import RawEvent
 from .models import CanonicalEvent, ParseResult
 from .parsers import (
     GenericFallbackParser,
