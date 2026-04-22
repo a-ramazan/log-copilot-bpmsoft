@@ -2,18 +2,11 @@ from __future__ import annotations
 
 """Traffic profile: endpoint summaries, latency reports and anomaly detection."""
 
-import csv
 from collections import Counter, defaultdict
-from pathlib import Path
 from statistics import mean, quantiles
 from typing import Iterable, List, Optional
 
 from ..domain import Event
-
-
-def _write_markdown(path: Path, lines: List[str]) -> None:
-    """Write Markdown content using the module's newline convention."""
-    path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
 
 def _collect_client_ip_activity(events: List[Event]) -> tuple[defaultdict[str, set[str]], Counter[str]]:
@@ -149,116 +142,24 @@ def build_traffic_anomalies(events: List[Event], rows: List[dict]) -> List[dict]
     return anomalies
 
 
-def write_traffic_summary_csv(path: Path, rows: List[dict]) -> None:
-    """Write traffic summary rows to CSV.
-
-    Args:
-        path: Destination CSV path.
-        rows: Traffic rows to serialize.
-
-    Returns:
-        None.
-    """
-    fieldnames = [
-        "method",
-        "path",
-        "http_status",
-        "hits",
-        "unique_ips",
-        "p95_latency_ms",
-        "p99_latency_ms",
-        "avg_response_size",
-    ]
-    with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(rows)
-
-
-def write_latency_report_md(path: Path, rows: List[dict]) -> None:
-    """Write a Markdown latency report for the slowest endpoints.
-
-    Args:
-        path: Destination Markdown path.
-        rows: Traffic rows to render.
-
-    Returns:
-        None.
-    """
-    lines = ["# Traffic Latency Report", "", "## Top endpoints by latency", ""]
-    if not rows:
-        lines.append("No traffic rows were produced.")
-    else:
-        sorted_rows = sorted(rows, key=lambda item: item["p95_latency_ms"] or 0, reverse=True)
-        for index, row in enumerate(sorted_rows[:10], start=1):
-            lines.extend(
-                [
-                    f"### {index}. {row['method']} {row['path']}",
-                    f"- hits: {row['hits']}",
-                    f"- status: {row['http_status'] if row['http_status'] is not None else 'n/a'}",
-                    f"- p95 latency: {row['p95_latency_ms'] if row['p95_latency_ms'] is not None else 'n/a'}",
-                    f"- p99 latency: {row['p99_latency_ms'] if row['p99_latency_ms'] is not None else 'n/a'}",
-                    "",
-                ]
-            )
-    _write_markdown(path, lines)
-
-
-def write_suspicious_traffic_md(path: Path, anomalies: List[dict]) -> None:
-    """Write a Markdown report for suspicious traffic anomalies.
-
-    Args:
-        path: Destination Markdown path.
-        anomalies: Traffic anomalies to render.
-
-    Returns:
-        None.
-    """
-    lines = ["# Suspicious Traffic", ""]
-    if not anomalies:
-        lines.append("No suspicious patterns were detected.")
-    else:
-        for index, anomaly in enumerate(anomalies, start=1):
-            lines.extend(
-                [
-                    f"## {index}. {anomaly['title']}",
-                    f"- type: {anomaly['anomaly_type']}",
-                    f"- severity: {anomaly['severity']}",
-                    f"- details: {anomaly['details']}",
-                    "",
-                ]
-            )
-    _write_markdown(path, lines)
-
-
-def run_traffic_profile(events: List[Event], output_dir: Path) -> dict:
-    """Run the traffic profile and write its artifacts.
+def run_traffic_profile(events: List[Event], output_dir) -> dict:
+    """Compute the traffic profile result.
 
     Args:
         events: Canonical events to analyze.
-        output_dir: Directory where artifacts should be written.
+        output_dir: Compatibility argument retained for existing callers.
 
     Returns:
-        Profile payload with rows, anomalies, artifacts and summary metadata.
+        Profile payload with rows, anomalies and summary metadata.
     """
+    del output_dir
     rows = build_traffic_rows(events)
     anomalies = build_traffic_anomalies(events, rows)
-    summary_path = output_dir / "traffic_summary.csv"
-    latency_path = output_dir / "latency_report.md"
-    suspicious_path = output_dir / "suspicious_traffic.md"
-
-    write_traffic_summary_csv(summary_path, rows)
-    write_latency_report_md(latency_path, rows)
-    write_suspicious_traffic_md(suspicious_path, anomalies)
 
     return {
         "rows": rows,
         "anomalies": anomalies,
-        "artifact_paths": {
-            "traffic_summary_csv": str(summary_path),
-            "latency_report_md": str(latency_path),
-            "suspicious_traffic_md": str(suspicious_path),
-        },
+        "artifact_paths": {},
         "summary": {
             "traffic_row_count": len(rows),
             "anomaly_count": len(anomalies),

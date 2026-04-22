@@ -1,6 +1,6 @@
 import unittest
 
-from logcopilot.normalization import normalize_text
+from logcopilot.text import normalize_text
 
 
 class NormalizationTests(unittest.TestCase):
@@ -19,4 +19,3 @@ class NormalizationTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

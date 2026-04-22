@@ -3,6 +3,7 @@ from .detect import detect_parser
 from .models import CanonicalEvent, ParseResult, ParserSelection
 from .pipeline import DEFAULT_REGISTRY, build_default_registry, canonical_to_raw_event, discover_log_files, iter_canonical_events, iter_events, iter_events_for_file, parse_file
 from .registry import ParserRegistry
+from .stage import run_parsing
 
 __all__ = [
     "BaseParser",
@@ -19,4 +20,5 @@ __all__ = [
     "iter_events",
     "iter_events_for_file",
     "parse_file",
+    "run_parsing",
 ]

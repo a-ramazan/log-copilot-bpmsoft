@@ -13,7 +13,7 @@ from logcopilot.parsing.parsers import (
     WindowsServicingParser,
 )
 from logcopilot.core.events import build_event
-from logcopilot.quality import assess_profile_fit
+from logcopilot.analysis.quality import assess_profile_fit
 from logcopilot.parsing.pipeline import canonical_to_raw_event
 
 

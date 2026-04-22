@@ -129,16 +129,6 @@ class AnalysisSummary:
 
 
 @dataclass
-class RunArtifact:
-    """Metadata entry describing one artifact produced by a pipeline run."""
-
-    run_id: str
-    artifact_name: str
-    artifact_type: str
-    path: str
-
-
-@dataclass
 class RunResult:
     """Modern pipeline run result with artifact paths and full run summary."""
 
@@ -150,21 +140,4 @@ class RunResult:
     event_count: int
     artifact_paths: Dict[str, str]
     run_summary: Dict[str, object]
-
-
-@dataclass
-class PipelineRunResult:
-    """Legacy pipeline compatibility result returned by `run_pipeline`."""
-
-    run_id: str
-    profile: str
-    status: str
-    output_dir: str
-    db_path: str
-    event_count: int
-    cluster_count: int
-    semantic_cluster_count: int
-    analysis_summary: AnalysisSummary
-    semantic_note: str
-    artifact_paths: Dict[str, str]
-    debug_trace: Dict[str, object]
+    agent_result: Optional[Dict[str, Any]] = None

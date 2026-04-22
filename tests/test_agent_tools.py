@@ -1,54 +1,35 @@
+import json
 import tempfile
 from pathlib import Path
 import unittest
 
-from logcopilot.agent.tools import (
-    get_heatmap,
-    get_run_summary,
-    get_top_incidents,
-    get_traffic_anomalies,
-    get_traffic_summary,
-    open_artifact,
-)
-from logcopilot.service import run_profile
+from logcopilot.pipeline import run_pipeline
+from logcopilot.storage import StorageRepository
 
 
-class AgentToolsTests(unittest.TestCase):
-    def test_agent_tools_read_storage_outputs(self) -> None:
-        content = """2026-03-11 08:20:49,617 [1] ERROR Host Start - Startup exception|System.Security.SecurityException: Login failed
-   at Foo.Bar()
-2026-03-11 08:21:15 INFO Gateway - GET /api/orders status=500 latency=1300ms size=256 ip=10.0.0.1
-2026-03-11 08:21:16 INFO Gateway - GET /api/orders status=500 latency=1400ms size=260 ip=10.0.0.2
+class AgentPersistenceTests(unittest.TestCase):
+    def test_agent_result_and_cards_are_persisted(self) -> None:
+        content = """2026-03-11 08:20:00 INFO Gateway - GET /api/orders status=500 latency=1200ms size=32 ip=10.0.0.1
+2026-03-11 08:20:10 INFO Gateway - GET /api/orders status=500 latency=1500ms size=33 ip=10.0.0.2
 """
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
-            log_file = root / "agent.log"
+            log_file = root / "traffic.log"
             log_file.write_text(content, encoding="utf-8")
 
-            incident_result = run_profile(
-                str(log_file),
-                profile="incidents",
-                out_dir=str(root / "out"),
-                semantic="off",
-            )
-            traffic_result = run_profile(str(log_file), profile="traffic", out_dir=str(root / "out"))
-            heatmap_result = run_profile(str(log_file), profile="heatmap", out_dir=str(root / "out"))
+            result = run_pipeline(str(log_file), profile="traffic", out_dir=str(root / "out"), agent="on")
+            repo = StorageRepository(Path(result.db_path))
+            stored_result = repo.get_agent_result(result.run_id)
+            stored_cards = repo.get_agent_cards(result.run_id)
+            cards_artifact = json.loads((Path(result.output_dir) / "agent_cards.json").read_text(encoding="utf-8"))
 
-            db_path = incident_result.db_path
-            incident_summary = get_run_summary(incident_result.run_id, db_path=db_path)
-            incident_rows = get_top_incidents(incident_result.run_id, db_path=db_path)
-            traffic_rows = get_traffic_summary(traffic_result.run_id, db_path=db_path)
-            anomaly_rows = get_traffic_anomalies(traffic_result.run_id, db_path=db_path)
-            heatmap_rows = get_heatmap(heatmap_result.run_id, db_path=db_path)
-            artifact = open_artifact(heatmap_result.run_id, "top_hotspots_md", db_path=db_path)
-
-            self.assertIsNotNone(incident_summary)
-            self.assertTrue(incident_rows)
-            self.assertTrue(traffic_rows)
-            self.assertTrue(anomaly_rows)
-            self.assertTrue(heatmap_rows)
-            self.assertIsNotNone(artifact)
-            self.assertTrue(artifact["path"].endswith("top_hotspots.md"))
+            self.assertIsNotNone(stored_result)
+            self.assertEqual("completed", stored_result["status"])
+            self.assertEqual("traffic", stored_result["profile"])
+            self.assertTrue(stored_result["cards_json"])
+            self.assertTrue(stored_cards)
+            self.assertEqual(stored_cards[0]["payload_json"]["card_type"], cards_artifact[0]["card_type"])
+            self.assertIn("agent_cards_json", result.artifact_paths)
 
 
 if __name__ == "__main__":

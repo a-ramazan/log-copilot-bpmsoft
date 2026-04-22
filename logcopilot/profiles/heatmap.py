@@ -2,12 +2,9 @@ from __future__ import annotations
 
 """Heatmap profile: aggregate per-minute hotspots and operational findings."""
 
-import csv
-import json
 import re
 from collections import Counter, defaultdict
 from datetime import datetime
-from pathlib import Path
 from statistics import quantiles
 from typing import Iterable, List
 from urllib.parse import urlsplit
@@ -17,11 +14,6 @@ from ..domain import Event
 
 _PATH_ID_RE = re.compile(r"/(?:(?:\d+)|(?:[0-9a-fA-F]{8,})|(?:[0-9a-fA-F-]{8,}))(?:/|$)")
 _WHITESPACE_RE = re.compile(r"\s+")
-
-
-def _write_markdown(path: Path, lines: List[str]) -> None:
-    """Write Markdown content using the module's newline convention."""
-    path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
 
 def normalize_text(value: str | None) -> str:
@@ -246,114 +238,24 @@ def build_heatmap_findings(events: List[Event], rows: List[dict]) -> dict:
     }
 
 
-def write_heatmap_timeseries_csv(path: Path, rows: List[dict]) -> None:
-    """Write heatmap rows to CSV.
-
-    Args:
-        path: Destination CSV path.
-        rows: Heatmap rows to serialize.
-
-    Returns:
-        None.
-    """
-    fieldnames = ["bucket_start", "component", "operation", "hits", "qps", "p95_latency_ms"]
-    with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(rows)
-
-
-def write_heatmap_findings_json(path: Path, findings: dict) -> None:
-    """Write heatmap findings to JSON.
-
-    Args:
-        path: Destination JSON path.
-        findings: Findings payload to serialize.
-
-    Returns:
-        None.
-    """
-    path.write_text(json.dumps(findings, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-
-
-def write_top_hotspots_md(path: Path, rows: List[dict], events: List[Event]) -> None:
-    """Write a Markdown summary of the hottest heatmap buckets.
-
-    Args:
-        path: Destination Markdown path.
-        rows: Heatmap rows to render.
-        events: Canonical events for headline counts.
-
-    Returns:
-        None.
-    """
-    component_counts = Counter(normalize_text(event.component) for event in events)
-    operation_counts = Counter(derive_operation(event) for event in events)
-    lines = [
-        "# Heatmap Hotspots",
-        "",
-        f"- Events: {len(events)}",
-        f"- Components seen: {len(component_counts)}",
-        f"- Operations seen: {len(operation_counts)}",
-        "",
-        "## Hottest buckets",
-        "",
-    ]
-    if not rows:
-        lines.append("No buckets were produced.")
-    else:
-        for index, row in enumerate(rows[:10], start=1):
-            latency = "n/a" if row["p95_latency_ms"] is None else f"{row['p95_latency_ms']:.3f} ms"
-            lines.extend(
-                [
-                    f"### {index}. {row['bucket_start']}",
-                    f"- component: {row['component']}",
-                    f"- operation: {row['operation']}",
-                    f"- hits: {row['hits']}",
-                    f"- qps: {row['qps']}",
-                    f"- p95 latency: {latency}",
-                    "",
-                ]
-            )
-    lines.extend(["## Top components", ""])
-    for component, hits in component_counts.most_common(10):
-        lines.append(f"- {component}: {hits}")
-    lines.extend(["", "## Top operations", ""])
-    for operation, hits in operation_counts.most_common(10):
-        lines.append(f"- {operation}: {hits}")
-    _write_markdown(path, lines)
-
-
-def run_heatmap_profile(events: List[Event], output_dir: Path) -> dict:
-    """Run the heatmap profile and write its artifacts.
+def run_heatmap_profile(events: List[Event], output_dir) -> dict:
+    """Compute the heatmap profile result.
 
     Args:
         events: Canonical events to analyze.
-        output_dir: Directory where artifacts should be written.
+        output_dir: Compatibility argument retained for existing callers.
 
     Returns:
-        Profile payload with rows, findings, artifacts and summary metadata.
+        Profile payload with rows, findings and summary metadata.
     """
-    output_dir.mkdir(parents=True, exist_ok=True)
+    del output_dir
     rows = build_heatmap_rows(events)
     findings = build_heatmap_findings(events, rows)
-
-    timeseries_path = output_dir / "heatmap_timeseries.csv"
-    hotspots_path = output_dir / "top_hotspots.md"
-    findings_path = output_dir / "heatmap_findings.json"
-
-    write_heatmap_timeseries_csv(timeseries_path, rows)
-    write_top_hotspots_md(hotspots_path, rows, events)
-    write_heatmap_findings_json(findings_path, findings)
 
     return {
         "rows": rows,
         "findings": findings,
-        "artifact_paths": {
-            "heatmap_timeseries_csv": str(timeseries_path),
-            "top_hotspots_md": str(hotspots_path),
-            "heatmap_findings_json": str(findings_path),
-        },
+        "artifact_paths": {},
         "summary": {
             "bucket_count": len(rows),
             "hottest_bucket": rows[0] if rows else None,

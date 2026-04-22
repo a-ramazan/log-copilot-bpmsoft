@@ -3,7 +3,24 @@ import tempfile
 from pathlib import Path
 import unittest
 
-from logcopilot.service import run_profile
+from logcopilot.profiles import run_heatmap_profile, run_incidents_profile, run_traffic_profile
+from logcopilot.pipeline import run_pipeline
+
+
+class ProfileComputeOnlyTests(unittest.TestCase):
+    def test_profile_entrypoints_do_not_write_artifacts_directly(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            output_dir = root / "profile"
+
+            incidents = run_incidents_profile([], output_dir, source_name="empty.log", semantic="off")
+            heatmap = run_heatmap_profile([], output_dir)
+            traffic = run_traffic_profile([], output_dir)
+
+            self.assertEqual({}, incidents["artifact_paths"])
+            self.assertEqual({}, heatmap["artifact_paths"])
+            self.assertEqual({}, traffic["artifact_paths"])
+            self.assertFalse(output_dir.exists())
 
 
 class ProfileIntegrationTests(unittest.TestCase):
@@ -17,7 +34,7 @@ class ProfileIntegrationTests(unittest.TestCase):
             root = Path(temp_dir)
             log_file = root / "spark_incidents.log"
             log_file.write_text(content, encoding="utf-8")
-            result = run_profile(
+            result = run_pipeline(
                 str(log_file),
                 profile="incidents",
                 out_dir=str(root / "out"),
@@ -41,7 +58,7 @@ class ProfileIntegrationTests(unittest.TestCase):
             root = Path(temp_dir)
             log_file = root / "heatmap.log"
             log_file.write_text(content, encoding="utf-8")
-            result = run_profile(str(log_file), profile="heatmap", out_dir=str(root / "out"))
+            result = run_pipeline(str(log_file), profile="heatmap", out_dir=str(root / "out"))
 
             run_dir = Path(result.output_dir)
             summary = json.loads((run_dir / "run_summary.json").read_text(encoding="utf-8"))
@@ -61,7 +78,7 @@ class ProfileIntegrationTests(unittest.TestCase):
             root = Path(temp_dir)
             log_file = root / "traffic.log"
             log_file.write_text(content, encoding="utf-8")
-            result = run_profile(str(log_file), profile="traffic", out_dir=str(root / "out"))
+            result = run_pipeline(str(log_file), profile="traffic", out_dir=str(root / "out"))
             run_dir = Path(result.output_dir)
 
             self.assertEqual("traffic", result.profile)
@@ -78,7 +95,7 @@ class ProfileIntegrationTests(unittest.TestCase):
             root = Path(temp_dir)
             log_file = root / "Windows_2k.log"
             log_file.write_text(content, encoding="utf-8")
-            result = run_profile(
+            result = run_pipeline(
                 str(log_file),
                 profile="incidents",
                 out_dir=str(root / "out"),
@@ -100,7 +117,7 @@ class ProfileIntegrationTests(unittest.TestCase):
             root = Path(temp_dir)
             log_file = root / "access.log"
             log_file.write_text(content, encoding="utf-8")
-            result = run_profile(
+            result = run_pipeline(
                 str(log_file),
                 profile="incidents",
                 out_dir=str(root / "out"),

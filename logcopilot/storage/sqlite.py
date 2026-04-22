@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Iterable, List, Optional
 
 from ..domain import ClusterSummary, Event, SemanticClusterSummary
-from ..output import format_timestamp
+from ..output.reporting import format_timestamp
 
 logger = logging.getLogger(__name__)
 
@@ -107,6 +107,49 @@ class StorageRepository:
                     FOREIGN KEY(run_id) REFERENCES runs(run_id)
                 );
 
+                CREATE TABLE IF NOT EXISTS agent_results (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    run_id TEXT NOT NULL,
+                    status TEXT NOT NULL,
+                    provider TEXT NOT NULL,
+                    model TEXT NOT NULL DEFAULT '',
+                    overall_status TEXT NOT NULL DEFAULT 'unknown',
+                    confidence REAL NOT NULL DEFAULT 0,
+                    short_summary TEXT NOT NULL DEFAULT '',
+                    technical_summary TEXT NOT NULL DEFAULT '',
+                    business_summary TEXT NOT NULL DEFAULT '',
+                    question TEXT NOT NULL,
+                    answer TEXT NOT NULL,
+                    profile TEXT NOT NULL,
+                    plan_json TEXT NOT NULL,
+                    facts_json TEXT NOT NULL,
+                    key_findings_json TEXT NOT NULL DEFAULT '[]',
+                    recommended_actions_json TEXT NOT NULL DEFAULT '[]',
+                    limitations_json TEXT NOT NULL DEFAULT '[]',
+                    cards_json TEXT NOT NULL DEFAULT '[]',
+                    result_json TEXT NOT NULL DEFAULT '{}',
+                    input_context_json TEXT NOT NULL DEFAULT '{}',
+                    trace_json TEXT NOT NULL,
+                    visuals_json TEXT NOT NULL,
+                    artifact_paths_json TEXT NOT NULL,
+                    created_at TEXT NOT NULL,
+                    UNIQUE(run_id),
+                    FOREIGN KEY(run_id) REFERENCES runs(run_id)
+                );
+
+                CREATE TABLE IF NOT EXISTS agent_cards (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    run_id TEXT NOT NULL,
+                    card_index INTEGER NOT NULL,
+                    card_type TEXT NOT NULL,
+                    title TEXT NOT NULL,
+                    severity TEXT NOT NULL,
+                    confidence REAL NOT NULL DEFAULT 0,
+                    payload_json TEXT NOT NULL,
+                    UNIQUE(run_id, card_index),
+                    FOREIGN KEY(run_id) REFERENCES runs(run_id)
+                );
+
                 CREATE TABLE IF NOT EXISTS incident_clusters (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     run_id TEXT NOT NULL,
@@ -176,6 +219,18 @@ class StorageRepository:
             )
             self._ensure_column(connection, "events", "parser_confidence", "REAL NOT NULL DEFAULT 0")
             self._ensure_column(connection, "events", "attributes_json", "TEXT DEFAULT '{}'")
+            self._ensure_column(connection, "agent_results", "model", "TEXT NOT NULL DEFAULT ''")
+            self._ensure_column(connection, "agent_results", "overall_status", "TEXT NOT NULL DEFAULT 'unknown'")
+            self._ensure_column(connection, "agent_results", "confidence", "REAL NOT NULL DEFAULT 0")
+            self._ensure_column(connection, "agent_results", "short_summary", "TEXT NOT NULL DEFAULT ''")
+            self._ensure_column(connection, "agent_results", "technical_summary", "TEXT NOT NULL DEFAULT ''")
+            self._ensure_column(connection, "agent_results", "business_summary", "TEXT NOT NULL DEFAULT ''")
+            self._ensure_column(connection, "agent_results", "key_findings_json", "TEXT NOT NULL DEFAULT '[]'")
+            self._ensure_column(connection, "agent_results", "recommended_actions_json", "TEXT NOT NULL DEFAULT '[]'")
+            self._ensure_column(connection, "agent_results", "limitations_json", "TEXT NOT NULL DEFAULT '[]'")
+            self._ensure_column(connection, "agent_results", "cards_json", "TEXT NOT NULL DEFAULT '[]'")
+            self._ensure_column(connection, "agent_results", "result_json", "TEXT NOT NULL DEFAULT '{}'")
+            self._ensure_column(connection, "agent_results", "input_context_json", "TEXT NOT NULL DEFAULT '{}'")
 
     def _ensure_column(self, connection: sqlite3.Connection, table_name: str, column_name: str, ddl: str) -> None:
         """Add one missing column to an existing table when needed."""
@@ -371,6 +426,101 @@ class StorageRepository:
             artifact_name,
             artifact_type,
             path,
+        )
+
+    def store_agent_result(self, run_id: str, result: dict, input_context: Optional[dict] = None) -> None:
+        """Persist the optional pipeline agent result for a run."""
+        with self.connect() as connection:
+            connection.execute(
+                """
+                INSERT INTO agent_results (
+                    run_id, status, provider, model, overall_status, confidence,
+                    short_summary, technical_summary, business_summary, question, answer, profile,
+                    plan_json, facts_json, key_findings_json, recommended_actions_json,
+                    limitations_json, cards_json, result_json, input_context_json,
+                    trace_json, visuals_json, artifact_paths_json, created_at
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(run_id)
+                DO UPDATE SET
+                    status = excluded.status,
+                    provider = excluded.provider,
+                    model = excluded.model,
+                    overall_status = excluded.overall_status,
+                    confidence = excluded.confidence,
+                    short_summary = excluded.short_summary,
+                    technical_summary = excluded.technical_summary,
+                    business_summary = excluded.business_summary,
+                    question = excluded.question,
+                    answer = excluded.answer,
+                    profile = excluded.profile,
+                    plan_json = excluded.plan_json,
+                    facts_json = excluded.facts_json,
+                    key_findings_json = excluded.key_findings_json,
+                    recommended_actions_json = excluded.recommended_actions_json,
+                    limitations_json = excluded.limitations_json,
+                    cards_json = excluded.cards_json,
+                    result_json = excluded.result_json,
+                    input_context_json = excluded.input_context_json,
+                    trace_json = excluded.trace_json,
+                    visuals_json = excluded.visuals_json,
+                    artifact_paths_json = excluded.artifact_paths_json,
+                    created_at = excluded.created_at
+                """,
+                (
+                    run_id,
+                    result.get("status", "completed"),
+                    result.get("provider", "none"),
+                    result.get("model", ""),
+                    result.get("overall_status", "unknown"),
+                    result.get("confidence", 0.0),
+                    result.get("short_summary", ""),
+                    result.get("technical_summary", ""),
+                    result.get("business_summary", ""),
+                    "",
+                    result.get("short_summary", ""),
+                    result.get("profile", ""),
+                    json.dumps({}, ensure_ascii=False, default=str),
+                    json.dumps(input_context or {}, ensure_ascii=False, default=str),
+                    json.dumps(result.get("key_findings", []), ensure_ascii=False, default=str),
+                    json.dumps(result.get("recommended_actions", []), ensure_ascii=False, default=str),
+                    json.dumps(result.get("limitations", []), ensure_ascii=False, default=str),
+                    json.dumps(result.get("cards", []), ensure_ascii=False, default=str),
+                    json.dumps(result, ensure_ascii=False, default=str),
+                    json.dumps(input_context or {}, ensure_ascii=False, default=str),
+                    json.dumps([], ensure_ascii=False, default=str),
+                    json.dumps(result.get("cards", []), ensure_ascii=False, default=str),
+                    json.dumps(result.get("artifact_paths", {}), ensure_ascii=False, default=str),
+                    utc_now(),
+                ),
+            )
+            connection.execute("DELETE FROM agent_cards WHERE run_id = ?", (run_id,))
+            connection.executemany(
+                """
+                INSERT INTO agent_cards (
+                    run_id, card_index, card_type, title, severity, confidence, payload_json
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                [
+                    (
+                        run_id,
+                        index,
+                        card.get("card_type", ""),
+                        card.get("title", ""),
+                        card.get("severity", ""),
+                        card.get("confidence", 0.0),
+                        json.dumps(card, ensure_ascii=False, default=str),
+                    )
+                    for index, card in enumerate(result.get("cards", []))
+                ],
+            )
+        logger.info(
+            "storage_store_agent_result: run_id=%s status=%s provider=%s cards=%d",
+            run_id,
+            result.get("status", "completed"),
+            result.get("provider", "none"),
+            len(result.get("cards", [])),
         )
 
     def insert_incident_clusters(self, run_id: str, clusters: Iterable[ClusterSummary]) -> None:
@@ -625,6 +775,52 @@ class StorageRepository:
             (run_id, artifact_name),
         )
         return dict(row) if row is not None else None
+
+    def get_agent_result(self, run_id: str) -> Optional[dict]:
+        """Fetch the persisted optional pipeline agent result for a run."""
+        row = self._fetchone(
+            """
+            SELECT status, provider, model, overall_status, confidence, short_summary,
+                   technical_summary, business_summary, question, answer, profile,
+                   plan_json, facts_json, key_findings_json, recommended_actions_json,
+                   limitations_json, cards_json, result_json, input_context_json,
+                   trace_json, visuals_json, artifact_paths_json, created_at
+            FROM agent_results
+            WHERE run_id = ?
+            """,
+            (run_id,),
+        )
+        if row is None:
+            return None
+        result = dict(row)
+        for column_name in (
+            "plan_json",
+            "facts_json",
+            "key_findings_json",
+            "recommended_actions_json",
+            "limitations_json",
+            "cards_json",
+            "result_json",
+            "input_context_json",
+            "trace_json",
+            "visuals_json",
+            "artifact_paths_json",
+        ):
+            result[column_name] = json.loads(result[column_name] or "{}")
+        return result
+
+    def get_agent_cards(self, run_id: str) -> List[dict]:
+        """Fetch persisted structured agent cards for a run."""
+        rows = self._fetchall(
+            """
+            SELECT card_index, card_type, title, severity, confidence, payload_json
+            FROM agent_cards
+            WHERE run_id = ?
+            ORDER BY card_index ASC
+            """,
+            (run_id,),
+        )
+        return self._decode_json_payload_rows(rows)
 
     def get_event_field_stats(self, run_id: str) -> dict:
         """Compute field coverage statistics for persisted events.

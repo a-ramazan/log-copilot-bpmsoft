@@ -2,7 +2,7 @@ import tempfile
 from pathlib import Path
 import unittest
 
-from logcopilot.service import run_profile
+from logcopilot.pipeline import run_pipeline
 from logcopilot.storage import StorageRepository
 
 
@@ -15,7 +15,7 @@ class StorageTests(unittest.TestCase):
             root = Path(temp_dir)
             log_file = root / "input.log"
             log_file.write_text(content, encoding="utf-8")
-            result = run_profile(str(log_file), profile="incidents", out_dir=str(root / "out"), semantic="off")
+            result = run_pipeline(str(log_file), profile="incidents", out_dir=str(root / "out"), semantic="off")
 
             repo = StorageRepository(Path(result.db_path))
             summary = repo.get_run_summary(result.run_id)

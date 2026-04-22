@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Callable, Iterable, List, Optional, Tuple
 
 from ..domain import Event, SemanticClusterSummary
-from ..output import write_semantic_clusters_csv
+from ..output.reporting import write_semantic_clusters_csv
 
 logger = logging.getLogger(__name__)
 

@@ -64,9 +64,9 @@ flowchart LR
 
     G --> H[Artifacts Generation]
 
-    H --> I[Storage (DB + files)]
+    H --> I[Storage]
 
-    I --> J[LLM Agent (tools)]
+    I --> J[LLM Agent]
 
     J --> K[User Response]
 ```

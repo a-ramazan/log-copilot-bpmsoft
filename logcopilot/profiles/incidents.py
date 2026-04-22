@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-"""Incident profile: signature clustering, semantic grouping and report writers."""
+"""Incident profile: signature clustering and semantic grouping."""
 
 from dataclasses import asdict
 import logging
@@ -14,14 +14,6 @@ from ..analysis import (
     top_incident_clusters,
 )
 from ..domain import AnalysisSummary, Event
-from ..output import (
-    write_analysis_summary_json,
-    write_clusters_csv,
-    write_llm_ready_clusters_json,
-    write_semantic_clusters_csv,
-    write_top_clusters_md,
-)
-
 logger = logging.getLogger(__name__)
 
 
@@ -54,11 +46,11 @@ def run_incidents_profile(
     semantic_max_signatures: int = 2500,
     progress_callback: Callable[[str], None] | None = None,
 ) -> dict:
-    """Run the incidents profile and persist its report artifacts.
+    """Compute the incidents profile result.
 
     Args:
         events: Parsed canonical events for the run.
-        output_dir: Directory where incidents artifacts should be written.
+        output_dir: Compatibility argument retained for existing callers.
         source_name: Display name for the source log file.
         semantic: Semantic clustering mode.
         semantic_model: Sentence-transformer model name for embeddings.
@@ -69,8 +61,9 @@ def run_incidents_profile(
         progress_callback: Optional callback for progress messages.
 
     Returns:
-        Profile payload with clusters, summaries, artifacts and compact metadata.
+        Profile payload with clusters, summaries and compact metadata.
     """
+    del output_dir
     accumulator = ClusterAccumulator()
     for event in events:
         accumulator.add(event)
@@ -100,45 +93,13 @@ def run_incidents_profile(
         semantic_note,
     )
 
-    clusters_path = output_dir / "clusters.csv"
-    semantic_path = output_dir / "semantic_clusters.csv"
-    top_incidents_path = output_dir / "top_incidents.md"
-    llm_path = output_dir / "llm_ready_clusters.json"
-    analysis_path = output_dir / "analysis_summary.json"
-
-    write_clusters_csv(clusters_path, clusters)
-    write_semantic_clusters_csv(semantic_path, semantic_clusters)
-    write_llm_ready_clusters_json(llm_path, top_clusters)
-    write_top_clusters_md(
-        top_incidents_path,
-        top_clusters,
-        event_count=len(events),
-        cluster_count=len(clusters),
-        analysis_summary=analysis_summary,
-        semantic_note=semantic_note,
-    )
-    write_analysis_summary_json(analysis_path, analysis_summary)
-    logger.info(
-        "incidents_artifacts_written: clusters=%s semantic=%s top=%s llm=%s analysis=%s",
-        str(clusters_path),
-        str(semantic_path),
-        str(top_incidents_path),
-        str(llm_path),
-        str(analysis_path),
-    )
-
     return {
         "clusters": clusters,
+        "top_clusters": top_clusters,
         "semantic_clusters": semantic_clusters,
         "analysis_summary": analysis_summary,
         "semantic_note": semantic_note,
-        "artifact_paths": {
-            "clusters_csv": str(clusters_path),
-            "semantic_clusters_csv": str(semantic_path),
-            "top_incidents_md": str(top_incidents_path),
-            "llm_ready_clusters_json": str(llm_path),
-            "analysis_summary_json": str(analysis_path),
-        },
+        "artifact_paths": {},
         "summary": {
             "cluster_count": len(clusters),
             "semantic_cluster_count": len(semantic_clusters),

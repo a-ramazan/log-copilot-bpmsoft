@@ -3,7 +3,7 @@ import tempfile
 from pathlib import Path
 import unittest
 
-from logcopilot.service import run_profile
+from logcopilot.pipeline import run_pipeline
 
 
 class HeatmapIntegrationTests(unittest.TestCase):
@@ -19,7 +19,7 @@ class HeatmapIntegrationTests(unittest.TestCase):
             out_dir = root / "out"
             log_file.write_text(content, encoding="utf-8")
 
-            result = run_profile(str(log_file), profile="heatmap", out_dir=str(out_dir))
+            result = run_pipeline(str(log_file), profile="heatmap", out_dir=str(out_dir))
             run_dir = Path(result.output_dir)
 
             self.assertEqual("heatmap", result.profile)
