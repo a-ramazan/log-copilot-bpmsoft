@@ -1,7 +1,0 @@
-2025-11-06 07:56:47,867 [.NET TP Worker] ERROR Supervisor Client.ClientLogger LogMessage - user: Supervisor/7f3b869f-34f3-4f20-ab4d-7480a5fdf647
- file: http://localhost:5002/core/hash/ng-core/src/polyfills-es5.js
- line: 1
- column: 16702
- message: Uncaught [object Object] 
- date: Thu Nov 06 2025 10:56:44 GMT+0300 (Москва, стандартное время)
- stack: undefined

@@ -44,6 +44,33 @@ python -m logcopilot.pipeline --input data/sample.log --out out --semantic off
 python -m unittest discover -s tests
 ```
 
+
+
+```mermaid
+
+flowchart LR
+
+    A[Raw .log file] --> B[Ingest]
+
+    B --> C[Parse]
+
+    C --> D[Normalize]
+
+    D --> E[Store Events]
+
+    E --> F[Profile Computation]
+
+    F --> G[Store Aggregates]
+
+    G --> H[Artifacts Generation]
+
+    H --> I[Storage]
+
+    I --> J[LLM Agent]
+
+    J --> K[User Response]
+```
+
 ## Что должно появиться на выходе
 
 Общее для любого запуска:
@@ -52,6 +79,7 @@ python -m unittest discover -s tests
 - `run_summary.json`
 - `events.csv`
 - `events.parquet`, если доступен parquet
+- `charts/*.png`, если агент построил визуализацию по вопросу в чате
 
 Для `heatmap`:
 
@@ -90,6 +118,7 @@ tests/
 ## Как работаем командой
 
 - Основная ветка: `main`.
+- Отдельную `dev` ветку не используем.
 - Рабочие ветки:
   - `feature/<scope>`
   - `fix/<scope>`
@@ -98,3 +127,4 @@ tests/
 - Перед merge должны пройти тесты.
 
 Подробности в [docs/team_workflow.md](docs/team_workflow.md).
+Настройка GitHub описана в [docs/github_setup.md](docs/github_setup.md).

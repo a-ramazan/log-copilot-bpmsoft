@@ -6,8 +6,6 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ipynb_checkpoints/
-Logs/
 out/
-data/*.log
 *.pyc
 .env

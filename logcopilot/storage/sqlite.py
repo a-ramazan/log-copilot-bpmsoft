@@ -1,31 +1,54 @@
 from __future__ import annotations
 
+"""SQLite repository for pipeline runs, artifacts and profile aggregates."""
+
 import json
+import logging
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable, List, Optional
 
-from ..models import ClusterSummary, Event, SemanticClusterSummary
-from ..reporting import format_timestamp
+from ..domain import ClusterSummary, Event, SemanticClusterSummary
+from ..output.reporting import format_timestamp
+
+logger = logging.getLogger(__name__)
 
 
 def utc_now() -> str:
+    """Return the current UTC timestamp in compact ISO-8601 form.
+
+    Returns:
+        UTC timestamp string truncated to whole seconds.
+    """
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
 class StorageRepository:
+    """SQLite repository for pipeline runs, artifacts, and profile aggregates."""
+
     def __init__(self, db_path: Path) -> None:
+        """Initialize the repository and ensure the database schema exists.
+
+        Args:
+            db_path: Path to the SQLite database file.
+        """
         self.db_path = Path(db_path)
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self._init_schema()
 
     def connect(self) -> sqlite3.Connection:
+        """Open a SQLite connection configured to return rows by column name.
+
+        Returns:
+            SQLite connection with `sqlite3.Row` row factory.
+        """
         connection = sqlite3.connect(self.db_path)
         connection.row_factory = sqlite3.Row
         return connection
 
     def _init_schema(self) -> None:
+        """Create the database schema and backfill columns required by newer runs."""
         with self.connect() as connection:
             connection.executescript(
                 """
@@ -46,6 +69,7 @@ class StorageRepository:
                     run_id TEXT NOT NULL,
                     source_file TEXT NOT NULL,
                     parser_profile TEXT NOT NULL,
+                    parser_confidence REAL NOT NULL DEFAULT 0,
                     timestamp TEXT,
                     level TEXT,
                     component TEXT,
@@ -67,6 +91,7 @@ class StorageRepository:
                     response_size INTEGER,
                     client_ip TEXT,
                     user_agent TEXT,
+                    attributes_json TEXT DEFAULT '{}',
                     is_incident INTEGER NOT NULL DEFAULT 0,
                     FOREIGN KEY(run_id) REFERENCES runs(run_id)
                 );
@@ -79,6 +104,49 @@ class StorageRepository:
                     path TEXT NOT NULL,
                     created_at TEXT NOT NULL,
                     UNIQUE(run_id, artifact_name),
+                    FOREIGN KEY(run_id) REFERENCES runs(run_id)
+                );
+
+                CREATE TABLE IF NOT EXISTS agent_results (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    run_id TEXT NOT NULL,
+                    status TEXT NOT NULL,
+                    provider TEXT NOT NULL,
+                    model TEXT NOT NULL DEFAULT '',
+                    overall_status TEXT NOT NULL DEFAULT 'unknown',
+                    confidence REAL NOT NULL DEFAULT 0,
+                    short_summary TEXT NOT NULL DEFAULT '',
+                    technical_summary TEXT NOT NULL DEFAULT '',
+                    business_summary TEXT NOT NULL DEFAULT '',
+                    question TEXT NOT NULL,
+                    answer TEXT NOT NULL,
+                    profile TEXT NOT NULL,
+                    plan_json TEXT NOT NULL,
+                    facts_json TEXT NOT NULL,
+                    key_findings_json TEXT NOT NULL DEFAULT '[]',
+                    recommended_actions_json TEXT NOT NULL DEFAULT '[]',
+                    limitations_json TEXT NOT NULL DEFAULT '[]',
+                    cards_json TEXT NOT NULL DEFAULT '[]',
+                    result_json TEXT NOT NULL DEFAULT '{}',
+                    input_context_json TEXT NOT NULL DEFAULT '{}',
+                    trace_json TEXT NOT NULL,
+                    visuals_json TEXT NOT NULL,
+                    artifact_paths_json TEXT NOT NULL,
+                    created_at TEXT NOT NULL,
+                    UNIQUE(run_id),
+                    FOREIGN KEY(run_id) REFERENCES runs(run_id)
+                );
+
+                CREATE TABLE IF NOT EXISTS agent_cards (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    run_id TEXT NOT NULL,
+                    card_index INTEGER NOT NULL,
+                    card_type TEXT NOT NULL,
+                    title TEXT NOT NULL,
+                    severity TEXT NOT NULL,
+                    confidence REAL NOT NULL DEFAULT 0,
+                    payload_json TEXT NOT NULL,
+                    UNIQUE(run_id, card_index),
                     FOREIGN KEY(run_id) REFERENCES runs(run_id)
                 );
 
@@ -149,8 +217,88 @@ class StorageRepository:
                 );
                 """
             )
+            self._ensure_column(connection, "events", "parser_confidence", "REAL NOT NULL DEFAULT 0")
+            self._ensure_column(connection, "events", "attributes_json", "TEXT DEFAULT '{}'")
+            self._ensure_column(connection, "agent_results", "model", "TEXT NOT NULL DEFAULT ''")
+            self._ensure_column(connection, "agent_results", "overall_status", "TEXT NOT NULL DEFAULT 'unknown'")
+            self._ensure_column(connection, "agent_results", "confidence", "REAL NOT NULL DEFAULT 0")
+            self._ensure_column(connection, "agent_results", "short_summary", "TEXT NOT NULL DEFAULT ''")
+            self._ensure_column(connection, "agent_results", "technical_summary", "TEXT NOT NULL DEFAULT ''")
+            self._ensure_column(connection, "agent_results", "business_summary", "TEXT NOT NULL DEFAULT ''")
+            self._ensure_column(connection, "agent_results", "key_findings_json", "TEXT NOT NULL DEFAULT '[]'")
+            self._ensure_column(connection, "agent_results", "recommended_actions_json", "TEXT NOT NULL DEFAULT '[]'")
+            self._ensure_column(connection, "agent_results", "limitations_json", "TEXT NOT NULL DEFAULT '[]'")
+            self._ensure_column(connection, "agent_results", "cards_json", "TEXT NOT NULL DEFAULT '[]'")
+            self._ensure_column(connection, "agent_results", "result_json", "TEXT NOT NULL DEFAULT '{}'")
+            self._ensure_column(connection, "agent_results", "input_context_json", "TEXT NOT NULL DEFAULT '{}'")
+
+    def _ensure_column(self, connection: sqlite3.Connection, table_name: str, column_name: str, ddl: str) -> None:
+        """Add one missing column to an existing table when needed."""
+        columns = {
+            row["name"]
+            for row in connection.execute(f"PRAGMA table_info({table_name})").fetchall()
+        }
+        if column_name not in columns:
+            connection.execute(f"ALTER TABLE {table_name} ADD COLUMN {column_name} {ddl}")
+
+    def _decode_json_payload_rows(
+        self,
+        rows: Iterable[sqlite3.Row],
+        column_name: str = "payload_json",
+    ) -> List[dict]:
+        """Convert SQLite rows to dictionaries and decode one JSON payload column."""
+        payload = []
+        for row in rows:
+            item = dict(row)
+            item[column_name] = json.loads(item[column_name] or "{}")
+            payload.append(item)
+        return payload
+
+    def _decode_json_payload_row(
+        self,
+        row: Optional[sqlite3.Row],
+        column_name: str = "payload_json",
+    ) -> Optional[dict]:
+        """Convert one SQLite row to a dictionary and decode its JSON payload column."""
+        if row is None:
+            return None
+        item = dict(row)
+        item[column_name] = json.loads(item[column_name] or "{}")
+        return item
+
+    def _dict_rows(self, rows: Iterable[sqlite3.Row]) -> List[dict]:
+        """Convert SQLite rows into plain dictionaries."""
+        return [dict(row) for row in rows]
+
+    def _fetchall(self, query: str, params: Iterable[object] = ()) -> List[sqlite3.Row]:
+        """Execute one query and return all matching rows."""
+        with self.connect() as connection:
+            return connection.execute(query, tuple(params)).fetchall()
+
+    def _fetchone(self, query: str, params: Iterable[object] = ()) -> Optional[sqlite3.Row]:
+        """Execute one query and return the first matching row."""
+        with self.connect() as connection:
+            return connection.execute(query, tuple(params)).fetchone()
+
+    def _executemany(self, query: str, rows: List[tuple[object, ...]]) -> None:
+        """Execute a bulk insert or update for precomputed row tuples."""
+        if not rows:
+            return
+        with self.connect() as connection:
+            connection.executemany(query, rows)
 
     def create_run(self, run_id: str, input_path: str, profile: str, output_dir: str) -> None:
+        """Persist the start of a pipeline run.
+
+        Args:
+            run_id: Unique run identifier.
+            input_path: Source log file path.
+            profile: Selected processing profile.
+            output_dir: Output directory for run artifacts.
+
+        Returns:
+            None.
+        """
         with self.connect() as connection:
             connection.execute(
                 """
@@ -159,8 +307,25 @@ class StorageRepository:
                 """,
                 (run_id, input_path, profile, output_dir, utc_now(), "running"),
             )
+        logger.info(
+            "storage_create_run: run_id=%s profile=%s output_dir=%s",
+            run_id,
+            profile,
+            output_dir,
+        )
 
     def complete_run(self, run_id: str, status: str, event_count: int, summary: dict) -> None:
+        """Persist the completion status and summary for a run.
+
+        Args:
+            run_id: Unique run identifier.
+            status: Final run status.
+            event_count: Number of parsed events in the run.
+            summary: Final run summary payload.
+
+        Returns:
+            None.
+        """
         with self.connect() as connection:
             connection.execute(
                 """
@@ -170,14 +335,29 @@ class StorageRepository:
                 """,
                 (status, utc_now(), event_count, json.dumps(summary, indent=2), run_id),
             )
+        logger.info(
+            "storage_complete_run: run_id=%s status=%s event_count=%d",
+            run_id,
+            status,
+            event_count,
+        )
 
     def insert_events(self, events: Iterable[Event]) -> None:
+        """Insert a batch of canonical events into storage.
+
+        Args:
+            events: Events to persist.
+
+        Returns:
+            None.
+        """
         rows = [
             (
                 event.event_id,
                 event.run_id,
                 event.source_file,
                 event.parser_profile,
+                event.parser_confidence,
                 format_timestamp(event.timestamp),
                 event.level,
                 event.component,
@@ -199,27 +379,37 @@ class StorageRepository:
                 event.response_size,
                 event.client_ip,
                 event.user_agent,
+                json.dumps(event.attributes, ensure_ascii=False, sort_keys=True),
                 int(event.is_incident),
             )
             for event in events
         ]
-        if not rows:
-            return
-        with self.connect() as connection:
-            connection.executemany(
-                """
-                INSERT INTO events (
-                    event_id, run_id, source_file, parser_profile, timestamp, level, component,
-                    message, stacktrace, raw_text, line_count, normalized_message, signature_hash,
-                    embedding_text, exception_type, stack_frames, request_id, trace_id, http_status,
-                    method, path, latency_ms, response_size, client_ip, user_agent, is_incident
-                )
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                """,
-                rows,
+        self._executemany(
+            """
+            INSERT INTO events (
+                event_id, run_id, source_file, parser_profile, parser_confidence, timestamp, level, component,
+                message, stacktrace, raw_text, line_count, normalized_message, signature_hash,
+                embedding_text, exception_type, stack_frames, request_id, trace_id, http_status,
+                method, path, latency_ms, response_size, client_ip, user_agent, attributes_json, is_incident
             )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            rows,
+        )
+        logger.debug("storage_insert_events: rows=%d", len(rows))
 
     def register_artifact(self, run_id: str, artifact_name: str, artifact_type: str, path: str) -> None:
+        """Register or update a run artifact entry.
+
+        Args:
+            run_id: Unique run identifier.
+            artifact_name: Logical artifact name.
+            artifact_type: Artifact category used by the UI and storage.
+            path: Filesystem path to the artifact.
+
+        Returns:
+            None.
+        """
         with self.connect() as connection:
             connection.execute(
                 """
@@ -230,53 +420,172 @@ class StorageRepository:
                 """,
                 (run_id, artifact_name, artifact_type, path, utc_now()),
             )
+        logger.info(
+            "storage_register_artifact: run_id=%s artifact=%s type=%s path=%s",
+            run_id,
+            artifact_name,
+            artifact_type,
+            path,
+        )
 
-    def insert_incident_clusters(self, run_id: str, clusters: Iterable[ClusterSummary]) -> None:
-        rows = []
-        for cluster in clusters:
-            rows.append(
+    def store_agent_result(self, run_id: str, result: dict, input_context: Optional[dict] = None) -> None:
+        """Persist the optional pipeline agent result for a run."""
+        with self.connect() as connection:
+            connection.execute(
+                """
+                INSERT INTO agent_results (
+                    run_id, status, provider, model, overall_status, confidence,
+                    short_summary, technical_summary, business_summary, question, answer, profile,
+                    plan_json, facts_json, key_findings_json, recommended_actions_json,
+                    limitations_json, cards_json, result_json, input_context_json,
+                    trace_json, visuals_json, artifact_paths_json, created_at
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(run_id)
+                DO UPDATE SET
+                    status = excluded.status,
+                    provider = excluded.provider,
+                    model = excluded.model,
+                    overall_status = excluded.overall_status,
+                    confidence = excluded.confidence,
+                    short_summary = excluded.short_summary,
+                    technical_summary = excluded.technical_summary,
+                    business_summary = excluded.business_summary,
+                    question = excluded.question,
+                    answer = excluded.answer,
+                    profile = excluded.profile,
+                    plan_json = excluded.plan_json,
+                    facts_json = excluded.facts_json,
+                    key_findings_json = excluded.key_findings_json,
+                    recommended_actions_json = excluded.recommended_actions_json,
+                    limitations_json = excluded.limitations_json,
+                    cards_json = excluded.cards_json,
+                    result_json = excluded.result_json,
+                    input_context_json = excluded.input_context_json,
+                    trace_json = excluded.trace_json,
+                    visuals_json = excluded.visuals_json,
+                    artifact_paths_json = excluded.artifact_paths_json,
+                    created_at = excluded.created_at
+                """,
                 (
                     run_id,
-                    cluster.cluster_id,
-                    cluster.hits,
-                    cluster.incident_hits,
-                    cluster.confidence_score,
-                    cluster.confidence_label,
-                    format_timestamp(cluster.first_seen),
-                    format_timestamp(cluster.last_seen),
-                    cluster.representative_signature_text or cluster.representative_normalized,
-                    json.dumps(
-                        {
-                            "parser_profiles": cluster.parser_profiles,
-                            "source_files": cluster.source_files,
-                            "sample_messages": cluster.sample_messages.split(" || "),
-                            "exception_type": cluster.example_exception,
-                            "levels": cluster.levels,
-                            "top_stack_frames": cluster.top_stack_frames,
-                            "representative_raw": cluster.representative_raw,
-                            "representative_normalized": cluster.representative_normalized,
-                            "representative_signature_text": cluster.representative_signature_text,
-                        }
-                    ),
-                )
+                    result.get("status", "completed"),
+                    result.get("provider", "none"),
+                    result.get("model", ""),
+                    result.get("overall_status", "unknown"),
+                    result.get("confidence", 0.0),
+                    result.get("short_summary", ""),
+                    result.get("technical_summary", ""),
+                    result.get("business_summary", ""),
+                    "",
+                    result.get("short_summary", ""),
+                    result.get("profile", ""),
+                    json.dumps({}, ensure_ascii=False, default=str),
+                    json.dumps(input_context or {}, ensure_ascii=False, default=str),
+                    json.dumps(result.get("key_findings", []), ensure_ascii=False, default=str),
+                    json.dumps(result.get("recommended_actions", []), ensure_ascii=False, default=str),
+                    json.dumps(result.get("limitations", []), ensure_ascii=False, default=str),
+                    json.dumps(result.get("cards", []), ensure_ascii=False, default=str),
+                    json.dumps(result, ensure_ascii=False, default=str),
+                    json.dumps(input_context or {}, ensure_ascii=False, default=str),
+                    json.dumps([], ensure_ascii=False, default=str),
+                    json.dumps(result.get("cards", []), ensure_ascii=False, default=str),
+                    json.dumps(result.get("artifact_paths", {}), ensure_ascii=False, default=str),
+                    utc_now(),
+                ),
             )
-        with self.connect() as connection:
+            connection.execute("DELETE FROM agent_cards WHERE run_id = ?", (run_id,))
             connection.executemany(
                 """
-                INSERT INTO incident_clusters (
-                    run_id, cluster_id, hits, incident_hits, confidence_score, confidence_label,
-                    first_seen, last_seen, representative_text, payload_json
+                INSERT INTO agent_cards (
+                    run_id, card_index, card_type, title, severity, confidence, payload_json
                 )
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
                 """,
-                rows,
+                [
+                    (
+                        run_id,
+                        index,
+                        card.get("card_type", ""),
+                        card.get("title", ""),
+                        card.get("severity", ""),
+                        card.get("confidence", 0.0),
+                        json.dumps(card, ensure_ascii=False, default=str),
+                    )
+                    for index, card in enumerate(result.get("cards", []))
+                ],
             )
+        logger.info(
+            "storage_store_agent_result: run_id=%s status=%s provider=%s cards=%d",
+            run_id,
+            result.get("status", "completed"),
+            result.get("provider", "none"),
+            len(result.get("cards", [])),
+        )
+
+    def insert_incident_clusters(self, run_id: str, clusters: Iterable[ClusterSummary]) -> None:
+        """Insert signature-based incident cluster summaries.
+
+        Args:
+            run_id: Unique run identifier.
+            clusters: Incident cluster summaries to persist.
+
+        Returns:
+            None.
+        """
+        rows = [
+            (
+                run_id,
+                cluster.cluster_id,
+                cluster.hits,
+                cluster.incident_hits,
+                cluster.confidence_score,
+                cluster.confidence_label,
+                format_timestamp(cluster.first_seen),
+                format_timestamp(cluster.last_seen),
+                cluster.representative_signature_text or cluster.representative_normalized,
+                json.dumps(
+                    {
+                        "parser_profiles": cluster.parser_profiles,
+                        "source_files": cluster.source_files,
+                        "sample_messages": cluster.sample_messages.split(" || "),
+                        "exception_type": cluster.example_exception,
+                        "levels": cluster.levels,
+                        "top_stack_frames": cluster.top_stack_frames,
+                        "representative_raw": cluster.representative_raw,
+                        "representative_normalized": cluster.representative_normalized,
+                        "representative_signature_text": cluster.representative_signature_text,
+                    }
+                ),
+            )
+            for cluster in clusters
+        ]
+        self._executemany(
+            """
+            INSERT INTO incident_clusters (
+                run_id, cluster_id, hits, incident_hits, confidence_score, confidence_label,
+                first_seen, last_seen, representative_text, payload_json
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            rows,
+        )
+        logger.info("storage_insert_incident_clusters: run_id=%s rows=%d", run_id, len(rows))
 
     def insert_semantic_clusters(
         self,
         run_id: str,
         clusters: Iterable[SemanticClusterSummary],
     ) -> None:
+        """Insert semantic cluster summaries for a run.
+
+        Args:
+            run_id: Unique run identifier.
+            clusters: Semantic cluster summaries to persist.
+
+        Returns:
+            None.
+        """
         rows = [
             (
                 run_id,
@@ -289,19 +598,28 @@ class StorageRepository:
             )
             for cluster in clusters
         ]
-        with self.connect() as connection:
-            connection.executemany(
-                """
-                INSERT INTO semantic_clusters (
-                    run_id, semantic_cluster_id, signature_hash, hits, representative_text,
-                    avg_cosine_similarity, member_signature_hashes
-                )
-                VALUES (?, ?, ?, ?, ?, ?, ?)
-                """,
-                rows,
+        self._executemany(
+            """
+            INSERT INTO semantic_clusters (
+                run_id, semantic_cluster_id, signature_hash, hits, representative_text,
+                avg_cosine_similarity, member_signature_hashes
             )
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+            """,
+            rows,
+        )
+        logger.info("storage_insert_semantic_clusters: run_id=%s rows=%d", run_id, len(rows))
 
     def insert_heatmap_metrics(self, run_id: str, rows: Iterable[dict]) -> None:
+        """Insert aggregated heatmap rows for a run.
+
+        Args:
+            run_id: Unique run identifier.
+            rows: Heatmap metric rows to persist.
+
+        Returns:
+            None.
+        """
         values = [
             (
                 run_id,
@@ -314,18 +632,27 @@ class StorageRepository:
             )
             for row in rows
         ]
-        with self.connect() as connection:
-            connection.executemany(
-                """
-                INSERT INTO heatmap_metrics (
-                    run_id, bucket_start, component, operation, hits, qps, p95_latency_ms
-                )
-                VALUES (?, ?, ?, ?, ?, ?, ?)
-                """,
-                values,
+        self._executemany(
+            """
+            INSERT INTO heatmap_metrics (
+                run_id, bucket_start, component, operation, hits, qps, p95_latency_ms
             )
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+            """,
+            values,
+        )
+        logger.info("storage_insert_heatmap_metrics: run_id=%s rows=%d", run_id, len(values))
 
     def insert_traffic_metrics(self, run_id: str, rows: Iterable[dict]) -> None:
+        """Insert aggregated traffic summary rows for a run.
+
+        Args:
+            run_id: Unique run identifier.
+            rows: Traffic metric rows to persist.
+
+        Returns:
+            None.
+        """
         values = [
             (
                 run_id,
@@ -340,19 +667,28 @@ class StorageRepository:
             )
             for row in rows
         ]
-        with self.connect() as connection:
-            connection.executemany(
-                """
-                INSERT INTO traffic_metrics (
-                    run_id, method, path, http_status, hits, unique_ips, p95_latency_ms,
-                    p99_latency_ms, avg_response_size
-                )
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-                """,
-                values,
+        self._executemany(
+            """
+            INSERT INTO traffic_metrics (
+                run_id, method, path, http_status, hits, unique_ips, p95_latency_ms,
+                p99_latency_ms, avg_response_size
             )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            values,
+        )
+        logger.info("storage_insert_traffic_metrics: run_id=%s rows=%d", run_id, len(values))
 
     def insert_traffic_anomalies(self, run_id: str, rows: Iterable[dict]) -> None:
+        """Insert derived traffic anomalies for a run.
+
+        Args:
+            run_id: Unique run identifier.
+            rows: Traffic anomaly rows to persist.
+
+        Returns:
+            None.
+        """
         values = [
             (
                 run_id,
@@ -364,101 +700,223 @@ class StorageRepository:
             )
             for row in rows
         ]
-        with self.connect() as connection:
-            connection.executemany(
-                """
-                INSERT INTO traffic_anomalies (
-                    run_id, anomaly_type, severity, title, details, payload_json
-                )
-                VALUES (?, ?, ?, ?, ?, ?)
-                """,
-                values,
+        self._executemany(
+            """
+            INSERT INTO traffic_anomalies (
+                run_id, anomaly_type, severity, title, details, payload_json
             )
+            VALUES (?, ?, ?, ?, ?, ?)
+            """,
+            values,
+        )
+        logger.info("storage_insert_traffic_anomalies: run_id=%s rows=%d", run_id, len(values))
 
     def list_runs(self, limit: int = 20) -> List[sqlite3.Row]:
-        with self.connect() as connection:
-            return connection.execute(
-                """
-                SELECT run_id, input_path, profile, output_dir, created_at, completed_at, status, event_count
-                FROM runs
-                ORDER BY created_at DESC
-                LIMIT ?
-                """,
-                (limit,),
-            ).fetchall()
+        """List recent pipeline runs.
+
+        Args:
+            limit: Maximum number of runs to return.
+
+        Returns:
+            Recent run rows ordered by creation time descending.
+        """
+        return self._fetchall(
+            """
+            SELECT run_id, input_path, profile, output_dir, created_at, completed_at, status, event_count
+            FROM runs
+            ORDER BY created_at DESC
+            LIMIT ?
+            """,
+            (limit,),
+        )
 
     def get_run_summary(self, run_id: str) -> Optional[dict]:
-        with self.connect() as connection:
-            run = connection.execute(
-                "SELECT * FROM runs WHERE run_id = ?",
-                (run_id,),
-            ).fetchone()
-            if run is None:
-                return None
-            artifacts = connection.execute(
-                """
-                SELECT artifact_name, artifact_type, path
-                FROM artifacts
-                WHERE run_id = ?
-                ORDER BY artifact_name
-                """,
-                (run_id,),
-            ).fetchall()
+        """Fetch run metadata together with its registered artifacts.
+
+        Args:
+            run_id: Unique run identifier.
+
+        Returns:
+            Run summary dictionary, or `None` when the run does not exist.
+        """
+        run = self._fetchone("SELECT * FROM runs WHERE run_id = ?", (run_id,))
+        if run is None:
+            return None
+        artifacts = self._fetchall(
+            """
+            SELECT artifact_name, artifact_type, path
+            FROM artifacts
+            WHERE run_id = ?
+            ORDER BY artifact_name
+            """,
+            (run_id,),
+        )
         summary = dict(run)
         summary["summary_json"] = json.loads(summary["summary_json"] or "{}")
-        summary["artifacts"] = [dict(item) for item in artifacts]
+        summary["artifacts"] = self._dict_rows(artifacts)
         return summary
 
-    def get_top_incidents(self, run_id: str, limit: int = 10) -> List[dict]:
-        with self.connect() as connection:
-            rows = connection.execute(
-                """
-                SELECT cluster_id, hits, incident_hits, confidence_score, confidence_label,
-                       first_seen, last_seen, representative_text, payload_json
-                FROM incident_clusters
-                WHERE run_id = ?
-                ORDER BY incident_hits DESC, hits DESC
-                LIMIT ?
-                """,
-                (run_id, limit),
-            ).fetchall()
-        payload = []
-        for row in rows:
-            item = dict(row)
-            item["payload_json"] = json.loads(item["payload_json"] or "{}")
-            payload.append(item)
-        return payload
+    def get_artifact(self, run_id: str, artifact_name: str) -> Optional[dict]:
+        """Fetch metadata for a single artifact registered by a run.
 
-    def find_incident_cluster(self, run_id: str, cluster_id: str) -> Optional[dict]:
-        with self.connect() as connection:
-            row = connection.execute(
-                """
-                SELECT cluster_id, hits, incident_hits, confidence_score, confidence_label,
-                       first_seen, last_seen, representative_text, payload_json
-                FROM incident_clusters
-                WHERE run_id = ? AND cluster_id = ?
-                """,
-                (run_id, cluster_id),
-            ).fetchone()
+        Args:
+            run_id: Unique run identifier.
+            artifact_name: Logical artifact name.
+
+        Returns:
+            Artifact metadata dictionary, or `None` if not found.
+        """
+        row = self._fetchone(
+            """
+            SELECT artifact_name, artifact_type, path
+            FROM artifacts
+            WHERE run_id = ? AND artifact_name = ?
+            """,
+            (run_id, artifact_name),
+        )
+        return dict(row) if row is not None else None
+
+    def get_agent_result(self, run_id: str) -> Optional[dict]:
+        """Fetch the persisted optional pipeline agent result for a run."""
+        row = self._fetchone(
+            """
+            SELECT status, provider, model, overall_status, confidence, short_summary,
+                   technical_summary, business_summary, question, answer, profile,
+                   plan_json, facts_json, key_findings_json, recommended_actions_json,
+                   limitations_json, cards_json, result_json, input_context_json,
+                   trace_json, visuals_json, artifact_paths_json, created_at
+            FROM agent_results
+            WHERE run_id = ?
+            """,
+            (run_id,),
+        )
         if row is None:
             return None
-        item = dict(row)
-        item["payload_json"] = json.loads(item["payload_json"] or "{}")
-        return item
+        result = dict(row)
+        for column_name in (
+            "plan_json",
+            "facts_json",
+            "key_findings_json",
+            "recommended_actions_json",
+            "limitations_json",
+            "cards_json",
+            "result_json",
+            "input_context_json",
+            "trace_json",
+            "visuals_json",
+            "artifact_paths_json",
+        ):
+            result[column_name] = json.loads(result[column_name] or "{}")
+        return result
 
-    def get_heatmap(self, run_id: str, limit: int = 100) -> List[dict]:
-        with self.connect() as connection:
-            rows = connection.execute(
-                """
-                SELECT bucket_start, component, operation, hits, qps, p95_latency_ms
-                FROM heatmap_metrics
-                WHERE run_id = ?
-                ORDER BY hits DESC, bucket_start DESC
-                LIMIT ?
-                """,
-                (run_id, limit),
-            ).fetchall()
-        return [dict(row) for row in rows]
+    def get_agent_cards(self, run_id: str) -> List[dict]:
+        """Fetch persisted structured agent cards for a run."""
+        rows = self._fetchall(
+            """
+            SELECT card_index, card_type, title, severity, confidence, payload_json
+            FROM agent_cards
+            WHERE run_id = ?
+            ORDER BY card_index ASC
+            """,
+            (run_id,),
+        )
+        return self._decode_json_payload_rows(rows)
+
+    def get_event_field_stats(self, run_id: str) -> dict:
+        """Compute field coverage statistics for persisted events.
+
+        Args:
+            run_id: Unique run identifier.
+
+        Returns:
+            Aggregate event field statistics for the run.
+        """
+        row = self._fetchone(
+            """
+            SELECT
+                COUNT(*) AS total_events,
+                SUM(CASE WHEN timestamp IS NOT NULL THEN 1 ELSE 0 END) AS timestamp_count,
+                SUM(CASE WHEN level IS NOT NULL AND level != '' THEN 1 ELSE 0 END) AS level_count,
+                SUM(CASE WHEN component IS NOT NULL AND component != '' THEN 1 ELSE 0 END) AS component_count,
+                SUM(CASE WHEN method IS NOT NULL AND method != '' THEN 1 ELSE 0 END) AS method_count,
+                SUM(CASE WHEN path IS NOT NULL AND path != '' THEN 1 ELSE 0 END) AS path_count,
+                SUM(CASE WHEN http_status IS NOT NULL THEN 1 ELSE 0 END) AS http_status_count,
+                SUM(CASE WHEN latency_ms IS NOT NULL THEN 1 ELSE 0 END) AS latency_count,
+                SUM(CASE WHEN client_ip IS NOT NULL AND client_ip != '' THEN 1 ELSE 0 END) AS client_ip_count,
+                AVG(parser_confidence) AS avg_parser_confidence
+            FROM events
+            WHERE run_id = ?
+            """,
+            (run_id,),
+        )
+        return dict(row) if row is not None else {}
+
+    def get_top_incidents(self, run_id: str, limit: int = 10) -> List[dict]:
+        """Return top incident clusters ordered by severity and volume.
+
+        Args:
+            run_id: Unique run identifier.
+            limit: Maximum number of incident clusters to return.
+
+        Returns:
+            Incident cluster payloads with decoded JSON details.
+        """
+        rows = self._fetchall(
+            """
+            SELECT cluster_id, hits, incident_hits, confidence_score, confidence_label,
+                   first_seen, last_seen, representative_text, payload_json
+            FROM incident_clusters
+            WHERE run_id = ?
+            ORDER BY incident_hits DESC, hits DESC
+            LIMIT ?
+            """,
+            (run_id, limit),
+        )
+        return self._decode_json_payload_rows(rows)
+
+    def find_incident_cluster(self, run_id: str, cluster_id: str) -> Optional[dict]:
+        """Fetch a specific incident cluster by its cluster id.
+
+        Args:
+            run_id: Unique run identifier.
+            cluster_id: Signature-based cluster identifier.
+
+        Returns:
+            Incident cluster payload, or `None` when absent.
+        """
+        row = self._fetchone(
+            """
+            SELECT cluster_id, hits, incident_hits, confidence_score, confidence_label,
+                   first_seen, last_seen, representative_text, payload_json
+            FROM incident_clusters
+            WHERE run_id = ? AND cluster_id = ?
+            """,
+            (run_id, cluster_id),
+        )
+        return self._decode_json_payload_row(row)
+
+    def get_heatmap(self, run_id: str, limit: Optional[int] = 100) -> List[dict]:
+        """Return persisted heatmap rows for a run.
+
+        Args:
+            run_id: Unique run identifier.
+            limit: Optional maximum number of rows to return.
+
+        Returns:
+            Heatmap rows ordered by hottest buckets first.
+        """
+        query = """
+            SELECT bucket_start, component, operation, hits, qps, p95_latency_ms
+            FROM heatmap_metrics
+            WHERE run_id = ?
+            ORDER BY hits DESC, bucket_start DESC
+        """
+        params: List[object] = [run_id]
+        if limit is not None:
+            query += " LIMIT ?"
+            params.append(limit)
+        rows = self._fetchall(query, params)
+        return self._dict_rows(rows)
 
     def get_traffic_summary(
         self,
@@ -466,6 +924,16 @@ class StorageRepository:
         status: Optional[int] = None,
         limit: int = 100,
     ) -> List[dict]:
+        """Return persisted traffic rows for a run.
+
+        Args:
+            run_id: Unique run identifier.
+            status: Optional HTTP status code filter.
+            limit: Maximum number of rows to return.
+
+        Returns:
+            Traffic summary rows ordered by frequency and latency.
+        """
         query = """
             SELECT method, path, http_status, hits, unique_ips, p95_latency_ms, p99_latency_ms,
                    avg_response_size
@@ -478,25 +946,27 @@ class StorageRepository:
             params.append(status)
         query += " ORDER BY hits DESC, p95_latency_ms DESC LIMIT ?"
         params.append(limit)
-        with self.connect() as connection:
-            rows = connection.execute(query, params).fetchall()
-        return [dict(row) for row in rows]
+        rows = self._fetchall(query, params)
+        return self._dict_rows(rows)
 
     def get_traffic_anomalies(self, run_id: str, limit: int = 50) -> List[dict]:
-        with self.connect() as connection:
-            rows = connection.execute(
-                """
-                SELECT anomaly_type, severity, title, details, payload_json
-                FROM traffic_anomalies
-                WHERE run_id = ?
-                ORDER BY id ASC
-                LIMIT ?
-                """,
-                (run_id, limit),
-            ).fetchall()
-        payload = []
-        for row in rows:
-            item = dict(row)
-            item["payload_json"] = json.loads(item["payload_json"] or "{}")
-            payload.append(item)
-        return payload
+        """Return persisted traffic anomalies for a run.
+
+        Args:
+            run_id: Unique run identifier.
+            limit: Maximum number of anomalies to return.
+
+        Returns:
+            Traffic anomaly payloads with decoded JSON details.
+        """
+        rows = self._fetchall(
+            """
+            SELECT anomaly_type, severity, title, details, payload_json
+            FROM traffic_anomalies
+            WHERE run_id = ?
+            ORDER BY id ASC
+            LIMIT ?
+            """,
+            (run_id, limit),
+        )
+        return self._decode_json_payload_rows(rows)
