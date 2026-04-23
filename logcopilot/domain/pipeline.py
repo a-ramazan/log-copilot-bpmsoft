@@ -6,7 +6,7 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Dict, List, Optional, Union
 
-from .models import Event
+from .models import Event, ExecutionQuality, FindingCard, RunSummary
 
 if TYPE_CHECKING:
     from logcopilot.parsing.models import CanonicalEvent
@@ -218,7 +218,7 @@ AgentCard = Union[IncidentCard, HeatmapCard, TrafficCard]
 
 @dataclass
 class AgentResult:
-    """Structured interpretation produced by the optional pipeline agent stage."""
+    """Structured interpretation produced by the mandatory pipeline agent stage."""
 
     enabled: bool
     status: str
@@ -234,6 +234,11 @@ class AgentResult:
     cards: List[AgentCard] = field(default_factory=list)
     provider: str = "none"
     model: str = ""
+    mode: str = "deterministic"
+    used_llm: bool = False
+    used_fallback: bool = False
+    schema_valid: bool = True
+    repair_applied: bool = False
     artifact_paths: Dict[str, str] = field(default_factory=dict)
     duration_seconds: float = 0.0
     error: Optional[str] = None
@@ -255,6 +260,11 @@ class AgentResult:
             "cards": [card.as_dict() for card in self.cards],
             "provider": self.provider,
             "model": self.model,
+            "mode": self.mode,
+            "used_llm": self.used_llm,
+            "used_fallback": self.used_fallback,
+            "schema_valid": self.schema_valid,
+            "repair_applied": self.repair_applied,
             "artifact_paths": self.artifact_paths,
             "duration_seconds": round(self.duration_seconds, 3),
         }
@@ -282,6 +292,9 @@ class PipelineContext:
     profile_result: Optional[ProfileStageResult] = None
     agent_input_context: Optional[AgentInputContext] = None
     agent_result: Optional[AgentResult] = None
+    execution_quality: Optional[ExecutionQuality] = None
+    findings: List[FindingCard] = field(default_factory=list)
+    final_summary: Optional[RunSummary] = None
     artifact_paths: Dict[str, str] = field(default_factory=dict)
     run_summary: Optional[Dict[str, object]] = None
     manifest: Optional[Dict[str, object]] = None

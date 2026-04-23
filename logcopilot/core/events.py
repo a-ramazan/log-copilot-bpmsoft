@@ -6,6 +6,7 @@ import uuid
 from typing import Optional
 
 from ..domain import Event, RawEvent
+from ..parsing.models import CanonicalEvent
 from ..text import (
     NormalizationStats,
     build_embedding_text,
@@ -14,19 +15,12 @@ from ..text import (
 )
 
 
-def build_event(
+def _build_event_from_raw_like(
     raw_event: RawEvent,
     run_id: str,
     normalization_stats: Optional[NormalizationStats] = None,
 ) -> Event:
-    """
-    Строит канонический Event из RawEvent.
-
-    Важно:
-    - здесь выполняется общая нормализация текста;
-    - часть полей (exception/stack/signature/is_incident) пока вычисляется здесь
-      для обратной совместимости текущего incidents-flow.
-    """
+    """Build an Event from a raw-like compatibility shape."""
     normalized_message, exception_type, stack_frames, is_incident = make_event_signature(
         raw_event,
         normalization_stats=normalization_stats,
@@ -67,3 +61,59 @@ def build_event(
     )
     event.embedding_text = build_embedding_text(event)
     return event
+
+
+def build_event(
+    raw_event: RawEvent,
+    run_id: str,
+    normalization_stats: Optional[NormalizationStats] = None,
+) -> Event:
+    """
+    Строит канонический Event из RawEvent.
+
+    Важно:
+    - здесь выполняется общая нормализация текста;
+    - часть полей (exception/stack/signature/is_incident) пока вычисляется здесь
+      для обратной совместимости текущего incidents-flow.
+    """
+    return _build_event_from_raw_like(
+        raw_event,
+        run_id=run_id,
+        normalization_stats=normalization_stats,
+    )
+
+
+def build_event_from_canonical(
+    event: CanonicalEvent,
+    source_file: str,
+    run_id: str,
+    normalization_stats: Optional[NormalizationStats] = None,
+) -> Event:
+    """Build a canonical Event directly from the parsing subsystem output."""
+    raw_event = RawEvent(
+        source_file=source_file,
+        parser_profile=event.parser_name,
+        parser_confidence=event.parser_confidence,
+        timestamp=event.timestamp,
+        level=event.level,
+        message=event.message,
+        stacktrace=event.stacktrace,
+        raw_text=event.raw_text,
+        line_count=event.line_count,
+        component=event.component,
+        request_id=event.request_id,
+        trace_id=event.trace_id,
+        http_status=event.http_status,
+        method=event.http_method,
+        path=event.http_path,
+        latency_ms=event.latency_ms,
+        response_size=event.response_size,
+        client_ip=event.client_ip,
+        user_agent=event.user_agent,
+        attributes=dict(event.attributes),
+    )
+    return _build_event_from_raw_like(
+        raw_event,
+        run_id=run_id,
+        normalization_stats=normalization_stats,
+    )

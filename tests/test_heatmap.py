@@ -23,9 +23,11 @@ class HeatmapIntegrationTests(unittest.TestCase):
             run_dir = Path(result.output_dir)
 
             self.assertEqual("heatmap", result.profile)
-            self.assertTrue((run_dir / "heatmap_timeseries.csv").exists())
-            self.assertTrue((run_dir / "top_hotspots.md").exists())
-            self.assertTrue((run_dir / "heatmap_findings.json").exists())
+            self.assertTrue(result.findings)
+            self.assertTrue((run_dir / "findings.json").exists())
+            self.assertFalse((run_dir / "heatmap_timeseries.csv").exists())
+            self.assertFalse((run_dir / "top_hotspots.md").exists())
+            self.assertFalse((run_dir / "heatmap_findings.json").exists())
 
             summary = json.loads((run_dir / "run_summary.json").read_text(encoding="utf-8"))
             self.assertEqual("completed", summary["status"])

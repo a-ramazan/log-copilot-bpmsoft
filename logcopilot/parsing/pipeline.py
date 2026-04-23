@@ -45,8 +45,10 @@ DEFAULT_REGISTRY = build_default_registry()
 
 def canonical_to_raw_event(event: CanonicalEvent, source_file: str) -> RawEvent:
     """
-    Адаптер совместимости:
-    parsing слой отдает CanonicalEvent, а core слой сейчас принимает RawEvent.
+    Адаптер совместимости для legacy callers.
+
+    Новая основная ветка event building строит `Event` напрямую из `CanonicalEvent`,
+    но адаптер оставлен для тестов и обратной совместимости.
     """
     return RawEvent(
         source_file=source_file,

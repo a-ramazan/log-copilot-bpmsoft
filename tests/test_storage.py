@@ -23,7 +23,9 @@ class StorageTests(unittest.TestCase):
             self.assertIsNotNone(summary)
             self.assertEqual("incidents", summary["profile"])
             self.assertEqual(2, summary["event_count"])
-            self.assertTrue(summary["artifacts"])
+            self.assertEqual([], summary["artifacts"])
+            self.assertEqual("completed", summary["summary_json"]["status"])
+            self.assertNotIn("findings", summary["summary_json"])
 
 
 if __name__ == "__main__":

@@ -30,22 +30,11 @@ _WHITESPACE_RE = re.compile(r"\s+")
 
 
 def run_write_events_csv(context: PipelineContext) -> PipelineContext:
-    """Write the canonical events CSV artifact for the current run."""
+    """Keep the legacy stage boundary without persisting events CSV by default."""
     if context.event_build_result is None:
         raise RuntimeError("Event building must run before events CSV writing.")
-
-    started = time.perf_counter()
-    with open_events_csv_writer(context.run_dir / "events.csv") as events_writer:
-        for event in context.events:
-            events_writer.writerow(event_to_row(event))
-    duration = time.perf_counter() - started
-    context.timings["write_events_csv"] = duration
-    logger.info(
-        "events_csv_written: run_id=%s path=%s duration=%.3fs",
-        context.run_id,
-        str(context.run_dir / "events.csv"),
-        duration,
-    )
+    context.timings["write_events_csv"] = 0.0
+    logger.info("events_csv_skipped: run_id=%s mode=product_output_only", context.run_id)
     return context
 
 
@@ -266,32 +255,18 @@ def _write_traffic_artifacts(context: PipelineContext, payload: dict) -> dict[st
 
 
 def run_artifact_generation(context: PipelineContext) -> PipelineContext:
-    """Write profile-specific artifacts and optional Parquet output."""
+    """Keep the legacy stage boundary without persisting profile debug artifacts by default."""
     profile_result = context.profile_result
     if profile_result is None:
         raise RuntimeError("Profile computation must run before artifact generation.")
 
-    started = time.perf_counter()
-    payload = profile_result.payload
-    if profile_result.profile == "incidents":
-        artifact_paths = _write_incidents_artifacts(context, payload)
-    elif profile_result.profile == "heatmap":
-        artifact_paths = _write_heatmap_artifacts(context, payload)
-    elif profile_result.profile == "traffic":
-        artifact_paths = _write_traffic_artifacts(context, payload)
-    else:
-        raise ValueError(f"Unsupported profile: {profile_result.profile}")
-    payload["artifact_paths"] = artifact_paths
-    context.timings["write_profile_artifacts"] = time.perf_counter() - started
-
-    parquet_started = time.perf_counter()
-    context.parquet_written = write_events_parquet(context.run_dir / "events.parquet", context.events)
-    context.timings["write_parquet"] = time.perf_counter() - parquet_started
+    profile_result.payload["artifact_paths"] = {}
+    context.timings["write_profile_artifacts"] = 0.0
+    context.parquet_written = False
+    context.timings["write_parquet"] = 0.0
     logger.info(
-        "profile_artifacts_written: run_id=%s profile=%s artifacts=%d parquet=%s",
+        "profile_artifacts_skipped: run_id=%s profile=%s mode=product_output_only",
         context.run_id,
         profile_result.profile,
-        len(artifact_paths),
-        context.parquet_written,
     )
     return context

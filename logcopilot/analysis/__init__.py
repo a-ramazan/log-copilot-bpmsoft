@@ -8,6 +8,7 @@ from .semantic import (
     cluster_signatures_semantically,
     rerun_semantic_clustering_from_events_csv,
 )
+from .validation import run_quality_validation
 
 __all__ = [
     "ClusterAccumulator",
@@ -18,4 +19,5 @@ __all__ = [
     "coverage_ratio",
     "cluster_signatures_semantically",
     "rerun_semantic_clustering_from_events_csv",
+    "run_quality_validation",
 ]

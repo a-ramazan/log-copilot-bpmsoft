@@ -30,8 +30,6 @@ from .config import (
 )
 from .facts import build_agent_input_context
 from .prompts import build_agent_messages
-from ..output.reporting import write_manifest_json, write_run_summary_json
-from ..storage import run_store_agent_result
 
 logger = logging.getLogger(__name__)
 
@@ -933,6 +931,11 @@ def validate_agent_result_payload(
         cards=cards,
         provider=config.provider,
         model=config.model,
+        mode="llm",
+        used_llm=True,
+        used_fallback=False,
+        schema_valid=True,
+        repair_applied=llm_payload_degraded,
     )
 
 
@@ -1065,37 +1068,6 @@ def _invoke_structured_llm(config: AgentModelConfig, messages: List[Dict[str, st
     return _extract_json_object(content)
 
 
-def _write_json(path: Path, payload: Any) -> None:
-    """Write a JSON artifact with the project's formatting."""
-    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-
-
-def _write_agent_artifacts(
-    context: PipelineContext,
-    input_context: AgentInputContext,
-    result: AgentResult,
-) -> None:
-    """Write agent input/result/cards artifacts and register paths on the context."""
-    artifact_paths = {
-        "agent_input_context_json": str(context.run_dir / "agent_input_context.json"),
-        "agent_result_json": str(context.run_dir / "agent_result.json"),
-        "agent_cards_json": str(context.run_dir / "agent_cards.json"),
-    }
-    result.artifact_paths = artifact_paths
-    _write_json(context.run_dir / "agent_input_context.json", input_context.as_dict())
-    _write_json(context.run_dir / "agent_cards.json", [card.as_dict() for card in result.cards])
-    _write_json(context.run_dir / "agent_result.json", result.as_dict())
-    context.artifact_paths.update(artifact_paths)
-    logger.info(
-        "agent_artifacts_written: run_id=%s cards=%d result=%s input_context=%s cards_json=%s",
-        context.run_id,
-        len(result.cards),
-        artifact_paths["agent_result_json"],
-        artifact_paths["agent_input_context_json"],
-        artifact_paths["agent_cards_json"],
-    )
-
-
 def run_agent_stage(context: PipelineContext) -> PipelineContext:
     """Run one profile-aware structured agent stage over compact deterministic facts."""
     _ensure_agent_logging()
@@ -1140,6 +1112,9 @@ def run_agent_stage(context: PipelineContext) -> PipelineContext:
             logger.warning("agent_llm_fallback: run_id=%s error=%s", context.run_id, llm_error)
             result = _build_deterministic_result(input_context, model_config)
             result.error = llm_error
+            result.mode = "fallback"
+            result.used_fallback = True
+            result.schema_valid = False
             result.limitations = (result.limitations + [f"Structured LLM call failed: {llm_error}"])[:MAX_AGENT_LIST_ITEMS]
     else:
         if model_config.provider != "none":
@@ -1187,7 +1162,7 @@ def run_agent_stage(context: PipelineContext) -> PipelineContext:
             len(result.key_findings),
             len(result.recommended_actions),
         )
-    _write_agent_artifacts(context, input_context, result)
+    result.artifact_paths = {}
     context.agent_result = result
     context.timings["agent_stage"] = result.duration_seconds
     logger.info(
@@ -1209,15 +1184,18 @@ def build_agent_summary(result: AgentResult) -> Dict[str, Any]:
         "card_count": len(result.cards),
         "short_summary": result.short_summary,
         "provider": result.provider,
+        "mode": result.mode,
+        "used_llm": result.used_llm,
+        "used_fallback": result.used_fallback,
+        "schema_valid": result.schema_valid,
+        "repair_applied": result.repair_applied,
     }
 
 
 def _update_agent_run_outputs(context: PipelineContext) -> PipelineContext:
-    """Update run summary and manifest after the structured agent result is stored."""
+    """Update in-memory run summary after the structured agent result is built."""
     if context.run_summary is None:
         raise RuntimeError("Run summary must exist before agent pipeline output updates.")
-    if context.manifest is None:
-        raise RuntimeError("Manifest must exist before agent pipeline output updates.")
     agent_result = context.agent_result
     if agent_result is None:
         return context
@@ -1227,27 +1205,14 @@ def _update_agent_run_outputs(context: PipelineContext) -> PipelineContext:
     }
     context.run_summary["agent_summary"] = build_agent_summary(agent_result)
     context.run_summary.pop("agent_result", None)
-
-    context.manifest["agent_result"] = {
-        "status": agent_result.status,
-        "provider": agent_result.provider,
-        "overall_status": agent_result.overall_status,
-        "confidence": round(float(agent_result.confidence), 3),
-        "card_count": len(agent_result.cards),
-        "artifact_paths": agent_result.artifact_paths,
-    }
-    context.manifest["artifacts"] = context.artifact_paths
-    write_run_summary_json(context.run_dir / "run_summary.json", context.run_summary)
-    write_manifest_json(context.run_dir / "manifest.json", context.manifest)
     return context
 
 
 def run_agent_pipeline(context: PipelineContext) -> PipelineContext:
-    """Run the complete optional agent pipeline over deterministic profile outputs."""
+    """Run the complete mandatory interpretation stage over deterministic profile outputs."""
     _ensure_agent_logging()
     context = build_agent_input_context(context)
     context = run_agent_stage(context)
-    context = run_store_agent_result(context)
     return _update_agent_run_outputs(context)
 
 

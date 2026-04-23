@@ -7,8 +7,7 @@ import time
 from typing import Dict
 
 from ..domain import EventBuildStageResult, PipelineContext
-from ..parsing import canonical_to_raw_event
-from .events import build_event
+from .events import build_event_from_canonical
 
 logger = logging.getLogger(__name__)
 
@@ -29,16 +28,12 @@ def run_event_building(context: PipelineContext) -> PipelineContext:
     multiline_merges = 0
     _print_phase(f"event building started: records={len(context.parsed_records)}")
     for parsed_record in context.parsed_records:
-        raw_event = canonical_to_raw_event(parsed_record.event, source_file=parsed_record.source_file)
-
-
-        event = build_event(
-            raw_event,
+        event = build_event_from_canonical(
+            parsed_record.event,
+            source_file=parsed_record.source_file,
             run_id=context.run_id,
             normalization_stats=context.normalization_stats,
         )
-
-
         events.append(event)
         if event.line_count > 1:
             multiline_merges += 1

@@ -10,6 +10,7 @@ from typing import Dict, List, Optional
 
 from .analysis import AnalysisQualityAccumulator
 from .analysis.quality import assess_profile_fit
+from .analysis.validation import run_quality_validation
 from .agent import run_agent_pipeline
 from .core import run_event_building
 from .domain import (
@@ -20,19 +21,15 @@ from .domain import (
     RunResult,
 )
 from .output import (
+    run_final_output_generation,
     run_artifact_generation,
     run_write_events_csv,
-)
-from .output.reporting import (
-    write_manifest_json,
-    write_run_summary_json,
 )
 from .parsing import run_parsing
 from .profiles import run_profile_computation
 from .storage import (
     run_fail_run,
     run_finalize_run,
-    run_register_artifacts,
     run_start_run,
     run_store_aggregates,
     run_store_events,
@@ -156,9 +153,7 @@ def _build_artifact_paths(
 ) -> Dict[str, str]:
     """Merge common run artifacts with profile-specific artifact paths."""
     artifact_paths = {
-        "events_csv": str(run_dir / "events.csv"),
         "run_summary_json": str(run_dir / "run_summary.json"),
-        "manifest_json": str(run_dir / "manifest.json"),
         **profile_result.artifact_paths,
     }
     if parquet_written:
@@ -192,21 +187,6 @@ def _build_run_summary_payload(
     }
 
 
-def _build_manifest_payload(
-    run_id: str,
-    profile: str,
-    db_path: Path,
-    artifact_paths: Dict[str, str],
-) -> dict:
-    """Build the persisted manifest payload for one completed run."""
-    return {
-        "run_id": run_id,
-        "profile": profile,
-        "db_path": str(db_path),
-        "artifacts": artifact_paths,
-    }
-
-
 def run_pipeline(
     input_path: str,
     profile: str = "incidents",
@@ -233,7 +213,7 @@ def run_pipeline(
     :param semantic_model: модель для семантического анализа сообщений
     :param semantic_min_cluster_size: минимальный размер семантического кластера
     :param semantic_min_samples: минимальное число соседей для семантического кластера
-    :param agent: режим запуска агентного анализа
+    :param agent: устаревший флаг совместимости; interpretation stage запускается всегда
     :param agent_question: вопрос для агента по результатам обработки
     :param agent_provider: провайдер, через которого запускается агент
     :return: результат выполнения пайплайна с путями к артефактам и сводкой
@@ -314,25 +294,10 @@ def run_pipeline(
             profile_result=profile_result,
         )
         context.run_summary = run_summary
-        context.manifest = _build_manifest_payload(
-            run_id=context.run_id,
-            profile=context.config.profile,
-            db_path=context.repository.db_path,
-            artifact_paths=context.artifact_paths,
-        )
 
-        write_run_summary_json(context.run_dir / "run_summary.json", run_summary)
-        write_manifest_json(context.run_dir / "manifest.json", context.manifest)
-        logger.info(
-            "run_summary_written: run_id=%s run_summary=%s manifest=%s",
-            context.run_id,
-            str(context.run_dir / "run_summary.json"),
-            str(context.run_dir / "manifest.json"),
-        )
-
-        context = run_register_artifacts(context)
-        if context.config.agent == "on":
-            context = run_agent_pipeline(context)
+        context = run_agent_pipeline(context)
+        context = run_quality_validation(context)
+        context = run_final_output_generation(context)
 
         context = run_finalize_run(context)
         logger.info(
@@ -342,6 +307,8 @@ def run_pipeline(
             event_build_result.event_count,
             len(context.artifact_paths),
         )
+        if context.final_summary is None or context.execution_quality is None:
+            raise RuntimeError("Final product output was not built.")
 
         return RunResult(
             run_id=context.run_id,
@@ -350,8 +317,11 @@ def run_pipeline(
             output_dir=str(context.run_dir),
             db_path=str(context.repository.db_path),
             event_count=event_build_result.event_count,
+            summary=context.final_summary,
+            findings=context.findings,
+            quality=context.execution_quality,
             artifact_paths=context.artifact_paths,
-            run_summary=run_summary,
+            run_summary=context.run_summary or run_summary,
             agent_result=context.agent_result.as_dict() if context.agent_result else None,
         )
     except Exception as error:
