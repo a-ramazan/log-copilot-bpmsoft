@@ -42,35 +42,6 @@ from .text import NormalizationStats
 logger = logging.getLogger(__name__)
 
 
-def _build_pipeline_config(
-    input_path: str,
-    profile: str,
-    out_dir: Optional[str],
-    clean_out: bool,
-    semantic: str,
-    semantic_model: str,
-    semantic_min_cluster_size: int,
-    semantic_min_samples: Optional[int],
-    agent: str,
-    agent_question: Optional[str],
-    agent_provider: str,
-) -> PipelineConfig:
-    """Build the immutable pipeline configuration from public run arguments."""
-    return PipelineConfig(
-        input_path=Path(input_path),
-        profile=profile,
-        out_dir=out_dir,
-        clean_out=clean_out,
-        semantic=semantic,
-        semantic_model=semantic_model,
-        semantic_min_cluster_size=semantic_min_cluster_size,
-        semantic_min_samples=semantic_min_samples,
-        agent=agent,
-        agent_question=agent_question,
-        agent_provider=agent_provider,
-    )
-
-
 def _build_trace_summary(
     input_path: Path,
     output_path: Path,
@@ -251,40 +222,37 @@ def run_pipeline(
     agent_provider: str = "none",
 ) -> RunResult:
     """
-        Run one processing profile end to end for a single log file.
+    Запускает один профиль обработки от начала до конца для одного лог-файла.
 
-    The orchestration flow is intentionally linear here so the public pipeline
-    path can be inspected without reading CLI parsing or private compatibility layers.
-
-    :param input_path:
-    :param profile: 
-    :param out_dir:
-    :param clean_out:
-    :param sample_events:
-    :param semantic:
-    :param semantic_model:
-    :param semantic_min_cluster_size:
-    :param semantic_min_samples:
-    :param agent:
-    :param agent_question:
-    :param agent_provider:
-    :return:
+    :param input_path: путь к лог-файлу или директории с логами
+    :param profile: профиль обработки, по которому будет выполняться пайплайн
+    :param out_dir: директория, куда будут записаны обработанные логи и отчеты
+    :param clean_out: нужно ли очистить директорию вывода перед запуском
+    :param sample_events: устаревший параметр, оставлен для совместимости
+    :param semantic: режим семантической кластеризации
+    :param semantic_model: модель для семантического анализа сообщений
+    :param semantic_min_cluster_size: минимальный размер семантического кластера
+    :param semantic_min_samples: минимальное число соседей для семантического кластера
+    :param agent: режим запуска агентного анализа
+    :param agent_question: вопрос для агента по результатам обработки
+    :param agent_provider: провайдер, через которого запускается агент
+    :return: результат выполнения пайплайна с путями к артефактам и сводкой
     """
     del sample_events
-    config = _build_pipeline_config(
-        input_path=input_path,
-        profile=profile,
-        out_dir=out_dir,
-        clean_out=clean_out,
-        semantic=semantic,
-        semantic_model=semantic_model,
-        semantic_min_cluster_size=semantic_min_cluster_size,
-        semantic_min_samples=semantic_min_samples,
-        agent=agent,
-        agent_question=agent_question,
-        agent_provider=agent_provider,
+    config = PipelineConfig(
+        input_path=Path(input_path),  # где лежит лог-файл или директория с логами
+        profile=profile,  # профиль, по которому будет проходить обработка
+        out_dir=out_dir,  # куда будут записаны обработанные логи и отчеты
+        clean_out=clean_out,  # очищать ли директорию вывода перед запуском
+        semantic=semantic,  # включать ли семантическую кластеризацию
+        semantic_model=semantic_model,  # модель для семантического анализа сообщений
+        semantic_min_cluster_size=semantic_min_cluster_size,  # минимальный размер кластера
+        semantic_min_samples=semantic_min_samples,  # минимальное число соседей кластера
+        agent=agent,  # запускать ли агентный анализ после пайплайна
+        agent_question=agent_question,  # вопрос, который агент разберет по результатам
+        agent_provider=agent_provider,  # провайдер агентного анализа
     )
-    context = None
+
     try:
         context = run_start_run(config)
         logger.info(

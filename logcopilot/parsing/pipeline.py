@@ -73,13 +73,22 @@ def canonical_to_raw_event(event: CanonicalEvent, source_file: str) -> RawEvent:
 
 
 def parse_file(path: Path, root: Path, registry: ParserRegistry | None = None) -> ParseResult:
-    """Полный parse одного файла: select parser -> parse -> нормализация source."""
-    registry = registry or DEFAULT_REGISTRY
-    text = path.read_text(encoding="utf-8", errors="replace")
-    source_file = path.name if root.is_file() else str(path.relative_to(root))
-    parser, selection = registry.select(text)
+    """
+    Парсит один лог-файл и возвращает события в едином формате.
 
-    # логирование
+    Функция читает файл, выбирает подходящий парсер через registry,
+    запускает парсинг и гарантирует, что у каждого события заполнен source.
+
+    :param path: путь к конкретному лог-файлу
+    :param root: исходный путь запуска, файл или директория с логами
+    :param registry: реестр доступных парсеров, если нужен не стандартный
+    :return: результат парсинга с событиями, диагностикой и предупреждениями
+    """
+    registry = registry or DEFAULT_REGISTRY # используем стандартный реестр, если другой не передали
+    text = path.read_text(encoding="utf-8", errors="replace") # читаем файл с заменой битых символов
+    source_file = path.name if root.is_file() else str(path.relative_to(root)) # имя файла для отчетов
+    parser, selection = registry.select(text) # выбираем самый подходящий парсер по содержимому
+
     logger.info(
         "parser_selected: source_file=%s parser=%s detector_confidence=%.3f fallback=%s",
         source_file,
@@ -88,12 +97,7 @@ def parse_file(path: Path, root: Path, registry: ParserRegistry | None = None) -
         selection.used_fallback,
     )
 
-
-    #
-    result = parser.parse(text, source=source_file)
-
-
-
+    result = parser.parse(text, source=source_file) # парсим текст выбранным парсером
 
     logger.info(
         "parse_result: source_file=%s parser=%s events=%d confidence=%.3f warnings=%d",
@@ -103,9 +107,12 @@ def parse_file(path: Path, root: Path, registry: ParserRegistry | None = None) -
         result.confidence,
         len(result.warnings),
     )
+
+    # Если парсер не проставил источник, добавляем его вручную.
     for event in result.events:
         if not event.source:
             event.source = source_file
+
     return result
 
 

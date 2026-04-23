@@ -38,24 +38,35 @@ def _parse_result_payload(source_file: str, parse_result) -> ParseFileDiagnostic
 
 
 def run_parsing(context: PipelineContext) -> PipelineContext:
-    """Parse raw log input into canonical parser records and diagnostics."""
+    """
+    Парсит исходные логи в единый формат событий.
+
+    Находит входные лог-файлы, запускает подходящий парсер для каждого файла,
+    собирает события и диагностику парсинга в контекст пайплайна.
+
+    :param context: текущий контекст пайплайна
+    :return: контекст с распарсенными событиями и диагностикой
+    """
     input_path_obj = context.input_path
-    source_files = discover_log_files(input_path_obj)
-    parsed_records: list[ParsedLogRecord] = []
-    file_results: list[ParseFileDiagnostics] = []
-    timings: Dict[str, float] = {}
+    source_files = discover_log_files(input_path_obj) # файлы, которые нужно распарсить
+    parsed_records: list[ParsedLogRecord] = []        # общий список событий из всех файлов
+    file_results: list[ParseFileDiagnostics] = []     # диагностика парсинга по файлам
+    timings: Dict[str, float] = {}                    # замеры времени для этого шага
 
     parse_started = time.perf_counter()
     _print_phase(f"parse started: profile={context.config.profile} input={input_path_obj.name}")
     for path in source_files:
-        source_file = _source_file_label(path, input_path_obj)
+        source_file = _source_file_label(path, input_path_obj)  # имя файла для логов и отчетов
         logger.debug("parse_file_started: run_id=%s source_file=%s", context.run_id, source_file)
-        parse_result = parse_file(path, input_path_obj)
+
+        parse_result = parse_file(path, input_path_obj)  # результат парсинга одного файла
         file_results.append(_parse_result_payload(source_file, parse_result))
+
         _print_phase(
             f"parsed {source_file}: parser={parse_result.parser_name} "
             f"confidence={parse_result.confidence:.2f} events={len(parse_result.events)}"
         )
+
         if parse_result.warnings:
             logger.info(
                 "parse_warnings: run_id=%s source_file=%s warnings=%d",
@@ -63,14 +74,17 @@ def run_parsing(context: PipelineContext) -> PipelineContext:
                 source_file,
                 len(parse_result.warnings),
             )
+
         for canonical_event in parse_result.events:
             parsed_records.append(ParsedLogRecord(source_file=source_file, event=canonical_event))
 
     timings["parse"] = time.perf_counter() - parse_started
+
     _print_phase(
         f"parse finished: files={len(source_files)} events={len(parsed_records)} "
         f"parse_time={timings['parse']:.3f}s"
     )
+
     context.parsed_records = parsed_records
     context.parse_result = ParseStageResult(
         parsed_records=parsed_records,

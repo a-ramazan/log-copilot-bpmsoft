@@ -92,23 +92,34 @@ def _build_failed_run_summary(context: PipelineContext, error: BaseException) ->
 
 
 def run_start_run(config: PipelineConfig) -> PipelineContext:
-    """Create the run record, output directory, repository, and initial context."""
-    input_path_obj = ensure_single_log_file(config.input_path.resolve())
-    run_id = uuid.uuid4().hex
-    base_output_dir, run_dir = _resolve_output_paths(config.out_dir, run_id)
+    """
+    Подготавливает новый запуск пайплайна.
+
+    Проверяет входной лог-файл, создает run_id, директорию вывода,
+    SQLite-репозиторий и начальный контекст для следующих стадий.
+
+    :param config: настройки запуска пайплайна
+    :return: начальный контекст пайплайна
+    """
+    input_path_obj = ensure_single_log_file(config.input_path.resolve()) # проверяем входной лог-файл
+    run_id = uuid.uuid4().hex                                            # уникальный id запуска
+    base_output_dir, run_dir = _resolve_output_paths(config.out_dir, run_id) # пути для результатов
+
     if config.clean_out:
-        clean_output_dir(run_dir)
+        clean_output_dir(run_dir)               # очищаем папку запуска, если это указано в настройках
         run_dir.mkdir(parents=True, exist_ok=True)
-    repository = StorageRepository(base_output_dir / "logcopilot.sqlite")
-    repository.create_run(run_id, str(input_path_obj), config.profile, str(run_dir))
+
+    repository = StorageRepository(base_output_dir / "logcopilot.sqlite") # хранилище запусков и результатов
+    repository.create_run(run_id, str(input_path_obj), config.profile, str(run_dir)) # запись о запуске
+
     return PipelineContext(
-        config=config,
+        config = config,
         input_path=input_path_obj,
         run_id=run_id,
         base_output_dir=base_output_dir,
         run_dir=run_dir,
         repository=repository,
-        normalization_stats=NormalizationStats(),
+        normalization_stats=NormalizationStats(), # статистика нормализации будет заполняться дальше
     )
 
 
