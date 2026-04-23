@@ -28,8 +28,8 @@ def _add_run_arguments(
     parser.add_argument("--semantic-min-cluster-size", type=int, default=3)
     parser.add_argument("--semantic-min-samples", type=int, default=None)
     parser.add_argument("--sample-events", type=int, default=0)
-    parser.add_argument("--agent", choices=("off", "on"), default="off")
-    parser.add_argument("--agent-provider", choices=("none", "yandex"), default="none")
+    parser.add_argument("--agent", choices=("off", "on"), default="off", help="Legacy flag; interpretation stage always runs")
+    parser.add_argument("--agent-provider", choices=("none", "yandex"), default="none", help="External LLM provider for the mandatory interpretation stage")
     parser.add_argument("--agent-question", default=None)
 
 

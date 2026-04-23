@@ -12,22 +12,22 @@ OUTPUT_CONTRACT = {
     "profile": "incidents|heatmap|traffic",
     "overall_status": "ok|warning|critical|limited",
     "confidence": 0.0,
-    "short_summary": "one sentence",
-    "technical_summary": "grounded technical summary",
-    "business_summary": "grounded impact summary",
-    "key_findings": ["strings"],
-    "recommended_actions": ["strings"],
-    "limitations": ["strings"],
+    "short_summary": "одно предложение",
+    "technical_summary": "техническое summary по фактам",
+    "business_summary": "бизнесовое summary по фактам",
+    "key_findings": ["строки"],
+    "recommended_actions": ["строки"],
+    "limitations": ["строки"],
     "cards": [
         {
             "card_type": "incident|heatmap|traffic",
-            "title": "string",
+            "title": "строка",
             "severity": "low|medium|high|critical",
             "confidence": 0.0,
-            "summary": "string",
-            "evidence": ["strings from supplied facts"],
-            "recommended_actions": ["strings"],
-            "limitations": ["strings"],
+            "summary": "строка",
+            "evidence": ["строки из предоставленных фактов"],
+            "recommended_actions": ["строки"],
+            "limitations": ["строки"],
         }
     ],
 }
@@ -35,19 +35,19 @@ OUTPUT_CONTRACT = {
 
 PROFILE_RULES = {
     "incidents": [
-        "Create incident cards from compact_llm_ready_cluster_facts.",
-        "If incident_hits is zero but clusters exist, return low-severity observation/noise cards instead of an empty list.",
-        "Each incident card should include cluster_id, hits, incident_hits, first_seen, last_seen and exception_type when available.",
+        "Создавай incident cards на основе compact_llm_ready_cluster_facts.",
+        "Если incident_hits равен нулю, но кластеры существуют, возвращай low-severity observation/noise cards, а не пустой список.",
+        "Каждая incident card должна включать cluster_id, hits, incident_hits, first_seen, last_seen и exception_type, когда они доступны.",
     ],
     "heatmap": [
-        "Create heatmap cards from hotspots.",
-        "If hotspots exist, cards must not be empty.",
-        "Each heatmap card should include bucket_start, component, operation, hits, qps and p95_latency_ms when available.",
+        "Создавай heatmap cards на основе hotspots.",
+        "Если hotspots существуют, cards не должны быть пустыми.",
+        "Каждая heatmap card должна включать bucket_start, component, operation, hits, qps и p95_latency_ms, когда они доступны.",
     ],
     "traffic": [
-        "Create traffic cards from suspicious_patterns first, then traffic_findings.",
-        "If endpoint or anomaly facts exist, cards must not be empty.",
-        "Each traffic card should include pattern_type, method, path, http_status, hits, unique_ips and p95_latency_ms when available.",
+        "Сначала создавай traffic cards из suspicious_patterns, затем из traffic_findings.",
+        "Если существуют endpoint или anomaly facts, cards не должны быть пустыми.",
+        "Каждая traffic card должна включать pattern_type, method, path, http_status, hits, unique_ips и p95_latency_ms, когда они доступны.",
     ],
 }
 
@@ -61,18 +61,21 @@ def _system_prompt(profile: str) -> str:
     """Return common model instructions."""
     rules = " ".join(PROFILE_RULES[profile])
     return (
-        "You are LogCopilot's one-shot structured interpreter. "
-        "Use only the supplied compact facts. Do not invent fields, counts, causes, timelines or root causes. "
-        "Do not ask for tools, raw logs, CSV, parquet or SQLite access. "
-        "Return only valid JSON, with no markdown and no prose outside JSON. "
-        "The JSON object must include these top-level keys: profile, overall_status, confidence, short_summary, "
+        "Ты one-shot structured interpreter внутри LogCopilot. "
+        "Используй только переданные compact facts. Не придумывай поля, счетчики, причины, таймлайны или root cause. "
+        "Не проси tools, raw logs, CSV, parquet или SQLite. "
+        "Верни только валидный JSON, без markdown и без текста вне JSON. "
+        "JSON-объект обязан включать top-level keys: profile, overall_status, confidence, short_summary, "
         "technical_summary, business_summary, key_findings, recommended_actions, limitations, cards. "
-        "Do not omit required keys. Do not return empty summaries, findings, actions, card evidence or card summaries "
-        "when supplied facts contain interpretable rows. "
-        "Each card must include card_type, title, severity, confidence, summary, evidence, recommended_actions and limitations. "
-        "Keep the response concise: one-sentence summaries, at most two evidence items and two actions per card. "
-        "Use short grounded text copied or derived from supplied facts when uncertain. "
-        f"Selected profile: {profile}. {rules}"
+        "Не пропускай обязательные ключи. Не возвращай пустые summaries, findings, actions, card evidence или card summaries, "
+        "если в фактах есть интерпретируемые строки. "
+        "Каждая card обязана включать card_type, title, severity, confidence, summary, evidence, recommended_actions и limitations. "
+        "Пиши весь человекочитаемый текст по-русски: title, short_summary, technical_summary, business_summary, key_findings, "
+        "recommended_actions, limitations, summary и evidence. "
+        "Но значения enum-полей оставляй строго как в контракте на английском: profile, overall_status, card_type, severity. "
+        "Сохраняй ответ коротким: summaries по одному предложению, не больше двух evidence items и двух actions на card. "
+        "Если не уверен, используй короткий grounded text, скопированный или выведенный из supplied facts. "
+        f"Выбранный профиль: {profile}. {rules}"
     )
 
 
@@ -97,17 +100,17 @@ def _messages(input_context: AgentInputContext, task: str) -> List[Dict[str, str
 
 def build_incidents_prompt(input_context: AgentInputContext) -> List[Dict[str, str]]:
     """Build the incidents structured-output prompt."""
-    return _messages(input_context, "Interpret incident clusters and operational observations.")
+    return _messages(input_context, "Интерпретируй incident clusters и operational observations.")
 
 
 def build_heatmap_prompt(input_context: AgentInputContext) -> List[Dict[str, str]]:
     """Build the heatmap structured-output prompt."""
-    return _messages(input_context, "Interpret heatmap hotspots and load concentration.")
+    return _messages(input_context, "Интерпретируй heatmap hotspots и концентрацию нагрузки.")
 
 
 def build_traffic_prompt(input_context: AgentInputContext) -> List[Dict[str, str]]:
     """Build the traffic structured-output prompt."""
-    return _messages(input_context, "Interpret traffic anomalies, errors, latency and load.")
+    return _messages(input_context, "Интерпретируй traffic anomalies, errors, latency и load.")
 
 
 def build_agent_messages(input_context: AgentInputContext) -> List[Dict[str, str]]:

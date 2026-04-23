@@ -8,6 +8,99 @@ from typing import Any, Dict, List, Optional
 
 
 @dataclass
+class FindingCard:
+    """Product-level finding card returned by every completed pipeline run."""
+
+    card_type: str
+    title: str
+    severity: str
+    confidence: float
+    summary: str
+    evidence: List[str] = field(default_factory=list)
+    recommended_actions: List[str] = field(default_factory=list)
+    limitations: List[str] = field(default_factory=list)
+    source_refs: List[Dict[str, Any]] = field(default_factory=list)
+    payload: Dict[str, Any] = field(default_factory=dict)
+
+    def as_dict(self) -> Dict[str, Any]:
+        """Return a JSON-ready finding card payload."""
+        return {
+            "card_type": self.card_type,
+            "title": self.title,
+            "severity": self.severity,
+            "confidence": round(float(self.confidence), 3),
+            "summary": self.summary,
+            "evidence": list(self.evidence),
+            "recommended_actions": list(self.recommended_actions),
+            "limitations": list(self.limitations),
+            "source_refs": list(self.source_refs),
+            "payload": dict(self.payload),
+        }
+
+
+@dataclass
+class ExecutionQuality:
+    """Validation result for how trustworthy and useful one pipeline run is."""
+
+    status: str
+    score: float
+    signals: Dict[str, Any] = field(default_factory=dict)
+    reasons: List[str] = field(default_factory=list)
+    recommendations: List[str] = field(default_factory=list)
+
+    def as_dict(self) -> Dict[str, Any]:
+        """Return a JSON-ready execution quality payload."""
+        return {
+            "status": self.status,
+            "score": round(float(self.score), 3),
+            "signals": dict(self.signals),
+            "reasons": list(self.reasons),
+            "recommendations": list(self.recommendations),
+        }
+
+
+@dataclass
+class RunSummary:
+    """Product-level summary returned by every completed pipeline run."""
+
+    run_id: str
+    profile: str
+    status: str
+    event_count: int
+    quality_status: str
+    short_summary: str
+    technical_summary: str
+    business_summary: str
+    parser_diagnostics: Dict[str, Any] = field(default_factory=dict)
+    profile_fit: Dict[str, Any] = field(default_factory=dict)
+    key_metrics: Dict[str, Any] = field(default_factory=dict)
+    key_findings: List[str] = field(default_factory=list)
+    recommended_actions: List[str] = field(default_factory=list)
+    limitations: List[str] = field(default_factory=list)
+    quality: Dict[str, Any] = field(default_factory=dict)
+
+    def as_dict(self) -> Dict[str, Any]:
+        """Return a JSON-ready product summary payload."""
+        return {
+            "run_id": self.run_id,
+            "profile": self.profile,
+            "status": self.status,
+            "event_count": self.event_count,
+            "quality_status": self.quality_status,
+            "short_summary": self.short_summary,
+            "technical_summary": self.technical_summary,
+            "business_summary": self.business_summary,
+            "parser_diagnostics": dict(self.parser_diagnostics),
+            "profile_fit": dict(self.profile_fit),
+            "key_metrics": dict(self.key_metrics),
+            "key_findings": list(self.key_findings),
+            "recommended_actions": list(self.recommended_actions),
+            "limitations": list(self.limitations),
+            "quality": dict(self.quality),
+        }
+
+
+@dataclass
 class RawEvent:
     """Raw parsed log event before canonical enrichment and signature generation."""
 
@@ -130,7 +223,7 @@ class AnalysisSummary:
 
 @dataclass
 class RunResult:
-    """Modern pipeline run result with artifact paths and full run summary."""
+    """Modern pipeline run result with product output and final persisted files."""
 
     run_id: str
     profile: str
@@ -138,6 +231,9 @@ class RunResult:
     output_dir: str
     db_path: str
     event_count: int
+    summary: RunSummary
+    findings: List[FindingCard]
+    quality: ExecutionQuality
     artifact_paths: Dict[str, str]
     run_summary: Dict[str, object]
     agent_result: Optional[Dict[str, Any]] = None

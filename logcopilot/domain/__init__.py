@@ -6,8 +6,11 @@ from .models import (
     AnalysisSummary,
     ClusterSummary,
     Event,
+    ExecutionQuality,
+    FindingCard,
     RawEvent,
     RunResult,
+    RunSummary,
     SemanticClusterSummary,
 )
 from .pipeline import (
@@ -33,6 +36,8 @@ __all__ = [
     "ClusterSummary",
     "Event",
     "EventBuildStageResult",
+    "ExecutionQuality",
+    "FindingCard",
     "HeatmapCard",
     "IncidentCard",
     "ParseFileDiagnostics",
@@ -43,6 +48,7 @@ __all__ = [
     "ProfileStageResult",
     "RawEvent",
     "RunResult",
+    "RunSummary",
     "SemanticClusterSummary",
     "StoreEventsStageResult",
     "TrafficCard",

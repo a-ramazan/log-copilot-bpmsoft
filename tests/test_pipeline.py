@@ -8,7 +8,6 @@ from unittest.mock import patch
 
 from logcopilot.domain import PipelineConfig, ProfileStageResult
 from logcopilot.pipeline import main as pipeline_main, run_pipeline
-from logcopilot.storage import StorageRepository
 
 
 class PipelineContractTests(unittest.TestCase):
@@ -55,19 +54,24 @@ class PipelineTests(unittest.TestCase):
             self.assertEqual("completed", result.status)
             self.assertEqual("traffic", result.profile)
             self.assertEqual(1, result.event_count)
-            self.assertTrue((Path(result.output_dir) / "events.csv").exists())
-            self.assertTrue((Path(result.output_dir) / "traffic_summary.csv").exists())
-            timings = result.run_summary["trace_summary"]["timings_seconds"]
-            self.assertIn("parse", timings)
-            self.assertIn("event_building", timings)
-            self.assertIn("write_events_csv", timings)
-            self.assertIn("store_events", timings)
-            self.assertIn("store_aggregates", timings)
-            self.assertIn("write_profile_artifacts", timings)
-            self.assertIsNone(result.agent_result)
+            self.assertIsNotNone(result.agent_result)
+            self.assertTrue(result.findings)
+            self.assertEqual("traffic", result.summary.profile)
+            self.assertEqual(result.quality.status, result.summary.quality_status)
+            self.assertIn(result.quality.status, {"ok", "degraded", "weak"})
             self.assertNotIn("agent_result", result.run_summary)
+            self.assertNotIn("findings", result.run_summary)
+            self.assertTrue((Path(result.output_dir) / "run_summary.json").exists())
+            self.assertTrue((Path(result.output_dir) / "findings.json").exists())
+            self.assertEqual(
+                {
+                    "run_summary_json": str(Path(result.output_dir) / "run_summary.json"),
+                    "findings_json": str(Path(result.output_dir) / "findings.json"),
+                },
+                result.artifact_paths,
+            )
 
-    def test_agent_enabled_pipeline_persists_agent_result(self) -> None:
+    def test_agent_enabled_pipeline_returns_product_output_without_agent_debug_artifacts(self) -> None:
         content = "2026-03-11 08:20:00 INFO Gateway - GET /api/orders status=500 latency=1200ms size=32 ip=10.0.0.1\n"
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
@@ -87,21 +91,19 @@ class PipelineTests(unittest.TestCase):
             self.assertEqual("completed", result.agent_result["status"])
             self.assertEqual("none", result.agent_result["provider"])
             self.assertIn("agent_stage", result.run_summary["trace_summary"]["timings_seconds"])
-            self.assertIn("agent_result_json", result.artifact_paths)
-            self.assertTrue((Path(result.output_dir) / "agent_result.json").exists())
-
-            stored = StorageRepository(Path(result.db_path)).get_agent_result(result.run_id)
-            self.assertIsNotNone(stored)
-            self.assertEqual("completed", stored["status"])
-            self.assertEqual("none", stored["provider"])
+            self.assertIn("findings_json", result.artifact_paths)
+            self.assertTrue(result.findings)
+            self.assertEqual(result.summary.short_summary, result.agent_result["short_summary"])
+            self.assertEqual(result.summary.quality_status, result.quality.status)
+            self.assertFalse((Path(result.output_dir) / "agent_result.json").exists())
+            self.assertFalse((Path(result.output_dir) / "agent_cards.json").exists())
+            self.assertFalse((Path(result.output_dir) / "agent_input_context.json").exists())
 
             summary = json.loads((Path(result.output_dir) / "run_summary.json").read_text(encoding="utf-8"))
-            manifest = json.loads((Path(result.output_dir) / "manifest.json").read_text(encoding="utf-8"))
-            self.assertEqual("none", summary["agent_summary"]["provider"])
-            self.assertIn("short_summary", summary["agent_summary"])
-            self.assertNotIn("cards", summary["agent_summary"])
             self.assertNotIn("agent_result", summary)
-            self.assertIn("agent_result_json", manifest["artifacts"])
+            self.assertNotIn("findings", summary)
+            self.assertIn("quality", summary)
+            self.assertNotIn("execution_quality", summary)
 
     def test_critical_failure_after_run_start_marks_run_failed(self) -> None:
         content = "2026-03-11 08:20:00 INFO Gateway - GET /api/orders status=200 latency=25ms size=32 ip=10.0.0.1\n"
@@ -161,15 +163,12 @@ class PipelineTests(unittest.TestCase):
             self.assertEqual(1, len(run_dirs))
             run_dir = run_dirs[0]
 
-            summary = json.loads((run_dir / "analysis_summary.json").read_text(encoding="utf-8"))
-            llm_ready = json.loads((run_dir / "llm_ready_clusters.json").read_text(encoding="utf-8"))
-            self.assertEqual(2, summary["event_count"])
             self.assertTrue(sqlite_path.exists())
-            self.assertTrue((run_dir / "events.csv").exists())
-            self.assertTrue((run_dir / "clusters.csv").exists())
             self.assertTrue((run_dir / "run_summary.json").exists())
-            self.assertTrue((run_dir / "manifest.json").exists())
-            self.assertTrue(llm_ready)
+            self.assertTrue((run_dir / "findings.json").exists())
+            self.assertFalse((run_dir / "events.csv").exists())
+            self.assertFalse((run_dir / "clusters.csv").exists())
+            self.assertFalse((run_dir / "manifest.json").exists())
 
 
 if __name__ == "__main__":

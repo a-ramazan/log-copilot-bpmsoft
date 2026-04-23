@@ -10,6 +10,7 @@ from typing import Dict, List, Optional
 
 from .analysis import AnalysisQualityAccumulator
 from .analysis.quality import assess_profile_fit
+from .analysis.validation import run_quality_validation
 from .agent import run_agent_pipeline
 from .core import run_event_building
 from .domain import (
@@ -20,19 +21,15 @@ from .domain import (
     RunResult,
 )
 from .output import (
+    run_final_output_generation,
     run_artifact_generation,
     run_write_events_csv,
-)
-from .output.reporting import (
-    write_manifest_json,
-    write_run_summary_json,
 )
 from .parsing import run_parsing
 from .profiles import run_profile_computation
 from .storage import (
     run_fail_run,
     run_finalize_run,
-    run_register_artifacts,
     run_start_run,
     run_store_aggregates,
     run_store_events,
@@ -40,35 +37,6 @@ from .storage import (
 from .text import NormalizationStats
 
 logger = logging.getLogger(__name__)
-
-
-def _build_pipeline_config(
-    input_path: str,
-    profile: str,
-    out_dir: Optional[str],
-    clean_out: bool,
-    semantic: str,
-    semantic_model: str,
-    semantic_min_cluster_size: int,
-    semantic_min_samples: Optional[int],
-    agent: str,
-    agent_question: Optional[str],
-    agent_provider: str,
-) -> PipelineConfig:
-    """Build the immutable pipeline configuration from public run arguments."""
-    return PipelineConfig(
-        input_path=Path(input_path),
-        profile=profile,
-        out_dir=out_dir,
-        clean_out=clean_out,
-        semantic=semantic,
-        semantic_model=semantic_model,
-        semantic_min_cluster_size=semantic_min_cluster_size,
-        semantic_min_samples=semantic_min_samples,
-        agent=agent,
-        agent_question=agent_question,
-        agent_provider=agent_provider,
-    )
 
 
 def _build_trace_summary(
@@ -185,9 +153,7 @@ def _build_artifact_paths(
 ) -> Dict[str, str]:
     """Merge common run artifacts with profile-specific artifact paths."""
     artifact_paths = {
-        "events_csv": str(run_dir / "events.csv"),
         "run_summary_json": str(run_dir / "run_summary.json"),
-        "manifest_json": str(run_dir / "manifest.json"),
         **profile_result.artifact_paths,
     }
     if parquet_written:
@@ -221,21 +187,6 @@ def _build_run_summary_payload(
     }
 
 
-def _build_manifest_payload(
-    run_id: str,
-    profile: str,
-    db_path: Path,
-    artifact_paths: Dict[str, str],
-) -> dict:
-    """Build the persisted manifest payload for one completed run."""
-    return {
-        "run_id": run_id,
-        "profile": profile,
-        "db_path": str(db_path),
-        "artifacts": artifact_paths,
-    }
-
-
 def run_pipeline(
     input_path: str,
     profile: str = "incidents",
@@ -251,40 +202,37 @@ def run_pipeline(
     agent_provider: str = "none",
 ) -> RunResult:
     """
-        Run one processing profile end to end for a single log file.
+    Запускает один профиль обработки от начала до конца для одного лог-файла.
 
-    The orchestration flow is intentionally linear here so the public pipeline
-    path can be inspected without reading CLI parsing or private compatibility layers.
-
-    :param input_path:
-    :param profile: 
-    :param out_dir:
-    :param clean_out:
-    :param sample_events:
-    :param semantic:
-    :param semantic_model:
-    :param semantic_min_cluster_size:
-    :param semantic_min_samples:
-    :param agent:
-    :param agent_question:
-    :param agent_provider:
-    :return:
+    :param input_path: путь к лог-файлу или директории с логами
+    :param profile: профиль обработки, по которому будет выполняться пайплайн
+    :param out_dir: директория, куда будут записаны обработанные логи и отчеты
+    :param clean_out: нужно ли очистить директорию вывода перед запуском
+    :param sample_events: устаревший параметр, оставлен для совместимости
+    :param semantic: режим семантической кластеризации
+    :param semantic_model: модель для семантического анализа сообщений
+    :param semantic_min_cluster_size: минимальный размер семантического кластера
+    :param semantic_min_samples: минимальное число соседей для семантического кластера
+    :param agent: устаревший флаг совместимости; interpretation stage запускается всегда
+    :param agent_question: вопрос для агента по результатам обработки
+    :param agent_provider: провайдер, через которого запускается агент
+    :return: результат выполнения пайплайна с путями к артефактам и сводкой
     """
     del sample_events
-    config = _build_pipeline_config(
-        input_path=input_path,
-        profile=profile,
-        out_dir=out_dir,
-        clean_out=clean_out,
-        semantic=semantic,
-        semantic_model=semantic_model,
-        semantic_min_cluster_size=semantic_min_cluster_size,
-        semantic_min_samples=semantic_min_samples,
-        agent=agent,
-        agent_question=agent_question,
-        agent_provider=agent_provider,
+    config = PipelineConfig(
+        input_path=Path(input_path),  # где лежит лог-файл или директория с логами
+        profile=profile,  # профиль, по которому будет проходить обработка
+        out_dir=out_dir,  # куда будут записаны обработанные логи и отчеты
+        clean_out=clean_out,  # очищать ли директорию вывода перед запуском
+        semantic=semantic,  # включать ли семантическую кластеризацию
+        semantic_model=semantic_model,  # модель для семантического анализа сообщений
+        semantic_min_cluster_size=semantic_min_cluster_size,  # минимальный размер кластера
+        semantic_min_samples=semantic_min_samples,  # минимальное число соседей кластера
+        agent=agent,  # запускать ли агентный анализ после пайплайна
+        agent_question=agent_question,  # вопрос, который агент разберет по результатам
+        agent_provider=agent_provider,  # провайдер агентного анализа
     )
-    context = None
+
     try:
         context = run_start_run(config)
         logger.info(
@@ -346,25 +294,10 @@ def run_pipeline(
             profile_result=profile_result,
         )
         context.run_summary = run_summary
-        context.manifest = _build_manifest_payload(
-            run_id=context.run_id,
-            profile=context.config.profile,
-            db_path=context.repository.db_path,
-            artifact_paths=context.artifact_paths,
-        )
 
-        write_run_summary_json(context.run_dir / "run_summary.json", run_summary)
-        write_manifest_json(context.run_dir / "manifest.json", context.manifest)
-        logger.info(
-            "run_summary_written: run_id=%s run_summary=%s manifest=%s",
-            context.run_id,
-            str(context.run_dir / "run_summary.json"),
-            str(context.run_dir / "manifest.json"),
-        )
-
-        context = run_register_artifacts(context)
-        if context.config.agent == "on":
-            context = run_agent_pipeline(context)
+        context = run_agent_pipeline(context)
+        context = run_quality_validation(context)
+        context = run_final_output_generation(context)
 
         context = run_finalize_run(context)
         logger.info(
@@ -374,6 +307,8 @@ def run_pipeline(
             event_build_result.event_count,
             len(context.artifact_paths),
         )
+        if context.final_summary is None or context.execution_quality is None:
+            raise RuntimeError("Final product output was not built.")
 
         return RunResult(
             run_id=context.run_id,
@@ -382,8 +317,11 @@ def run_pipeline(
             output_dir=str(context.run_dir),
             db_path=str(context.repository.db_path),
             event_count=event_build_result.event_count,
+            summary=context.final_summary,
+            findings=context.findings,
+            quality=context.execution_quality,
             artifact_paths=context.artifact_paths,
-            run_summary=run_summary,
+            run_summary=context.run_summary or run_summary,
             agent_result=context.agent_result.as_dict() if context.agent_result else None,
         )
     except Exception as error:

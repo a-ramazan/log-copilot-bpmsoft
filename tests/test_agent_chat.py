@@ -37,8 +37,12 @@ class AgentStructuredLayerTests(unittest.TestCase):
             self.assertNotIn("plan", agent_result)
             self.assertNotIn("trace", agent_result)
             self.assertNotIn("visuals", agent_result)
+            self.assertTrue(result.findings)
+            self.assertEqual(result.summary.short_summary, agent_result["short_summary"])
+            self.assertEqual(result.summary.quality_status, result.quality.status)
+            self.assertTrue((Path(result.output_dir) / "findings.json").exists())
 
-    def test_agent_input_context_is_compact_and_profile_specific(self) -> None:
+    def test_public_output_is_compact_and_agent_context_is_not_persisted(self) -> None:
         content = """2026-03-11 08:20:49,617 [1] ERROR Host Start - Startup exception|System.Security.SecurityException: Login failed
    at Foo.Bar()
 2026-03-11 08:20:50,000 ERROR Host Start - Startup exception|System.Security.SecurityException: Login failed
@@ -56,15 +60,15 @@ class AgentStructuredLayerTests(unittest.TestCase):
                 semantic="off",
                 agent="on",
             )
-            input_context = json.loads((Path(result.output_dir) / "agent_input_context.json").read_text(encoding="utf-8"))
-            serialized = json.dumps(input_context, ensure_ascii=False)
+            summary = json.loads((Path(result.output_dir) / "run_summary.json").read_text(encoding="utf-8"))
+            serialized = json.dumps(summary, ensure_ascii=False)
 
-            self.assertEqual("incidents", input_context["profile"])
-            self.assertIn("compact_llm_ready_cluster_facts", input_context["facts"])
-            self.assertIn("top_cluster_candidates", input_context["facts"])
-            self.assertNotIn("events", input_context)
+            self.assertEqual("incidents", summary["profile"])
+            self.assertNotIn("findings", summary)
+            self.assertIn("quality", summary)
             self.assertNotIn("raw_text", serialized)
             self.assertLess(len(serialized), 12000)
+            self.assertFalse((Path(result.output_dir) / "agent_input_context.json").exists())
 
     def test_structured_llm_payload_validates_to_profile_cards(self) -> None:
         input_context = AgentInputContext(
