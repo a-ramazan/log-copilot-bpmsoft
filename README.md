@@ -232,29 +232,29 @@ flowchart LR
 ## Output Contract — что получает пользователь
 
 ```mermaid
-flowchart TD
-    INPUT[("Вход: .log файл")]
+flowchart LR
+    INPUT["📁 Вход<br/>.log файл"]
     
-    INPUT --> PROCESS["LogCopilot<br/>обработка + профиль анализа"]
+    INPUT --> PROCESS["⚙️ LogCopilot<br/>обработка"]
     
-    PROCESS --> OUTPUT1["/out/runs/&lt;run_id&gt;/"]
+    PROCESS --> OUT["📂 out/runs/<br/>&lt;run_id&gt;/"]
     
-    OUTPUT1 --> COMMON["Общие для всех профилей"]
-    OUTPUT1 --> PROFILE_SPECIFIC["Специфичные для профиля"]
-    OUTPUT1 --> LLM_OUT["LLM/Агент"]
+    OUT --> COMMON["📄 Общие файлы"]
+    OUT --> PROFILE["🎯 Профильные файлы"]
+    OUT --> LLM["🤖 LLM выводы"]
     
-    COMMON --> C1["run_summary.json<br/>статус, profile_fit, метрики"]
-    COMMON --> C2["analysis_summary.json<br/>детали анализа (incidents)"]
-    COMMON --> C3["events.csv / .parquet<br/>нормализованные события"]
+    COMMON --> C1["run_summary.json"]
+    COMMON --> C2["analysis_summary.json"]
+    COMMON --> C3["events.csv"]
     
-    PROFILE_SPECIFIC --> P1["🔥 HEATMAP<br/>• heatmap_timeseries.csv<br/>• top_hotspots.md"]
-    PROFILE_SPECIFIC --> P2["🚨 INCIDENTS<br/>• clusters.csv<br/>• semantic_clusters.csv<br/>• top_incidents.md"]
-    PROFILE_SPECIFIC --> P3["🚦 TRAFFIC<br/>• traffic_summary.csv<br/>• latency_report.md<br/>• suspicious_traffic.md"]
+    PROFILE --> H["🔥 heatmap<br/>timeseries + hotspots"]
+    PROFILE --> I["🚨 incidents<br/>clusters + top_incidents"]
+    PROFILE --> T["🚦 traffic<br/>summary + latency_report"]
     
-    LLM_OUT --> L1["top_incidents.md<br/>топ инцидентов с выводами"]
-    LLM_OUT --> L2["charts/*.png<br/>визуализации (если есть вопрос в чате)"]
+    LLM --> L1["top_incidents.md"]
+    LLM --> L2["charts/*.png"]
     
-    COMMON --> SQLITE[(SQLite: logcopilot.sqlite<br/>все события + агрегаты)]
+    OUT --> SQLITE[("💾 SQLite<br/>logcopilot.sqlite")]
 ```
 
 
@@ -278,33 +278,33 @@ tests/
 ## Структура модулей проекта
 
 ```mermaid
-flowchart TD
-    ROOT["logcopilot/ (корень проекта)"]
+flowchart LR
+    ROOT["logcopilot"]
     
-    ROOT --> CORE["core/"]
-    ROOT --> PROFILES["profiles/"]
-    ROOT --> STORAGE["storage/"]
-    ROOT --> AGENT["agent/"]
-    ROOT --> CLI["cli/"]
+    ROOT --> CORE
+    ROOT --> PROFILES
+    ROOT --> STORAGE
+    ROOT --> AGENT
+    ROOT --> CLI
     
-    CORE --> PARSER["parser.py<br/>парсинг логов, выбор парсера"]
-    CORE --> EVENT["event.py<br/>структура Event, нормализация"]
+    CORE["⚙️ core<br/>парсинг + события"]
+    PROFILES["🎯 profiles<br/>3 профиля анализа"]
+    STORAGE["💾 storage<br/>SQLite + API"]
+    AGENT["🤖 agent<br/>LLM оркестрация"]
+    CLI["🖥️ cli<br/>командная строка"]
     
-    PROFILES --> HEATMAP["heatmap.py<br/>тепловая карта нагрузки"]
-    PROFILES --> INCIDENTS["incidents.py<br/>кластеризация ошибок"]
-    PROFILES --> TRAFFIC["traffic.py<br/>анализ трафика"]
+    PROFILES --> H["heatmap"]
+    PROFILES --> I["incidents"]
+    PROFILES --> T["traffic"]
     
-    STORAGE --> DB["db.py<br/>SQLite — события, агрегаты"]
-    STORAGE --> READ_API["read_api.py<br/>чтение результатов"]
+    CORE --> P["parser.py"]
+    CORE --> E["event.py"]
     
-    AGENT --> TOOLS["tools.py<br/>инструменты для LLM"]
-    AGENT --> ORCH["orchestrator.py<br/>оркестрация агента"]
+    STORAGE --> D["db.py"]
+    STORAGE --> R["read_api.py"]
     
-    CLI --> MAIN["main.py<br/>точка входа, CLI команды"]
-    
-    INCIDENTS -.-> SEMANTIC["semantic_clusters<br/>группировка по смыслу"]
-    HEATMAP -.-> METRICS["qps, latency, hotspots"]
-    TRAFFIC -.-> SUSPICIOUS["suspicious_traffic<br/>аномальные паттерны"]
+    AGENT --> TO["tools.py"]
+    AGENT --> OR["orchestrator.py"]
 ```
 
 
